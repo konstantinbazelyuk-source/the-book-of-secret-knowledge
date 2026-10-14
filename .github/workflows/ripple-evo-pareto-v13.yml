@@ -1,0 +1,27 @@
+name: Ripple EvoPareto v1.3 independent cloud verification
+on:
+  push:
+    branches: [research/ripple-evo-pareto-v1_3]
+    paths:
+      - '.github/workflows/ripple-evo-pareto-v13.yml'
+      - 'research/ripple-evo-pareto/**'
+permissions:
+  contents: read
+jobs:
+  validate-evolution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run source-hash, unit, and seeded evolution verification
+        run: |
+          cd research/ripple-evo-pareto
+          PYTHONPATH=. python cloud/verify_cloud.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ripple-evo-pareto-v13-results
+          path: research/ripple-evo-pareto/cloud_results.json
