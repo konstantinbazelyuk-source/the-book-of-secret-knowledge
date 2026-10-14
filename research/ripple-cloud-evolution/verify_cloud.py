@@ -22,8 +22,9 @@ from ripple_evo.evolution import evolve
 out=evolve(seed=20261013,population=12,generations=5)
 assert out['training_comparison']['baseline']['scenario_count']==4
 assert out['holdout_comparison']['candidate']['scenario_count']==8
+out['repeatability']=[{'seed':seed,'best_candidate':res['best_candidate'],'holdout_objective':res['holdout_comparison']['candidate']['objective'],'promoted':res['promotion_gate_passed']} for seed in range(20261013,20261018) for res in [evolve(seed=seed,population=12,generations=5,holdout_n=12)]]
 out['runtime']={'python':platform.python_version(),'system':platform.system(), 'is_github_actions':os.getenv('GITHUB_ACTIONS')=='true','runner':os.getenv('RUNNER_OS') or 'local'}
 file=ROOT/'results_cloud.json';file.write_text(json.dumps(out,indent=2)+'\n')
 print(json.dumps({'test_count':result.testsRun,'candidate':out['best_candidate'],
    'holdout_loss':out['holdout_comparison']['candidate']['objective'],
-   'pass':out['promotion_gate_passed'],'github_runner':out['runtime']['is_github_actions']},indent=2))
+   'pass':out['promotion_gate_passed'],'five_seed_promoted':sum(x['promoted'] for x in out['repeatability']),'github_runner':out['runtime']['is_github_actions']},indent=2))
