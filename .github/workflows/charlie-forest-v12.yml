@@ -1,0 +1,54 @@
+name: Charlie forest numerical cloud verification (not LLM)
+on:
+  push:
+    branches: [research/charlie-forest-v1_2]
+    paths:
+      - 'research/charlie-forest-v1_2/**'
+      - '.github/workflows/charlie-forest-v12.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify and extract exact source bundle
+        run: |
+          python - <<'PY'
+          import base64,hashlib,io,zipfile,pathlib
+          x=pathlib.Path('research/charlie-forest-v1_2/source_bundle.b64').read_text().strip()
+          body=base64.b64decode(x,validate=True)
+          digest=hashlib.sha256(body).hexdigest()
+          assert digest=='40b0e6ca13932292b9ee09dbd4ae32fb207e1c7ec0da91b82412bd2f9810a584',digest
+          z=zipfile.ZipFile(io.BytesIO(body))
+          assert z.testzip() is None
+          z.extractall('forest_work')
+          print('Verified source ZIP SHA256:',digest,'entries:',len(z.namelist()))
+          PY
+      - name: Run 78 original and new Python tests and six seeded forest comparisons
+        run: |
+          cd forest_work
+          PYTHONPATH=. python -m unittest discover -s tests -q
+          mkdir -p results
+          PYTHONPATH=. python -m src.forest --steps 160 --out results/cloud_benchmark.json
+          python - <<'PY'
+          import json
+          x=json.load(open('results/cloud_benchmark.json'))
+          assert len(x['runs'])==24
+          for s in x['seeds']:
+            r={item['policy']:item for item in x['runs'] if item['seed']==s}
+            assert r['recurrent']['visited_unique']>r['spikes_off']['visited_unique']
+            assert r['recurrent']['visited_unique']>r['links_off']['visited_unique']
+            assert r['static']['visited_unique']>r['recurrent']['visited_unique']
+            assert all(item['stats']['unsafe_moves']==0 for item in r.values())
+          print('CLOUD PASS: six matched seeds, 24 simulated runs, zero recorded unsafe moves')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: charlie-forest-v12-cloud-results
+          path: forest_work/results/cloud_benchmark.json
