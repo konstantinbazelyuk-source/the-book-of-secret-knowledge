@@ -11,6 +11,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+from vendor.charlie_v2.neuron import CharlieNeuron
 import random
 import re
 import statistics
@@ -199,9 +200,14 @@ def benchmark(rna:str, samples:int=256, seed:int=101, nsteps:int=400)->dict:
     t0=time.perf_counter()
     default=run_trial(rna,seq,base)
     modes={m:run_trial(rna,seq,base,mode=m) for m in ("lif","conductance")}
+    inherited=CharlieNeuron()
+    inherited_trace=[inherited.step(rgb, .05) for rgb in seq]
     knock={str(i):run_trial(rna,seq,base,knockout=i) for i in range(LOCUS_COUNT)}
     original={k:default[k] for k in default if k!="trace"}
     control={m:{k:v[k] for k in v if k!="trace"} for m,v in modes.items()}
+    control["inherited_charlie_v2"]={"events":inherited.count,
+              "mean_voltage":statistics.mean(x["membrane"] for x in inherited_trace),
+              "source":"immutable archived Charlie v2 core; own original event/reset model"}
     original_series=[x["gene_signal"] for x in default["trace"]]
     original_voltage=[x["u"] for x in default["trace"]]
     delta={str(i):{
@@ -220,7 +226,7 @@ def benchmark(rna:str, samples:int=256, seed:int=101, nsteps:int=400)->dict:
                            "mean_gene_signal":run["mean_gene_signal"],"mean_energy":run["mean_energy"]})
     return {"status":"EXECUTED_SYNTHETIC_SOFTWARE", "gene_source_sha256":hashlib.sha256(rna.encode()).hexdigest(),
             "search_space_exact":SEARCH_SPACE,"simulated_candidate_genotypes":len(candidates),
-            "real_genotypes_in_demo":1,"population_evaluations":1+len(candidates)+LOCUS_COUNT+len(modes),
+            "real_genotypes_in_demo":1,"population_evaluations":1+len(candidates)+LOCUS_COUNT+len(modes)+1,
             "dt_model_seconds":.05,"nsteps":nsteps,"seed":seed,
             "original":original,"controls":control,
             "regulator_ablation":delta,
