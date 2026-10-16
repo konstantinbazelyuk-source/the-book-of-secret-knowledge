@@ -5,7 +5,8 @@
   "metrics": {
     "original_recovered": 56,
     "additional_derivatives": 44,
-    "total": 100
+    "historical_and_power_recovered": 37,
+    "total": 137
   },
   "entries": [
     {
@@ -920,6 +921,413 @@
       "source_document": "User Library / Kokoro_Ripple_Integration_v0_2.zip / Kokoro_Ripple_Integration_v0_2/docs/INTEGRATION_AND_RESOURCES.md",
       "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
       "evidence": "Only within normalized channel input range; computational counter is not literal measured optical red."
+    },
+    {
+      "id": "CA24-01",
+      "name": "Calcium concentration",
+      "equation": "[Ca2+]=n/V",
+      "source": "2024-10-27",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Concentration in mol/volume, not electrical capacitance",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-02",
+      "name": "Fickian calcium diffusion",
+      "equation": "partial(C)/partial(t)=D*laplacian(C)",
+      "source": "2024-10-27",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Constant diffusion coefficient, source-free approximation",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-03",
+      "name": "Calcium compartment kinetics",
+      "equation": "d[Ca2+]/dt=k_in*[C]-k_out*[Ca2+]",
+      "source": "2024-10-27",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Compartment flux model; parameter units unspecified",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-04",
+      "name": "Calcium store exchange",
+      "equation": "d[Ca_SR]/dt=beta*[Ca2+]-gamma*[Ca_SR]",
+      "source": "2024-10-27",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Illustrative kinetic flux, coefficients and conservation unspecified",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-05",
+      "name": "Mechanical angular resonance",
+      "equation": "omega0=sqrt(k/m)",
+      "source": "2024-10-27",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Valid ideal mass-spring frequency, not proved ionic oscillator",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-06",
+      "name": "Concentration-to-mole quantity",
+      "equation": "n=[Ca2+]*V",
+      "source": "2024-10-27",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Algebraic inversion of concentration law",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-07",
+      "name": "Original historical Faraday charge",
+      "equation": "Q=n*F",
+      "source": "2024-10-27/28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_NEEDS_CORRECTION",
+      "evidence": "Ca2+ mol must include z=2 for electron-transfer charge",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-08",
+      "name": "Voltage-charge work sketch",
+      "equation": "E=V*Q",
+      "source": "2024-10-27",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Potential difference assumed constant",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-09",
+      "name": "Fick's first law",
+      "equation": "J=-D*dC/dx",
+      "source": "2024-10-28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "J molar flux for C molar concentration",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-10",
+      "name": "Resistance from voltage and current",
+      "equation": "R=DeltaV/I",
+      "source": "2024-10-28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Effective resistance at defined operating point",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-11",
+      "name": "Current is charge rate",
+      "equation": "I=dQ/dt",
+      "source": "2024-10-28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Q must be electrical charge in coulombs",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-12",
+      "name": "Charge transferred across voltage",
+      "equation": "E=Q*DeltaV",
+      "source": "2024-10-28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Ideal constant voltage",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-13",
+      "name": "Ideal LC circuit resonance",
+      "equation": "f=1/(2*pi*sqrt(L*C))",
+      "source": "2024-10-28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "L inductance; C capacitance; circuit losses neglected",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-14",
+      "name": "Volume-fraction weighted concentration",
+      "equation": "C_eff=C_ion*V_elec/V_total",
+      "source": "2024-10-28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Concentration weighted volume, not electrical capacitance",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-15",
+      "name": "Harmonic potential-energy sketch",
+      "equation": "E_res=(1/2)*k*A^2*sin^2(omega*t)",
+      "source": "2024-10-28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Instantaneous oscillator potential energy, no energy generation",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-16",
+      "name": "Historical ionic resistance proxy",
+      "equation": "R_ion=L/(A*D*C_ion)",
+      "source": "2024-10-28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_DIMENSIONALLY_INCOMPLETE",
+      "evidence": "If D diffusivity and C molar concentration, units do not equal ohms",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-17",
+      "name": "Historical integrated ionic flux charge",
+      "equation": "Q=integral(J*A dt)",
+      "source": "2024-10-28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_DIMENSIONALLY_INCOMPLETE",
+      "evidence": "Molar flux integrated yields amount of material, not coulombs",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-18",
+      "name": "Ionic terminal potential sketch",
+      "equation": "E=Q*V_ion",
+      "source": "2024-10-28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_CHAT_RECOVERY",
+      "evidence": "Requires Q in coulombs, V_ion in volts",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-19",
+      "name": "Hypothesized ion mechanical frequency",
+      "equation": "f_ion=(1/(2*pi))*sqrt(k_ion/m_ion)",
+      "source": "2024-10-28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_UNCALIBRATED",
+      "evidence": "Idealized mode; no measured ion resonator",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "CA24-20",
+      "name": "Ionic mechanical stored-energy sketch",
+      "equation": "E_res=(1/2)*k_ion*A_ion^2*sin^2(omega*t)",
+      "source": "2024-10-28",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_UNCALIBRATED",
+      "evidence": "Ideal harmonic potential energy",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "REF-01",
+      "name": "Valence-aware Faraday law",
+      "equation": "Q=z*n*F",
+      "source": "established electrochemistry",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "CORRECTIVE_REFERENCE",
+      "evidence": "Distinguish moles electrons from moles divalent ions; IUPAC",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Scientific reference, not originally discussed formula"
+    },
+    {
+      "id": "REF-02",
+      "name": "Molar ionic flux to current",
+      "equation": "I=z*F*J_molar*A",
+      "source": "established electrochemistry",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "CORRECTIVE_REFERENCE",
+      "evidence": "Area-normalized molar flux; sign convention declared",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Scientific reference, not originally discussed formula"
+    },
+    {
+      "id": "REF-03",
+      "name": "Conductivity from diffusivity in dilute solution",
+      "equation": "kappa≈F^2/(R_gas*T)*sum_i(z_i^2*D_i*c_i)",
+      "source": "Nernst-Einstein approximation",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "CORRECTIVE_REFERENCE",
+      "evidence": "Ideal dilute/noninteracting ionic species, not general concentrated electrolyte",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Scientific reference, not originally discussed formula"
+    },
+    {
+      "id": "REF-04",
+      "name": "Ohmic resistance geometry",
+      "equation": "R=L/(kappa*A)",
+      "source": "reference physical transport",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "CORRECTIVE_REFERENCE",
+      "evidence": "Uniform conductor and conductivity",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Scientific reference, not originally discussed formula"
+    },
+    {
+      "id": "REF-05",
+      "name": "Delivered energy under variable terminal voltage",
+      "equation": "E=integral(V(t)*I(t)dt)",
+      "source": "reference power balance",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "CORRECTIVE_REFERENCE",
+      "evidence": "Measured voltage and current at load terminals",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Scientific reference, not originally discussed formula"
+    },
+    {
+      "id": "BAT-01",
+      "name": "Duty-cycle average electrical power",
+      "equation": "P_avg=sum_i(P_i*duty_i)",
+      "source": "2026 archived technical review",
+      "source_document": "10_Standalone_and_Unclassified_Technical_Documents.zip::generic_technical_review/PHYSICAL_SENSOR_AND_POWER.md",
+      "status": "CALCULATED_ENGINEERING",
+      "evidence": "P_i in W and duty fraction dimensionless",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Inspected archive or traced project conversation"
+    },
+    {
+      "id": "BAT-02",
+      "name": "Energy consumption from mean load",
+      "equation": "E_usable=P_avg*t_hours",
+      "source": "2026 archived technical review",
+      "source_document": "10_Standalone_and_Unclassified_Technical_Documents.zip::generic_technical_review/PHYSICAL_SENSOR_AND_POWER.md",
+      "status": "CALCULATED_ENGINEERING",
+      "evidence": "W*h=Wh",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Inspected archive or traced project conversation"
+    },
+    {
+      "id": "BAT-03",
+      "name": "Nominal pack energy lower bound",
+      "equation": "E_nominal>=P_avg*t_hours/(d*eta)",
+      "source": "2026 archived technical review",
+      "source_document": "10_Standalone_and_Unclassified_Technical_Documents.zip::generic_technical_review/PHYSICAL_SENSOR_AND_POWER.md",
+      "status": "CALCULATED_ENGINEERING",
+      "evidence": "Required depth-of-discharge and conversion efficiency, assumed not measured",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Inspected archive or traced project conversation"
+    },
+    {
+      "id": "BAT-04",
+      "name": "Battery runtime bound",
+      "equation": "runtime=E_nominal*d*eta/P_avg",
+      "source": "2026 archived technical review",
+      "source_document": "10_Standalone_and_Unclassified_Technical_Documents.zip::generic_technical_review/PHYSICAL_SENSOR_AND_POWER.md",
+      "status": "CALCULATED_ENGINEERING",
+      "evidence": "P_avg>0, losses and aging can change results",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Inspected archive or traced project conversation"
+    },
+    {
+      "id": "BAT-05",
+      "name": "Uniform resistive sensor law",
+      "equation": "R=rho*L/A",
+      "source": "2026 archived technical review",
+      "source_document": "10_Standalone_and_Unclassified_Technical_Documents.zip::generic_technical_review/PHYSICAL_SENSOR_AND_POWER.md",
+      "status": "CALCULATED_IDEAL",
+      "evidence": "Constant ohmic resistivity assumed",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Inspected archive or traced project conversation"
+    },
+    {
+      "id": "BAT-06",
+      "name": "Incompressible sensor strain scaling",
+      "equation": "R/R0=(1+epsilon)^2",
+      "source": "2026 archived technical review",
+      "source_document": "10_Standalone_and_Unclassified_Technical_Documents.zip::generic_technical_review/PHYSICAL_SENSOR_AND_POWER.md",
+      "status": "CALCULATED_IDEAL",
+      "evidence": "Constant resistivity, conserved volume uniform strain",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Inspected archive or traced project conversation"
+    },
+    {
+      "id": "BAT-07",
+      "name": "Battery label energy",
+      "equation": "E_Wh=V_nominal*Ah",
+      "source": "2026-02-02 Android V2 discussion",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "CALCULATED_NOMINAL",
+      "evidence": "Nominal nameplate energy not delivered energy; V=24,Ah=20 => 480 Wh",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Inspected archive or traced project conversation"
+    },
+    {
+      "id": "KHE-01",
+      "name": "Heartspace numerical state",
+      "equation": "x_t in [-1,1]^30",
+      "source": "2026-07-27",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HISTORICAL_PROJECT_RECALL",
+      "evidence": "State space definition rather than dynamic equation",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Retrieved conversation summary; complete original transcript not fetched"
+    },
+    {
+      "id": "KHE-02",
+      "name": "Heartspace-to-analog coupling",
+      "equation": "x_(t+1)=H(x_t,u_t,f(y_t))",
+      "source": "2026-07-27",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "PROPOSED_MODEL",
+      "evidence": "f,H are unspecified transforms",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Inspected archive or traced project conversation"
+    },
+    {
+      "id": "KHE-03",
+      "name": "Analog-to-Heartspace coupling",
+      "equation": "y_(t+1)=A(y_t,s_t,g(x_t))",
+      "source": "2026-07-27",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "PROPOSED_MODEL",
+      "evidence": "g,A are unspecified transforms",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Inspected archive or traced project conversation"
+    },
+    {
+      "id": "KHE-04",
+      "name": "Overdrive resource governor",
+      "equation": "O_granted=min(O_need,O_capacity,O_permission)",
+      "source": "2026-07-27",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HEURISTIC_CONTROL",
+      "evidence": "Rule/contract rather than empirical biological law",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Inspected archive or traced project conversation"
+    },
+    {
+      "id": "KHE-05",
+      "name": "Overdrive heuristic score",
+      "equation": "pressure=urgency+significance+responsibility+expected_benefit-danger-uncertainty-resource_cost",
+      "source": "2026-07-27",
+      "source_document": "ripple/mathematics/HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md",
+      "status": "HEURISTIC_PROPOSAL",
+      "evidence": "Assistant-authored conceptual scale, not calibrated measurement",
+      "recovered_at": "2026-10-15",
+      "review_scope": "Inspected archive or traced project conversation"
     }
   ]
 }
