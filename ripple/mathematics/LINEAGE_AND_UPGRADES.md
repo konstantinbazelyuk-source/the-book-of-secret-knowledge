@@ -83,7 +83,7 @@ Kokoro files are linked by mathematical interface; the registry includes formula
 | `Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip` | Pixel-observation-derived landmarks and bounded visual servo loop over virtual 3D rig; actual-calibration and hardware tests remain separate. |
 | `Kokoro_Ripple_Desktop_Studio_v2_1.zip` | Desktop integration of existing rigs and visual controls; platform packaging is not a new neuron equation. |
 
-`Kokoro_Mesh_Ripple`, Lumina, avatar and robotics branches contain other mathematical implementations not yet parsed entry-by-entry into the 100-formula JSON. Their source archives are listed for the next audit; private checkpoints or chat logs have not been copied to this public directory.
+`Kokoro_Mesh_Ripple`, Lumina, avatar and robotics branches contain other mathematical implementations not yet parsed entry-by-entry into the 171-formula JSON. Their source archives are listed for the next audit; private checkpoints or chat logs have not been copied to this public directory.
 
 ## Upgrade promotion protocol
 
@@ -104,3 +104,12 @@ Cross-project mathematical composition requires typed adapters. A value in optic
 - **Integration v0.2:** controlled `(R,G,B)=(value/2,0,0)` scalar adapter to original Ripple drive, scoped to valid input range.
 
 These 13 formulas were added with source document paths in the registry; the original numerical neuron remains intact.
+
+### Additional archives recovered from previously adjacent branches (2026-10-15)
+
+- **Kokoro Heartspace Daughterboard:** computational 30-dimensional state, pairwise and triadic coupling, layer gates, state clipping and target-deviation potential (not physical energy).
+- **Kokoro Oneiric Resonance and MAXIMIZED add-ons:** weighted replay scheduling, Kuramoto-style coupling, classical complex density evolution and dephasing, a fixed temporal reservoir, photon-energy *calculation* (not sensing), memory-graph centrality, low-rank transition estimation, and simulated memory consolidation.
+- **Mushroom v3:** actual virtual conductance neuron simulation, 27-node delayed graph, bounded synaptic update and A–Z light-intensity quantization.
+- **Ring v4:** eight-model delayed pulse routing, bounded Hebbian-style weight rule, classical coupled phases, order parameters and simulated Poisson photon-count proxy.
+
+These archived sources and their precise Markdown member paths are listed in `FORMULA_REGISTRY.json` under identifiers `HSP-*`, `ONE-*`, `MAX-*`, `MU-*`, and `RING-*`. Adjacent Kokoro modules are **not retroactively asserted** to be changes to the v0.1 core.
