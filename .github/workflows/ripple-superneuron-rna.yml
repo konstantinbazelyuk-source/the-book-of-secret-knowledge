@@ -56,9 +56,24 @@ jobs:
         with:
           name: superneuron-ncbi-provenance
           path: ripple/superneuron-rna-alpha-v0.1/results/ncbi_provenance.json
+      - name: Collect human cone and visual-cycle RefSeq transcripts
+        continue-on-error: true
+        shell: bash
+        run: |
+          cd ripple/superneuron-rna-alpha-v0.1
+          python data/collect_reference_genes.py
+      - name: Preserve NCBI human vision-gene inputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: superneuron-five-human-genes
+          path: |
+            ripple/superneuron-rna-alpha-v0.1/data/ncbi_genes/*.fasta
+            ripple/superneuron-rna-alpha-v0.1/results/ncbi_gene_catalog.json
       - name: Preserve numerical benchmark evidence
         uses: actions/upload-artifact@v4
         with:
           name: superneuron-synthetic-benchmark
           path: ripple/superneuron-rna-alpha-v0.1/results/independent_benchmark.json
+
 
