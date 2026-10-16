@@ -1,5 +1,14 @@
 # Ripple — Laptop runtime and verified research code
 
+## Public browser laboratory
+
+The original neuron runs directly in JavaScript in the [public research site source](../docs/index.html), alongside five archived, standalone Alpha experiment explorers. The site's files are also prepared for GitHub Pages publishing from `master /docs`.
+
+**Hosting status:** Source files are public through GitHub. A public `github.io` website URL must be independently verified after GitHub Pages is enabled in repository settings; the presence of the HTML files alone is not a deployment.
+
+**Study limitations:** The neuron outputs are calculated model events. Archived Alpha demonstrations use synthetic data, not calibrated physical sensors or measured cognition.
+
+
 This is an **independent software subdirectory** of *The Book of Secret Knowledge*. Existing book contents remain untouched. This directory is not a claim that the original reference-book author authored Ripple.
 
 ## Install on a Dell / Windows 10 or 11
