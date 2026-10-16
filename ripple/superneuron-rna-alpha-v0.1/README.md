@@ -26,7 +26,7 @@ python superneuron.py fetch-refseq OPN1MW --out data/OPN1MW_NM_000513.2_NCBI.fas
 python superneuron.py fetch-refseq OPN1SW --out data/OPN1SW_NM_001385125.1_NCBI.fasta
 ```
 
-Each fetched transcript is validated for versioned accession, canonical RNA bases, minimum length, and hashed. The biological functions of the **three cone opsins** motivate future L/M/S channels; merely downloading these sequences does not automatically instantiate biological cone phototransduction. The current engine uses **RHO as the only provenance-backed sequence controlling computational dynamics**. GNAT2 and RPE65 are biologically relevant candidate pathways, not yet imported sequence-to-function models.
+Each fetched transcript is validated for versioned accession, canonical RNA bases, minimum length, and hashed. The biological functions of the **three cone opsins** motivate future L/M/S channels; merely downloading these sequences does not automatically instantiate biological cone phototransduction. The **single-gene baseline engine** uses RHO as its active reference; the six-gene add-on below also connects authenticated cone/transduction/recovery transcripts. GNAT2 and RPE65 are biologically relevant candidate pathways, not yet imported sequence-to-function models.
 
 ## Genes and digital RGB interpretation
 
