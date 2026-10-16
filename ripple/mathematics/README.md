@@ -6,7 +6,7 @@
 
 | Document | Scope |
 |---|---|
-| [FORMULA_REGISTRY.json](FORMULA_REGISTRY.json) | Machine-readable **100-formula index**: 56 recovered earlier and 44 newly consolidated, each with ID, expression, source/version and evidence class. |
+| [FORMULA_REGISTRY.json](FORMULA_REGISTRY.json) | Machine-readable **137-formula index**: 56 recovered earlier and 44 newly consolidated, each with ID, expression, source/version and evidence class. |
 | [Original mathematical study](../docs/MATHEMATICAL_STUDY.md) | 56 detailed equations, domains, units, mathematical derivations, limitations and negative findings. |
 | [LINEAGE_AND_UPGRADES.md](LINEAGE_AND_UPGRADES.md) | Cross-version parentage and Ripple, Charlie and Kokoro upgrades and experimental choices. |
 | [SAMSUNG_OPTICAL_ENGINEERING.md](SAMSUNG_OPTICAL_ENGINEERING.md) | Optical device reconstruction, calibration, objective comparisons and results through v0.5. |
@@ -41,7 +41,7 @@ The inverse formula applies only for attainable target rates and threshold bound
 
 - 56 individually enumerated formulas from the preserved [Charlie Ripple mathematical study](../docs/MATHEMATICAL_STUDY.md).
 - 44 indexed additional formulas from the reviewed Delta, Daughter, Beer–Lambert, recurrent Charlie, Kokoro Dynamics, Kokoro perception–action, genetic weights and Samsung mathematical documents.
-- Further archives, including additional Kokoro/Lumina, genome/robotics, genetic colony and later Ripple packages, are listed in the lineage. Their complete contents have **not** all been indexed into distinct formula rows. **100 is the verified reviewed count**, not a declaration that every historical chat or archive has been exhaustively recovered.
+- Further archives, including additional Kokoro/Lumina, genome/robotics, genetic colony and later Ripple packages, are listed in the lineage. Their complete contents have **not** all been indexed into distinct formula rows. **137 is the currently indexed reviewed count**, not a declaration that every historical chat or archive has been exhaustively recovered.
 
 ## Mathematical continuity policy
 
@@ -52,3 +52,9 @@ This directory contains public mathematics and provenance, not private Kokoro we
 ### Kokoro source-depth follow-up
 
 A later source pass verified 13 additional formulas in Kokoro's Lumina Forest diffusion, virtual motor control, genome robotics, pixel-camera geometry and read-only telemetry integration. The registry now contains those equations and exact source-document paths, while further unread archive components remain listed in the provenance index.
+
+## Deep historical recovery (2024 onward)
+
+- [Historical battery, calcium ionic and power equations](HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md): recovered 2024 calcium transport/resonance formulas, dimension/valence corrections, and sourced 2026 battery sizing mathematics.
+- [Archive-coverage and equation extraction audit](RECOVERY_SCOPE_AND_AUDIT.md): eleven grouped archives searched recursively, explicit duplication statistics, candidate-versus-confirmed classification, and further coverage limits.
+- The formula registry now has **137 source-indexed entries**: original 56, 44 previously consolidated derivatives, and 37 newly recovered historical, power, and conceptual formulations. Corrections are clearly separated from historical user/assistant expressions.
