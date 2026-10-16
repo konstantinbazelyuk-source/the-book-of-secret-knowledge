@@ -60,3 +60,7 @@ A later source pass verified 13 additional formulas in Kokoro's Lumina Forest di
 - [Historical battery, calcium ionic and power equations](HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md): recovered 2024 calcium transport/resonance formulas, dimension/valence corrections, and sourced 2026 battery sizing mathematics.
 - [Archive-coverage and equation extraction audit](RECOVERY_SCOPE_AND_AUDIT.md): eleven grouped archives searched recursively, explicit duplication statistics, candidate-versus-confirmed classification, and further coverage limits.
 - The formula registry now has **171 source-indexed entries**: original 56, 44 previously consolidated derivatives, and 37 newly recovered historical, power, and conceptual formulations. Corrections are clearly separated from historical user/assistant expressions.
+
+## Atomic-to-cell battery engineering (2026-10-16)
+
+The [Ripple Calcium Battery Lab v1.0](../battery-lab/v1/) implements the historical [calcium-ion and battery formulas](HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md) alongside Faraday charge, Nernst equilibrium correction, simple Fick transport, bulk conductivity, Butler–Volmer assumptions and numerical integration of externally recorded I/V data. The package has independently executed unit tests and a mobile CSV import UI. It distinguishes atomic charge limits, published real-cell results, conditional modeling and actual future cell measurements; no experimental Ripple calcium cell or calibrated hardware logger is claimed.
