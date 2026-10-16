@@ -83,7 +83,7 @@ Kokoro files are linked by mathematical interface; the registry includes formula
 | `Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip` | Pixel-observation-derived landmarks and bounded visual servo loop over virtual 3D rig; actual-calibration and hardware tests remain separate. |
 | `Kokoro_Ripple_Desktop_Studio_v2_1.zip` | Desktop integration of existing rigs and visual controls; platform packaging is not a new neuron equation. |
 
-`Kokoro_Mesh_Ripple`, Lumina, avatar and robotics branches contain other mathematical implementations not yet parsed entry-by-entry into the 87-formula JSON. Their source archives are listed for the next audit; private checkpoints or chat logs have not been copied to this public directory.
+`Kokoro_Mesh_Ripple`, Lumina, avatar and robotics branches contain other mathematical implementations not yet parsed entry-by-entry into the 100-formula JSON. Their source archives are listed for the next audit; private checkpoints or chat logs have not been copied to this public directory.
 
 ## Upgrade promotion protocol
 
@@ -94,3 +94,13 @@ Kokoro files are linked by mathematical interface; the registry includes formula
 5. Only after evidence supports the objective, promote a chosen version under a new identifier. Preserve the original and all prior test records.
 
 Cross-project mathematical composition requires typed adapters. A value in optical sensor counts, a rendered pixel, a modeled event, an occupancy log-odds cell, a nominal motor angle and a language-model token must remain distinct quantities.
+
+### Additional directly audited Kokoro equations
+
+- **Lumina Forest v0.5:** discrete four-neighbor diffusion `u_next=u+alpha*(u_left+u_right+u_up+u_down-4u)` on its virtual grid.
+- **Motor v0.7:** bounded PD/feedforward joint command, smoothed iterative learning correction with kernel `[1,2,1]/4`, and an explicit training/validation rollback gate.
+- **Genome Robotics v1.8:** gene-controlled bounded virtual-joint PD/velocity-feedforward law and weighted tracking/effort optimization objective.
+- **Geometric Vision v2.0:** 3D linear blend skinning, camera basis, pinhole projection, constrained inverse landmark least squares, and bounded PI visual servo controller. These derive pose from rendered pixels, not human visual semantic recognition.
+- **Integration v0.2:** controlled `(R,G,B)=(value/2,0,0)` scalar adapter to original Ripple drive, scoped to valid input range.
+
+These 13 formulas were added with source document paths in the registry; the original numerical neuron remains intact.
