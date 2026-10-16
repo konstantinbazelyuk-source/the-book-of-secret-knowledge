@@ -1,0 +1,198 @@
+{
+  "status": "EXECUTED_SYNTHETIC_SOFTWARE",
+  "gene_source_sha256": "b7f4dbb8b20975eab3ea535177e97ad0b3beab7b99e2aec4f98eb2af5bb89db3",
+  "search_space_exact": 288230376151711744,
+  "simulated_candidate_genotypes": 800,
+  "real_genotypes_in_demo": 1,
+  "population_evaluations": 832,
+  "dt_model_seconds": 0.05,
+  "nsteps": 400,
+  "seed": 101,
+  "original": {
+    "events": 6,
+    "mean_voltage": 0.1743762659192355,
+    "mean_gene_signal": 0.0036508054551327475,
+    "mean_energy": 0.9886838717635194
+  },
+  "controls": {
+    "lif": {
+      "events": 0,
+      "mean_voltage": 0.09479809183846473,
+      "mean_gene_signal": 0.0,
+      "mean_energy": 1.0
+    },
+    "conductance": {
+      "events": 0,
+      "mean_voltage": 0.21992430330755372,
+      "mean_gene_signal": 0.0,
+      "mean_energy": 1.0
+    }
+  },
+  "regulator_ablation": {
+    "0": {
+      "max_abs_gene_signal_change": 0.0002927549896945547,
+      "max_abs_membrane_voltage_change": 0.0010684949882204253,
+      "event_count_difference": 0
+    },
+    "1": {
+      "max_abs_gene_signal_change": 0.0009508006069510015,
+      "max_abs_membrane_voltage_change": 0.0033225302837771586,
+      "event_count_difference": 0
+    },
+    "2": {
+      "max_abs_gene_signal_change": 0.0007343882143824622,
+      "max_abs_membrane_voltage_change": 0.002817278197748019,
+      "event_count_difference": 0
+    },
+    "3": {
+      "max_abs_gene_signal_change": 0.000721994950269941,
+      "max_abs_membrane_voltage_change": 0.0027760143293557027,
+      "event_count_difference": 0
+    },
+    "4": {
+      "max_abs_gene_signal_change": 0.001143239996803663,
+      "max_abs_membrane_voltage_change": 0.4775513653981538,
+      "event_count_difference": 0
+    },
+    "5": {
+      "max_abs_gene_signal_change": 0.0009219500428426215,
+      "max_abs_membrane_voltage_change": 0.0032415444854956843,
+      "event_count_difference": 0
+    },
+    "6": {
+      "max_abs_gene_signal_change": 0.0011752503950591842,
+      "max_abs_membrane_voltage_change": 0.4775513653981538,
+      "event_count_difference": 0
+    },
+    "7": {
+      "max_abs_gene_signal_change": 0.0002370098346966918,
+      "max_abs_membrane_voltage_change": 0.0010872964138408103,
+      "event_count_difference": 0
+    },
+    "8": {
+      "max_abs_gene_signal_change": 0.00024880672531873375,
+      "max_abs_membrane_voltage_change": 0.001120865040613428,
+      "event_count_difference": 0
+    },
+    "9": {
+      "max_abs_gene_signal_change": 0.0012194489449007737,
+      "max_abs_membrane_voltage_change": 0.4775513653981538,
+      "event_count_difference": 0
+    },
+    "10": {
+      "max_abs_gene_signal_change": 0.0006466460368439071,
+      "max_abs_membrane_voltage_change": 0.00249224367824169,
+      "event_count_difference": 0
+    },
+    "11": {
+      "max_abs_gene_signal_change": 0.0002885628422343925,
+      "max_abs_membrane_voltage_change": 0.0012152188899586247,
+      "event_count_difference": 0
+    },
+    "12": {
+      "max_abs_gene_signal_change": 0.0006252911129320596,
+      "max_abs_membrane_voltage_change": 0.002413906942380084,
+      "event_count_difference": 0
+    },
+    "13": {
+      "max_abs_gene_signal_change": 0.0012719368205248629,
+      "max_abs_membrane_voltage_change": 0.4775513653981538,
+      "event_count_difference": 0
+    },
+    "14": {
+      "max_abs_gene_signal_change": 0.0003255454984390895,
+      "max_abs_membrane_voltage_change": 0.0013034462996809881,
+      "event_count_difference": 0
+    },
+    "15": {
+      "max_abs_gene_signal_change": 0.0005966405724775227,
+      "max_abs_membrane_voltage_change": 0.0023023894297610203,
+      "event_count_difference": 0
+    },
+    "16": {
+      "max_abs_gene_signal_change": 0.0008422861769223394,
+      "max_abs_membrane_voltage_change": 0.0030302485642530463,
+      "event_count_difference": 0
+    },
+    "17": {
+      "max_abs_gene_signal_change": 0.0008350677139585055,
+      "max_abs_membrane_voltage_change": 0.00301104603522534,
+      "event_count_difference": 0
+    },
+    "18": {
+      "max_abs_gene_signal_change": 0.0005684772976255904,
+      "max_abs_membrane_voltage_change": 0.0021923557968914764,
+      "event_count_difference": 0
+    },
+    "19": {
+      "max_abs_gene_signal_change": 0.0013431281028150471,
+      "max_abs_membrane_voltage_change": 0.4775513653981538,
+      "event_count_difference": 0
+    },
+    "20": {
+      "max_abs_gene_signal_change": 0.00039193997869183895,
+      "max_abs_membrane_voltage_change": 0.0014803738495256513,
+      "event_count_difference": 0
+    },
+    "21": {
+      "max_abs_gene_signal_change": 0.0008063457261858252,
+      "max_abs_membrane_voltage_change": 0.002934344837938807,
+      "event_count_difference": 0
+    },
+    "22": {
+      "max_abs_gene_signal_change": 0.0013753685422255094,
+      "max_abs_membrane_voltage_change": 0.4775513653981538,
+      "event_count_difference": 0
+    },
+    "23": {
+      "max_abs_gene_signal_change": 0.0005239639316614898,
+      "max_abs_membrane_voltage_change": 0.0020125657053441937,
+      "event_count_difference": 0
+    },
+    "24": {
+      "max_abs_gene_signal_change": 0.00044003604295436396,
+      "max_abs_membrane_voltage_change": 0.0016309934241791058,
+      "event_count_difference": 0
+    },
+    "25": {
+      "max_abs_gene_signal_change": 0.0007779407961680058,
+      "max_abs_membrane_voltage_change": 0.0028578984430328025,
+      "event_count_difference": 0
+    },
+    "26": {
+      "max_abs_gene_signal_change": 0.0004990169571506449,
+      "max_abs_membrane_voltage_change": 0.001912010564503186,
+      "event_count_difference": 0
+    },
+    "27": {
+      "max_abs_gene_signal_change": 0.0014228679261665787,
+      "max_abs_membrane_voltage_change": 0.4775513653981538,
+      "event_count_difference": 0
+    },
+    "28": {
+      "max_abs_gene_signal_change": 0.00048240415030603376,
+      "max_abs_membrane_voltage_change": 0.0018457053461028439,
+      "event_count_difference": 0
+    }
+  },
+  "all_regulators_have_nonzero_numerical_effect": true,
+  "candidate_event_counts": [
+    6,
+    7
+  ],
+  "candidate_event_distribution": {
+    "6": 792,
+    "7": 8
+  },
+  "best_by_event_count": {
+    "genotype_index": 36258776232298570,
+    "events": 7,
+    "mean_gene_signal": 0.0035201190435838127,
+    "mean_energy": 0.986476907771587
+  },
+  "wall_seconds": 3.642942511999536,
+  "no_biological_fitness_or_intelligence_metric": true,
+  "fasta_header": "gi|169808383|ref|NM_000539.3| Homo sapiens rhodopsin (RHO), mRNA, coding start = 95",
+  "fasta_path": "data/RHO_NM_000539.3_mirror.fasta",
+  "fasta_sha256": "7e1f7acbaeeda9befe07a051ec8062adc397fc99a9b2c7a12c54127448dc5e29"
+}
