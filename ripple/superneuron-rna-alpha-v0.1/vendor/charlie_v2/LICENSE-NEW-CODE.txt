@@ -1,0 +1,5 @@
+SPDX-License-Identifier: CC0-1.0
+New Charlie Ripple Core v2.0 Python code is offered under CC0-1.0.
+Archived legacy sources retain their existing licenses and attributions.
+This statement does not relicense scientific articles, archived source packages,
+or third-party works.
