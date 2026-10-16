@@ -60,8 +60,21 @@ jobs:
           assert result['gene_loci_executed']==174
           assert result['all_added_loci_causal']
           previous=json.loads(Path('results/multigene_benchmark.json').read_text())
+          import math
+          def parity(a,b,at='root'):
+              assert type(a) is type(b),(at,type(a),type(b))
+              if isinstance(a,dict):
+                  assert a.keys()==b.keys(),at
+                  for k in a: parity(a[k],b[k],f'{at}/{k}')
+              elif isinstance(a,list):
+                  assert len(a)==len(b),at
+                  for i,(x,y) in enumerate(zip(a,b)): parity(x,y,f'{at}/{i}')
+              elif isinstance(a,float):
+                  assert math.isclose(a,b,rel_tol=1e-9,abs_tol=1e-12),(at,a,b)
+              else:
+                  assert a==b,(at,a,b)
           for key in ('gene_family_ablation','individual_locus_ablation','energy_sustained', 'original_multigene_events'):
-              assert result[key]==previous[key],key
+              parity(result[key],previous[key],key)
           print('Six NCBI mRNAs, 174 causal loci, 145 individual knockouts verified.')
           PY
       - name: Compare mirrored human RHO transcript to NCBI RefSeq
