@@ -37,7 +37,7 @@ For a Linux development machine, install the dependencies in `ripple/native-alph
 - [`native-alpha-v2.0/`](native-alpha-v2.0/) — **runnable** Python desktop runtime: job/process management, authenticated localhost HTTP, SQLite, workspace operations, restricted registered apps, Ripple neuron and quaternary execution, and optional PyTorch workloads. Windows/Dell hardware has **not yet been verified**.
 - [`genetic-weights-v1.7/`](genetic-weights-v1.7/) — **runnable** preserved mathematical program composition and case generator, packaged as source files without heavyweight cached experimental data. Only one approved entrypoint executes in the laptop runtime.
 - [`docs/MATHEMATICAL_STUDY.md`](docs/MATHEMATICAL_STUDY.md) — 56-formula recovered mathematical codex.
-- [`mathematics/README.md`](mathematics/README.md) — unified 137-formula registry, original/derivative lineage, Charlie and Kokoro mathematical integrations, Samsung optical reconstruction, and source evidence. Its descriptions distinguish original equations, derived relationships, and synthetic experiments.
+- [`mathematics/README.md`](mathematics/README.md) — unified 171-formula registry, original/derivative lineage, Charlie and Kokoro mathematical integrations, Samsung optical reconstruction, and source evidence. Its descriptions distinguish original equations, derived relationships, and synthetic experiments.
 - [`SOURCE_INTEGRITY.json`](SOURCE_INTEGRITY.json) — source checksums, independently verifiable.
 - [`RELEASE_CATALOG.md`](RELEASE_CATALOG.md) — earlier Ripple branches and status. Not all past branches are installed by this checkout.
 
