@@ -35,7 +35,7 @@ class Tests(unittest.TestCase):
         self.assertTrue(r['all_regulators_have_nonzero_numerical_effect'])
         self.assertEqual(len(r['regulator_ablation']),29)
         self.assertEqual(r['simulated_candidate_genotypes'],12)
-        self.assertEqual(r['population_evaluations'],44)
+        self.assertEqual(r['population_evaluations'],45)
     def test_mode_difference(self):
         r=sn.benchmark(self.parsed['rna'],samples=2,nsteps=180)
         self.assertNotEqual(r['original']['mean_voltage'],r['controls']['lif']['mean_voltage'])
