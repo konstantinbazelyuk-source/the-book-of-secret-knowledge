@@ -1,0 +1,7 @@
+{
+  "accession": "NM_000539.3",
+  "mirror_rna_sha256": "b7f4dbb8b20975eab3ea535177e97ad0b3beab7b99e2aec4f98eb2af5bb89db3",
+  "result": "UNVERIFIED",
+  "source": "NCBI E-utilities RefSeq transcript",
+  "reason": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+}
