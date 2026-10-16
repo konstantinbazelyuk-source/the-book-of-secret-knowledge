@@ -1,0 +1,14 @@
+<PARSED TEXT FOR SHEET: 1 / 1 TABS
+TAB NAME: SYNTHETIC_DEMO_NOT_MEASURED.csv>index,time_s,voltage_v,current_a,phase
+0,0,2.35,-0.1,charge
+1,60,2.43,-0.1,charge
+2,120,2.51,-0.1,charge
+3,180,2.6,-0.1,charge
+4,240,2.67,-0.1,charge
+5,241,2.36,0.0,rest
+6,260,2.34,0.0,rest
+7,261,2.2,0.1,discharge
+8,321,2.15,0.1,discharge
+9,381,2.08,0.1,discharge
+10,441,1.99,0.1,discharge
+11,501,1.85,0.1,discharge
