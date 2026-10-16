@@ -1,0 +1,51 @@
+name: Ripple SuperNeuron RNA scientific software checks
+
+on:
+  pull_request:
+    paths:
+      - "ripple/superneuron-rna-alpha-v0.1/**"
+      - ".github/workflows/ripple-superneuron-rna.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  numerical-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check source and run controlled numerical tests
+        shell: bash
+        run: |
+          cd ripple/superneuron-rna-alpha-v0.1
+          python -m unittest discover -s tests -v
+          python superneuron.py benchmark \
+            --fasta data/RHO_NM_000539.3_mirror.fasta \
+            --samples 800 --output results/independent_benchmark.json
+          python - <<'PY'
+          from pathlib import Path
+          from superneuron import parse_fasta
+          import json
+          seq=parse_fasta(Path("data/RHO_NM_000539.3_mirror.fasta").read_text(),"NM_000539.3")
+          assert seq["sha256"]=="b7f4dbb8b20975eab3ea535177e97ad0b3beab7b99e2aec4f98eb2af5bb89db3"
+          result=json.loads(Path("results/independent_benchmark.json").read_text())
+          assert result["search_space_exact"]==4**29
+          assert result["simulated_candidate_genotypes"]==800
+          assert result["population_evaluations"]==832
+          assert result["all_regulators_have_nonzero_numerical_effect"]
+          assert result["status"]=="EXECUTED_SYNTHETIC_SOFTWARE"
+          previous=json.loads(Path("results/benchmark.json").read_text())
+          for key in ("original","controls","regulator_ablation","candidate_event_distribution"):
+              assert result[key]==previous[key],key
+          print("Code, RHO transcript SHA, numeric ablation and replay verified.")
+          PY
+      - name: Preserve numerical benchmark evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: superneuron-synthetic-benchmark
+          path: ripple/superneuron-rna-alpha-v0.1/results/independent_benchmark.json
