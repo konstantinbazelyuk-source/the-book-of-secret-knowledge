@@ -44,6 +44,26 @@ jobs:
               assert result[key]==previous[key],key
           print("Code, RHO transcript SHA, numeric ablation and replay verified.")
           PY
+      - name: Verify six genuine NCBI gene inputs and 174 causal software regulators
+        shell: bash
+        run: |
+          cd ripple/superneuron-rna-alpha-v0.1
+          python superneuron_multigene.py --output results/independent_multigene.json
+          python - <<'PY'
+          from pathlib import Path
+          from superneuron_multigene import load_genes,GENES
+          import json
+          genes=load_genes(Path('data/ncbi_genes'))
+          assert set(genes)==set(GENES)
+          result=json.loads(Path('results/independent_multigene.json').read_text())
+          assert result['actual_evaluations']==154
+          assert result['gene_loci_executed']==174
+          assert result['all_added_loci_causal']
+          previous=json.loads(Path('results/multigene_benchmark.json').read_text())
+          for key in ('gene_family_ablation','individual_locus_ablation','energy_sustained', 'original_multigene_events'):
+              assert result[key]==previous[key],key
+          print('Six NCBI mRNAs, 174 causal loci, 145 individual knockouts verified.')
+          PY
       - name: Compare mirrored human RHO transcript to NCBI RefSeq
         continue-on-error: true
         shell: bash
@@ -70,10 +90,16 @@ jobs:
           path: |
             ripple/superneuron-rna-alpha-v0.1/data/ncbi_genes/*.fasta
             ripple/superneuron-rna-alpha-v0.1/results/ncbi_gene_catalog.json
+      - name: Preserve six-gene numerical evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: superneuron-six-gene-experiment
+          path: ripple/superneuron-rna-alpha-v0.1/results/independent_multigene.json
       - name: Preserve numerical benchmark evidence
         uses: actions/upload-artifact@v4
         with:
           name: superneuron-synthetic-benchmark
           path: ripple/superneuron-rna-alpha-v0.1/results/independent_benchmark.json
+
 
 
