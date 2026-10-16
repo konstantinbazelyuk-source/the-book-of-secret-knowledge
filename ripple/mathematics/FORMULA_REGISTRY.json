@@ -6,7 +6,8 @@
     "original_recovered": 56,
     "additional_derivatives": 44,
     "historical_and_power_recovered": 37,
-    "total": 137
+    "adjacent_and_ring_deep_audit": 34,
+    "total": 171
   },
   "entries": [
     {
@@ -1328,6 +1329,380 @@
       "evidence": "Assistant-authored conceptual scale, not calibrated measurement",
       "recovered_at": "2026-10-15",
       "review_scope": "Inspected archive or traced project conversation"
+    },
+    {
+      "id": "HSP-01",
+      "name": "Heartspace unconstrained state",
+      "equation": "z_t=u_t+C*x_t+T(x_t,x_t)-lambda*(x_t-b)",
+      "status": "MODEL_FORMULA",
+      "source": "Kokoro-Heartspace-Daughterboard-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Heartspace-Daughterboard-ADDON.zip::Kokoro-Heartspace-Daughterboard-ADDON/docs/MATHEMATICAL_MODEL.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Computational Heartspace model; potential is not measured joules",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "HSP-02",
+      "name": "Heartspace layer gate",
+      "equation": "Delta_x_l=clip((1-m_l)*a_l*tanh(z_l)*q_l,-r_l,r_l)",
+      "status": "MODEL_FORMULA",
+      "source": "Kokoro-Heartspace-Daughterboard-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Heartspace-Daughterboard-ADDON.zip::Kokoro-Heartspace-Daughterboard-ADDON/docs/MATHEMATICAL_MODEL.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Computational Heartspace model; potential is not measured joules",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "HSP-03",
+      "name": "Heartspace bounded state transition",
+      "equation": "x_(t+1)=clip(x_t+Delta_x,-1,1)",
+      "status": "MODEL_FORMULA",
+      "source": "Kokoro-Heartspace-Daughterboard-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Heartspace-Daughterboard-ADDON.zip::Kokoro-Heartspace-Daughterboard-ADDON/docs/MATHEMATICAL_MODEL.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Computational Heartspace model; potential is not measured joules",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "HSP-04",
+      "name": "Heartspace computational potential",
+      "equation": "E(x_t)=1/N*sum_i(w_i*(x_i-g_i)^2)+alpha*norm(x_t-x_(t-1))^2+beta*B(x_t)",
+      "status": "MODEL_OBJECTIVE",
+      "source": "Kokoro-Heartspace-Daughterboard-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Heartspace-Daughterboard-ADDON.zip::Kokoro-Heartspace-Daughterboard-ADDON/docs/MATHEMATICAL_MODEL.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Computational Heartspace model; potential is not measured joules",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "ONE-01",
+      "name": "Oneiric trace vector",
+      "equation": "m_i=(embedding_i,s_i,u_i,v_i,r_i,c_i,n_i,q_i)",
+      "status": "MATHEMATICAL_DEFINITION",
+      "source": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-ADDON.zip::Kokoro-Oneiric-Resonance-System-ADDON/docs/MATHEMATICAL_SYSTEM.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "ONE-02",
+      "name": "Oneiric replay pressure",
+      "equation": "p_i=epsilon+w_s*s_i+w_u*u_i+w_v*v_i+w_r*r_i+w_n*n_i+w_w*(1-c_i)+w_q*max(q_i,0)",
+      "status": "HEURISTIC_SCORE",
+      "source": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-ADDON.zip::Kokoro-Oneiric-Resonance-System-ADDON/docs/MATHEMATICAL_SYSTEM.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "ONE-03",
+      "name": "Oneiric weighted phase coupling",
+      "equation": "dtheta_i/dt=omega_i+K/N*sum_j(A_ij*sin(theta_j-theta_i))+xi_i(t)",
+      "status": "EXECUTED_COMPUTATIONAL_MODEL",
+      "source": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-ADDON.zip::Kokoro-Oneiric-Resonance-System-ADDON/docs/MATHEMATICAL_SYSTEM.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "ONE-04",
+      "name": "Oneiric weighted phase order",
+      "equation": "R=abs(1/N*sum_j(a_j*exp(i*theta_j)))",
+      "status": "CALCULATED",
+      "source": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-ADDON.zip::Kokoro-Oneiric-Resonance-System-ADDON/docs/MATHEMATICAL_SYSTEM.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "ONE-05",
+      "name": "Oneiric temporal reservoir",
+      "equation": "x_(t+1)=(1-alpha)*x_t+alpha*tanh(W_in*z_t+W*x_t+eta_t)",
+      "status": "EXECUTED_COMPUTATIONAL_MODEL",
+      "source": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-ADDON.zip::Kokoro-Oneiric-Resonance-System-ADDON/docs/MATHEMATICAL_SYSTEM.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "ONE-06",
+      "name": "Classical normalized complex replay state",
+      "equation": "psi_i=sqrt(p_i)*exp(i*theta_i)",
+      "status": "CLASSICAL_COMPLEX_SIMULATION",
+      "source": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-ADDON.zip::Kokoro-Oneiric-Resonance-System-ADDON/docs/MATHEMATICAL_SYSTEM.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "ONE-07",
+      "name": "Classical density-like matrix",
+      "equation": "rho=outer(psi,conj(psi))",
+      "status": "CLASSICAL_COMPLEX_SIMULATION",
+      "source": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-ADDON.zip::Kokoro-Oneiric-Resonance-System-ADDON/docs/MATHEMATICAL_SYSTEM.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "ONE-08",
+      "name": "Hermitian-context unitary step",
+      "equation": "U=exp(-i*H*Delta_t);rho_prime=U*rho*U_dagger",
+      "status": "CLASSICAL_COMPLEX_SIMULATION",
+      "source": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-ADDON.zip::Kokoro-Oneiric-Resonance-System-ADDON/docs/MATHEMATICAL_SYSTEM.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "ONE-09",
+      "name": "Oneiric controlled dephasing",
+      "equation": "rho_(t+1)=(1-gamma)*rho_prime+gamma*diag(rho_prime)",
+      "status": "CLASSICAL_COMPLEX_SIMULATION",
+      "source": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-ADDON.zip::Kokoro-Oneiric-Resonance-System-ADDON/docs/MATHEMATICAL_SYSTEM.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "ONE-10",
+      "name": "Wavelength to carrier frequency and energy",
+      "equation": "f=c/lambda; E=h*f",
+      "status": "PHYSICS_REFERENCE_NOT_EMITTED",
+      "source": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-ADDON.zip::Kokoro-Oneiric-Resonance-System-ADDON/docs/MATHEMATICAL_SYSTEM.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "ONE-11",
+      "name": "Oneiric dream selection objective",
+      "equation": "S(d)=sum_k(w_k*phi_k(d))",
+      "status": "HEURISTIC_SCORE",
+      "source": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-ADDON.zip::Kokoro-Oneiric-Resonance-System-ADDON/docs/MATHEMATICAL_SYSTEM.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "ONE-12",
+      "name": "Oneiric virtual-duration scale",
+      "equation": "Delta_tau=min(kappa*Delta_t,tau_max)",
+      "status": "SCHEDULING_MODEL",
+      "source": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-ADDON.zip::Kokoro-Oneiric-Resonance-System-ADDON/docs/MATHEMATICAL_SYSTEM.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "MAX-01",
+      "name": "Memory graph weighted adjacency",
+      "equation": "A_ij=.56*S_ij+.14*T_ij+.12*R_ij+.10*V_ij+.08*B_ij",
+      "status": "HEURISTIC_GRAPH_SCORE",
+      "source": "Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip::Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON/docs/DEEP_DREAM_MATHEMATICS.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "MAX-02",
+      "name": "Oneiric PageRank-like centrality",
+      "equation": "c_(t+1)=.15/n+.85*transpose(P)*c_t",
+      "status": "EXECUTED_COMPUTATIONAL_MODEL",
+      "source": "Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip::Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON/docs/DEEP_DREAM_MATHEMATICS.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "MAX-03",
+      "name": "Mean-centered memory SVD",
+      "equation": "X-mu=U*Sigma*transpose(V)",
+      "status": "MATHEMATICAL_DECOMPOSITION",
+      "source": "Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip::Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON/docs/DEEP_DREAM_MATHEMATICS.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "MAX-04",
+      "name": "Ridge latent transition estimate",
+      "equation": "A=transpose(Z_(t+1))*Z_t*inverse(transpose(Z_t)*Z_t+lambda*I)",
+      "status": "CALCULATED_MODEL_FIT",
+      "source": "Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip::Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON/docs/DEEP_DREAM_MATHEMATICS.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "MAX-05",
+      "name": "Counterfactual branch preference",
+      "equation": "G=R+H-E-P",
+      "status": "HEURISTIC_SCORE",
+      "source": "Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip::Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON/docs/DEEP_DREAM_MATHEMATICS.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "MAX-06",
+      "name": "Oneiric consolidation update",
+      "equation": "Delta_s_i=rho*(q_i*(1-s_i)-d_i*s_i)",
+      "status": "HEURISTIC_MEMORY_UPDATE",
+      "source": "Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip::Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON/docs/DEEP_DREAM_MATHEMATICS.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "MAX-07",
+      "name": "Symbolic wake gate",
+      "equation": "dream_generated_factual_claims=empty_set without independent waking verification",
+      "status": "LOGICAL_INVARIANT",
+      "source": "Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip",
+      "source_document": "09_Kokoro_Adjacent_Unverified_Lineage.zip::original_archives/Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip::Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON/docs/DEEP_DREAM_MATHEMATICS.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Archived Oneiric analog computation; not measured physical oscillator, field, quantum computation or biological dreams",
+      "lineage": "Adjacent Kokoro mathematics; NOT established direct Ripple-core modifications"
+    },
+    {
+      "id": "MU-01",
+      "name": "Mushroom Charlie conductance cell",
+      "equation": "C*du/dt=-g_L*u+g_e*(E_e-u)+g_i*(E_i-u)-a",
+      "status": "EXECUTED_SIMULATION",
+      "source": "Mushroom_Ripple_Alpha_v3.0_Complete_Model.zip",
+      "source_document": "07_MUSHROOM_Ring_of_Mushrooms.zip::original_archives/Mushroom_Ripple_Alpha_v3.0_Complete_Model.zip::Mushroom_Ripple_Alpha_v3_0/README.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Mushroom virtual conductance model, delayed graph and heuristic synapses",
+      "lineage": "Ripple-derived Mushroom conductance/model ring"
+    },
+    {
+      "id": "MU-02",
+      "name": "Mushroom bounded neighbor pulse count",
+      "equation": "p_j(t+1)=min(8,round(5*sum_i(w_ij*s_i(t))))",
+      "status": "EXECUTED_SIMULATION",
+      "source": "Mushroom_Ripple_Alpha_v3.0_Complete_Model.zip",
+      "source_document": "07_MUSHROOM_Ring_of_Mushrooms.zip::original_archives/Mushroom_Ripple_Alpha_v3.0_Complete_Model.zip::Mushroom_Ripple_Alpha_v3_0/README.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Mushroom virtual conductance model, delayed graph and heuristic synapses",
+      "lineage": "Ripple-derived Mushroom conductance/model ring"
+    },
+    {
+      "id": "MU-03",
+      "name": "Mushroom synaptic plasticity",
+      "equation": "w_ij=clip(w_ij+eta*(s_i(t)*s_j(t+1)-.02*w_ij),.02,.5)",
+      "status": "HEURISTIC_PLASTICITY",
+      "source": "Mushroom_Ripple_Alpha_v3.0_Complete_Model.zip",
+      "source_document": "07_MUSHROOM_Ring_of_Mushrooms.zip::original_archives/Mushroom_Ripple_Alpha_v3.0_Complete_Model.zip::Mushroom_Ripple_Alpha_v3_0/README.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Mushroom virtual conductance model, delayed graph and heuristic synapses",
+      "lineage": "Ripple-derived Mushroom conductance/model ring"
+    },
+    {
+      "id": "MU-04",
+      "name": "Mushroom optical alphabet quantizer",
+      "equation": "symbol=ABC[min(25,floor(26*L))]",
+      "status": "EXECUTED_QUANTIZER",
+      "source": "Mushroom_Ripple_Alpha_v3.0_Complete_Model.zip",
+      "source_document": "07_MUSHROOM_Ring_of_Mushrooms.zip::original_archives/Mushroom_Ripple_Alpha_v3.0_Complete_Model.zip::Mushroom_Ripple_Alpha_v3_0/README.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Mushroom virtual conductance model, delayed graph and heuristic synapses",
+      "lineage": "Ripple-derived Mushroom conductance/model ring"
+    },
+    {
+      "id": "RING-01",
+      "name": "Inter-regional pulse packet",
+      "equation": "pulse=clip(round(2*w_ij*clip(spikes_i,0,8)),1,4) if spikes_i>0 else 0",
+      "status": "EXECUTED_SIMULATION",
+      "source": "Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip",
+      "source_document": "07_MUSHROOM_Ring_of_Mushrooms.zip::original_archives/Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip::Ring_of_Mushrooms_Alpha_v4_0/README.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Model ring from inherited Charlie/Mushroom; synthetic input and virtual phases, not physical EEG",
+      "lineage": "Ripple-derived Mushroom conductance/model ring"
+    },
+    {
+      "id": "RING-02",
+      "name": "Inter-regional delivered pulse",
+      "equation": "delivered=clip(round(slider*sum(pulses)),0,8)",
+      "status": "EXECUTED_SIMULATION",
+      "source": "Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip",
+      "source_document": "07_MUSHROOM_Ring_of_Mushrooms.zip::original_archives/Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip::Ring_of_Mushrooms_Alpha_v4_0/README.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Model ring from inherited Charlie/Mushroom; synthetic input and virtual phases, not physical EEG",
+      "lineage": "Ripple-derived Mushroom conductance/model ring"
+    },
+    {
+      "id": "RING-03",
+      "name": "Inter-regional adaptive edge",
+      "equation": "w_ij=clip(w_ij+eta*(1[spike_i(t-1)>0]*1[spike_j(t)>0]-.12*w_ij),.05,.45)",
+      "status": "HEURISTIC_PLASTICITY",
+      "source": "Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip",
+      "source_document": "07_MUSHROOM_Ring_of_Mushrooms.zip::original_archives/Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip::Ring_of_Mushrooms_Alpha_v4_0/README.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Model ring from inherited Charlie/Mushroom; synthetic input and virtual phases, not physical EEG",
+      "lineage": "Ripple-derived Mushroom conductance/model ring"
+    },
+    {
+      "id": "RING-04",
+      "name": "Inter-regional Kuramoto phase advance",
+      "equation": "phi_i(t+dt)=phi_i+dt*(omega_i+(coupling/degree)*sum_j(sin(phi_j-phi_i))+.25*min(spikes_i,4)/4)",
+      "status": "EXECUTED_PHASE_MODEL",
+      "source": "Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip",
+      "source_document": "07_MUSHROOM_Ring_of_Mushrooms.zip::original_archives/Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip::Ring_of_Mushrooms_Alpha_v4_0/README.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Model ring from inherited Charlie/Mushroom; synthetic input and virtual phases, not physical EEG",
+      "lineage": "Ripple-derived Mushroom conductance/model ring"
+    },
+    {
+      "id": "RING-05",
+      "name": "Ring phase coherence order",
+      "equation": "r=abs(mean_i(exp(i*phi_i)))",
+      "status": "CALCULATED_PHASE_STATISTIC",
+      "source": "Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip",
+      "source_document": "07_MUSHROOM_Ring_of_Mushrooms.zip::original_archives/Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip::Ring_of_Mushrooms_Alpha_v4_0/README.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Model ring from inherited Charlie/Mushroom; synthetic input and virtual phases, not physical EEG",
+      "lineage": "Ripple-derived Mushroom conductance/model ring"
+    },
+    {
+      "id": "RING-06",
+      "name": "Photon energy calculation",
+      "equation": "E=h*c/lambda",
+      "status": "PHYSICS_REFERENCE_NOT_DETECTION",
+      "source": "Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip",
+      "source_document": "07_MUSHROOM_Ring_of_Mushrooms.zip::original_archives/Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip::Ring_of_Mushrooms_Alpha_v4_0/README.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Model ring from inherited Charlie/Mushroom; synthetic input and virtual phases, not physical EEG",
+      "lineage": "Ripple-derived Mushroom conductance/model ring"
+    },
+    {
+      "id": "RING-07",
+      "name": "Synthetic Poisson photon-proxy variance",
+      "equation": "Var(N_proxy)=E[N_proxy]=mu",
+      "status": "SYNTHETIC_SHOT_NOISE_MODEL",
+      "source": "Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip",
+      "source_document": "07_MUSHROOM_Ring_of_Mushrooms.zip::original_archives/Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip::Ring_of_Mushrooms_Alpha_v4_0/README.md",
+      "recovered_at": "2026-10-15",
+      "evidence": "Model ring from inherited Charlie/Mushroom; synthetic input and virtual phases, not physical EEG",
+      "lineage": "Ripple-derived Mushroom conductance/model ring"
     }
   ]
 }
