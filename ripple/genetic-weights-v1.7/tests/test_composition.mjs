@@ -1,0 +1,18 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {createHash} from 'node:crypto';
+import {assess,counts} from '../src/composition.mjs';
+import {RippleNeuron} from '../sources/v01_ripple_core_LOCKED.cjs';
+import {QuadEncoder,pack4,unpack4} from '../sources/v07_quaternary_core_LOCKED.mjs';
+const cases=JSON.parse(fs.readFileSync(new URL('../data/novel_compositions.json',import.meta.url))).cases;
+const c=cases.find(x=>x.photons_per_bit===80&&x.condition==='matched');
+test('locked original LIF SHA256',()=>assert.equal(createHash('sha256').update(fs.readFileSync(new URL('../sources/v01_ripple_core_LOCKED.cjs',import.meta.url))).digest('hex'),'d75d4208e92f19623b127615bd52b4002e85d2c0a59b76471764b55a24294210'));
+test('logical genome extends without replacing parent',()=>{let a=counts();assert.equal(a.parents,328);assert.ok(a.newSemantics>0);assert.equal(a.total,a.parents+a.newSemantics)});
+test('quaternary locked codec roundtrip',()=>{for(let x=0;x<256;x++)assert.equal(pack4(unpack4(x)),x)});
+test('dark physical-intensity input does not spike',()=>{const n=new RippleNeuron({adaptive:false});for(let i=0;i<40;i++)assert.equal(n.step([0,0,0],.05).count,0)});
+test('new colony uses physical model event gates',()=>{const result=assess(c,{mode:'composed',colony:true});assert.ok(result.spikes>0)});
+test('conventional serial gives exactly same code answer',()=>{const a=assess(c,{mode:'composed',colony:true}),b=assess(c,{mode:'composed',colony:false});assert.deepEqual([a.model,a.decision,a.correct],[b.model,b.decision,b.correct])});
+test('no withheld labels or observations affect inference',()=>{const a=assess(c,{mode:'composed'}),d=structuredClone(c);for(const e of d.examples.slice(10)){e.rx.llr=[-50,-50,-50,-50];e.ry.llr=[50,50,50,50];e.y_true^=15;e.rx.hard=0;e.ry.hard=15;}const b=assess(d,{mode:'composed'});assert.deepEqual([a.model,a.decision,a.gain,a.margin],[b.model,b.decision,b.gain,b.margin])});
+test('all cases have disjoint training/heldout inputs',()=>{for(const c of cases){assert.equal(c.examples.length,16);assert.equal(new Set(c.examples.map(x=>x.x_true)).size,16);assert.ok(c.examples.slice(0,10).every(x=>x.split==='train'))}});
+test('preregistered unseen compositions do not exist in parent table',()=>{const names=new Set(JSON.parse(fs.readFileSync(new URL('../data/grammar_locked.json',import.meta.url))).map(x=>x.expr));for(const kind of new Set(cases.map(x=>x.kind)))if(kind!=='unstructured_permutation')assert.ok(!names.has(kind))});
+test('LIF worker spike activity not equivalent cognition',()=>{let a=assess(c,{mode:'parent',colony:true});assert.ok(a.spikes>0)});
+test('abstention for low information exists',()=>{let a=cases.filter(x=>x.condition==='phase_shift').map(c=>assess(c,{mode:'composed'}));assert.ok(a.some(x=>x.decision==='ABSTAIN'))});
+test('results are deterministic',()=>assert.deepEqual(assess(c,{mode:'composed',colony:true}),assess(c,{mode:'composed',colony:true})));

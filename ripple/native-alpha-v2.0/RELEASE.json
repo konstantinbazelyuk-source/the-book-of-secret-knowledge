@@ -1,0 +1,22 @@
+{
+  "schema": "ripple-laptop-alpha-2.0/1",
+  "build_utc": "2026-10-16T01:15:41.736249+00:00",
+  "target": "Dell Windows x64 host (unverified); Python 3.11+, Node 20+",
+  "tested_host": "Debian Linux container; four-CPU cgroup quota, 4GiB memory cgroup; NOT Dell",
+  "test_summary": "22/22 Python tests; Chromium mock UI smoke passed",
+  "hardware_acceleration_tested": "torch CPU only, no GPU",
+  "original_archive_sha256": {
+    "Ripple-Genetic-Weights-Alpha-v1.7.zip": "4c3472d39c83b7d68f91c1853323ad85bd3bd7596a5323639c0f256b4b50c752",
+    "v01_ripple_core_LOCKED.cjs": "d75d4208e92f19623b127615bd52b4002e85d2c0a59b76471764b55a24294210",
+    "v07_quaternary_core_LOCKED.mjs": "9c1879f6bc024e564e5e25b0294ac62b34d67aafffe26f9ddfae52675d66f695"
+  },
+  "benchmark_paths": [
+    "benchmarks/bench_container.json",
+    "benchmarks/bench_medium_container.json"
+  ],
+  "cloud_deployed": false,
+  "windows_tested": false,
+  "signed_executable": false,
+  "windows_launcher": "bin/Start-Ripple-Windows.cmd",
+  "dashboard_requires_live_daemon": true
+}

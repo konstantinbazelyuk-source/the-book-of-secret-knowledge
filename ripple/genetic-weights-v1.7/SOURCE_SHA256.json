@@ -1,0 +1,21 @@
+{
+  "schema": "ripple-source-integrity/1",
+  "source": "Ripple-Genetic-Weights-Alpha-v1.7.zip",
+  "files": {
+    "README.md": "9d6267dfd2276850ed0b7182a3ad63d6d8bd663694950d5bb832d19244450694",
+    "data/grammar_locked.json": "723197664028e44a4dcfc089c452a05199066cdd772778be69983a771333aaf7",
+    "docs/MATHEMATICS.md": "5ca6581b4e07d81230d485d91d86db94ce058e952f059f95cbacf5d4230d10ab",
+    "docs/NEGATIVE_RESULTS.md": "393d1e72782d0ecf678366d8f8441ea4764d98fface3b5da12e446d0b1ac71f1",
+    "docs/SOFTWARE_REQUIREMENTS.md": "5f60f1190fc60afcc75c0131a17f9c3bab3a9abbb4ee6500c80e1b197fec7c51",
+    "sources/engine.mjs": "205cdc8c8c1f4b72f9e4731e8141498e401bbc168e7cc83c3b40dde4cd43d92f",
+    "sources/grammar.mjs": "d5324b6f099449666b527ef2fda07aac2d94de0836766281d7324b2b65472a6d",
+    "sources/v01_ripple_core_LOCKED.cjs": "d75d4208e92f19623b127615bd52b4002e85d2c0a59b76471764b55a24294210",
+    "sources/v07_quaternary_core_LOCKED.mjs": "9c1879f6bc024e564e5e25b0294ac62b34d67aafffe26f9ddfae52675d66f695",
+    "sources/v14_physics_LOCKED.py": "910bab2c583fd50c5250226f8bd81b9c477c5f6de921be7892a4575bacd17b51",
+    "sources/v15_control_LOCKED.mjs": "fff73e08ba7d4ce7e8564cc48d740791861392079a0efd54963c181d4a35221a",
+    "sources/v16_generate_cases_LOCKED.py": "3602591dd8fb527e421c367c82bc117b8cae514762a5982fd8e9fcc8376536ca",
+    "src/composition.mjs": "1a52038e38e6d17d90e414d2f247aeaa0ff41cdd7f3cf5c2bcfa72db77d330e6",
+    "src/create_novel.py": "824195d057b3841029a64d5b98aabd35c43a1bc072be4d438963556ec60c3e99",
+    "tests/test_composition.mjs": "4230f541b74364e01c68e8f2960a7226f15a89169e0850fdbaecf3fbb77b507f"
+  }
+}
