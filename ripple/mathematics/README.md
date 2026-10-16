@@ -6,7 +6,7 @@
 
 | Document | Scope |
 |---|---|
-| [FORMULA_REGISTRY.json](FORMULA_REGISTRY.json) | Machine-readable **137-formula index**: 56 recovered earlier and 44 newly consolidated, each with ID, expression, source/version and evidence class. |
+| [FORMULA_REGISTRY.json](FORMULA_REGISTRY.json) | Machine-readable **137-formula index**: 56 previously recovered, 44 reviewed derivative entries and 37 recovered historical/reference entries, each with ID, expression, source/version and evidence class. |
 | [Original mathematical study](../docs/MATHEMATICAL_STUDY.md) | 56 detailed equations, domains, units, mathematical derivations, limitations and negative findings. |
 | [LINEAGE_AND_UPGRADES.md](LINEAGE_AND_UPGRADES.md) | Cross-version parentage and Ripple, Charlie and Kokoro upgrades and experimental choices. |
 | [SAMSUNG_OPTICAL_ENGINEERING.md](SAMSUNG_OPTICAL_ENGINEERING.md) | Optical device reconstruction, calibration, objective comparisons and results through v0.5. |
@@ -40,7 +40,8 @@ The inverse formula applies only for attainable target rates and threshold bound
 ## How the registry is counted
 
 - 56 individually enumerated formulas from the preserved [Charlie Ripple mathematical study](../docs/MATHEMATICAL_STUDY.md).
-- 44 indexed additional formulas from the reviewed Delta, Daughter, Beer–Lambert, recurrent Charlie, Kokoro Dynamics, Kokoro perception–action, genetic weights and Samsung mathematical documents.
+- 44 previously indexed derivative formulas from the reviewed Delta, Daughter, Beer–Lambert, recurrent Charlie, Kokoro Dynamics, Kokoro perception–action, genetic weights and Samsung mathematical documents.
+- 37 additional entries from dated 2024–2026 conversations, archived battery/power engineering, separately flagged scientific corrections and Heartspace/Overdrive sketches.
 - Further archives, including additional Kokoro/Lumina, genome/robotics, genetic colony and later Ripple packages, are listed in the lineage. Their complete contents have **not** all been indexed into distinct formula rows. **137 is the currently indexed reviewed count**, not a declaration that every historical chat or archive has been exhaustively recovered.
 
 ## Mathematical continuity policy
