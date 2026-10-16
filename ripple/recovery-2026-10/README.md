@@ -20,7 +20,7 @@ This directory publicly documents the **retrieved Ripple project family** from t
 
 ## Publishing full source packages
 
-The full recovery was divided into eleven ZIP bundles (`00_` through `10_`) for distribution. Several are larger than GitHub's regular 100 MB Git-object limit; use **GitHub Releases**, not a normal Git commit. GitHub Releases supports release assets under 2 GiB each. The [Windows upload helper](UPLOAD_RELEASE_BUNDLES.ps1) expects those eleven bundles alongside it, checks that all expected filenames are present, and uses `gh release create` / `gh release upload` on an authenticated machine. **This helper is published, not executed in this GitHub connector session.**
+The full recovery was divided into eleven ZIP bundles (`00_` through `10_`) for distribution. Several are larger than GitHub's regular 100 MB Git-object limit; use **GitHub Releases**, not a normal Git commit. GitHub Releases supports release assets under 2 GiB each. The [checksum-verified cross-platform upload helper](upload_release_bundles.py) expects those eleven bundles in a local directory (default: current directory) and the checksum manifest alongside the script, checks that all expected filenames are present, and uses `gh release create` / `gh release upload` on an authenticated machine. **This helper is published, not executed in this GitHub connector session.**
 
 Download bundles from the source owner, preserve them unchanged, then review inherited third-party licenses and ensure materials intended to remain private are not included before publishing assets. A checksum list for release bundles should accompany public assets.
 
