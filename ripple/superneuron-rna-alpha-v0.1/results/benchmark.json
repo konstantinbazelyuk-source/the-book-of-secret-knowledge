@@ -4,7 +4,7 @@
   "search_space_exact": 288230376151711744,
   "simulated_candidate_genotypes": 800,
   "real_genotypes_in_demo": 1,
-  "population_evaluations": 832,
+  "population_evaluations": 833,
   "dt_model_seconds": 0.05,
   "nsteps": 400,
   "seed": 101,
@@ -26,6 +26,11 @@
       "mean_voltage": 0.21992430330755372,
       "mean_gene_signal": 0.0,
       "mean_energy": 1.0
+    },
+    "inherited_charlie_v2": {
+      "events": 24,
+      "mean_voltage": 0.24408178602255146,
+      "source": "immutable archived Charlie v2 core; own original event/reset model"
     }
   },
   "regulator_ablation": {
@@ -190,7 +195,7 @@
     "mean_gene_signal": 0.0035201190435838127,
     "mean_energy": 0.986476907771587
   },
-  "wall_seconds": 3.642942511999536,
+  "wall_seconds": 4.001645407999604,
   "no_biological_fitness_or_intelligence_metric": true,
   "fasta_header": "gi|169808383|ref|NM_000539.3| Homo sapiens rhodopsin (RHO), mRNA, coding start = 95",
   "fasta_path": "data/RHO_NM_000539.3_mirror.fasta",
