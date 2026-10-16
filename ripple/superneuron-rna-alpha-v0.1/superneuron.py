@@ -27,8 +27,8 @@ REFSEQ = {
     "OPN1LW": {"accession":"NM_020061.6", "role":"long-cone-inspired RGB projection", "ncbi_gene":5956},
     "OPN1MW": {"accession":"NM_000513.2", "role":"medium-cone-inspired RGB projection", "ncbi_gene":2652},
     "OPN1SW": {"accession":"NM_001385125.1", "role":"short-cone-inspired RGB projection", "ncbi_gene":611},
-    "GNAT2": {"accession":None, "role":"candidate cone-signal transduction analogue", "ncbi_gene":2780},
-    "RPE65": {"accession":None, "role":"candidate recovery/visual-cycle analogue", "ncbi_gene":6121},
+    "GNAT2": {"accession":"NM_005272.5", "role":"candidate cone-signal transduction analogue", "ncbi_gene":2780},
+    "RPE65": {"accession":"NM_000329.3", "role":"candidate recovery/visual-cycle analogue", "ncbi_gene":6121},
 }
 
 
