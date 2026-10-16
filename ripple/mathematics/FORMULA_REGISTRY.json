@@ -4,8 +4,8 @@
   "scope_note": "87 reviewed equation entries, not every equation from every past chat. Original core remains untouched; see original source and each named archive for assumptions, full equations, results, code and licenses.",
   "metrics": {
     "original_recovered": 56,
-    "additional_derivatives": 31,
-    "total": 87
+    "additional_derivatives": 44,
+    "total": 100
   },
   "entries": [
     {
@@ -790,6 +790,136 @@
       "source": "Ripple-Samsung-Engineering-v0.5-Complete.zip",
       "source_document": "User Library / Ripple-Samsung-Engineering-v0.5-Complete.zip",
       "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "KLF-01",
+      "name": "Lumina forest discrete grid diffusion",
+      "equation": "u_next=u+alpha*(u_left+u_right+u_up+u_down-4*u)",
+      "source": "Kokoro_Lumina_Forest_Alpha_v0_5.zip",
+      "status": "EXECUTED_SIMULATION",
+      "source_document": "User Library / Kokoro_Lumina_Forest_Alpha_v0_5.zip / Kokoro_Lumina_Forest_Alpha_v0_5/docs/SOURCING_AND_DESIGN.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "Grid spacing h=1 and bounded decay/injection afterward; numerical field is not tissue dynamics."
+    },
+    {
+      "id": "KMO-01",
+      "name": "Kokoro v0.7 bounded PD and feedforward servo",
+      "equation": "u_i=clamp(k_p*(r_i-q_i)+k_d*(r_dot_i-v_i)+f_(k,i))",
+      "source": "Kokoro_Ripple_Motor_Alpha_v0_7.zip",
+      "status": "EXECUTED_VIRTUAL_PLANT",
+      "source_document": "User Library / Kokoro_Ripple_Motor_Alpha_v0_7.zip / Kokoro_Ripple_Motor_Alpha_v0_7/docs/SOURCES_AND_METHOD.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "Separate output magnitude and slew limits, no physical actuators."
+    },
+    {
+      "id": "KMO-02",
+      "name": "Kokoro v0.7 iterative learning correction",
+      "equation": "f_(k+1,i)=smooth_1214(clamp(f_(k,i)+eta*(r_i-q_i)))",
+      "source": "Kokoro_Ripple_Motor_Alpha_v0_7.zip",
+      "status": "EXECUTED_VIRTUAL_PLANT",
+      "source_document": "User Library / Kokoro_Ripple_Motor_Alpha_v0_7.zip / Kokoro_Ripple_Motor_Alpha_v0_7/docs/SOURCES_AND_METHOD.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "smoothing kernel [1,2,1]/4; repeated virtual trajectory, not training language-model weights."
+    },
+    {
+      "id": "KMO-03",
+      "name": "Kokoro v0.7 retained correction gate",
+      "equation": "accept=(RMSE_train_new<=.995*RMSE_train_old) and (RMSE_valid_new<=1.02*RMSE_valid_old) and no_joint_limit_hit",
+      "source": "Kokoro_Ripple_Motor_Alpha_v0_7.zip",
+      "status": "EXECUTED_HEURISTIC",
+      "source_document": "User Library / Kokoro_Ripple_Motor_Alpha_v0_7.zip / Kokoro_Ripple_Motor_Alpha_v0_7/docs/SOURCES_AND_METHOD.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "A selected local rollback rule, not a global robustness guarantee."
+    },
+    {
+      "id": "KGR-01",
+      "name": "Genome robotics v1.8 virtual actuator law",
+      "equation": "u=kp*(r-y)+kd*(v_ref-v)+kff*v_ref-d_event-d_boundary",
+      "source": "Kokoro_Ripple_Genome_Robotics_Alpha_v1_8.zip",
+      "status": "EXECUTED_VIRTUAL_PLANT",
+      "source_document": "User Library / Kokoro_Ripple_Genome_Robotics_Alpha_v1_8.zip / Kokoro_Ripple_Genome_Robotics_Alpha_v1_8/docs/ARCHITECTURE.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "Clipped velocity, bounded motor and joint limits; model dt=.02 seconds."
+    },
+    {
+      "id": "KGR-02",
+      "name": "Genome robotics v1.8 synthetic objective",
+      "equation": "J=mean_3plants(RMSE+.0005*effort+.00004*command_variation+.1*joint_limit_hits)",
+      "source": "Kokoro_Ripple_Genome_Robotics_Alpha_v1_8.zip",
+      "status": "EXECUTED_SIMULATION",
+      "source_document": "User Library / Kokoro_Ripple_Genome_Robotics_Alpha_v1_8.zip / Kokoro_Ripple_Genome_Robotics_Alpha_v1_8/docs/ARCHITECTURE.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "Weighted terms are chosen score contributions; not measured physical cost."
+    },
+    {
+      "id": "KGV-01",
+      "name": "Geometric vision v2.0 linear blend skinning",
+      "equation": "p_i(q)=sum_j w_ij*T_j(q)*B_j^(-1)*p_i; sum_j w_ij≈1",
+      "source": "Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip",
+      "status": "EXECUTED_RENDER",
+      "source_document": "User Library / Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip / Kokoro_Ripple_Geometric_Vision_Alpha_v2_0/docs/GEOMETRY_AND_PROVENANCE.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "Bind-pose vertices and transforms are virtual 3D geometry."
+    },
+    {
+      "id": "KGV-02",
+      "name": "Geometric vision v2.0 camera basis",
+      "equation": "d=(F-E)/||F-E||; r=normalize(d cross up_world); u=r cross d",
+      "source": "Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip",
+      "status": "CALCULATED",
+      "source_document": "User Library / Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip / Kokoro_Ripple_Geometric_Vision_Alpha_v2_0/docs/GEOMETRY_AND_PROVENANCE.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "Require nondegenerate camera direction and up vector."
+    },
+    {
+      "id": "KGV-03",
+      "name": "Geometric vision v2.0 focal length",
+      "equation": "f=image_height/(2*tan(FOV_y/2))",
+      "source": "Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip",
+      "status": "CALCULATED",
+      "source_document": "User Library / Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip / Kokoro_Ripple_Geometric_Vision_Alpha_v2_0/docs/GEOMETRY_AND_PROVENANCE.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "Pinhole camera parameters in pixels, valid FOV required."
+    },
+    {
+      "id": "KGV-04",
+      "name": "Geometric vision v2.0 perspective projection",
+      "equation": "z=d dot (X-E); pixel_x=cx+f*(r dot (X-E))/z; pixel_y=cy-f*(u dot (X-E))/z",
+      "source": "Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip",
+      "status": "CALCULATED",
+      "source_document": "User Library / Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip / Kokoro_Ripple_Geometric_Vision_Alpha_v2_0/docs/GEOMETRY_AND_PROVENANCE.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "Require z>0 and a calibrated camera transform."
+    },
+    {
+      "id": "KGV-05",
+      "name": "Geometric vision v2.0 inverse marker fit",
+      "equation": "q_hat=argmin_(q within joint limits) sum_markers ||pi(X_j(q))-observed_pixel_j||^2",
+      "source": "Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip",
+      "status": "EXECUTED_SOFTWARE",
+      "source_document": "User Library / Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip / Kokoro_Ripple_Geometric_Vision_Alpha_v2_0/docs/GEOMETRY_AND_PROVENANCE.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "Bounded least-squares marker fit, reject missing markers or reprojection >4px."
+    },
+    {
+      "id": "KGV-06",
+      "name": "Geometric vision v2.0 bounded visual servo",
+      "equation": "q_cmd=clip(q_desired+bias+Kp*a_t*(q_desired-q_hat)+Ki*bounded_integral_error)",
+      "source": "Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip",
+      "status": "EXECUTED_VIRTUAL_PLANT",
+      "source_document": "User Library / Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip / Kokoro_Ripple_Geometric_Vision_Alpha_v2_0/docs/GEOMETRY_AND_PROVENANCE.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "Kp=.82, Ki=.15, dt=.2s, integral cap +/-0.5 rad*s; real hardware not included."
+    },
+    {
+      "id": "KIN-01",
+      "name": "Kokoro Ripple v0.2 scalar telemetry projection",
+      "equation": "(R,G,B)=(value/2,0,0); D=2R+1.2G-1.4B=value",
+      "source": "Kokoro_Ripple_Integration_v0_2.zip",
+      "status": "EXECUTED_SOFTWARE",
+      "source_document": "User Library / Kokoro_Ripple_Integration_v0_2.zip / Kokoro_Ripple_Integration_v0_2/docs/INTEGRATION_AND_RESOURCES.md",
+      "provenance": "Directly reviewed source document; scope limited to described renderer, simulation or calibrated virtual geometry.",
+      "evidence": "Only within normalized channel input range; computational counter is not literal measured optical red."
     }
   ]
 }
