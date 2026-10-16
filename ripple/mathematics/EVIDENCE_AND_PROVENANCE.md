@@ -103,7 +103,7 @@ The grouping is a **discovery and version index**; no unreviewed checkpoint, cod
 10_Standalone_and_Unclassified_Technical_Documents.zip
 ```
 
-Those include other formulas and source files but **their contents have not been exhaustively cross-indexed in the 137-entry registry**. The source list preserves their search path without fabricating missing relationships.
+Those include other formulas and source files but **their contents have not been exhaustively cross-indexed in the 171-entry registry**. The source list preserves their search path without fabricating missing relationships.
 
 ## Verifiable engineering outcomes from reviewed sources
 
@@ -126,7 +126,7 @@ Those include other formulas and source files but **their contents have not been
 
 ## Current archive consistency
 
-The counted registry has **56 + 44 = 137 unique IDs**. Each entry must have nonempty `id`, `name`, `equation`, `source`, `status` and `source_document`. This count is a checked inventory property; it is **not** a scientific validation score.
+The counted registry has **56 + 44 = 171 unique IDs**. Each entry must have nonempty `id`, `name`, `equation`, `source`, `status` and `source_document`. This count is a checked inventory property; it is **not** a scientific validation score.
 
 A subsequent release should increment the registry schema/version and add previously unseen formulas only after direct source inspection and independent duplicate detection.
 
@@ -139,3 +139,7 @@ Real pixel processing of a **rendered** virtual scene is measured software outpu
 ## 2024–2026 older conversations and energy recovery
 
 See [Historical Battery and Ionic Equations](HISTORICAL_BATTERY_AND_IONIC_EQUATIONS.md) and [Recovery Scope](RECOVERY_SCOPE_AND_AUDIT.md). Added 37 entries covering calcium ionic diffusion/resonance, dimensional corrections, source-inspected battery power sizing, and Heartspace analog-state/Overdrive mathematical proposals. Conversation-derived entries are tagged by date because original full transcripts were not directly materialized.
+
+## Deep mathematical source pass, 2026-10-15
+
+Thirty-four additional archived source formulas have been indexed: `HSP-01..04`, `ONE-01..12`, `MAX-01..07`, `MU-01..04`, `RING-01..07`. The first three prefixes are **adjacent Kokoro mathematical models**, not proven Ripple neuron revisions. The latter two are software/simulated conductance network derivatives. Their source-member paths and methodological constraints are recorded in the JSON registry. For the full grouped-ZIP scan and incomplete coverage constraints, see [RECOVERY_SCOPE_AND_AUDIT.md](RECOVERY_SCOPE_AND_AUDIT.md).
