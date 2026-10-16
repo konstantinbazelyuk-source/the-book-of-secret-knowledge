@@ -64,3 +64,14 @@ Open `http://127.0.0.1:8789` on the same laptop. The HTML sliders send validated
 ### Exact inherited Charlie v2 comparison (added)
 
 The original unedited `Charlie_Ripple_Core_v2_0/charlie_core/neuron.py` is additionally imported at `vendor/charlie_v2/neuron.py` with its existing source SHA-256 `bf96fc4dae90eeee65e3f895207c6c5714f736b1b9dbf09569e1c24a8b440f77`; license notice retained under `vendor/charlie_v2/LICENSE-NEW-CODE.txt`. Benchmark runs this **actual original implementation** separately from the newly developed SuperNeuron and reports its own spike counts and mean membrane voltage. It does not conflate neuron thresholds or compare spike counts as task accuracy.
+
+## Six-gene integrated neuron (new additive module)
+
+The independent GitHub Actions runner downloaded **five additional exact-version human RefSeq mRNA files from NCBI**: OPN1LW, OPN1MW, OPN1SW, GNAT2, and RPE65. Together with RHO, `superneuron_multigene.py` makes **174 executed numerical regulators** (29 per transcript) in one shared spiking-and-energy controller. L/M/S gene modules receive digital LMS-inspired sRGB channel projections, GNAT2 multiplies the engineered excitatory signal, and RPE65 contributes to the numerical energy recovery budget. Each module's contribution can be disabled independently. These are engineered control functions justified as an experimental mapping of actual gene identities; they are **not biochemical RNA translation or calibrated human retinal phototransduction**.
+
+```sh
+python superneuron_multigene.py --rho data/RHO_NM_000539.3_mirror.fasta --genes data/ncbi_genes --output results/multigene_benchmark.json
+python serve.py --fasta data/RHO_NM_000539.3_mirror.fasta --genes data/ncbi_genes
+```
+
+The full model's browser controls call the six-gene Python engine, not a standalone animation. Each real transcript is SHA-256 pinned to the version downloaded from NCBI; an absent or altered gene file fails immediately. Every one of the **145 newly added** loci, and each of the five new gene families, is ablated and checked for an actual difference in numerical state. Energy recovery is separately challenged with bright prolonged model input. The project additionally retains original Ripple/Charlie kernels and earlier pilot. These functional numerical effects are **not evidence of increased information content, real-world detector accuracy, or general intelligence**.
