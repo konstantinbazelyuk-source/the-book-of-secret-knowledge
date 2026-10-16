@@ -1,0 +1,70 @@
+{
+  "classification": "EXECUTED_SOFTWARE_ON_SYNTHETIC_RGB",
+  "real_human_genes_count": 6,
+  "gene_loci_executed": 174,
+  "actual_evaluations": 154,
+  "original_multigene_events": 9,
+  "rho_only_events": 6,
+  "gene_family_ablation": {
+    "OPN1LW": {
+      "events": 9,
+      "max_abs_state_difference": 0.56939308399983
+    },
+    "OPN1MW": {
+      "events": 9,
+      "max_abs_state_difference": 0.563122798567127
+    },
+    "OPN1SW": {
+      "events": 9,
+      "max_abs_state_difference": 0.5670353048273579
+    },
+    "GNAT2": {
+      "events": 9,
+      "max_abs_state_difference": 0.5680367659258466
+    },
+    "RPE65": {
+      "events": 9,
+      "max_abs_state_difference": 0.03212361188620083
+    }
+  },
+  "individual_locus_ablation": {
+    "OPN1LW": {
+      "total": 29,
+      "min_effect": 0.0011624849249132485,
+      "max_effect": 0.0033560312209782728,
+      "all_nonzero": true
+    },
+    "OPN1MW": {
+      "total": 29,
+      "min_effect": 0.0008489506013292791,
+      "max_effect": 0.0024560703131995543,
+      "all_nonzero": true
+    },
+    "OPN1SW": {
+      "total": 29,
+      "min_effect": 0.0005816802189217984,
+      "max_effect": 0.0013747940697964034,
+      "all_nonzero": true
+    },
+    "GNAT2": {
+      "total": 29,
+      "min_effect": 0.0001471207365980054,
+      "max_effect": 0.00032976558060682226,
+      "all_nonzero": true
+    },
+    "RPE65": {
+      "total": 29,
+      "min_effect": 0.0007384924690121419,
+      "max_effect": 0.0011948058752355717,
+      "all_nonzero": true
+    }
+  },
+  "all_added_loci_causal": true,
+  "energy_sustained": {
+    "full_min": 0.022201567425567746,
+    "without_RPE65_min": 0.015224954971740978,
+    "difference": 0.006976612453826768
+  },
+  "no_physical_phototransduction_or_cognition_validated": true,
+  "wall_seconds": 4.38921763899998
+}
