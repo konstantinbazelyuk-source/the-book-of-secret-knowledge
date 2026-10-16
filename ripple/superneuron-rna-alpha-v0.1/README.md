@@ -1,10 +1,10 @@
 # Ripple SuperNeuron RNA Alpha v0.1 — causal digital-regulator research
 
-**Status:** runnable Python research engine; actual RHO mRNA-derived numerical parameters, synthetic RGB stimulus; no physical retina, biological translation, natural-law discovery, general intelligence, trained detector, Android APK or Dell-native installer yet.
+**Status:** runnable Python research engine with **six authentic RefSeq human transcript inputs** and 174 sequence-derived functional software regulators. Inputs and experimental evaluations are synthetic RGB signals; no physical retina, biological RNA translation, novel natural law, general intelligence, trained detector, Android APK or Dell-native installer has been demonstrated.
 
 ## What was built
 
-- Human **RHO** mRNA reference sequence `NM_000539.3` (2,768 bases) recovered from a third-party FASTA mirror (not independently fetched from NCBI in this execution environment). The transcript's accession and function are independently supported by NCBI Gene 6010. The original public mirror is `https://github.com/eah13/bioalgo/blob/hw4/hw1/rhodopsin.fa`. Exact *DNA* sequence SHA-256 before transcription to U: `89a7da77c3877d24ce91798f86a563bdd1a8b89a4aa13bb971d2277198227952`; *RNA* sequence SHA-256: `b7f4dbb8b20975eab3ea535177e97ad0b3beab7b99e2aec4f98eb2af5bb89db3`.
+- Human **RHO** mRNA reference sequence `NM_000539.3` (2,768 bases) initially recovered from a third-party FASTA mirror; an independent GitHub Actions run **retrieved the NCBI RefSeq sequence and proved a nucleotide-for-nucleotide SHA-256 match**. The transcript's accession and function are independently supported by NCBI Gene 6010. The original public mirror is `https://github.com/eah13/bioalgo/blob/hw4/hw1/rhodopsin.fa`. Exact *DNA* sequence SHA-256 before transcription to U: `89a7da77c3877d24ce91798f86a563bdd1a8b89a4aa13bb971d2277198227952`; *RNA* sequence SHA-256: `b7f4dbb8b20975eab3ea535177e97ad0b3beab7b99e2aec4f98eb2af5bb89db3`.
 - 29 actual causal digital kinetic regulators from disjoint positions in the mRNA, each with own temporal state, time constant and conductance contribution. The mapping from nucleotide to software parameter is an **invented engineering encoding**, not an inference about the human gene's biochemical dynamics. One-base edits at sampled positions alter the model response.
 - Charlie-like time-varying excitatory/inhibitory conductance with membrane current, exponential synaptic state and refractory/adaptation; contrast drive, regulated energy budget and observable spike events. Independent classic LIF and conductance-only comparators. Original Ripple files remain untouched. This is a newly implemented equation-compatible variant, not a byte-preserved import of the inherited Charlie source.
 - Real Python execution with unit tests, 29 ablations, deterministic genotype sampling and JSON benchmarking; input image values are **display-referred sRGB**, not calibrated optical wavelengths or electromagnetic fields.
@@ -26,37 +26,36 @@ python superneuron.py fetch-refseq OPN1MW --out data/OPN1MW_NM_000513.2_NCBI.fas
 python superneuron.py fetch-refseq OPN1SW --out data/OPN1SW_NM_001385125.1_NCBI.fasta
 ```
 
-Each fetched transcript is validated for versioned accession, canonical RNA bases, minimum length, and hashed. The biological functions of the **three cone opsins** motivate future L/M/S channels; merely downloading these sequences does not automatically instantiate biological cone phototransduction. The **single-gene baseline engine** uses RHO as its active reference; the six-gene add-on below also connects authenticated cone/transduction/recovery transcripts. GNAT2 and RPE65 are biologically relevant candidate pathways, not yet imported sequence-to-function models.
+Each fetched transcript is validated for versioned accession, canonical RNA bases, minimum length, and hashed. The **single-gene baseline engine** uses RHO; the separate six-gene module below imports all six verified transcripts and connects them to explicit numerical control pathways. Biological gene roles motivate the software assignments, but no gene is actually expressed or translated in biological machinery.
 
 ## Genes and digital RGB interpretation
 
 | Gene | Real biological relationship | Current software status |
 |---|---|---|
-| OPN1LW | L cone sensitivity around 557–560 nm | Role cataloged; real transcript NCBI fetch supported, not active in tested pilot |
-| OPN1MW | M cone sensitivity around 530 nm | Role cataloged; fetch supported, not active in tested pilot |
-| OPN1SW | S cone sensitivity around 420 nm | Role cataloged; fetch supported, not active in tested pilot |
-| RHO | Rod rhodopsin (low-light sensitivity) | **Real transcript mirror loaded; active** as synthetic luminance/contrast temporal controller |
-| GNAT2 | Transducin-alpha, cone phototransduction | Role cataloged; NOT implemented as a sequence module |
-| RPE65 | Visual-cycle retinoid isomerohydrolase | Role cataloged; NOT implemented as a sequence module |
+| OPN1LW | L cone sensitivity around 557–560 nm | **Active** RNA-derived digital L-channel temporal regulator |
+| OPN1MW | M cone sensitivity around 530 nm | **Active** RNA-derived digital M-channel temporal regulator |
+| OPN1SW | S cone sensitivity around 420 nm | **Active** RNA-derived digital S-channel temporal regulator |
+| RHO | Rod rhodopsin (low-light sensitivity) | **Active**, NCBI-matched reference as synthetic luminance/contrast temporal controller |
+| GNAT2 | Transducin-alpha, cone phototransduction | **Active**, derived coefficients drive engineered conductance gain |
+| RPE65 | Visual-cycle retinoid isomerohydrolase | **Active**, derived coefficients affect engineered resource recovery |
 
 The `rgb_features` function first linearizes sRGB gamma, then computes explicit digital proxy channels L, M, S and luminance Y. Matrices are chosen computational engineering coefficients, **not spectra recovered from RGB**. A physical spectrum cannot generally be reconstructed uniquely from three sRGB numbers.
 
 ## Interpretation of evidence
 
-All tests execute actual Python computations; input sequences for benchmarking are synthetic video-like values. The RHO nucleotide strings are an external recorded biological transcript; the *mapping to digital parameter values* is purely human-engineered. No claim is made that increasing spikes improves intelligence or signal classification. The prototype's reported `best_by_event_count` is a ranking by synthetic event count **only**, not fitness or task accuracy. External visual tasks, held-out real sensor recordings, multiple gene integration, human genomics validation and Android/Dell device benchmarks remain future experiments.
+All tests execute actual Python computations; input sequences for benchmarking are synthetic video-like values. The RHO nucleotide strings are an external recorded biological transcript; the *mapping to digital parameter values* is purely human-engineered. No claim is made that increasing spikes improves intelligence or signal classification. The prototype's reported `best_by_event_count` is a ranking by synthetic event count **only**, not fitness or task accuracy. External visual tasks, held-out real sensor recordings, biological mechanism validation and Android/Dell device benchmarks remain future experiments. Six RefSeq transcript identities are source-validated, but their mappings to the digital control laws remain engineered hypotheses.
 
 ## Further engineering dependencies
 
-1. Retrieve the three remaining opsin reference transcripts **from NCBI directly** and archive independent checksums, primary data provenance and licenses.
-2. Compare numerical RGB projections to standardized color-matching/spectral sensitivity transforms; verify on measured data, not synthetic RGB.
-3. Integrate *inherited*, source-hash-verified Ripple v0.1, Charlie v2, Delta/Daughter v3, Ring v5 through tested adapters; this alpha does not claim all existing versions are running as one system.
-4. Establish a falsifiable objective with a locked out-of-distribution evaluation set and properly balanced baselines; examine causal ablations for each real module.
-5. Build Android and Dell UIs backed by this engine; run on actual devices before calling those platforms delivered.
+1. Compare numerical RGB projections to standardized color-matching/spectral sensitivity transforms; verify on measured data, not synthetic RGB.
+2. Integrate *inherited*, source-hash-verified Ripple v0.1, Charlie v2, Delta/Daughter v3, Ring v5 through tested adapters; this alpha does not claim all existing versions are running as one system.
+3. Establish a falsifiable objective with a locked out-of-distribution evaluation set and properly balanced baselines; examine causal ablations for each real module.
+4. Build Android and Dell UIs backed by this engine; run on actual devices before calling those platforms delivered.
 
 ## Interactive local interface
 
 ```sh
-python serve.py --fasta data/RHO_NM_000539.3_mirror.fasta
+python serve.py --fasta data/RHO_NM_000539.3_mirror.fasta --genes data/ncbi_genes
 ```
 
 Open `http://127.0.0.1:8789` on the same laptop. The HTML sliders send validated actual RGB arrays and iteration counts to a live Python numerical model. API GET `/api/state`, POST `/api/step`, POST `/api/reset`; reset and input-validation have automated loopback socket tests. This is an operational localhost research UI but not an installable Android APK or a tested Dell installer.
