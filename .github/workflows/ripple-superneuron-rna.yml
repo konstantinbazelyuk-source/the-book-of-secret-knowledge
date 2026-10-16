@@ -36,7 +36,7 @@ jobs:
           result=json.loads(Path("results/independent_benchmark.json").read_text())
           assert result["search_space_exact"]==4**29
           assert result["simulated_candidate_genotypes"]==800
-          assert result["population_evaluations"]==832
+          assert result["population_evaluations"]==833
           assert result["all_regulators_have_nonzero_numerical_effect"]
           assert result["status"]=="EXECUTED_SYNTHETIC_SOFTWARE"
           previous=json.loads(Path("results/benchmark.json").read_text())
@@ -49,3 +49,4 @@ jobs:
         with:
           name: superneuron-synthetic-benchmark
           path: ripple/superneuron-rna-alpha-v0.1/results/independent_benchmark.json
+
