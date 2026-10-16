@@ -1,0 +1,36 @@
+{
+  "description": "Transcribed published values; NOT primary voltage/current time series and NOT Ripple experimental measurements.",
+  "experiments": [
+    {
+      "identifier": "ACS-MATLETT-2025-Ca-PTCDI",
+      "doi": "10.1021/acsmaterialslett.5c00892",
+      "source_url": "https://pubs.acs.org/doi/10.1021/acsmaterialslett.5c00892",
+      "chemistry": "Ca metal / organic PTCDI cathode; 0.1 M Ca(OTf)2 in NMA:TMP",
+      "reported_initial_discharge_voltage_V_approx": 1.7,
+      "reported_initial_capacity_mAh_g_cathode": 105,
+      "reported_room_temperature_cycles": 11,
+      "reported_CE_after_stabilizing_approx": 0.67,
+      "calculated_cathode_active_energy_Wh_kg_rectangular_estimate": 178.5,
+      "limits": "Initial mean/plateau voltage times capacity is a computational proxy, not an integrated energy measurement; reported capacity uses cathode active-mass denominator and CE was not 100%"
+    },
+    {
+      "identifier": "ADV-SCI-2025-Ca-CARBON",
+      "doi": "10.1002/advs.202512339",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12677698/",
+      "chemistry": "Ca metal / biomass-derived carbon cathode with engineered interfaces",
+      "reported_cycles_more_than": 500,
+      "reported_capacity_retention": 0.854,
+      "reported_test_rate_mA_g": 25,
+      "limits": "Different cells and interfaces from Ca/PTCDI; DO NOT merge cycle life with PTCDI energy figure"
+    },
+    {
+      "identifier": "NATURE-COMM-2024-CaCl2",
+      "doi": "10.1038/s41467-024-45347-3",
+      "source_url": "https://www.nature.com/articles/s41467-024-45347-3",
+      "chemistry": "Rechargeable Ca/Cl2 with CALS electrolyte",
+      "reported_electrolyte_conductivity_25C_mS_cm": 5.3,
+      "reported_electrolyte_conductivity_0C_mS_cm": 3.6,
+      "limits": "Conductivity belongs to this specific tested electrolyte/temperature, not generic calcium electrolyte. No self-assembly protocol provided."
+    }
+  ]
+}
