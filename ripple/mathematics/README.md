@@ -6,7 +6,7 @@
 
 | Document | Scope |
 |---|---|
-| [FORMULA_REGISTRY.json](FORMULA_REGISTRY.json) | Machine-readable **87-formula index**: 56 recovered earlier and 31 newly consolidated, each with ID, expression, source/version and evidence class. |
+| [FORMULA_REGISTRY.json](FORMULA_REGISTRY.json) | Machine-readable **100-formula index**: 56 recovered earlier and 44 newly consolidated, each with ID, expression, source/version and evidence class. |
 | [Original mathematical study](../docs/MATHEMATICAL_STUDY.md) | 56 detailed equations, domains, units, mathematical derivations, limitations and negative findings. |
 | [LINEAGE_AND_UPGRADES.md](LINEAGE_AND_UPGRADES.md) | Cross-version parentage and Ripple, Charlie and Kokoro upgrades and experimental choices. |
 | [SAMSUNG_OPTICAL_ENGINEERING.md](SAMSUNG_OPTICAL_ENGINEERING.md) | Optical device reconstruction, calibration, objective comparisons and results through v0.5. |
@@ -40,11 +40,15 @@ The inverse formula applies only for attainable target rates and threshold bound
 ## How the registry is counted
 
 - 56 individually enumerated formulas from the preserved [Charlie Ripple mathematical study](../docs/MATHEMATICAL_STUDY.md).
-- 31 indexed additional formulas from the reviewed Delta, Daughter, Beer–Lambert, recurrent Charlie, Kokoro Dynamics, Kokoro perception–action, genetic weights and Samsung mathematical documents.
-- Further archives, including additional Kokoro/Lumina, genome/robotics, genetic colony and later Ripple packages, are listed in the lineage. Their complete contents have **not** all been indexed into distinct formula rows. **87 is the verified reviewed count**, not a declaration that every historical chat or archive has been exhaustively recovered.
+- 44 indexed additional formulas from the reviewed Delta, Daughter, Beer–Lambert, recurrent Charlie, Kokoro Dynamics, Kokoro perception–action, genetic weights and Samsung mathematical documents.
+- Further archives, including additional Kokoro/Lumina, genome/robotics, genetic colony and later Ripple packages, are listed in the lineage. Their complete contents have **not** all been indexed into distinct formula rows. **100 is the verified reviewed count**, not a declaration that every historical chat or archive has been exhaustively recovered.
 
 ## Mathematical continuity policy
 
 Preserve locked source. Model an upgrade as a separate versioned module or adapter with typed inputs, physical or model units, explicit objective, test evidence and regression comparator. Archive counterexamples and failures as well as apparent improvements. Keep measured real-world readings separate from simulation and analytical calculation. Reconstruct missing formula provenance from source rather than filling historical gaps by analogy.
 
 This directory contains public mathematics and provenance, not private Kokoro weights, checkpoints, conversations, proprietary third-party files, or complete unreviewed binary ZIP archives. It is an independent Ripple subdirectory of this public fork, not work attributed to the upstream Book of Secret Knowledge authors.
+
+### Kokoro source-depth follow-up
+
+A later source pass verified 13 additional formulas in Kokoro's Lumina Forest diffusion, virtual motor control, genome robotics, pixel-camera geometry and read-only telemetry integration. The registry now contains those equations and exact source-document paths, while further unread archive components remain listed in the provenance index.
