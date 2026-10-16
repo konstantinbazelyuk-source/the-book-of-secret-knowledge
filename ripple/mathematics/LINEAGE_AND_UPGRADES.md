@@ -83,7 +83,7 @@ Kokoro files are linked by mathematical interface; the registry includes formula
 | `Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip` | Pixel-observation-derived landmarks and bounded visual servo loop over virtual 3D rig; actual-calibration and hardware tests remain separate. |
 | `Kokoro_Ripple_Desktop_Studio_v2_1.zip` | Desktop integration of existing rigs and visual controls; platform packaging is not a new neuron equation. |
 
-`Kokoro_Mesh_Ripple`, Lumina, avatar and robotics branches contain other mathematical implementations not yet parsed entry-by-entry into the 100-formula JSON. Their source archives are listed for the next audit; private checkpoints or chat logs have not been copied to this public directory.
+`Kokoro_Mesh_Ripple`, Lumina, avatar and robotics branches contain other mathematical implementations not yet parsed entry-by-entry into the 137-formula JSON. Their source archives are listed for the next audit; private checkpoints or chat logs have not been copied to this public directory.
 
 ## Upgrade promotion protocol
 
