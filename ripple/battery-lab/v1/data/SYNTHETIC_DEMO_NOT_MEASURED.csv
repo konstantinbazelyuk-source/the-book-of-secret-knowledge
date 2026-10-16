@@ -1,0 +1,13 @@
+time_s,voltage_v,current_a,phase
+0,2.35,-0.10,charge
+60,2.43,-0.10,charge
+120,2.51,-0.10,charge
+180,2.60,-0.10,charge
+240,2.67,-0.10,charge
+241,2.36,0,rest
+260,2.34,0,rest
+261,2.20,0.10,discharge
+321,2.15,0.10,discharge
+381,2.08,0.10,discharge
+441,1.99,0.10,discharge
+501,1.85,0.10,discharge

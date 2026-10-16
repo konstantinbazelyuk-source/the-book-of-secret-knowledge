@@ -48,3 +48,7 @@ This folder does not bundle all historical Ripple archive packages or represent 
 ### Security
 
 The software runs under your user account, not as a privileged operating-system service. Do not expose the localhost token or open the local port to the internet. External JavaScript and installed applications require separate authorization. Windows startup-task registration is opt-in. No paid cloud service is enabled by this repository.
+
+## Calcium battery engineering lab
+
+- [`battery-lab/v1/`](battery-lab/v1/) — tested Python electrochemical calculations plus an offline Samsung-compatible browser measurement interface. Scientific lineage: recovered 2024 calcium-ion equations and later battery sizing; the software can integrate external physical I/V CSV recordings. Peer-reviewed calcium-cell observations are recorded separately from Ripple-generated calculations. **No physical calcium cell has been fabricated or measured by this project.**
