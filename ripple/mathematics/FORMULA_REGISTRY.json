@@ -1,0 +1,795 @@
+{
+  "schema": "ripple-mathematics-registry/1",
+  "date": "2026-10-15",
+  "scope_note": "87 reviewed equation entries, not every equation from every past chat. Original core remains untouched; see original source and each named archive for assumptions, full equations, results, code and licenses.",
+  "metrics": {
+    "original_recovered": 56,
+    "additional_derivatives": 31,
+    "total": 87
+  },
+  "entries": [
+    {
+      "id": "N01",
+      "name": "Fixed color drive",
+      "equation": "D=2R+1.2G-1.4B",
+      "source": "neuron_v01",
+      "status": "LOCKED",
+      "units": "D normalized model drive; R,G,B dimensionless.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "N02",
+      "name": "LIF differential law",
+      "equation": "tau_v du/dt=-u+D; tau_v=0.5 s",
+      "source": "neuron_v01",
+      "status": "LOCKED",
+      "units": "model seconds, u normalized.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "N03",
+      "name": "Exact constant-drive advance",
+      "equation": "u(t+h)=D+(u(t)-D)exp(-h/tau_v)",
+      "source": "neuron_v01",
+      "status": "LOCKED",
+      "units": "u normalized, h seconds.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "N04",
+      "name": "Threshold crossing",
+      "equation": "t_cross=tau_v ln((D-u0)/(D-theta)) when D>theta",
+      "source": "neuron_v01",
+      "status": "LOCKED",
+      "units": "seconds.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "N05",
+      "name": "Constant-drive firing rate",
+      "equation": "f=1/[t_ref+tau_v ln(D/(D-theta))]",
+      "source": "neuron_v01",
+      "status": "DERIVED",
+      "units": "model events/s.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "N06",
+      "name": "Feasible inverse threshold",
+      "equation": "theta*=D[1-exp(-(1/f_target-t_ref)/tau_v)]",
+      "source": "neuron_v01",
+      "status": "DERIVED",
+      "units": "u normalized.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "N07",
+      "name": "Exponential event-rate estimate",
+      "equation": "rhat(t+h)=rhat(t)exp(-h/tau_r)+sum_j exp(-(t+h-t_j)/tau_r)/tau_r",
+      "source": "neuron_v01",
+      "status": "LOCKED",
+      "units": "events/s; tau_r=5 s.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "N08",
+      "name": "Feedback threshold law",
+      "equation": "dtheta/dt=eta*(rhat-r_target); theta=clip(theta,0.15,2.5)",
+      "source": "neuron_v01",
+      "status": "LOCKED",
+      "units": "model threshold/second.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "N09",
+      "name": "Optional hybrid feed-forward controller",
+      "equation": "theta_next=clip(theta+alpha(theta*-theta)+kappa dt(rhat-f*),0.15,2.5); alpha=1-exp(-dt/tau_ff)",
+      "source": "mycelium_v03",
+      "status": "RESEARCH_ALTERNATIVE",
+      "units": "normalized threshold.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "O01",
+      "name": "Spectral mixing forward model",
+      "equation": "z-d=Mx+epsilon",
+      "source": "optical_historical_v04",
+      "status": "DOCUMENTED",
+      "units": "sensor ADC counts.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "O02",
+      "name": "Least-squares spectral estimate",
+      "equation": "xhat=(M^T M)^(-1)M^T(z-d)",
+      "source": "optical_historical_v04",
+      "status": "DOCUMENTED",
+      "units": "reference-normalized emitter intensities.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "O03",
+      "name": "Drive uncertainty propagation",
+      "equation": "Var(D)=w^T Sigma_x w; w=(2,1.2,-1.4)",
+      "source": "optical_historical_v04",
+      "status": "DERIVED",
+      "units": "normalized drive squared.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "O04",
+      "name": "Lock-in quadrature",
+      "equation": "C=(2/N)sum_n y_n cos(2pi f t_n); S=(2/N)sum_n y_n sin(2pi f t_n)",
+      "source": "optical_historical_v04",
+      "status": "DOCUMENTED",
+      "units": "sensor counts.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "O05",
+      "name": "Finite hypothesis distance",
+      "equation": "Q(x)=sum_i[(y_i-b_i-(Mx)_i)/sigma_i]^2",
+      "source": "optical_historical_v04",
+      "status": "DOCUMENTED",
+      "units": "dimensionless.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "O06",
+      "name": "Four phase optical interferogram",
+      "equation": "I(delta)=I_s+I_r+2 sqrt(I_s I_r) cos(phi+delta)",
+      "source": "optical_agent_v01",
+      "status": "SIMULATED_ADAPTER",
+      "units": "relative intensities.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "O07",
+      "name": "Reflection phase displacement",
+      "equation": "phi=4pi d/lambda; d=phi lambda/(4pi)",
+      "source": "optical_agent_v01",
+      "status": "DERIVED",
+      "units": "radians and length.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "O08",
+      "name": "Laser Doppler beat frequency",
+      "equation": "f_beat=2v/lambda",
+      "source": "heterodyne_v01",
+      "status": "DERIVED",
+      "units": "Hz.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "O09",
+      "name": "Nyquist sampling inequality",
+      "equation": "f_signal < f_sample/2",
+      "source": "master_v20",
+      "status": "ESTABLISHED",
+      "units": "Hz.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "P01",
+      "name": "sRGB to linear channel",
+      "equation": "L=c/12.92 if c<=0.04045 else ((c+0.055)/1.055)^2.4",
+      "source": "photoreceptor_v06",
+      "status": "LOCKED_OPTIONAL",
+      "units": "dimensionless.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "P02",
+      "name": "Simulated Beer-Lambert",
+      "equation": "T_i=exp(-a_i*l); y_i=x_i T_i",
+      "source": "photoreceptor_v06",
+      "status": "LOCKED_OPTIONAL",
+      "units": "dimensionless, a_i inverse path units.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "P03",
+      "name": "Log intensity feature",
+      "equation": "ell_i=ln(L_i+floor); delta_i=ell_i-ref_i",
+      "source": "photoreceptor_v06",
+      "status": "LOCKED_OPTIONAL",
+      "units": "log dimensionless.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "P04",
+      "name": "ON/OFF event counts",
+      "equation": "n_i=min(limit,floor(abs(delta_i)/threshold)); ref_i+=sign(delta_i)n_i threshold",
+      "source": "photoreceptor_v06",
+      "status": "LOCKED_OPTIONAL",
+      "units": "events per sample.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "P05",
+      "name": "Compressed sustained channel",
+      "equation": "y=ln(1+kL)/ln(1+k), k>0; otherwise y=L",
+      "source": "photoreceptor_v06",
+      "status": "LOCKED_OPTIONAL",
+      "units": "dimensionless.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "P06",
+      "name": "Relative dark-clear calibration",
+      "equation": "T=(decode(raw)-decode(dark))/(decode(clear)-decode(dark))",
+      "source": "photoreceptor_v06",
+      "status": "LOCKED_OPTIONAL",
+      "units": "dimensionless.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "S01",
+      "name": "Paired finite-volume transport",
+      "equation": "F_ij=K dt(c_j-c_i); c_i+=F_ij; c_j-=F_ij",
+      "source": "alpha_spatial_v10",
+      "status": "ACTIVE_NUMERICAL",
+      "units": "normalized resource/cell.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "S02",
+      "name": "Explicit diffusion stability",
+      "equation": "K dt max_degree <= 1",
+      "source": "alpha_spatial_v10",
+      "status": "ENGINEERING_BOUND",
+      "units": "dimensionless.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "S03",
+      "name": "Density-dependent ray transmission",
+      "equation": "T=exp(-0.8 * mean_density * ray_length)",
+      "source": "alpha_spatial_v10",
+      "status": "SIMULATED",
+      "units": "dimensionless.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "S04",
+      "name": "Occupancy log odds",
+      "equation": "L_t=clip(L_(t-1)+logit(p_hit_or_free)-L0,Lmin,Lmax); p=sigmoid(L_t)",
+      "source": "master_v20",
+      "status": "ACTIVE_NUMERICAL",
+      "units": "dimensionless probability.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "S05",
+      "name": "Scan image pixel length",
+      "equation": "mm_per_pixel=L_known_mm / observed_span_pixels",
+      "source": "spider_ground_v05",
+      "status": "CALCULATED",
+      "units": "mm/pixel.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "S06",
+      "name": "Image optical-flow velocity",
+      "equation": "v_pix=sqrt(dx^2+dy^2)/dt",
+      "source": "sensor_bridge_v02",
+      "status": "EXECUTED_SOFTWARE",
+      "units": "pixels/s.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "S07",
+      "name": "Chunk index",
+      "equation": "chunk_x=floor(cell_x/16), chunk_y=floor(cell_y/16)",
+      "source": "spider_colony_v06",
+      "status": "EXECUTED_SOFTWARE",
+      "units": "index.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "C01",
+      "name": "Queue utilization feasibility",
+      "equation": "lambda < N mu",
+      "source": "mycelium_v03",
+      "status": "ESTABLISHED_BOUND",
+      "units": "jobs/s.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "C02",
+      "name": "Capacity estimate",
+      "equation": "mu=1/[t_ref+tau_v ln(D/(D-theta))]",
+      "source": "mycelium_v03",
+      "status": "EXPERIMENTAL",
+      "units": "modeled events/s.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "C03",
+      "name": "Proposed worker demand",
+      "equation": "n=clip(ceil(max(lambda/(.7 mu),B/(15*.7 mu))),1,nmax)",
+      "source": "mycelium_v03",
+      "status": "EXPERIMENTAL",
+      "units": "workers.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "C04",
+      "name": "Coverage objective",
+      "equation": "J=1200 coverage-.52 worker_seconds-2.5 p95_latency-.03 hops",
+      "source": "alpha_lab_v10",
+      "status": "EXPERIMENTAL",
+      "units": "chosen synthetic score.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "G01",
+      "name": "Ancestry marker",
+      "equation": "marker=SHA256(canonicalJSON(schema,genes,parent))",
+      "source": "alpha_lab_v10",
+      "status": "EXECUTED_SOFTWARE",
+      "units": "hex digest.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "G02",
+      "name": "Calibrated supervised loss",
+      "equation": "p=sigmoid(clip(b+2x_R+1.2x_G-1.4x_B,-15,15)); loss=-y ln(p)-(1-y) ln(1-p)",
+      "source": "sensory_gene_v12",
+      "status": "EXPERIMENTAL",
+      "units": "dimensionless.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "G03",
+      "name": "Projected gene mirror descent",
+      "equation": "ell_i=ln(max(c_i,eps))-eta[g_i+lambda ln(c_i/c0_i)]; c_new_i=.003+.991 exp(ell_i-m)/sum_j exp(ell_j-m)",
+      "source": "sensory_gene_v12",
+      "status": "EXPERIMENTAL",
+      "units": "simplex c_i.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "G04",
+      "name": "Birth propensity under conditions",
+      "equation": "logit(p_birth)=logit(bias)+1.2 novelty+0.55 uncertainty-1.6 density-1.5 crowding-1.8 energy_shortfall",
+      "source": "sensory_gene_v12",
+      "status": "EXPERIMENTAL",
+      "units": "probability.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "Q01",
+      "name": "Four symbols in two bits",
+      "equation": "symbol in {-1,-0,0,1}; code in {0,1,2,3}; bitlength=2 per symbol",
+      "source": "quaternary_v07",
+      "status": "LOCKED_OPTIONAL",
+      "units": "bits.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "Q02",
+      "name": "Discrete Fourier transform",
+      "equation": "X_k=sum_(n=0)^(N-1) x_n exp(-i2pi kn/N)",
+      "source": "quaternary_v07",
+      "status": "DOCUMENTED",
+      "units": "signal units * samples.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "M01",
+      "name": "Rate-limited servo first-order update",
+      "equation": "q_next=q+clip((q_goal-q)(1-exp(-dt/tau)),-omega_max dt,omega_max dt)",
+      "source": "motor_evo_v12",
+      "status": "LOCKED_ADAPTER",
+      "units": "radians.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "M02",
+      "name": "Foot tracking RMSE",
+      "equation": "RMSE=sqrt(sum||p_goal-p_actual||^2 / N)",
+      "source": "motor_evo_v12",
+      "status": "EXECUTED_SIMULATION",
+      "units": "mm.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "M03",
+      "name": "Ripple event risk memory",
+      "equation": "risk_next=min(1,risk exp(-dt/.30)+.70 spikes)",
+      "source": "motor_evo_v12",
+      "status": "EXPERIMENTAL",
+      "units": "dimensionless.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "M04",
+      "name": "Risk-bounded stride command",
+      "equation": "stride_cmd=stride_gene(1-gain max_i risk_i)",
+      "source": "motor_evo_v12",
+      "status": "EXPERIMENTAL",
+      "units": "mm.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "M05",
+      "name": "Nominal commanded-motion proxy",
+      "equation": "v_proxy=stride_mm/(cycle_s*duty)",
+      "source": "motor_evo_v12",
+      "status": "EXECUTED_SIMULATION",
+      "units": "mm/s.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "M06",
+      "name": "Loss with anti-stall penalty",
+      "equation": "loss=RMSE+2max(0,v_target-v_proxy)+.025 clips+.2 support_losses+8 IK_failures",
+      "source": "motor_evo_v12",
+      "status": "EXPERIMENTAL",
+      "units": "chosen score.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "E01",
+      "name": "Multi-objective policy vector",
+      "equation": "F=[mean toe error,-mean speed,mean clipping,mean support proxy loss]",
+      "source": "pareto_v13",
+      "status": "EXECUTED_SIMULATION",
+      "units": "mixed-objective vector.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "E02",
+      "name": "Pareto dominance",
+      "equation": "a dominates b iff all F_i(a)<=F_i(b) and exists j F_j(a)<F_j(b)",
+      "source": "pareto_v13",
+      "status": "EXECUTED_SIMULATION",
+      "units": "logical.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "E03",
+      "name": "Feasibility gate",
+      "equation": "IK_failures=0 and speed>=0.75 v_target and support_losses<=5 N_cases",
+      "source": "pareto_v13",
+      "status": "EXECUTED_SIMULATION",
+      "units": "mixed.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "CH01",
+      "name": "Evidence-gated packet",
+      "equation": "valid=(source==simulated or independently_provenanced) AND finite_values AND legal_units",
+      "source": "charlie_v10",
+      "status": "NEW_VALIDATED",
+      "units": "boolean.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "CH02",
+      "name": "Evidence-weighted release rule",
+      "equation": "promote if gate_pass and no_unknown_units and tests_pass and holdout_feasible",
+      "source": "charlie_v10",
+      "status": "NEW_VALIDATED",
+      "units": "boolean.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "B01",
+      "name": "Biot-Savart field integral",
+      "equation": "B(r)=mu0 I/(4pi) integral (dl cross (r-r_prime))/|r-r_prime|^3",
+      "source": "fieldsphere_v01",
+      "status": "EXECUTED_SIMULATION",
+      "units": "tesla.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "B02",
+      "name": "Vector magnetic magnitude",
+      "equation": "|B|=sqrt(Bx^2+By^2+Bz^2)",
+      "source": "fieldsphere_v01",
+      "status": "ESTABLISHED",
+      "units": "tesla or microtesla.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "F01",
+      "name": "Hann-window spectral amplitude",
+      "equation": "A_k=2|sum_n(x_n-mean(x))w_n exp(-i2pi kn/N)| / sum_n w_n; w_n=Hann(n)",
+      "source": "spectrum_v01",
+      "status": "EXECUTED_SOFTWARE",
+      "units": "same units as x_n.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "F02",
+      "name": "Finite observation frequency resolution",
+      "equation": "Delta f approximately 1 / (N dt) = 1/T",
+      "source": "spectrum_v01",
+      "status": "ESTABLISHED",
+      "units": "Hz.",
+      "source_document": "ripple/docs/MATHEMATICAL_STUDY.md"
+    },
+    {
+      "id": "DELTA-01",
+      "name": "Contrast-driven optical excitation",
+      "equation": "S=sum_i w_i*C(x_i); D=S+gamma*Delta",
+      "status": "SIMULATED",
+      "source": "Ripple-Delta-Neuron-Mathematical-Alpha-v3.0.zip",
+      "source_document": "User Library / Ripple-Delta-Neuron-Mathematical-Alpha-v3.0.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "DELTA-02",
+      "name": "Delta membrane with adaptation",
+      "equation": "tau_v*du/dt=-u+D-a",
+      "status": "SIMULATED",
+      "source": "Ripple-Delta-Neuron-Mathematical-Alpha-v3.0.zip",
+      "source_document": "User Library / Ripple-Delta-Neuron-Mathematical-Alpha-v3.0.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "DELTA-03",
+      "name": "Adaptation state decay",
+      "equation": "tau_a*da/dt=-a between spikes",
+      "status": "SIMULATED",
+      "source": "Ripple-Delta-Neuron-Mathematical-Alpha-v3.0.zip",
+      "source_document": "User Library / Ripple-Delta-Neuron-Mathematical-Alpha-v3.0.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "TRI-01",
+      "name": "Photoreceptor filter",
+      "equation": "tau_P*dp_k/dt=C(I_k)-p_k",
+      "status": "SIMULATED",
+      "source": "Ripple-GenBeta-Delta-Daughter-Triplet-v3.1-Complete.zip",
+      "source_document": "User Library / Ripple-GenBeta-Delta-Daughter-Triplet-v3.1-Complete.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "TRI-02",
+      "name": "Dendritic filter",
+      "equation": "tau_D*dd/dt=-d+sum_k w_k*p_k+gamma*delta",
+      "status": "SIMULATED",
+      "source": "Ripple-GenBeta-Delta-Daughter-Triplet-v3.1-Complete.zip",
+      "source_document": "User Library / Ripple-GenBeta-Delta-Daughter-Triplet-v3.1-Complete.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "TRI-03",
+      "name": "Somatic and adaptation filter",
+      "equation": "tau_S*du/dt=-u+d-a; tau_A*da/dt=-a",
+      "status": "SIMULATED",
+      "source": "Ripple-GenBeta-Delta-Daughter-Triplet-v3.1-Complete.zip",
+      "source_document": "User Library / Ripple-GenBeta-Delta-Daughter-Triplet-v3.1-Complete.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "TRI-04",
+      "name": "Spike-triggered adaptation",
+      "equation": "a(t+)=a(t-)+b; u(t+)=0",
+      "status": "SIMULATED",
+      "source": "Ripple-GenBeta-Delta-Daughter-Triplet-v3.1-Complete.zip",
+      "source_document": "User Library / Ripple-GenBeta-Delta-Daughter-Triplet-v3.1-Complete.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "BETA-01",
+      "name": "Beer-Lambert intensity",
+      "equation": "I=I0*exp(-mu*L); T=I/I0",
+      "status": "CALCULATED",
+      "source": "Ripple-Mathematics-Compiler-Beer-Lambert-v2.1.1.zip",
+      "source_document": "User Library / Ripple-Mathematics-Compiler-Beer-Lambert-v2.1.1.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "BETA-02",
+      "name": "Decadic absorbance",
+      "equation": "A_10=mu*L/ln(10)",
+      "status": "CALCULATED",
+      "source": "Ripple-Mathematics-Compiler-Beer-Lambert-v2.1.1.zip",
+      "source_document": "User Library / Ripple-Mathematics-Compiler-Beer-Lambert-v2.1.1.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "KDY-01",
+      "name": "Binned event-rate variance",
+      "equation": "Var(rate_bin)=Var(N_bin/dt)",
+      "status": "SYNTHETIC_TELEMETRY",
+      "source": "Kokoro_Ripple_Dynamics_v0_1.zip",
+      "source_document": "User Library / Kokoro_Ripple_Dynamics_v0_1.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "KDY-02",
+      "name": "Event-count Fano factor",
+      "equation": "Fano=Var(N_bin)/E(N_bin)",
+      "status": "SYNTHETIC_TELEMETRY",
+      "source": "Kokoro_Ripple_Dynamics_v0_1.zip",
+      "source_document": "User Library / Kokoro_Ripple_Dynamics_v0_1.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "KDY-03",
+      "name": "Spectral bin resolution",
+      "equation": "Delta_f=f_sample/N; f_Nyquist=f_sample/2",
+      "status": "CALCULATED",
+      "source": "Kokoro_Ripple_Dynamics_v0_1.zip",
+      "source_document": "User Library / Kokoro_Ripple_Dynamics_v0_1.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "KPA-01",
+      "name": "Rendered observation",
+      "equation": "I_t=Render(M,q_t,L_t,camera,exposure)",
+      "status": "EXECUTED_RENDER",
+      "source": "Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+      "source_document": "User Library / Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "KPA-02",
+      "name": "Mean display RGB brightness proxy",
+      "equation": "Ybar=.2126*rbar+.7152*gbar+.0722*bbar",
+      "status": "CALCULATED",
+      "source": "Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+      "source_document": "User Library / Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "KPA-03",
+      "name": "Frame contrast",
+      "equation": "Delta=mean_pixels(abs(gray(I_t)-gray(I_prev)))/255",
+      "status": "CALCULATED",
+      "source": "Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+      "source_document": "User Library / Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "KPA-04",
+      "name": "Visual-to-neuron adapter",
+      "equation": "x_vision=clamp([1.5*rbar+.7*Delta,1.1*gbar,.8*bbar],0,1)",
+      "status": "EXECUTED_SOFTWARE",
+      "source": "Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+      "source_document": "User Library / Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "KPA-05",
+      "name": "Audio-to-neuron adapter",
+      "equation": "x_audio=clamp([8*RMS,6*centroid/Nyquist,centroid/Nyquist],0,1)",
+      "status": "EXECUTED_SOFTWARE",
+      "source": "Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+      "source_document": "User Library / Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "KPA-06",
+      "name": "Heart-light feedback",
+      "equation": "L_next=clip(L+clip(1.5*(.16-Ybar),-.032,.032)+.004*visual_event-.003*audio_event,.38,.90)",
+      "status": "EXECUTED_SOFTWARE",
+      "source": "Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+      "source_document": "User Library / Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "CRC-01",
+      "name": "Conductance based Charlie cell",
+      "equation": "C*du/dt=g_L*(E_L-u)+g_e*(E_e-u)+g_i*(E_i-u)-adaptive_current",
+      "status": "SIMULATED",
+      "source": "Charlie_Recurrent_Thought_Comparison_v1_1.zip",
+      "source_document": "User Library / Charlie_Recurrent_Thought_Comparison_v1_1.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "CRC-02",
+      "name": "Visual quality signal gate",
+      "equation": "e_s=clip(2*(p_s-.5),-1,1) if quality>=.65 else 0",
+      "status": "SIMULATED",
+      "source": "Charlie_Recurrent_Thought_Comparison_v1_1.zip",
+      "source_document": "User Library / Charlie_Recurrent_Thought_Comparison_v1_1.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "CRC-03",
+      "name": "Synthetic oracle patch",
+      "equation": "patch_true=(.55*R+1.30*G-.65*B > .68)",
+      "status": "SYNTHETIC_ORACLE",
+      "source": "Charlie_Recurrent_Thought_Comparison_v1_1.zip",
+      "source_document": "User Library / Charlie_Recurrent_Thought_Comparison_v1_1.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "GENW-01",
+      "name": "Cold evidence weighting",
+      "equation": "z_i=.62*l_i",
+      "status": "SIMULATED_SELECTED",
+      "source": "Ripple-Genetic-Weights-Alpha-v1.7.zip",
+      "source_document": "User Library / Ripple-Genetic-Weights-Alpha-v1.7.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "GENW-02",
+      "name": "Cyclic phase-coupled evidence",
+      "equation": "z_i=cos(phi)*l_i-sin(phi)*l_(i-1); phi=+/-0.23",
+      "status": "SIMULATED_NEGATIVE_RESULT",
+      "source": "Ripple-Genetic-Weights-Alpha-v1.7.zip",
+      "source_document": "User Library / Ripple-Genetic-Weights-Alpha-v1.7.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "GENW-03",
+      "name": "Bit posterior estimate",
+      "equation": "p_i=sigmoid(z_i); P(X=x)=product_i p_i^b_i(x)*(1-p_i)^(1-b_i(x))",
+      "status": "SIMULATED",
+      "source": "Ripple-Genetic-Weights-Alpha-v1.7.zip",
+      "source_document": "User Library / Ripple-Genetic-Weights-Alpha-v1.7.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "GENW-04",
+      "name": "Finite function composition",
+      "equation": "h(x)=f(g(x)); f,g:{0..15}->{0..15}",
+      "status": "EXECUTED_SOFTWARE",
+      "source": "Ripple-Genetic-Weights-Alpha-v1.7.zip",
+      "source_document": "User Library / Ripple-Genetic-Weights-Alpha-v1.7.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "SAM-01",
+      "name": "Camera RGB response",
+      "equation": "p=d+M*x+epsilon",
+      "status": "MODEL_ASSUMPTION",
+      "source": "Ripple-Samsung-Optical-Reconstruction-v0.4.zip",
+      "source_document": "User Library / Ripple-Samsung-Optical-Reconstruction-v0.4.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "SAM-02",
+      "name": "Calibrated camera inverse",
+      "equation": "xhat=clip(M^(-1)*(p-d),0,1)",
+      "status": "SYNTHETIC_TEST",
+      "source": "Ripple-Samsung-Optical-Reconstruction-v0.4.zip",
+      "source_document": "User Library / Ripple-Samsung-Optical-Reconstruction-v0.4.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "SAM-03",
+      "name": "Camera-equivalent Ripple drive",
+      "equation": "D=a^T*xhat; when unclipped w^T=a^T*M^(-1), b=-w^T*d, D=w^T*p+b",
+      "status": "DERIVED",
+      "source": "Ripple-Samsung-Optical-Reconstruction-v0.4.zip",
+      "source_document": "User Library / Ripple-Samsung-Optical-Reconstruction-v0.4.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "SAM-04",
+      "name": "Positive-color research encoder",
+      "equation": "D=1.2R+.9G+.7B",
+      "status": "SIMULATED_CANDIDATE",
+      "source": "Ripple-Samsung-Engineering-v0.5-Complete.zip",
+      "source_document": "User Library / Ripple-Samsung-Engineering-v0.5-Complete.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "SAM-05",
+      "name": "Luminance-proxy research encoder",
+      "equation": "D=3*(.2126R+.7152G+.0722B)",
+      "status": "SIMULATED_CANDIDATE",
+      "source": "Ripple-Samsung-Engineering-v0.5-Complete.zip",
+      "source_document": "User Library / Ripple-Samsung-Engineering-v0.5-Complete.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    },
+    {
+      "id": "SAM-06",
+      "name": "Target-rate absolute error",
+      "equation": "MAE=mean_t(abs(rhat-f_target))",
+      "status": "SIMULATED_METRIC",
+      "source": "Ripple-Samsung-Engineering-v0.5-Complete.zip",
+      "source_document": "User Library / Ripple-Samsung-Engineering-v0.5-Complete.zip",
+      "provenance": "Versioned archived study; physical behavior has not been established by equations alone"
+    }
+  ]
+}
