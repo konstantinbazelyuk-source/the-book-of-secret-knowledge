@@ -5,13 +5,15 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
 import threading
-from superneuron import SuperNeuron, parse_fasta, locus_template
+from superneuron import SuperNeuron, parse_fasta
+from superneuron_multigene import MultiGeneSuperNeuron, load_genes
 
 STATIC = Path(__file__).resolve().parent/'index.html'
 
 
-def make_server(rna, port=8789):
-    state={'neuron':SuperNeuron(rna), 'rna':rna}
+def make_server(rna, port=8789, genes=None):
+    maker=lambda: MultiGeneSuperNeuron(rna,genes) if genes is not None else SuperNeuron(rna)
+    state={'neuron':maker(), 'make_model':maker, 'rna':rna}
     mutex=threading.Lock()
     class Handler(BaseHTTPRequestHandler):
         def log_message(self,fmt,*args):pass
@@ -21,8 +23,11 @@ def make_server(rna, port=8789):
                 return self.send_payload(raw,'text/html; charset=utf-8')
             if self.path=='/api/state':
                 with mutex:
-                    n=state['neuron'];response={'time_s':n.t,'spikes':n.spikes,'voltage':n.u,'energy':n.energy,
-                           'gene_drive':n.last_signal,'loci':len(n.regulators),'gene_origin':'RHO RefSeq mRNA mirror'}
+                    n=state['neuron'];base=n.base if hasattr(n,'base') else n
+                    response={'time_s':base.t,'spikes':base.spikes,'voltage':base.u,'energy':base.energy,
+                           'gene_drive':base.last_signal,'loci':174 if hasattr(n,'genes') else 29,
+                           'genes':list(n.genes) + ['RHO'] if hasattr(n,'genes') else ['RHO'],
+                           'gene_origin':'NCBI RefSeq mRNA; engineering software parameters'}
                 return self.send_payload(json.dumps(response).encode(),'application/json')
             self.send_error(404)
         def send_payload(self,raw,content_type):
@@ -40,7 +45,7 @@ def make_server(rna, port=8789):
                 body=json.loads(self.rfile.read(length) or b'{}')
                 with mutex:
                     if self.path=='/api/reset':
-                        state['neuron']=SuperNeuron(state['rna'])
+                        state['neuron']=state['make_model']()
                         result={'reset':True,'spikes':0,'energy':1.}
                     else:
                         rgb=body['rgb'];steps=int(body.get('steps',1))
@@ -48,7 +53,7 @@ def make_server(rna, port=8789):
                         if not isinstance(rgb,list) or len(rgb)!=3:raise ValueError('RGB list required')
                         n=state['neuron'];last=None
                         for _ in range(steps):last=n.step(tuple(rgb))
-                        result={**last,'spikes_total':n.spikes}
+                        result={**last,'spikes_total':n.base.spikes if hasattr(n,'base') else n.spikes}
             except (ValueError, KeyError, TypeError, OverflowError) as e:
                 raw=json.dumps({'error':str(e)}).encode();self.send_response(400)
                 self.send_header('Content-Type','application/json');self.send_header('Content-Length',str(len(raw)))
@@ -58,10 +63,10 @@ def make_server(rna, port=8789):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--fasta',required=True);p.add_argument('--port',type=int,default=8789)
+    p=argparse.ArgumentParser();p.add_argument('--fasta',required=True);p.add_argument('--port',type=int,default=8789);p.add_argument('--genes',help='directory of five NCBI-verified FASTA files; enables six-gene engine')
     args=p.parse_args()
     rna=parse_fasta(Path(args.fasta).read_text(),expected_accession='NM_000539.3')['rna']
-    srv=make_server(rna,args.port)
+    srv=make_server(rna,args.port,genes=load_genes(Path(args.genes)) if args.genes else None)
     print(f'Loopback-only SuperNeuron UI at http://127.0.0.1:{srv.server_port}')
     try:srv.serve_forever()
     except KeyboardInterrupt:pass
