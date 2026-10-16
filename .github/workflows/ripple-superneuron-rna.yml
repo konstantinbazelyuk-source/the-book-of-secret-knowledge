@@ -44,6 +44,18 @@ jobs:
               assert result[key]==previous[key],key
           print("Code, RHO transcript SHA, numeric ablation and replay verified.")
           PY
+      - name: Compare mirrored human RHO transcript to NCBI RefSeq
+        continue-on-error: true
+        shell: bash
+        run: |
+          cd ripple/superneuron-rna-alpha-v0.1
+          python data/verify_ncbi.py
+      - name: Preserve NCBI source comparison evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: superneuron-ncbi-provenance
+          path: ripple/superneuron-rna-alpha-v0.1/results/ncbi_provenance.json
       - name: Preserve numerical benchmark evidence
         uses: actions/upload-artifact@v4
         with:
