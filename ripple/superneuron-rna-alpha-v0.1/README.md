@@ -60,3 +60,7 @@ python serve.py --fasta data/RHO_NM_000539.3_mirror.fasta
 ```
 
 Open `http://127.0.0.1:8789` on the same laptop. The HTML sliders send validated actual RGB arrays and iteration counts to a live Python numerical model. API GET `/api/state`, POST `/api/step`, POST `/api/reset`; reset and input-validation have automated loopback socket tests. This is an operational localhost research UI but not an installable Android APK or a tested Dell installer.
+
+### Exact inherited Charlie v2 comparison (added)
+
+The original unedited `Charlie_Ripple_Core_v2_0/charlie_core/neuron.py` is additionally imported at `vendor/charlie_v2/neuron.py` with its existing source SHA-256 `bf96fc4dae90eeee65e3f895207c6c5714f736b1b9dbf09569e1c24a8b440f77`; license notice retained under `vendor/charlie_v2/LICENSE-NEW-CODE.txt`. Benchmark runs this **actual original implementation** separately from the newly developed SuperNeuron and reports its own spike counts and mean membrane voltage. It does not conflate neuron thresholds or compare spike counts as task accuracy.
