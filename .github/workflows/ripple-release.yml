@@ -1,0 +1,76 @@
+name: Ripple public release package
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - .github/workflows/ripple-release.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout published source
+        uses: actions/checkout@v4
+
+      - name: Prepare Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify core integrity and composition source
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p=Path('ripple/native-alpha-v2.0/reference/v01_ripple_core_LOCKED.cjs')
+          want='d75d4208e92f19623b127615bd52b4002e85d2c0a59b76471764b55a24294210'
+          actual=hashlib.sha256(p.read_bytes()).hexdigest()
+          assert actual==want,(actual,want)
+          print('Original Ripple core verified:',actual)
+          PY
+          python3 -m pip install --quiet numpy
+          python3 ripple/genetic-weights-v1.7/src/create_novel.py
+          node --test ripple/genetic-weights-v1.7/tests/test_composition.mjs
+
+      - name: Build public source archive
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile
+          destination=Path('Ripple-Public-Alpha-v2.0-Source.zip')
+          with zipfile.ZipFile(destination,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as archive:
+              for folder in ('ripple','docs'):
+                  for path in sorted(Path(folder).rglob('*')):
+                      if not path.is_file() or '__pycache__' in path.parts or path.suffix=='.pyc':
+                          continue
+                      archive.write(path,path.as_posix())
+          with zipfile.ZipFile(destination) as archive:
+              assert archive.testzip() is None
+              assert 'docs/index.html' in archive.namelist()
+              assert 'ripple/native-alpha-v2.0/bin/Setup-Dell.ps1' in archive.namelist()
+              assert 'ripple/genetic-weights-v1.7/src/composition.mjs' in archive.namelist()
+              print('Verified archive:', len(archive.namelist()),'files')
+          PY
+
+      - name: Publish downloadable release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag='ripple-public-alpha-v2.0'
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Existing release $tag retained; no overwrite."
+            exit 0
+          fi
+          gh release create "$tag" 'Ripple-Public-Alpha-v2.0-Source.zip' \
+            --title 'Ripple Neuron · Public Alpha v2.0 and Research Laboratories' \
+            --target "$GITHUB_SHA" \
+            --notes 'Public source-code Alpha containing the Dell laptop runtime, preserved Ripple neuron, v1.7 genetic-weight composition, mathematical codex, browser simulator and archived optical/code/colony studies. Experiments using synthetic observations are labeled as such. Windows hardware behavior has not been independently verified. No commercial AI model or paid service is included.'
