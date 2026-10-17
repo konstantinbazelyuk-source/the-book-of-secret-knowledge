@@ -1,0 +1,100 @@
+name: Ripple Repair native Android, Windows and algorithm verification
+on:
+  push:
+    branches: [research/ripple-repair-cell-v1_0]
+    paths:
+      - 'research/ripple-repair-cell-v1_0/**'
+      - '.github/workflows/ripple-repair-cell-v10.yml'
+permissions:
+  contents: read
+jobs:
+  python-reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Extract SHA-256-verified source
+        run: |
+          python - <<'PY'
+          import base64,hashlib,zipfile,pathlib,io
+          blob=base64.b64decode(pathlib.Path('research/ripple-repair-cell-v1_0/source_bundle.b64').read_text().strip(),validate=True)
+          digest=hashlib.sha256(blob).hexdigest()
+          assert digest=='17be9c3252fda975427fcdff67da7b721e38049618a7a0d952bae0d9a8e86856',digest
+          z=zipfile.ZipFile(io.BytesIO(blob));assert z.testzip() is None;z.extractall('ripple_src')
+          print('VERIFIED BUNDLE:',digest)
+          PY
+      - name: Run unit, HTTP and Python↔Java tests plus recorded study
+        run: |
+          cd ripple_src
+          PYTHONPATH=. python -m unittest discover -s tests -q
+          PYTHONPATH=. python tools/run_study.py results
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ripple-repair-cloud-study
+          path: ripple_src/results/experiment.json
+  android-debug-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Install Android SDK 35
+        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      - name: Extract verified source
+        run: |
+          python - <<'PY'
+          import base64,hashlib,zipfile,pathlib,io
+          blob=base64.b64decode(pathlib.Path('research/ripple-repair-cell-v1_0/source_bundle.b64').read_text().strip(),validate=True)
+          assert hashlib.sha256(blob).hexdigest()=='17be9c3252fda975427fcdff67da7b721e38049618a7a0d952bae0d9a8e86856'
+          zipfile.ZipFile(io.BytesIO(blob)).extractall('ripple_src')
+          PY
+      - name: Compile actual Android debug APK
+        run: |
+          cd ripple_src/android
+          gradle --no-daemon :app:assembleDebug
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: RippleRepair-Android-debug-APK
+          path: ripple_src/android/app/build/outputs/apk/debug/*.apk
+  windows-desktop-exe:
+    runs-on: windows-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Extract verified source
+        shell: pwsh
+        run: |
+          python -c "import pathlib,base64,hashlib,zipfile,io; b=base64.b64decode(pathlib.Path('research/ripple-repair-cell-v1_0/source_bundle.b64').read_text().strip()); assert hashlib.sha256(b).hexdigest()=='17be9c3252fda975427fcdff67da7b721e38049618a7a0d952bae0d9a8e86856'; zipfile.ZipFile(io.BytesIO(b)).extractall('ripple_src')"
+      - name: Build standalone Windows application
+        shell: pwsh
+        run: |
+          cd ripple_src
+          python -m pip install pyinstaller==6.11.0
+          python -m PyInstaller --clean --noconfirm --onefile --windowed --add-data "web;web" --name RippleRepair launch_desktop.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: RippleRepair-Windows-EXE
+          path: ripple_src/dist/RippleRepair.exe
