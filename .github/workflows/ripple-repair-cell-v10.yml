@@ -75,6 +75,10 @@ jobs:
         run: |
           cd ripple_src/android
           gradle --no-daemon :app:assembleDebug
+      - name: Verify Android debug APK signature and package
+        run: |
+          /usr/local/lib/android/sdk/build-tools/35.0.0/apksigner verify --verbose ripple_src/android/app/build/outputs/apk/debug/app-debug.apk
+          /usr/local/lib/android/sdk/build-tools/35.0.0/aapt dump badging ripple_src/android/app/build/outputs/apk/debug/app-debug.apk | head -12
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -98,6 +102,23 @@ jobs:
           cd ripple_src
           python -m pip install pyinstaller==6.11.0
           python -m PyInstaller --clean --noconfirm --onefile --windowed --add-data "web;web" --name RippleRepair launch_desktop.py
+      - name: Launch built Windows EXE and verify actual local UI
+        shell: pwsh
+        run: |
+          $exe = Join-Path (Get-Location) 'ripple_src\\dist\\RippleRepair.exe'
+          $p = Start-Process -FilePath $exe -PassThru
+          $verified = $false
+          try {
+            for ($i=0; $i -lt 35; $i++) {
+              Start-Sleep -Seconds 1
+              try {
+                $reply = Invoke-WebRequest -Uri 'http://127.0.0.1:8879/' -TimeoutSec 2 -UseBasicParsing
+                if ($reply.StatusCode -eq 200 -and $reply.Content -match 'Ripple Repair') { $verified = $true; break }
+              } catch { }
+            }
+          } finally { Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue }
+          if (-not $verified) { throw 'The compiled Windows executable did not serve its working local UI' }
+          Write-Host 'WINDOWS EXECUTABLE BOOT/HTTP SMOKE PASS'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
