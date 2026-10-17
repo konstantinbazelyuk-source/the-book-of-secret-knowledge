@@ -52,7 +52,8 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - uses: android-actions/setup-android@v3
+      # The hosted Ubuntu image already supplies Android cmdline tools.
+      # Avoid setup-android attempting the removed legacy 'tools' package.
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
