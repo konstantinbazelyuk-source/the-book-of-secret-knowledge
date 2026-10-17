@@ -101,12 +101,12 @@ jobs:
         run: |
           cd ripple_src
           python -m pip install pyinstaller==6.11.0
-          python -m PyInstaller --clean --noconfirm --onefile --windowed --add-data "web;web" --name RippleRepair launch_desktop.py
+          python -m PyInstaller --clean --noconfirm --onefile --console --add-data "web;web" --name RippleRepair launch_desktop.py
       - name: Launch built Windows EXE and verify actual local UI
         shell: pwsh
         run: |
           $exe = Join-Path (Get-Location) 'ripple_src\\dist\\RippleRepair.exe'
-          $p = Start-Process -FilePath $exe -PassThru
+          $p = Start-Process -FilePath $exe -PassThru -RedirectStandardOutput 'ripple_stdout.log' -RedirectStandardError 'ripple_stderr.log'
           $verified = $false
           try {
             for ($i=0; $i -lt 35; $i++) {
@@ -117,7 +117,11 @@ jobs:
               } catch { }
             }
           } finally { Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue }
-          if (-not $verified) { throw 'The compiled Windows executable did not serve its working local UI' }
+          if (-not $verified) {
+            if (Test-Path 'ripple_stdout.log') { Get-Content 'ripple_stdout.log' }
+            if (Test-Path 'ripple_stderr.log') { Get-Content 'ripple_stderr.log' }
+            throw 'The compiled Windows executable did not serve its working local UI'
+          }
           Write-Host 'WINDOWS EXECUTABLE BOOT/HTTP SMOKE PASS'
       - uses: actions/upload-artifact@v4
         if: always()
