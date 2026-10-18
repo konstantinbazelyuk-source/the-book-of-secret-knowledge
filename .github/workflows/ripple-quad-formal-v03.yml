@@ -1,0 +1,84 @@
+name: Ripple Quad v0.3 formal proof and Windows executable
+on:
+  push:
+    branches: [research/ripple-quad-formal-v0_3]
+    paths:
+      - 'research/ripple-quad-formal-v0_3/**'
+      - '.github/workflows/ripple-quad-formal-v03.yml'
+permissions:
+  contents: read
+jobs:
+  linux-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify source and extract
+        shell: bash
+        run: |
+          python - <<'PY'
+          import base64,hashlib,zipfile,io,pathlib
+          data=base64.b64decode(pathlib.Path('research/ripple-quad-formal-v0_3/source_bundle.b64').read_text().strip(),validate=True)
+          digest=hashlib.sha256(data).hexdigest()
+          assert digest=='0c310bbb6b93931e1269bb479c3fed13e2bca766644ce45d1ea8343db8c98805',digest
+          z=zipfile.ZipFile(io.BytesIO(data));assert z.testzip() is None;z.extractall('quad_repair')
+          print('SOURCE VERIFICATION PASS',digest,'members:',len(z.namelist()))
+          PY
+      - name: Run regression and formal mutation study
+        run: |
+          cd quad_repair
+          PYTHONPATH=. python -m unittest discover -s tests -q
+          PYTHONPATH=. python tools/run_formal_study.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: RippleQuadFormal-v03-numerical-study
+          path: quad_repair/results/formal_study.json
+  windows-application:
+    runs-on: windows-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore verified source
+        shell: pwsh
+        run: |
+          python -c "import base64,hashlib,io,pathlib,zipfile;b=base64.b64decode(pathlib.Path('research/ripple-quad-formal-v0_3/source_bundle.b64').read_text().strip());assert hashlib.sha256(b).hexdigest()=='0c310bbb6b93931e1269bb479c3fed13e2bca766644ce45d1ea8343db8c98805';zipfile.ZipFile(io.BytesIO(b)).extractall('quad_repair')"
+      - name: Compile portable Windows executable
+        shell: pwsh
+        run: |
+          cd quad_repair
+          python -m pip install pyinstaller==6.11.0
+          python -m PyInstaller --clean --noconfirm --onefile --console --add-data "web;web" --add-data "examples;examples" --add-data "reference;reference" --name RippleQuadRepair launch_desktop.py
+      - name: Launch EXE and test actual HTTP formal proof
+        shell: pwsh
+        run: |
+          $exe = Join-Path (Get-Location) 'quad_repair\dist\RippleQuadRepair.exe'
+          $p=Start-Process -FilePath $exe -ArgumentList '--no-browser','--port','18887' -PassThru -RedirectStandardOutput 'stdout.log' -RedirectStandardError 'stderr.log'
+          $verified=$false
+          try {
+            for ($i=0;$i -lt 48;$i++) {
+              Start-Sleep -Seconds 1
+              try {
+                $inputData = @{ broken_source = "def f(R,G,B): return R+B"; reference_source = "def expected(R,G,B): return R-B" } | ConvertTo-Json -Compress
+                $res = Invoke-RestMethod -Uri 'http://127.0.0.1:18887/api/repair_formal' -Method Post -ContentType 'application/json' -Body $inputData -TimeoutSec 2
+                if ($res.status -eq 'proven_in_exact_real_polynomial_model' -and $res.edit_cost -eq 1 -and $res.proposed_source -match 'R - B') { $verified=$true;break }
+              } catch {}
+            }
+          } finally { Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue }
+          if (-not $verified) {
+            if(Test-Path 'stdout.log') { Get-Content 'stdout.log' }
+            if(Test-Path 'stderr.log') { Get-Content 'stderr.log' }
+            throw 'Windows bundled executable failed live formal-repair HTTP check'
+          }
+          Write-Host 'WINDOWS RIPPLE QUAD FORMAL APP BOOT/PROOF PASS'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: RippleQuadRepair-v03-Windows
+          path: quad_repair/dist/RippleQuadRepair.exe
