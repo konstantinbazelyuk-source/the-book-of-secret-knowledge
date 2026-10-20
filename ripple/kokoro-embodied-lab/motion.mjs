@@ -1,3 +1,4 @@
+import {stepServo} from './control.mjs';
 /** Deterministic, frame-driven planar skeletal motion. Coordinates in canvas pixels. */
 export const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const V=(x,y)=>({x,y}),add=(a,b)=>V(a.x+b.x,a.y+b.y),sub=(a,b)=>V(a.x-b.x,a.y-b.y),scale=(a,s)=>V(a.x*s,a.y*s),length=a=>Math.hypot(a.x,a.y),distance=(a,b)=>length(sub(a,b));
@@ -21,13 +22,16 @@ export class Controller{
  constructor(){this.behavior='idle';this.intensity=.55;this.speed=1;this.speaking=false}
 }
 export class Rig{
- constructor(){this.x=500;this.y=400;this.motion=0;this.velocity=0;this.lastT=0}
+ constructor(){this.x=500;this.y=400;this.motion=0;this.velocity=0;this.lastT=0;this.leftTarget={position:0,velocity:0};this.rightTarget={position:0,velocity:0}}
  pose(t,dt,c){
   const amp=clamp(c.intensity,0,1),rate=clamp(c.speed,.1,3);
   const phase=t*rate,breath=Math.sin(phase*2*Math.PI*.22)*5*amp,sway=Math.sin(phase*2*Math.PI*.14)*12*amp;
   const hip=V(this.x+sway,this.y+95-breath),neck=V(hip.x,hip.y-205),head=V(neck.x,neck.y-72);
   const leftShoulder=V(neck.x-38,neck.y+15),rightShoulder=V(neck.x+38,neck.y+15);
-  const action={idle:[.1,.1],greet:[.85,.1],explain:[.7,.55],listen:[.1,.3],celebrate:[1,1]}[c.behavior]||[.1,.1];
+  const desired={idle:[.1,.1],greet:[.85,.1],explain:[.7,.55],listen:[.1,.3],celebrate:[1,1]}[c.behavior]||[.1,.1];
+  this.leftTarget=stepServo(this.leftTarget,desired[0],dt,{omega:10,maxVelocity:3,maxAcceleration:18});
+  this.rightTarget=stepServo(this.rightTarget,desired[1],dt,{omega:10,maxVelocity:3,maxAcceleration:18});
+  const action=[clamp(this.leftTarget.position,0,1),clamp(this.rightTarget.position,0,1)];
   const wave=Math.sin(phase*2*Math.PI*1.2)*40*amp;
   const lt=V(leftShoulder.x-100-action[0]*70,leftShoulder.y+135-action[0]*190+wave*action[0]);
   const rt=V(rightShoulder.x+100+action[1]*70,rightShoulder.y+135-action[1]*190-wave*action[1]);
