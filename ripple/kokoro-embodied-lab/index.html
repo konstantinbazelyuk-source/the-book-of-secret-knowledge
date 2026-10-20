@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ripple Embodied Interface — Motion Laboratory</title>
+<style>body{margin:0;background:#101523;color:#e7eaf5;font:15px system-ui}header{padding:12px 20px;background:#1a2335}main{display:grid;grid-template-columns:minmax(320px,1fr) 320px;gap:12px;padding:12px}canvas{background:radial-gradient(circle at 50% 35%,#283b55,#111a2c);width:100%;height:min(76vh,760px);border-radius:12px}aside{background:#1a2335;border-radius:12px;padding:15px;display:flex;flex-direction:column;gap:10px}button,input,textarea,select{background:#26344a;color:white;border:1px solid #51647c;border-radius:6px;padding:9px;font:inherit}button{cursor:pointer}label{display:grid;gap:5px}small{color:#a9bed4}#status{white-space:pre-wrap;font:12px monospace} @media(max-width:800px){main{grid-template-columns:1fr}canvas{height:55vh}}</style>
+<header><b>Ripple / Kokoro — Embodied Motion Laboratory</b> <small>Independent research branch • deterministic skeletal motion</small></header>
+<main><canvas id="stage" width="1000" height="780" aria-label="Animated character canvas"></canvas>
+<aside><label>Behavior <select id="behavior"><option>idle</option><option>greet</option><option>explain</option><option>listen</option><option>celebrate</option></select></label>
+<label>Movement amplitude <input id="amplitude" type="range" min="0" max="100" value="55"></label>
+<label>Movement speed <input id="speed" type="range" min="20" max="200" value="100"></label>
+<label>Speak text <textarea id="utterance" rows="3">Hello. I am testing continuous articulated movement.</textarea></label>
+<button id="speak">Speak and animate</button><button id="stop">Stop speech</button>
+<label>External Kokoro state (JSON) <textarea id="external" rows="4">{"behavior":"greet","intensity":0.7,"speaking":false}</textarea></label><button id="apply">Apply state</button>
+<button id="export">Export pose JSON</button><small>Character motion is procedural. Speech uses the browser's available voice. External AI integration requires a separate authorized adapter.</small><div id="status"></div></aside></main>
+<script type="module">
+import {Rig,Controller,clamp} from './motion.mjs';
+const canvas=document.querySelector('#stage'),ctx=canvas.getContext('2d'),rig=new Rig(),controller=new Controller();
+const $=id=>document.getElementById(id);let t0=performance.now(),last=t0,frames=0,windowStart=t0,lastPose=null,speechActive=false;
+function segment(a,b,width,color){ctx.strokeStyle=color;ctx.lineWidth=width;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}
+function circle(p,r,color){ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);ctx.fillStyle=color;ctx.fill()}
+function render(p){ctx.clearRect(0,0,1000,780);const c='#d4a7cb',s='#edd4dd',dark='#33435d';
+ctx.fillStyle='#1d2a3d';ctx.fillRect(0,685,1000,95);
+segment(p.hip,p.neck,55,'#7e6da8');segment(p.hip,p.leftKnee,34,'#777aa5');segment(p.leftKnee,p.leftFoot,26,dark);segment(p.hip,p.rightKnee,34,'#777aa5');segment(p.rightKnee,p.rightFoot,26,dark);
+for(const side of ['left','right']){segment(p[side+'Shoulder'],p[side+'Elbow'],29,'#8e7caa');segment(p[side+'Elbow'],p[side+'Hand'],21,s);circle(p[side+'Hand'],13,s)}
+circle(p.head,74,s);ctx.fillStyle='#3a314a';ctx.beginPath();ctx.ellipse(p.head.x,p.head.y-42,78,48,0,Math.PI,Math.PI*2);ctx.fill();
+for(const dx of [-25,25]){ctx.fillStyle='#26354c';ctx.beginPath();ctx.ellipse(p.head.x+dx,p.head.y-3,p.blink?16:7,p.blink?2:12,0,0,Math.PI*2);ctx.fill()}
+ctx.fillStyle='#703e63';ctx.beginPath();ctx.ellipse(p.head.x,p.head.y+36,13,2+22*p.mouth,0,0,Math.PI*2);ctx.fill();
+ctx.fillStyle='#b8c5df';ctx.font='17px monospace';ctx.fillText('BEHAVIOR: '+controller.behavior.toUpperCase(),20,35)}
+function tick(now){const dt=Math.min(.05,(now-last)/1000);last=now;const t=(now-t0)/1000;controller.behavior=$('behavior').value;controller.intensity=Number($('amplitude').value)/100;controller.speed=Number($('speed').value)/100;
+lastPose=rig.pose(t,dt,controller);render(lastPose);frames++;
+if(now-windowStart>=1000){$('status').textContent='Render FPS: '+(frames*1000/(now-windowStart)).toFixed(1)+'\nBehavior: '+controller.behavior+'\nSpeaking: '+controller.speaking+'\nPose joints: '+Object.keys(lastPose).length;frames=0;windowStart=now}
+requestAnimationFrame(tick)}requestAnimationFrame(tick);
+$('speak').onclick=()=>{if(!('speechSynthesis'in window)){alert('Speech synthesis unavailable');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance($('utterance').value);u.onstart=()=>controller.speaking=true;u.onend=u.onerror=()=>controller.speaking=false;speechSynthesis.speak(u)};
+$('stop').onclick=()=>{if('speechSynthesis'in window)speechSynthesis.cancel();controller.speaking=false};
+$('apply').onclick=()=>{try{const s=JSON.parse($('external').value);if(s.behavior!==undefined){if(!['idle','greet','explain','listen','celebrate'].includes(s.behavior))throw Error('invalid behavior');$('behavior').value=s.behavior}if(s.intensity!==undefined){if(typeof s.intensity!=='number'||!Number.isFinite(s.intensity))throw Error('invalid intensity');$('amplitude').value=clamp(s.intensity,0,1)*100}if(s.speaking!==undefined){if(typeof s.speaking!=='boolean')throw Error('invalid speaking flag');controller.speaking=s.speaking}}catch(e){alert('Invalid state: '+e.message)}};
+$('export').onclick=()=>{const blob=new Blob([JSON.stringify({timestamp:new Date().toISOString(),pose:lastPose},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='kokoro-pose.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
+</script></html>
