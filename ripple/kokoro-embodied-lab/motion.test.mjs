@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {solveTwoBone,criticallyDamped,Rig,Controller} from './motion.mjs';
+const near=(a,b,tol=1e-4)=>assert.ok(Math.abs(a-b)<tol,`${a} differs from ${b}`);
+test('two-bone IK satisfies segment lengths',()=>{const r={x:0,y:0},o=solveTwoBone(r,{x:80,y:70},70,65);near(Math.hypot(o.joint.x,o.joint.y),70);near(Math.hypot(o.end.x-o.joint.x,o.end.y-o.joint.y),65);assert.equal(o.reachable,true)});
+test('unreachable target is bounded',()=>{const o=solveTwoBone({x:0,y:0},{x:1000,y:0},50,40);assert.equal(o.reachable,false);assert.ok(Math.hypot(o.end.x,o.end.y)<91)});
+test('invalid inputs are rejected',()=>assert.throws(()=>solveTwoBone({x:0,y:0},{x:1,y:2},-1,5)));
+test('damping approaches target',()=>{let x=0,v=0;for(let i=0;i<120;i++){const n=criticallyDamped(x,10,v,1/60);x=n.value;v=n.velocity}near(x,10,.001)});
+test('poses remain finite across behaviors',()=>{const rig=new Rig(),c=new Controller();for(const b of ['idle','greet','explain','listen','celebrate']){c.behavior=b;for(let i=0;i<180;i++){const p=rig.pose(i/60,1/60,c);for(const [k,v] of Object.entries(p))if(typeof v==='object'){assert.ok(Number.isFinite(v.x)&&Number.isFinite(v.y),k)}}}});
+test('behavior actually changes gesture',()=>{const rig=new Rig(),c=new Controller();c.behavior='idle';const a=rig.pose(1,1/60,c);c.behavior='greet';const b=rig.pose(1,1/60,c);assert.notEqual(a.leftHand.y,b.leftHand.y)});
