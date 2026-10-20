@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/konstantinbazelyuk-source/the-book-of-secret-knowledge/blob/feature/kokoro-computer-integration-20261020/kokoro/contracts/event-v1.schema.json",
+  "title": "Kokoro integration sensor, camera, motor event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "kind",
+    "source",
+    "classification",
+    "model_time_s",
+    "payload"
+  ],
+  "properties": {
+    "schema": {
+      "const": "kokoro/event/1"
+    },
+    "kind": {
+      "enum": [
+        "motor",
+        "sensor",
+        "camera",
+        "psyche_reference"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "classification": {
+      "enum": [
+        "simulated",
+        "measured_software",
+        "computed_from_render"
+      ]
+    },
+    "model_time_s": {
+      "type": "number",
+      "minimum": 0
+    },
+    "payload": {
+      "type": "object"
+    }
+  }
+}
