@@ -1,0 +1,23 @@
+name: Kokoro XYZ validation
+on:
+  push:
+    branches:
+      - research/kokoro-embodied-motion-v1
+  workflow_dispatch:
+jobs:
+  node-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Execute embodied motion and XYZ tests
+        working-directory: ripple/kokoro-embodied-lab
+        run: node --test motion.test.mjs control.test.mjs xyz.test.mjs
+      - name: Syntax-check browser modules
+        working-directory: ripple/kokoro-embodied-lab
+        run: |
+          node --check motion.mjs
+          node --check control.mjs
+          node --check xyz.mjs
