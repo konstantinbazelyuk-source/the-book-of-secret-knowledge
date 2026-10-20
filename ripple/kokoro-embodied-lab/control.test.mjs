@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {stepServo,planMinimumJerk,correctGroundPenetration,adaptiveBehaviorWeights,scoreMotion,shortestAngle} from './control.mjs';
+test('servo converges without exceeding speed bound',()=>{let s={position:0,velocity:0};for(let i=0;i<240;i++){s=stepServo(s,100,i===0?.016:1/60,{omega:8,maxVelocity:60,maxAcceleration:240});assert.ok(Math.abs(s.velocity)<=60+1e-9)}assert.ok(Math.abs(s.position-100)<1)});
+test('servo rejects invalid input',()=>assert.throws(()=>stepServo({position:0,velocity:0},NaN,.01)));
+test('minimum jerk matches endpoints',()=>{assert.equal(planMinimumJerk(2,9,0,3),2);assert.equal(planMinimumJerk(2,9,3,3),9);assert.equal(planMinimumJerk(2,9,10,3),9)});
+test('contact corrector prevents penetration',()=>{const p=correctGroundPenetration({x:4,y:710},685);assert.equal(p.foot.y,685);assert.equal(p.penetration,25)});
+test('adaptive weights are normalized and penalize higher loss',()=>{const w=adaptiveBehaviorWeights([.5,.5],[0,10],.1);assert.ok(Math.abs(w[0]+w[1]-1)<1e-12);assert.ok(w[0]>w[1])});
+test('motion score penalizes deviation and contact',()=>{const clean=Array.from({length:5},()=>({position:0,target:0,penetration:0}));const bad=clean.map((x,i)=>({...x,penetration:i===3?4:0}));assert.ok(scoreMotion(bad).total>scoreMotion(clean).total)});
+test('shortest angular path wraps',()=>assert.ok(Math.abs(shortestAngle(3.1,-3.1))<.2));
