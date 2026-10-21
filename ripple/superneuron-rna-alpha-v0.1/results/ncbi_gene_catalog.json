@@ -1,0 +1,50 @@
+{
+  "status": "SOURCE_COLLECTION_ONLY_NOT_BIOLOGICAL_VALIDATION",
+  "genes": {
+    "OPN1LW": {
+      "status": "DOWNLOADED_NCBI",
+      "ncbi_gene_id": 5956,
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_020061.6&rettype=fasta&retmode=text",
+      "path": "/home/runner/work/the-book-of-secret-knowledge/the-book-of-secret-knowledge/ripple/superneuron-rna-alpha-v0.1/data/ncbi_genes/OPN1LW_NM_020061.6.fasta",
+      "header": "NM_020061.6 Homo sapiens opsin 1, long wave sensitive (OPN1LW), mRNA",
+      "bases": 1242,
+      "sha256": "dc2175733c89647f5aa29cfc589c98a2e71ac4c631e125d4675ca34c0d77e1f2"
+    },
+    "OPN1MW": {
+      "status": "DOWNLOADED_NCBI",
+      "ncbi_gene_id": 2652,
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_000513.2&rettype=fasta&retmode=text",
+      "path": "/home/runner/work/the-book-of-secret-knowledge/the-book-of-secret-knowledge/ripple/superneuron-rna-alpha-v0.1/data/ncbi_genes/OPN1MW_NM_000513.2.fasta",
+      "header": "NM_000513.2 Homo sapiens opsin 1, medium wave sensitive (OPN1MW), mRNA",
+      "bases": 1998,
+      "sha256": "1c4859bb5dc07d2e7ef5d5bf7aa59280b8cc69910ba7cefddeca90bc5d2a9320"
+    },
+    "OPN1SW": {
+      "status": "DOWNLOADED_NCBI",
+      "ncbi_gene_id": 611,
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_001385125.1&rettype=fasta&retmode=text",
+      "path": "/home/runner/work/the-book-of-secret-knowledge/the-book-of-secret-knowledge/ripple/superneuron-rna-alpha-v0.1/data/ncbi_genes/OPN1SW_NM_001385125.1.fasta",
+      "header": "NM_001385125.1 Homo sapiens opsin 1, short wave sensitive (OPN1SW), mRNA",
+      "bases": 1106,
+      "sha256": "d27a8e88ab20c73b71690f2b4b30ec77d616a54e10b0a1e52b441330e07f8fcc"
+    },
+    "GNAT2": {
+      "status": "DOWNLOADED_NCBI",
+      "ncbi_gene_id": 2780,
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_005272.5&rettype=fasta&retmode=text",
+      "path": "/home/runner/work/the-book-of-secret-knowledge/the-book-of-secret-knowledge/ripple/superneuron-rna-alpha-v0.1/data/ncbi_genes/GNAT2_NM_005272.5.fasta",
+      "header": "NM_005272.5 Homo sapiens G protein subunit alpha transducin 2 (GNAT2), transcript variant 1, mRNA",
+      "bases": 1542,
+      "sha256": "2a626ca8ea140bee5c520e21b70c5baf5b8ff65a33a94a1ff4aaf4130fca0c57"
+    },
+    "RPE65": {
+      "status": "DOWNLOADED_NCBI",
+      "ncbi_gene_id": 6121,
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NM_000329.3&rettype=fasta&retmode=text",
+      "path": "/home/runner/work/the-book-of-secret-knowledge/the-book-of-secret-knowledge/ripple/superneuron-rna-alpha-v0.1/data/ncbi_genes/RPE65_NM_000329.3.fasta",
+      "header": "NM_000329.3 Homo sapiens retinoid isomerohydrolase RPE65 (RPE65), transcript variant 1, mRNA",
+      "bases": 2605,
+      "sha256": "f127c408c1c6a8f9fe9b972716b60c53545fe92dc5033f2451e1f0036e14c3e0"
+    }
+  }
+}

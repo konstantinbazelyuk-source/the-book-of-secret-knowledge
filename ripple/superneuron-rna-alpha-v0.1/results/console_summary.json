@@ -1,0 +1,56 @@
+{
+  "status": "EXECUTED_SYNTHETIC_SOFTWARE",
+  "gene_source_sha256": "b7f4dbb8b20975eab3ea535177e97ad0b3beab7b99e2aec4f98eb2af5bb89db3",
+  "search_space_exact": 288230376151711744,
+  "simulated_candidate_genotypes": 800,
+  "real_genotypes_in_demo": 1,
+  "population_evaluations": 833,
+  "dt_model_seconds": 0.05,
+  "nsteps": 400,
+  "seed": 101,
+  "original": {
+    "events": 6,
+    "mean_voltage": 0.1743762659192355,
+    "mean_gene_signal": 0.0036508054551327475,
+    "mean_energy": 0.9886838717635194
+  },
+  "controls": {
+    "lif": {
+      "events": 0,
+      "mean_voltage": 0.09479809183846473,
+      "mean_gene_signal": 0.0,
+      "mean_energy": 1.0
+    },
+    "conductance": {
+      "events": 0,
+      "mean_voltage": 0.21992430330755372,
+      "mean_gene_signal": 0.0,
+      "mean_energy": 1.0
+    },
+    "inherited_charlie_v2": {
+      "events": 24,
+      "mean_voltage": 0.24408178602255146,
+      "source": "immutable archived Charlie v2 core; own original event/reset model"
+    }
+  },
+  "all_regulators_have_nonzero_numerical_effect": true,
+  "candidate_event_counts": [
+    6,
+    7
+  ],
+  "candidate_event_distribution": {
+    "6": 792,
+    "7": 8
+  },
+  "best_by_event_count": {
+    "genotype_index": 36258776232298570,
+    "events": 7,
+    "mean_gene_signal": 0.0035201190435838127,
+    "mean_energy": 0.986476907771587
+  },
+  "wall_seconds": 4.001645407999604,
+  "no_biological_fitness_or_intelligence_metric": true,
+  "fasta_header": "gi|169808383|ref|NM_000539.3| Homo sapiens rhodopsin (RHO), mRNA, coding start = 95",
+  "fasta_path": "data/RHO_NM_000539.3_mirror.fasta",
+  "fasta_sha256": "7e1f7acbaeeda9befe07a051ec8062adc397fc99a9b2c7a12c54127448dc5e29"
+}
