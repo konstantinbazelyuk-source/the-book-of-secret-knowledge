@@ -1,0 +1,33 @@
+name: Ripple historical source-only release
+on:
+  push:
+    paths:
+      - 'ripple/source-capsules/capsules/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout public source
+        uses: actions/checkout@v4
+      - name: Verify source fingerprint checks and tampering detection
+        run: python -m unittest discover -s ripple/source-capsules -p 'test_capsules.py' -v
+      - name: Restore verified source and build ZIP
+        run: python ripple/source-capsules/build_source_bundle.py
+      - name: Publish source-only GitHub Release if not present
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag='ripple-lineage-source-2026-10-20'
+          asset='ripple/source-capsules/Ripple-Lineage-Reconstructed-Source-Only.zip'
+          proof='ripple/source-capsules/RELEASE_SHA256.txt'
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Tag already exists; verifying instead of overwriting." 
+            gh release view "$tag" --json assets,url
+            exit 0
+          fi
+          gh release create "$tag" "$asset" "$proof" \
+            --title 'Ripple Lineage Source and Concept Archive — October 2026' \
+            --notes 'Source-only curated code from 44 preserved original ZIPs, 1014 file records. Integrity verified, original raw archives and binaries excluded. Concepts, milestones and formulas remain in ripple/concepts and ripple/mathematics. No independent intelligence or real hardware validation is implied.'
