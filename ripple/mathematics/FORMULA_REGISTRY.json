@@ -1,7 +1,7 @@
 {
   "schema": "ripple-mathematics-registry/1",
   "date": "2026-10-15",
-  "scope_note": "87 reviewed equation entries, not every equation from every past chat. Original core remains untouched; see original source and each named archive for assumptions, full equations, results, code and licenses.",
+  "scope_note": "171 individually curated historical equation entries as of the 2026-10-15 review. Additional 2026-10-20 full mathematical study documents are indexed separately without inflating the confirmed-entry count; some studies duplicate or extend prior work and require equation-level de-duplication before entry promotion.",
   "metrics": {
     "original_recovered": 56,
     "additional_derivatives": 44,
@@ -1704,5 +1704,133 @@
       "evidence": "Model ring from inherited Charlie/Mushroom; synthetic input and virtual phases, not physical EEG",
       "lineage": "Ripple-derived Mushroom conductance/model ring"
     }
-  ]
+  ],
+  "supplemental_studies_2026_10_20": {
+    "status": "Source documents mirrored; mathematical assertions retain their original evidence qualifiers",
+    "source": "ChatGPT Library review, synchronized 2026-10-20",
+    "count": 30,
+    "documents": [
+      {
+        "path": "ripple/mathematics/library-2026-10-20/CHARLIE_COLONY_STUDY.md",
+        "git_blob_sha": "961522d9313e8bdbcd5d66655da8ae1d5fa24f4e"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/CHARLIE_V2_NEURON_EQUATIONS.md",
+        "git_blob_sha": "d772fb16b91f97d848da24a2b786847c5dcce13a"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/DAUGHTER_DELTA_TRIPLET_MATH.md",
+        "git_blob_sha": "567d009b6fe39833dbc4933767183fd174c16b7b"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/EVO_PARETO_CONTROL_MATH.md",
+        "git_blob_sha": "292880097bc4ec8e9abb8e4d932139a487004bc9"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/FIELD_GEOMETRY_MATH.md",
+        "git_blob_sha": "3f5521b50a0084938d31aeca417051956f6f41d2"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/FUSION_ARCHITECTURE_MATH.md",
+        "git_blob_sha": "096ae732c828e847b14cf5f8f03ba3a1224d4496"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/GENOME_COLONY_MATHEMATICAL_CODEX.md",
+        "git_blob_sha": "7a8986c1a8e71ad8700836eacbf6f6ddbcbca99c"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/INHERITED_21_SECTION_ATLAS.md",
+        "git_blob_sha": "2296f639ceb48d5d4ca58750f6062947afd3978b"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/INHERITED_FORMULAS_AND_VERIFICATION.md",
+        "git_blob_sha": "8627fdb4e898bf969535defa7e7246ba85c5e2b6"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/INHERITED_MATH_MODEL.md",
+        "git_blob_sha": "933feea3f14e42b799cfe597cad78aeec8c38c30"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/MATHEMATICS_01.md",
+        "git_blob_sha": "d806019a08caa7f91bb1c2f3313f0e39ff2716ba"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/MATHEMATICS_02.md",
+        "git_blob_sha": "d806019a08caa7f91bb1c2f3313f0e39ff2716ba"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/MATHEMATICS_03.md",
+        "git_blob_sha": "7e4a51480a1c690fa0c715b6f2a1279a78d9b5bd"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/MATHEMATICS_04.md",
+        "git_blob_sha": "7e4a51480a1c690fa0c715b6f2a1279a78d9b5bd"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/MATHEMATICS_05_Exchange.md",
+        "git_blob_sha": "b449a63ee2a72730941cccda65a736d163bf01df"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/MATHEMATICS_06_RGB.md",
+        "git_blob_sha": "ce7017c3befc7027fd9467c9484992dd9c81dd17"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/MATHEMATICS_07_Memory_Wave.md",
+        "git_blob_sha": "ebe8ae0f07c3aecb5f7e2969c7c2dc66648a3020"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/MATHEMATICS_08_XYZ_CrossChannel.md",
+        "git_blob_sha": "13824e2cf5acb106d99e1ca389f0f52a6d1e6230"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/QUAD_GENE_FORMAL_v03.md",
+        "git_blob_sha": "b03030caf6c90245f9590df08d86352333771a61"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/QUAD_REPAIR_MATHEMATICS_ADDITIONAL.md",
+        "git_blob_sha": "468af0e5a9050b859329702cb7e827596e53db71"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/RECOVERED_SOURCE_QuadGene_v02.md",
+        "git_blob_sha": "468af0e5a9050b859329702cb7e827596e53db71"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/REGULATORY_COLONY_ARCHITECTURE.md",
+        "git_blob_sha": "aeaf16a9a62b32667211ba72f76c537085459c72"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/REGULATORY_COLONY_MATH.md",
+        "git_blob_sha": "3351af9f2ab289da0c7327cb3d146d0e69de0427"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/REGULATORY_COLONY_RESULTS.md",
+        "git_blob_sha": "2924518976929bbe1255408f90bfde16cda7c275"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/RGB_GENE_COLONY_MATH.md",
+        "git_blob_sha": "8b8c5c407ee8099f214ff5043e374dbf70ba5b8e"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/RIPPLE_CODE_MATH_RESEARCH.md",
+        "git_blob_sha": "1708c104547cd3345cafc8a66fbf794d3cbb4359"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/RIPPLE_MATHEMATICAL_ATLAS.md",
+        "git_blob_sha": "2296f639ceb48d5d4ca58750f6062947afd3978b"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/RIPPLE_MATHEMATICS_COMPILER.md",
+        "git_blob_sha": "933feea3f14e42b799cfe597cad78aeec8c38c30"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/RIPPLE_OPTICAL_MATH.md",
+        "git_blob_sha": "0a9c221768171f08420dc2da8eb9cca835670fe5"
+      },
+      {
+        "path": "ripple/mathematics/library-2026-10-20/SENSORY_GENE_MATH.md",
+        "git_blob_sha": "25b78f8cf7b1181d5f14059cab6473532f78a2d0"
+      }
+    ],
+    "classification": "Supplementary documented mathematics, not automatically an increase in curated validated formulas"
+  }
 }
