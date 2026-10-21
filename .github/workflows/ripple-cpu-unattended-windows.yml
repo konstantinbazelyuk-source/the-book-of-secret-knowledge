@@ -130,7 +130,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Ripple-CPU-Unattended-Windows-x64-Installer
-          path: |\n            source/RippleMiner/dist/installer/RippleCpuMinerSetup.exe\n            source/RippleMiner/dist/installer/Windows-Cpu-Hashrate.json
+          path: |
+            source/RippleMiner/dist/installer/RippleCpuMinerSetup.exe
+            source/RippleMiner/dist/installer/Windows-Cpu-Hashrate.json
           if-no-files-found: error
           retention-days: 60
 
