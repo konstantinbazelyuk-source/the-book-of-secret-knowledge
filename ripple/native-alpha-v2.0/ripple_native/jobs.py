@@ -187,7 +187,18 @@ def _v17_composition(workspace):
             expected_cases='bdc36bd7edcc29b2724c872a836ce1164cc24de9a77a735562500b8af81b6e5a'
             if hashlib.sha256((target/'data/novel_compositions.json').read_bytes()).hexdigest()!=expected_cases:raise RuntimeError('v1.7 generated cases differ from archived evidence')
         else:raise RuntimeError('v1.7 source not installed. Use complete ripple/ checkout or original release archive')
-        p=subprocess.run([node,'--max-old-space-size=512',str(target/'src'/'composition.mjs')],cwd=str(target),capture_output=True,text=True,timeout=150)
+        entry=target/'src'/'composition.mjs'
+        if os.name=='nt':
+            # The integrity-verified v1.7 script has a POSIX-only ESM CLI URL
+            # guard. Repair only the ephemeral copy, never the published source
+            # or its SHA-256 manifest; scientific program logic stays identical.
+            source_text=entry.read_text(encoding='utf8')
+            old_guard='new URL(`file://${process.argv[1]}`).href'
+            if old_guard not in source_text:raise RuntimeError('v1.7 temporary Windows entry guard anchor missing')
+            source_text=source_text.replace("import fs from 'node:fs';","import fs from 'node:fs';\nimport {pathToFileURL} from 'node:url';",1)
+            source_text=source_text.replace(old_guard,'pathToFileURL(process.argv[1]).href',1)
+            entry.write_text(source_text,encoding='utf8')
+        p=subprocess.run([node,'--max-old-space-size=512',str(entry)],cwd=str(target),capture_output=True,text=True,timeout=150)
         if p.returncode:raise RuntimeError('v1.7 composition failed: '+p.stderr[-700:])
         result=json.loads((target/'data'/'composition_results.json').read_text(encoding='utf8'))
         outdir=Path(workspace)/'results';outdir.mkdir(exist_ok=True)
