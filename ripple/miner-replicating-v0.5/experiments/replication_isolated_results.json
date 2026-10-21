@@ -1,0 +1,172 @@
+{
+  "classification": "Measured SHA256d CPU throughput; each trial independent OS process, start/teardown included",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "python": "3.13.5",
+  "modes": {
+    "conventional": [
+      {
+        "mode": "conventional",
+        "seconds": 1.264540431000114,
+        "hashes": 600000,
+        "hps": 474480.67716226773,
+        "workers": 3,
+        "trial_round": 1
+      },
+      {
+        "mode": "conventional",
+        "seconds": 1.0814146360000905,
+        "hashes": 600000,
+        "hps": 554828.8140608722,
+        "workers": 3,
+        "trial_round": 2
+      },
+      {
+        "mode": "conventional",
+        "seconds": 1.1231792730000052,
+        "hashes": 600000,
+        "hps": 534197.8920225295,
+        "workers": 3,
+        "trial_round": 3
+      }
+    ],
+    "clone_plain": [
+      {
+        "mode": "clone_plain",
+        "seconds": 1.5464715189998515,
+        "hashes": 600000,
+        "hps": 387979.9871051215,
+        "workers": 3,
+        "masters_used": 2,
+        "descendants_born": 2,
+        "real_processes": true,
+        "mutations_enabled": false,
+        "neuron_gating": true,
+        "trial_round": 1
+      },
+      {
+        "mode": "clone_plain",
+        "seconds": 1.6452489429998423,
+        "hashes": 600000,
+        "hps": 364686.4521948868,
+        "workers": 3,
+        "masters_used": 2,
+        "descendants_born": 2,
+        "real_processes": true,
+        "mutations_enabled": false,
+        "neuron_gating": true,
+        "trial_round": 2
+      },
+      {
+        "mode": "clone_plain",
+        "seconds": 2.1184151769998607,
+        "hashes": 600000,
+        "hps": 283230.5992301902,
+        "workers": 3,
+        "masters_used": 2,
+        "descendants_born": 3,
+        "real_processes": true,
+        "mutations_enabled": false,
+        "neuron_gating": true,
+        "trial_round": 3
+      }
+    ],
+    "clone_genetic": [
+      {
+        "mode": "clone_genetic",
+        "seconds": 1.6507336660001783,
+        "hashes": 600000,
+        "hps": 363474.7460223757,
+        "workers": 3,
+        "masters_used": 2,
+        "descendants_born": 2,
+        "real_processes": true,
+        "mutations_enabled": true,
+        "neuron_gating": true,
+        "trial_round": 1
+      },
+      {
+        "mode": "clone_genetic",
+        "seconds": 1.715740531000165,
+        "hashes": 600000,
+        "hps": 349703.2267753441,
+        "workers": 3,
+        "masters_used": 2,
+        "descendants_born": 2,
+        "real_processes": true,
+        "mutations_enabled": true,
+        "neuron_gating": true,
+        "trial_round": 2
+      },
+      {
+        "mode": "clone_genetic",
+        "seconds": 1.7107105540001157,
+        "hashes": 600000,
+        "hps": 350731.4540130904,
+        "workers": 3,
+        "masters_used": 2,
+        "descendants_born": 2,
+        "real_processes": true,
+        "mutations_enabled": true,
+        "neuron_gating": true,
+        "trial_round": 3
+      }
+    ],
+    "clone_nogate": [
+      {
+        "mode": "clone_nogate",
+        "seconds": 2.146970759999931,
+        "hashes": 600000,
+        "hps": 279463.5172395265,
+        "workers": 3,
+        "masters_used": 2,
+        "descendants_born": 3,
+        "real_processes": true,
+        "mutations_enabled": true,
+        "neuron_gating": false,
+        "trial_round": 1
+      },
+      {
+        "mode": "clone_nogate",
+        "seconds": 1.6116259570001148,
+        "hashes": 600000,
+        "hps": 372294.8227495924,
+        "workers": 3,
+        "masters_used": 2,
+        "descendants_born": 2,
+        "real_processes": true,
+        "mutations_enabled": true,
+        "neuron_gating": false,
+        "trial_round": 2
+      },
+      {
+        "mode": "clone_nogate",
+        "seconds": 1.5840434289998484,
+        "hashes": 600000,
+        "hps": 378777.49373250135,
+        "workers": 3,
+        "masters_used": 2,
+        "descendants_born": 2,
+        "real_processes": true,
+        "mutations_enabled": true,
+        "neuron_gating": false,
+        "trial_round": 3
+      }
+    ]
+  },
+  "rounds": 3,
+  "median_hps": {
+    "conventional": 534197.8920225295,
+    "clone_plain": 364686.4521948868,
+    "clone_genetic": 350731.4540130904,
+    "clone_nogate": 372294.8227495924
+  },
+  "change_from_conventional_pct": {
+    "conventional": 0.0,
+    "clone_plain": -31.731955958465974,
+    "clone_genetic": -34.344283410557054,
+    "clone_nogate": -30.307695273741164
+  },
+  "energy_watts": null,
+  "external_pool_btc": null,
+  "host": "executing container (not the Dell or Samsung)"
+}
