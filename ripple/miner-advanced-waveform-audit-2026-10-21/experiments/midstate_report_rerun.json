@@ -1,0 +1,60 @@
+{
+  "environment": {
+    "python": "3.13.5",
+    "openssl": "system linked",
+    "platform": "linux"
+  },
+  "algorithm": "Double SHA-256 over Bitcoin 80-byte block header",
+  "tests": [
+    {
+      "case": 0,
+      "verified_matches": 1
+    },
+    {
+      "case": 1,
+      "verified_matches": 310
+    },
+    {
+      "case": 2,
+      "verified_matches": 12
+    },
+    {
+      "case": 3,
+      "verified_matches": 144
+    },
+    {
+      "case": 4,
+      "verified_matches": 3
+    }
+  ],
+  "trial_hashes": 150000,
+  "repetitions": 9,
+  "baseline_hps": 832192.6653422557,
+  "midstate_hps": 1563693.3423489302,
+  "speed_ratio": 1.8790039944726384,
+  "samples_hps": {
+    "libripple_baseline.so": [
+      733739.1302062016,
+      971948.1382505208,
+      963351.309619026,
+      832192.6653422557,
+      649972.0676676601,
+      889998.3621663268,
+      831879.3468811,
+      801095.7665621289,
+      851623.8528024629
+    ],
+    "libripple_midstate.so": [
+      1774330.5820401148,
+      1675965.875068514,
+      1693158.6738620442,
+      1488527.1915589941,
+      1658403.6153739565,
+      1563693.3423489302,
+      1183815.8265443512,
+      1479116.5166079106,
+      1505844.5591963318
+    ]
+  },
+  "integration_status": "independent drop-in C native hashing ABI; not selected production backend"
+}
