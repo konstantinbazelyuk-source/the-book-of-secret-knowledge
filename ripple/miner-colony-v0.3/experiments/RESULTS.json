@@ -1,0 +1,65 @@
+{
+  "classification": "measured local CPU wall-clock throughput; not mining earnings",
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "cpu_visible": 5
+  },
+  "inputs": {
+    "workers": 2,
+    "chunk": 3000,
+    "batches": 40,
+    "rounds": 3,
+    "hashing_function": "inherited miner.scan_nonces, GENESIS_HEADER 76-byte prefix"
+  },
+  "runs": [
+    {
+      "round": 1,
+      "mode": "baseline",
+      "seconds": 1.22521,
+      "hashes": 120000,
+      "hashes_per_second": 97942
+    },
+    {
+      "round": 1,
+      "mode": "spatial",
+      "seconds": 0.97943,
+      "hashes": 120000,
+      "hashes_per_second": 122520
+    },
+    {
+      "round": 2,
+      "mode": "spatial",
+      "seconds": 1.16166,
+      "hashes": 120000,
+      "hashes_per_second": 103301
+    },
+    {
+      "round": 2,
+      "mode": "baseline",
+      "seconds": 0.89257,
+      "hashes": 120000,
+      "hashes_per_second": 134443
+    },
+    {
+      "round": 3,
+      "mode": "baseline",
+      "seconds": 0.86235,
+      "hashes": 120000,
+      "hashes_per_second": 139155
+    },
+    {
+      "round": 3,
+      "mode": "spatial",
+      "seconds": 0.79698,
+      "hashes": 120000,
+      "hashes_per_second": 150568
+    }
+  ],
+  "median_hashes_per_second": {
+    "baseline": 134443,
+    "spatial": 122520
+  },
+  "spatial_vs_baseline_percent": -8.87,
+  "note": "spatial scheduling adds SQLite durability and can impose overhead; same CPU process pool and same SHA256d work"
+}
