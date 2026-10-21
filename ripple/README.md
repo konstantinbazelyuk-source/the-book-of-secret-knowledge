@@ -60,3 +60,14 @@ The software runs under your user account, not as a privileged operating-system 
 ## Calcium battery engineering lab
 
 - [`battery-lab/v1/`](battery-lab/v1/) — tested Python electrochemical calculations plus an offline Samsung-compatible browser measurement interface. Scientific lineage: recovered 2024 calcium-ion equations and later battery sizing; the software can integrate external physical I/V CSV recordings. Peer-reviewed calcium-cell observations are recorded separately from Ripple-generated calculations. **No physical calcium cell has been fabricated or measured by this project.**
+
+## Recovered derivative sources, concepts and milestones (October 2026)
+
+- [Concept and lineage register](concepts/CONCEPTS.md): 33 individually described software, mathematical and research concepts, including unfinished corporate execution plans.
+- [Milestone and negative-result ledger](concepts/MILESTONES.md): 34 recorded version/milestone checkpoints.
+- [Additional source-traced formulas](mathematics/ADDITIONAL_MATHEMATICS.md): 20 deduplication candidates alongside the existing historical registry.
+- [Full source coverage and verification notes](concepts/SOURCE_COVERAGE.md): 44 distinct research archives, 1,014 curated code/test/documentation files.
+- [Restorable source capsules](source-capsules/): SHA-256-verified source-only snapshots, restoration script and tests.
+- [GitHub downloadable source-only release](https://github.com/konstantinbazelyuk-source/the-book-of-secret-knowledge/releases/tag/ripple-lineage-source-2026-10-20).
+
+The historical binary ZIPs, hardware requirements and private/corporate records were not silently imported into this public source-only release.
