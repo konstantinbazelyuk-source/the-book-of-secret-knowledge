@@ -1,0 +1,258 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ripple Cybernetic Mycelium — Offline Prototype</title>
+<style>
+:root{color-scheme:dark;--ink:#eaf9f1;--muted:#a0b7ac;--line:#2b4b42;--panel:#112b24;--green:#42e0ac;--orange:#ffc777;--bg:#061510}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:radial-gradient(circle at 50% -10%,#164638,#071a14 45%,#06120f);font:15px/1.5 system-ui,Segoe UI,sans-serif}main{max-width:1150px;margin:0 auto;padding:32px 20px 55px}h1{font-size:clamp(29px,5vw,49px);letter-spacing:-1.7px;line-height:1.07;margin:13px 0}h2{font-size:19px;margin:0 0 12px}.eyebrow{color:var(--green);font-size:12px;font-weight:750;letter-spacing:2px;text-transform:uppercase}.muted,small{color:var(--muted)}p{max-width:770px}header{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:14px}.lock{border:1px solid #386d57;color:#a7dfc2;padding:6px 11px;border-radius:100px;font-size:11px}.desc{font-size:16px;margin-bottom:25px}.controls{display:flex;gap:13px;align-items:center;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 17px}.btn{cursor:pointer;font:inherit;font-weight:700;border-radius:9px;padding:10px 17px;border:1px solid #5e9f86;background:#1c634e;color:white}.btn:hover{background:#248063}.btn.alt{background:transparent;border-color:var(--line)}input[type=range]{accent-color:var(--green);vertical-align:middle}label{display:flex;align-items:center;gap:10px}.spacer{flex:1}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:17px 0}.stat,.panel{background:rgba(17,43,36,.85);border:1px solid var(--line);border-radius:14px;padding:18px}.stat .num{font-size:31px;line-height:1.2;font-weight:760;font-variant-numeric:tabular-nums}.stat .label{font-size:12px;color:var(--muted)}.layout{display:grid;grid-template-columns:1.25fr 1fr;gap:14px}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}canvas{width:100%;display:block;border-radius:8px;background:#071d16}.top{display:flex;justify-content:space-between;gap:12px;align-items:center}.legend{font-size:12px;color:var(--muted)}.dot{display:inline-block;width:9px;height:9px;background:var(--green);border-radius:100%;margin:0 5px 0 12px}.dot:first-child{margin-left:0}.dot.orange{background:var(--orange)}.notes{font-size:13px;border-left:3px solid #4ec29a;padding-left:14px}.meter{height:7px;background:#244739;border-radius:10px;overflow:hidden}.bar{height:100%;background:var(--green);width:0%;transition:width .15s}.log{height:195px;overflow:auto;font:12px/1.6 ui-monospace,Consolas,monospace;color:#c7eedb}.log div{border-bottom:1px solid #173b2c;padding:3px 0}.tiny{font-size:12px}.phase{color:var(--orange);font-weight:700}@media(max-width:800px){.layout,.twocol{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}main{padding:20px 12px}header{flex-wrap:wrap}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}</style></head><body><main>
+<header><strong>⌁ RIPPLE / CYBERNETIC MYCELIUM</strong><span class="lock">OFFLINE · SIMULATION · CORE PRESERVED</span></header>
+<div class="eyebrow" style="margin-top:28px">Replicated neuron colony / v0.1</div><h1>Computation that branches<br>to meet its workload.</h1><p class="desc muted">Every worker runs the original Ripple leaky-integrate-and-fire math. A new experimental layer distributes arithmetic chunks, relays them across neighboring clones, and grows or retires workers according to demand. No AI inference or real parallelism is claimed.</p>
+<section class="controls"><button class="btn" id="toggle">▶ Start</button><button class="btn alt" id="reset">↺ Reset</button><label>Maximum clones <input id="max" type="range" min="1" max="20" value="12"><strong id="maxLabel">12</strong></label><label>Playback <select id="speed" style="border-radius:8px;background:#12392c;color:white;padding:8px;border:1px solid #396753"><option value="1">1×</option><option value="5" selected>5×</option><option value="20">20×</option></select></label><span class="spacer"></span><span id="phase" class="phase">READY</span></section>
+<section class="cards" aria-label="Colony metrics"><div class="stat"><div id="time" class="num">0.0 s</div><div class="label">Simulated time / 200 seconds</div></div><div class="stat"><div id="nodes" class="num">1</div><div class="label">Active Ripple clones</div></div><div class="stat"><div id="jobs" class="num">0 / 0</div><div class="label">Composed jobs / submitted</div></div><div class="stat"><div id="queued" class="num">0</div><div class="label">Pending processing chunks</div></div></section>
+<div class="layout"><section class="panel"><div class="top"><h2>Hyphal network</h2><span class="legend"><span class="dot"></span>Ready <span class="dot orange"></span>Queued</span></div><canvas id="network" width="620" height="370" aria-label="Branching logical worker network"></canvas><div class="tiny muted" style="margin-top:8px">Lines = logical neighbor connections. Each node is a cloned software neuron, not a physical hypha.</div></section><section class="panel"><h2>Colony demand and population</h2><canvas id="history" width="480" height="260"></canvas><div class="tiny muted" style="margin:12px 0">Teal = active clone count · Orange = queued subtasks</div><div>Simulation progress <strong id="percent" style="float:right">0%</strong></div><div class="meter"><div id="bar" class="bar"></div></div><p class="notes">The first 30 simulated seconds have light demand, 30–110 seconds contain a burst, and the remainder is a recovery period. Nodes must eventually contract to one after the queue clears.</p></section></div>
+<div class="twocol"><section class="panel"><h2>Information metabolism</h2><p class="muted tiny">Decompose a 32-integer job into four chunks. Route each chunk to a neighbor. The firing event allows a worker to compute a sum and sum of squares; the coordinator checks and recomposes the complete result.</p><div id="breakdown" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center"><div><strong id="units">0</strong><div class="tiny muted">Chunks computed</div></div><div><strong id="relays">0</strong><div class="tiny muted">Peer relays</div></div><div><strong id="retired">0</strong><div class="tiny muted">Workers retired</div></div></div></section><section class="panel"><h2>Colony log</h2><div id="log" class="log" aria-live="off"><div>Ready for a deterministic numerical run.</div></div></section></div>
+<p class="tiny muted" style="margin-top:22px">Evidence boundary: this is an offline single-thread JavaScript simulation that performs genuine deterministic arithmetic and checks job integrity. Clone count is simulated capacity, not a measured speedup. Original Ripple v0.1 neuron.step source remains unchanged. Additional workload control is experimental.</p>
+</main>
+<script>
+// RIPPLE ORIGINAL CORE, VERBATIM (except module export and source header).
+// Source: user's original Ripple-Neuron-Simulator.html (v0.1), 2026-10-13.
+// Never edit these equations in the mycelium experiment.
+const bound=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
+class RippleNeuron{
+ constructor(o={}){this.theta=o.theta??0.45;this.adaptive=o.adaptive??true;this.target=o.target??1;this.tauV=.5;this.tauR=5;this.refractory=.1;this.eta=.08;this.lo=.15;this.hi=2.5;this.t=0;this.u=0;this.rate=0;this.rest=0;}
+ step(x,dt){if(x.length!==3||x.some(v=>!Number.isFinite(v))||!Number.isFinite(dt)||dt<=0||dt>.5)throw Error('Invalid input or elapsed time');x=x.map(v=>bound(v,0,1));const drive=2*x[0]+1.2*x[1]-1.4*x[2],start=this.t,events=[];let elapsed=0;
+  while(elapsed<dt-1e-12){const left=dt-elapsed;if(this.rest>1e-12){let held=Math.min(left,this.rest);this.rest=Math.max(0,this.rest-held);this.u=0;elapsed+=held;continue;}let crossing=Infinity;if(this.u>=this.theta)crossing=0;else if(drive>this.theta)crossing=this.tauV*Math.log((drive-this.u)/(drive-this.theta));if(crossing<=left+1e-12){elapsed+=Math.max(0,Math.min(left,crossing));events.push(start+elapsed);this.u=0;this.rest=this.refractory;}else{this.u=Math.max(0,drive+(this.u-drive)*Math.exp(-left/this.tauV));elapsed=dt;}}
+  const decay=Math.exp(-dt/this.tauR);let integral=this.rate*this.tauR*(1-decay);this.rate*=decay;for(const event of events){const d=Math.exp(-(start+dt-event)/this.tauR);this.rate+=d/this.tauR;integral+=1-d;}if(this.adaptive)this.theta=bound(this.theta+this.eta*(integral-this.target*dt),this.lo,this.hi);this.t=start+dt;return{t:this.t,u:this.u,theta:this.theta,rate:this.rate,drive,count:events.length,events};}
+ attainable(drive){if(drive<=0)return false;const th=drive*(1-Math.exp(-(1/this.target-this.refractory)/this.tauV));return this.lo<=th&&th<=this.hi;}
+}
+if (typeof module !== 'undefined' && module.exports) module.exports = {RippleNeuron, bound};
+
+</script><script>
+// Experimental colony orchestration: NOT part of the original Ripple kernel.
+// Single-process, simulated-time colony with deterministic, real arithmetic work.
+// No network, model inference, hardware, or concurrent threads.
+class RippleMycelium {
+  constructor({maxNodes=12, dt=0.05, scale=true, routing=true}={}) {
+    if(!Number.isInteger(maxNodes)||maxNodes<1||maxNodes>128) throw Error('maxNodes must be 1..128');
+    if(!Number.isFinite(dt)||dt<=0||dt>0.5) throw Error('dt must be (0, 0.5]');
+    this.maxNodes=maxNodes; this.dt=dt; this.scaling=scale; this.routing=routing;
+    this.t=0; this.nodes=new Map(); this.nextId=0; this.nextJobId=0;
+    this.jobs=new Map(); this.finished=new Map(); this.arrivals=[];
+    this.inCount=0; this.outCount=0; this.workDone=0; this.totalArrivedUnits=0; this.relayCount=0;
+    this.spawns=0; this.retirements=0; this.scaleEvents=[]; this.log=[];
+    this.lowSince=null; this.lastGrow=-100; this.lastShrink=-100;
+    this.lastControl=-1; this.lastRoute=-1;
+    this.spawn(null);
+  }
+  spawn(parentId){
+    if(this.nodes.size>=this.maxNodes) return null;
+    const id=this.nextId++;
+    // A clone inherits the mathematical model, not its parent's transient state.
+    const n={id, parent:parentId, neuron:new RippleNeuron(), queue:[], peers:new Set(), completed:0, pulses:0};
+    this.nodes.set(id,n);
+    if(parentId!==null){
+      const p=this.nodes.get(parentId);
+      if(!p)throw Error('missing parent');
+      n.peers.add(parentId);p.peers.add(id);
+    }
+    this.spawns++; this.scaleEvents.push({t:this.t,type:'spawn',id,parent:parentId});
+    if(this.scaleEvents.length>120) this.scaleEvents.shift();
+    return n;
+  }
+  submit(payload){
+    if(!Array.isArray(payload)||!payload.length||payload.some(x=>!Number.isSafeInteger(x)))throw Error('nonempty safe-integer payload required');
+    if(payload.length>256)throw Error('payload must have <=256 integers');
+    const id=this.nextJobId++;
+    const parts=[];
+    const length=Math.ceil(payload.length/4);
+    for(let p=0;p<4;p++){
+      const chunk=payload.slice(p*length,(p+1)*length);
+      if(chunk.length)parts.push({job:id,part:parts.length,values:chunk});
+    }
+    const expected={sum:payload.reduce((a,x)=>a+x,0),sumsq:payload.reduce((a,x)=>a+x*x,0)};
+    this.jobs.set(id,{expected, total:parts.length, partials:new Map(),created:this.t});
+    const root=this.nodes.get(0); if(!root)throw Error('root unavailable');
+    for(const part of parts)root.queue.push(part);
+    this.inCount++;this.totalArrivedUnits+=parts.length;this.arrivals.push({time:this.t,count:parts.length});
+    return id;
+  }
+  submitSyntheticJob(){
+    const id=this.nextJobId;
+    return this.submit(Array.from({length:32},(_,i)=>((id*17+i*13)%97)-48));
+  }
+  pending(){return [...this.nodes.values()].reduce((a,n)=>a+n.queue.length,0);}
+  // Local, one-hop workload transport along actual graph edges.
+  spread(){
+    if(!this.routing)return;
+    // More than one pass allows a branch to relay through intermediary nodes.
+    for(let pass=0;pass<2;pass++){
+      const nodes=[...this.nodes.values()].sort((a,b)=>b.queue.length-a.queue.length||a.id-b.id);
+      for(const n of nodes){
+        if(n.queue.length<2)continue;
+        const peers=[...n.peers].map(id=>this.nodes.get(id)).filter(Boolean).sort((a,b)=>a.queue.length-b.queue.length||a.id-b.id);
+        const dest=peers[0];
+        if(dest && n.queue.length>dest.queue.length+1){
+          // Move the task, never duplicate it; ownership is exclusive.
+          dest.queue.push(n.queue.shift());this.relayCount++;
+        }
+      }
+    }
+  }
+  // Quiescent workers only retire; non-idle workers keep pending work.
+  retireOne(){
+    const candidates=[...this.nodes.values()].filter(n=>n.id!==0)
+      .sort((a,b)=>a.queue.length-b.queue.length||b.id-a.id);
+    const node=candidates[0]; if(!node)return false;
+    const destination=this.nodes.get(node.parent)??this.nodes.get(0);
+    destination.queue.push(...node.queue);
+    for(const peerId of node.peers){const peer=this.nodes.get(peerId);if(peer)peer.peers.delete(node.id);}
+    // Reconnect grandchildren to the retiring node's former parent.
+    for(const n of this.nodes.values())if(n.parent===node.id){
+      n.parent=destination.id;n.peers.add(destination.id);destination.peers.add(n.id);
+    }
+    this.nodes.delete(node.id);this.retirements++;
+    this.scaleEvents.push({t:this.t,type:'retire',id:node.id,parent:destination.id});
+    if(this.scaleEvents.length>120)this.scaleEvents.shift();
+    return true;
+  }
+  control(){
+    const horizon=10, cutoff=this.t-horizon;
+    this.arrivals=this.arrivals.filter(a=>a.time>cutoff);
+    const incoming=this.arrivals.reduce((a,x)=>a+x.count,0)/Math.min(horizon,Math.max(1,this.t));
+    const queue=this.pending();
+    // PROPOSED controller: capacity estimate=0.95 completed chunks/s/active neuron.
+    // 72% utilization goal plus 12-second queue drainage pressure.
+    const recommended=Math.max(1,Math.min(this.maxNodes,Math.ceil((incoming+queue/12)/(0.95*0.72))));
+    if(!this.scaling)return;
+    if(recommended>this.nodes.size && this.t-this.lastGrow>=1-1e-8){
+      const growBy=Math.min(2,recommended-this.nodes.size);
+      for(let i=0;i<growBy;i++){
+        const busy=[...this.nodes.values()].sort((a,b)=>b.queue.length-a.queue.length||a.id-b.id)[0];
+        const newNode=this.spawn(busy.id);
+        if(newNode){
+          // Keep original in-place, hand ownership of some queued work to child.
+          const transfer=Math.floor(busy.queue.length/2);
+          newNode.queue.push(...busy.queue.splice(0,transfer));
+        }
+      }
+      this.lastGrow=this.t;
+    }
+    if(recommended<this.nodes.size && queue<=this.nodes.size){
+      if(this.lowSince===null)this.lowSince=this.t;
+      if(this.t-this.lowSince>=15 && this.t-this.lastShrink>=5){
+        if(this.retireOne())this.lastShrink=this.t;
+      }
+    }else this.lowSince=null;
+  }
+  // The exact original neuron.step determines a worker's firing events.
+  step(){
+    this.t=+(this.t+this.dt).toFixed(8);
+    const oneSec=Math.round(this.t);
+    if(Math.abs(this.t-oneSec)<this.dt/2 && oneSec!==this.lastControl){
+      this.lastControl=oneSec; this.control();
+    }
+    const half=Math.round(this.t*2)/2;
+    if(Math.abs(this.t-half)<this.dt/2 && half!==this.lastRoute){this.spread();this.lastRoute=half;}
+    for(const node of this.nodes.values()){
+      const active=node.queue.length>0;
+      const red=active?0.35:0;
+      // All work signaling on the standard R channel; G/B unused in v0.1 colony.
+      // Original RGB weights and membrane equation are not modified.
+      const firing=node.neuron.step([red,0,0],this.dt);
+      node.pulses+=firing.count;
+      for(let i=0;i<firing.count && node.queue.length;i++){
+        const unit=node.queue.shift();
+        const s=unit.values.reduce((a,v)=>a+v,0);
+        const sq=unit.values.reduce((a,v)=>a+v*v,0);
+        const job=this.jobs.get(unit.job);
+        if(!job)throw Error('orphan chunk');
+        if(job.partials.has(unit.part))throw Error('duplicate chunk');
+        job.partials.set(unit.part,{sum:s,sumsq:sq,worker:node.id});
+        node.completed++;this.workDone++;
+        if(job.partials.size===job.total){
+          const all=[...job.partials.values()];
+          const actual={sum:all.reduce((a,v)=>a+v.sum,0),sumsq:all.reduce((a,v)=>a+v.sumsq,0)};
+          if(actual.sum!==job.expected.sum||actual.sumsq!==job.expected.sumsq)throw Error('integrity failure');
+          this.finished.set(unit.job,{...actual,latency:this.t-job.created,workers:[...new Set(all.map(x=>x.worker))]});
+          this.jobs.delete(unit.job);this.outCount++;
+        }
+      }
+    }
+  }
+  assertIntegrity(){
+    const workQueued=[...this.nodes.values()].reduce((a,n)=>a+n.queue.length,0);
+    const workPartial=[...this.jobs.values()].reduce((a,j)=>a+j.partials.size,0);
+    const workFinished=[...this.finished.values()].length;
+    if(this.inCount!==this.outCount+this.jobs.size)throw Error('jobs vanished or duplicated');
+    if(workQueued+this.workDone!==this.totalArrivedUnits){
+      // The completed count already contains partials and completed jobs.
+      throw Error('unit accounting failure');
+    }
+    if(this.nodes.size<1||this.nodes.size>this.maxNodes)throw Error('population limit violated');
+    for(const n of this.nodes.values())for(const peer of n.peers){
+      if(!this.nodes.has(peer)||!this.nodes.get(peer).peers.has(n.id))throw Error('unpaired link');
+    }
+    return {queued:workQueued,partials:workPartial,finished:workFinished};
+  }
+  snapshot(){
+    return {time:+this.t.toFixed(2),nodes:this.nodes.size,queued:this.pending(),completedJobs:this.outCount,
+      submittedJobs:this.inCount,completedChunks:this.workDone,relays:this.relayCount,
+      spawns:this.spawns,retirements:this.retirements,edges:[...this.nodes.values()].flatMap(n=>[...n.peers].filter(p=>p>n.id).map(p=>[n.id,p])),
+      workers:[...this.nodes.values()].map(n=>({id:n.id,parent:n.parent,queued:n.queue.length,done:n.completed,pulses:n.pulses,rate:+n.neuron.rate.toFixed(3),theta:+n.neuron.theta.toFixed(3)}))};
+  }
+}
+if(typeof module!=='undefined'&&module.exports) module.exports={RippleMycelium};
+
+</script><script>
+(function(){
+const $=id=>document.getElementById(id);
+const network=$('network'),nc=network.getContext('2d'),hist=$('history'),hc=hist.getContext('2d');
+let c,run=false,records=[],logIndex=0;let lastStamp=0, lastFrame=0,simAccumulator=0;
+function reset(){run=false;c=new RippleMycelium({maxNodes:+$('max').value});records=[];logIndex=0;lastStamp=0;simAccumulator=0;$('toggle').textContent='▶ Start';$('log').innerHTML='<div>New run. The original neuron equation is preserved.</div>';draw();}
+function pushLog(msg){const e=document.createElement('div');e.textContent=msg;$('log').prepend(e);while($('log').children.length>16)$('log').lastChild.remove();}
+function stepOnce(){
+ const k=Math.round(c.t*20),t=c.t;
+ if(t<30){if(k%100===0)c.submitSyntheticJob();}
+ else if(t<110){if(Math.round((t-30)*20)%22===0)c.submitSyntheticJob();}
+ else if(t<160){if(Math.round((t-110)*20)%240===0)c.submitSyntheticJob();}
+ c.step();
+ if(Math.round(c.t*20)%20===0){c.assertIntegrity();records.push(c.snapshot());}
+ while(logIndex<c.scaleEvents.length){const v=c.scaleEvents[logIndex++];if(v.id===0)continue;pushLog(v.t.toFixed(1)+'s · '+(v.type==='spawn'?'branched Ripple #':'retired Ripple #')+v.id);}
+}
+function frame(ts){
+ if(!lastFrame) lastFrame=ts;
+ if(run){let times=+$('speed').value;
+   simAccumulator+=Math.min(0.2,(ts-lastFrame)/1000)*times;
+   const steps=Math.min(250,Math.floor(simAccumulator/c.dt));
+   simAccumulator-=steps*c.dt;
+   for(let i=0;i<steps && c.t<200;i++)stepOnce();
+   if(c.t>=200){run=false;$('toggle').textContent='▶ Finished';c.assertIntegrity();pushLog('END: '+c.outCount+' composed and verified jobs; '+c.pending()+' queued chunks.');}
+ }
+ lastFrame=ts;
+ if(!lastStamp||ts-lastStamp>=60){draw();lastStamp=ts;}
+ requestAnimationFrame(frame);
+}
+function draw(){
+ const snap=c.snapshot();$('nodes').textContent=snap.nodes;$('time').textContent=snap.time.toFixed(1)+' s';$('jobs').textContent=snap.completedJobs+' / '+snap.submittedJobs;
+ $('queued').textContent=snap.queued;$('units').textContent=snap.completedChunks;$('relays').textContent=snap.relays;$('retired').textContent=snap.retirements;
+ $('maxLabel').textContent=$('max').value;$('percent').textContent=Math.round(c.t/2)+'%';$('bar').style.width=Math.min(100,c.t/2)+'%';
+ $('phase').textContent=c.t>=200?'FINISHED':c.t<30?'LIGHT DEMAND':c.t<110?'LOAD SURGE':'RECOVERY';
+ nc.clearRect(0,0,620,370);nc.fillStyle='#071d16';nc.fillRect(0,0,620,370);
+ const ws=snap.workers;const pos=new Map();const depth=new Map([[0,0]]);
+ for(const w of ws){if(w.id!==0)depth.set(w.id,(depth.get(w.parent)||0)+1);}
+ const maxDepth=Math.max(1,...depth.values());const levels=new Map();
+ for(const w of ws){const d=depth.get(w.id)||0;if(!levels.has(d))levels.set(d,[]);levels.get(d).push(w.id);}
+ for(const [d,ids] of levels) ids.forEach((id,i)=>pos.set(id,{x:620*(i+1)/(ids.length+1),y:50+270*d/maxDepth}));
+ nc.lineWidth=2;nc.strokeStyle='#287865';
+ for(const [a,b] of snap.edges){const p=pos.get(a),q=pos.get(b);if(!p||!q)continue;nc.beginPath();nc.moveTo(p.x,p.y);nc.lineTo(q.x,q.y);nc.stroke();}
+ for(const w of ws){const p=pos.get(w.id);const radius=18+Math.min(8,w.queued);nc.beginPath();nc.arc(p.x,p.y,radius,0,Math.PI*2);nc.fillStyle=w.queued?'#926436':'#126b51';nc.fill();nc.strokeStyle=w.queued?'#ffc777':'#42e0ac';nc.lineWidth=2;nc.stroke();nc.fillStyle='#f1fff8';nc.font='bold 12px sans-serif';nc.textAlign='center';nc.fillText('R'+w.id,p.x,p.y+4);nc.font='11px sans-serif';nc.fillStyle='#badaca';nc.fillText(w.queued+' queued',p.x,p.y+radius+16);}
+ hc.clearRect(0,0,480,260);hc.fillStyle='#071d16';hc.fillRect(0,0,480,260);
+ hc.strokeStyle='#25493c';for(let i=0;i<5;i++){const y=20+i*52;hc.beginPath();hc.moveTo(40,y);hc.lineTo(465,y);hc.stroke();}
+ hc.font='11px sans-serif';hc.fillStyle='#a0b7ac';hc.textAlign='right';hc.fillText('0',34,235);hc.fillText('0s',52,254);hc.fillText('200s',465,254);
+ const maxQ=Math.max(10,...records.map(v=>v.queued));
+ for(const [key,color,maxV] of [['nodes','#42e0ac',Math.max(2,c.maxNodes)],['queued','#ffc777',maxQ]]){
+   hc.beginPath();hc.strokeStyle=color;hc.lineWidth=2.5;
+   records.forEach((r,i)=>{const x=40+r.time/200*425, y=230-r[key]/maxV*208;if(i)hc.lineTo(x,y);else hc.moveTo(x,y);});hc.stroke();
+ }
+}
+$('toggle').onclick=()=>{if(c.t>=200)reset();run=!run;$('toggle').textContent=run?'Ⅱ Pause':'▶ Start';};
+$('reset').onclick=reset;$('max').oninput=()=>{if(c.t===0){reset();}else $('maxLabel').textContent=$('max').value+' (reset to apply)';};
+reset();requestAnimationFrame(frame);
+})();
+</script></body></html>
