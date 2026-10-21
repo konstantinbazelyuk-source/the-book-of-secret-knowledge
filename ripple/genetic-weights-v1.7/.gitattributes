@@ -1,0 +1,3 @@
+# The published v1.7 sources are SHA-256 verified byte-for-byte at runtime.
+# Prevent Windows CRLF checkout conversion across this preserved source capsule.
+* -text
