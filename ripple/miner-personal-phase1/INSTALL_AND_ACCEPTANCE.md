@@ -1,27 +1,27 @@
-# Ripple Personal Miner: reconstruct the source ZIP
+# Ripple Personal Miner: final source reconstruction and acceptance status
 
-This source release is separate from all previous miner releases. It is **not** a precompiled Windows installer. The release contains source code, GUI and real CPU mining engine, Ripple colony implementations, historical sources, tests, and a Windows installer build recipe.
+The complete 105-file source release is encoded as `Ripple-Personal-Miner-Phase1-Operational-Source-2026-10-21.zip.b64` in this GitHub directory.
 
-Because the connected GitHub publishing interface accepts UTF-8 source, the complete ZIP is stored as a Base64 text file: `Ripple-Personal-Miner-Phase1-Source-2026-10-21.zip.b64`.
-
-On a computer with Python 3.11+ and a clone of this repository:
+To reconstruct on a machine with Python, from the repository root:
 
 ```sh
-python -c "import base64,pathlib; p=pathlib.Path('ripple/miner-personal-phase1/Ripple-Personal-Miner-Phase1-Source-2026-10-21.zip.b64'); pathlib.Path('Ripple-Personal-Miner-Phase1-Source-2026-10-21.zip').write_bytes(base64.b64decode(p.read_text()))"
+python -c "import base64,pathlib; p=pathlib.Path('ripple/miner-personal-phase1/Ripple-Personal-Miner-Phase1-Operational-Source-2026-10-21.zip.b64'); pathlib.Path('Ripple-Personal-Miner-Phase1-Operational-Source-2026-10-21.zip').write_bytes(base64.b64decode(p.read_text()))"
 ```
 
-ZIP SHA-256 expected:
+Expected decoded ZIP SHA-256:
 
 ```text
-2fc13618061f792b90810657e4627afb7f9238b51eec582397fc3c7a707e18ba
+b5405a36c3c9a43c4089a3a20997b68c03f22395e0a110c91f676ed6a668502f
 ```
 
-Extract `Ripple-Personal-Miner/` and read `PERSONAL_MINER_RELEASE.md`.
+ZIP per-file SHA-256 verification passed; full 51/51 automated Linux source tests passed; seven standalone personal workflow tests passed. A final independent Windows runtime test was **not possible** because this execution environment has no Windows OS and no public-download DNS access.
 
-**Tested:** complete 50-test suite passed on Linux after source repairs; fresh ZIP extraction passed six new tests.
+## Operator installation options
 
-**Not yet tested:** a Windows-built installer, the user's Dell hardware, an operator-authorized production mining pool, observed BTC credits or payouts. No spending or cloud mining provisioning occurred.
+1. **Windows source bootstrap:** extract ZIP, double-click `Install-Ripple-Personal-Miner.cmd` on Windows x64 with internet; this runs `windows/bootstrap-portable.ps1` to download official Python and Node runtimes, then creates a desktop shortcut and launches Ripple. This script was **written but not Windows-validated**.
+2. **Windows packaged installer build:** on a Windows build host, `windows/build-windows.ps1` bundles two PyInstaller apps and optionally Inno Setup. A compiled installer is **not included** in the release.
+3. **Developer/source launch:** with Python 3.11+ and Node 20+, run `python ripple_desktop.py` or `python app.py`, open `http://127.0.0.1:8877`, use the token printed by the controller or copied via desktop UI, configure your authorized Stratum mining account and press Start.
 
-**Windows builder:** `windows/build-windows.ps1` generates separate frozen worker and controller executables and optionally Inno Setup from a Windows build host. This build script is supplied for reproducibility but has not been executed on Windows in this release.
+No Bitcoin credits, production pool authorization, user's Dell CPU/power measurements, or Windows installation have been verified. These are external acceptance gates, not completed tasks.
 
-Do not equate a completed source ZIP with a signed Windows installer or verified Bitcoin earnings.
+Historical original Ripple sources and earlier project versions remain unchanged.
