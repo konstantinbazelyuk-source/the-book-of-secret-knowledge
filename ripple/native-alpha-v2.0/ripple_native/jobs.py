@@ -20,11 +20,15 @@ def validate_job(kind,params):
         n=params.get('nodes',8);frames=params.get('frames',800);dt=params.get('dt',0.05)
         interval=params.get('interval',40);seed=params.get('seed',17)
         if type(n)!=int or not 4<=n<=32:raise ValueError('nodes must be 4..32')
-        if type(frames)!=int or not 40<=frames<=12000 or frames*n*n>3000000:raise ValueError('frames or workload exceeds budget')
+        if type(frames)!=int or not 1<=frames<=12000 or frames*n*n>3000000:raise ValueError('frames or workload exceeds budget')
         if type(dt) not in (int,float) or not math.isfinite(dt) or not 0<dt<=0.5:raise ValueError('dt must be 0..0.5')
         if type(interval)!=int or not 10<=interval<=200:raise ValueError('interval must be 10..200')
         if type(seed)!=int or not 0<=seed<=1000000:raise ValueError('seed out of bounds')
         if type(params.get('plasticity',True))!=bool:raise ValueError('plasticity must be boolean')
+        if params.get('state_policy','fresh') not in ('fresh','start','continue'):raise ValueError('state_policy must be fresh/start/continue')
+        name=params.get('state_id','default')
+        if not isinstance(name,str) or not 1<=len(name)<=48 or not all(c.isascii() and (c.isalnum() or c in '_-') for c in name):raise ValueError('state_id must be 1..48 safe characters')
+        if 'checkpoint_state' in params or 'save_state' in params:raise ValueError('internal snapshot arguments prohibited')
     if kind=='quaternary':
         s=params.get('symbols');
         if not isinstance(s,list) or len(s)!=4 or any(type(x)!=int or not 0<=x<=3 for x in s):raise ValueError('four two-bit symbols required')
@@ -280,7 +284,9 @@ def execute(kind,params,workspace):
             for chunk in iter(lambda:f.read(1024*1024),b''):h.update(chunk)
         result={'relative_path':params['path'],'bytes':p.stat().st_size,'sha256':h.hexdigest()}
     elif kind=='ripple_lif':result=_node('execute_ripple.cjs',params)
-    elif kind=='structural_plasticity':result=_node('structural_plasticity.cjs',params,timeout=45)
+    elif kind=='structural_plasticity':
+        from .structural import run_with_storage
+        result=run_with_storage(params,workspace,_node)
     elif kind=='quaternary':result=_node('execute_quaternary.mjs',params)
     elif kind=='torch_matrix':
         chosen=params.get('device','auto')
