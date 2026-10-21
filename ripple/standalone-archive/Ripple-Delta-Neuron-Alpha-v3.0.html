@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ripple Δ — Delta Neuron Mathematical Alpha v3</title><style>
+:root{color-scheme:light;--bg:#edf2ef;--ink:#123044;--green:#206d56;--blue:#3276a7;--line:#d0ded6;--muted:#5a707b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.48}
+header{background:#0e2533;color:#f6fbf7;padding:22px max(20px,calc((100vw - 1160px)/2));}
+header .meta{letter-spacing:.1em;text-transform:uppercase;font-size:11px;color:#b7d7cb}h1{font-size:clamp(24px,3vw,36px);margin:4px 0 6px;letter-spacing:-.03em}header p{margin:0;color:#d4e8df;font-size:14px}
+main{max-width:1160px;margin:auto;padding:22px 16px 60px} .status{background:#dff0e5;border:1px solid #c2e0d0;color:#1c6142;border-radius:12px;padding:12px 15px;font-size:13px}
+.grid{display:grid;grid-template-columns:360px 1fr;gap:16px;align-items:start;margin-top:16px}.panel{background:white;border:1px solid var(--line);border-radius:15px;padding:19px;box-shadow:0 1px 6px #1542340a;margin-bottom:16px}
+h2{font-size:19px;margin:0 0 10px;letter-spacing:-.02em}h3{font-size:15px;margin:12px 0 8px}p{margin:8px 0;color:#425b66;font-size:13px}.small{font-size:12px;color:var(--muted)}
+.control{display:block;padding:8px 0;border-bottom:1px solid #e8efea}.control>div{display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:600}.control output{font-variant-numeric:tabular-nums}.control input[type=range]{width:100%;accent-color:var(--green)}
+.toggle{display:flex;align-items:center;gap:9px;padding:7px 0;font-size:13px}.toggle input{width:19px;height:19px;accent-color:var(--green)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}button{border:0;background:var(--ink);color:white;min-height:44px;border-radius:9px;padding:10px 14px;cursor:pointer;font-weight:700}button.secondary{background:#e5eee9;color:var(--ink);border:1px solid #c8d7ce}button:hover{filter:brightness(.92)}button:focus-visible,input:focus-visible{outline:3px solid #7ac5ec;outline-offset:2px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:12px 0}.stat{background:#eff6f1;padding:13px 8px;border-radius:9px}.stat strong{font-variant-numeric:tabular-nums;font-size:clamp(17px,2vw,25px);display:block}.stat span{display:block;font-size:11px;color:var(--muted)}
+canvas{width:100%;height:245px;display:block;background:#f9fcfa;border-radius:8px;margin:9px 0}.legend{font-size:12px;color:var(--muted)}.legend b{font-size:14px}.equations{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#f3f7f5;border:1px solid #dae4de;padding:12px;border-radius:10px;white-space:pre-wrap;overflow:auto;font-size:12px;color:#183746}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:12px}td,th{border-bottom:1px solid #e1e9e4;text-align:left;padding:8px 6px}.scroll{overflow-x:auto}.scope{font-size:12px;margin-top:6px}
+@media(max-width:780px){.grid{display:block}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding:16px 10px}header{padding:20px 14px}}
+</style></head><body>
+<header><div class="meta">Ripple Research · Mathematical Alpha v3.0 · New neuron, original preserved</div><h1>Ripple Δ | Delta Neuron</h1><p>Optical transport → log contrast → exact leaky membrane → slow adaptation → event timing → 2-bit telemetry</p></header>
+<main><div class="status"><strong>Evidence: SIMULATED / CALCULATED.</strong> All inputs are manual, dimensionless RGB proxies. This offline laboratory does not connect to a camera, a cloud service, a living neuron, or a physical sensor.</div>
+<div class="grid"><div>
+<section class="panel"><h2>Input RGB</h2>
+<label class="control"><div><span style="color:#bb5649">Red excitation</span><output id="o_r">0.35</output></div><input type="range" id="r" min="0" max="1" step=".01" value=".35"></label><label class="control"><div><span style="color:#237e60">Green excitation</span><output id="o_g">0.00</output></div><input type="range" id="g" min="0" max="1" step=".01" value="0"></label><label class="control"><div><span style="color:#3682b4">Blue inhibition</span><output id="o_b">0.00</output></div><input type="range" id="b" min="0" max="1" step=".01" value="0"></label><h3>Experimental Delta mechanisms</h3>
+<label class="toggle"><input type="checkbox" id="useDelta" checked> Signed temporal-contrast drive</label>
+<label class="toggle"><input type="checkbox" id="useAdapt" checked> Spike-triggered slow adaptation</label>
+<label class="toggle"><input type="checkbox" id="useFF" checked> Analytic steady-rate feedforward (experimental)</label>
+<label class="toggle"><input type="checkbox" id="useBeer"> Synthetic Beer–Lambert attenuation</label><label class="control"><div><span>Log-compression strength</span><output id="o_logK">0.00</output></div><input type="range" id="logK" min="0" max="20" step="0.5" value="0"></label><label class="control"><div><span>Transient gain</span><output id="o_deltaGain">0.22</output></div><input type="range" id="deltaGain" min="0" max="2" step="0.01" value=".22"></label><label class="control"><div><span>Contrast gate</span><output id="o_deltaGate">0.06</output></div><input type="range" id="deltaGate" min="0" max="0.5" step="0.01" value=".06"></label><label class="control"><div><span>Adaptation jump</span><output id="o_adaptJump">0.02</output></div><input type="range" id="adaptJump" min="0" max="0.2" step="0.005" value=".02"></label><label class="control"><div><span>Feedforward time constant, s</span><output id="o_tauFF">4.00</output></div><input type="range" id="tauFF" min="0.5" max="20" step="0.5" value="4"></label><label class="control"><div><span>Synthetic μ, m⁻¹</span><output id="o_mu">0.00</output></div><input type="range" id="mu" min="0" max="3" step="0.05" value="0"></label><label class="control"><div><span>Synthetic path length, m</span><output id="o_path">1.00</output></div><input type="range" id="path" min="0" max="5" step="0.1" value="1"></label><div class="actions"><button id="run">▶ Start</button><button id="step" class="secondary">Single step</button><button id="reset" class="secondary">Reset</button><button id="jump" class="secondary">Light step</button></div><p class="small">Changing model parameters resets the numerical run. The original kernel is held separate and unchanged.</p></section></div><div>
+<section class="panel"><h2>Side-by-side neuron simulation</h2><div class="stats"><div class="stat"><strong id="time">0.00</strong><span>Model time (s)</span></div><div class="stat"><strong id="rate">0.00</strong><span>Delta rate (events/s)</span></div><div class="stat"><strong id="oldRate">0.00</strong><span>Original rate (events/s)</span></div><div class="stat"><strong id="symbol">0</strong><span>Four-state symbol</span></div></div><div id="details" class="scope"></div><canvas id="graph" aria-label="Delta and original simulated model firing rates"></canvas><div class="legend"><b style="color:#1e8659">━</b> Delta rate &nbsp; <b style="color:#c47b40">━</b> Original rate &nbsp; <b style="color:#2e79aa">━</b> Delta threshold</div><div class="actions"><button class="secondary" id="export">Export numerical trace</button></div></section>
+<section class="panel"><h2>Mathematical core</h2><div class="equations">S = 2C(R) + 1.2C(G) − 1.4C(B)
+Δ = Σ wᵢ gate[ln((Iᵢ(t)+ε)/(Iᵢ(t−dt)+ε))]
+D = S + γΔ
+τᵥ du/dt = −u + D − a
+τₐ da/dt = −a ; on spike: a ← a + b
+u crosses θ → spike ; u ← 0, refractory interval
+θ ← clip[θ + α(θ*(S)−θ) + η∫(r−r*)dt]
+θ*(S) = S[1 − exp(−(1/r*−tref)/τᵥ)] (only feasible constant-input approximation)
+Four-state telemetry: decrease=00, inhibited stable=01, stable=10, increase=11</div><p>Light encoding and adaptation are model additions, not measured biophysical parameters. Optical attenuation is optional and synthetic without calibrated coefficients.</p></section>
+<section class="panel"><h2>Original vs Delta regression</h2><button id="comparison" class="secondary">Run 120 s step comparison</button><div class="scroll"><table><thead><tr><th>Variant</th><th>20–40s</th><th>60–80s</th><th>100–120s</th></tr></thead><tbody id="results"></tbody></table></div><p id="resultsNote" class="small">For exact comparisons across identical windows and seeds, see the accompanying validated benchmark.json.</p></section>
+<section class="panel"><h2>Physical interpretation boundary</h2><p><strong>Physics:</strong> exponential attenuation for an idealized homogeneous absorber; electrical RC-like leak; exponential recovery/adaptation; temporal contrast and event gating.</p><p><strong>What this is not:</strong> calibrated optical field sensing, an experimentally characterized biological membrane, demonstrated consciousness, a discovered metaphysical structure, or artificial general intelligence.</p><p>The term “metaphysical” has no independently established measurable equation in these source materials. Philosophical interpretation is separate from empirical validation.</p></section>
+</div></div><p class="small">Ripple Δ v3.0 research Alpha. Standalone source bundles: frozen original v0.1 + existing optical laws + new Delta runtime. No external resources are loaded.</p></main>
+<script type="module">
+(function(){
+// Preserved verbatim from Ripple-Neuron-Simulator.html v0.1 (CC0-1.0)
+const bound=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
+class RippleNeuron{
+ constructor(o={}){this.theta=o.theta??0.45;this.adaptive=o.adaptive??true;this.target=o.target??1;this.tauV=.5;this.tauR=5;this.refractory=.1;this.eta=.08;this.lo=.15;this.hi=2.5;this.t=0;this.u=0;this.rate=0;this.rest=0;}
+ step(x,dt){if(x.length!==3||x.some(v=>!Number.isFinite(v))||!Number.isFinite(dt)||dt<=0||dt>.5)throw Error('Invalid input or elapsed time');x=x.map(v=>bound(v,0,1));const drive=2*x[0]+1.2*x[1]-1.4*x[2],start=this.t,events=[];let elapsed=0;
+  while(elapsed<dt-1e-12){const left=dt-elapsed;if(this.rest>1e-12){let held=Math.min(left,this.rest);this.rest=Math.max(0,this.rest-held);this.u=0;elapsed+=held;continue;}let crossing=Infinity;if(this.u>=this.theta)crossing=0;else if(drive>this.theta)crossing=this.tauV*Math.log((drive-this.u)/(drive-this.theta));if(crossing<=left+1e-12){elapsed+=Math.max(0,Math.min(left,crossing));events.push(start+elapsed);this.u=0;this.rest=this.refractory;}else{this.u=Math.max(0,drive+(this.u-drive)*Math.exp(-left/this.tauV));elapsed=dt;}}
+  const decay=Math.exp(-dt/this.tauR);let integral=this.rate*this.tauR*(1-decay);this.rate*=decay;for(const event of events){const d=Math.exp(-(start+dt-event)/this.tauR);this.rate+=d/this.tauR;integral+=1-d;}if(this.adaptive)this.theta=bound(this.theta+this.eta*(integral-this.target*dt),this.lo,this.hi);this.t=start+dt;return{t:this.t,u:this.u,theta:this.theta,rate:this.rate,drive,count:events.length,events};}
+ attainable(drive){if(drive<=0)return false;const th=drive*(1-Math.exp(-(1/this.target-this.refractory)/this.tauV));return this.lo<=th&&th<=this.hi;}
+}
+function runExperiment(){const a=new RippleNeuron(),b=new RippleNeuron({adaptive:false}),rows=[],spikes={adaptive:[],fixed:[]};for(let i=0;i<2400;i++){const t=i*.05,red=t<40||t>=80?.35:.70,ra=a.step([red,0,0],.05),rb=b.step([red,0,0],.05);spikes.adaptive.push(...ra.events);spikes.fixed.push(...rb.events);rows.push({time_s:ra.t,red_norm:red,green_norm:0,blue_norm:0,drive:ra.drive,theta_adaptive:ra.theta,theta_fixed:rb.theta,rate_adaptive_hz:ra.rate,rate_fixed_hz:rb.rate,spikes_adaptive:ra.count,spikes_fixed:rb.count});}const windows=[[20,40],[60,80],[100,120]].map(([lo,hi])=>({lo,hi,adaptive_hz:spikes.adaptive.filter(e=>lo<=e&&e<hi).length/(hi-lo),fixed_hz:spikes.fixed.filter(e=>lo<=e&&e<hi).length/(hi-lo)}));return{rows,windows};}
+globalThis.LegacyRipple=RippleNeuron;globalThis.LegacyExperiment=runExperiment;
+
+})();
+(function(){
+/** Ripple Gen Beta v2.1: isolated, physically grounded radiometric calculations.
+ * Real sensor calibration MUST be supplied externally. No implicit absolute
+ * light or density inference from camera/display RGB or scanner digit counts.
+ */
+const ok=(x,n)=>{if(!(typeof x==='number'&&Number.isFinite(x)))throw Error('Nonfinite '+n);return x;};
+const bound=(v,a,b)=>Math.max(a,Math.min(b,v));
+const H=6.62607015e-34, C=299792458;
+function photonEnergyJ(lambdaNm){ok(lambdaNm,'wavelength');if(lambdaNm<=0||lambdaNm>1e9)throw Error('Wavelength out of bounds');return H*C/(lambdaNm*1e-9);}
+function srgbDecode(v){ok(v,'sRGB');if(v<0||v>1)throw Error('out of sRGB bounds');return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;}
+function srgbEncode(v){ok(v,'linear RGB');if(v<0||v>1)throw Error('out of linear RGB bounds');return v<=.0031308?12.92*v:1.055*v**(1/2.4)-.055;}
+function beerLambert(intensity,mu,path){ok(intensity,'intensity');ok(mu,'attenuation');ok(path,'path');if(intensity<0||mu<0||path<0||mu*path>100)throw Error('Invalid attenuation');return intensity*Math.exp(-mu*path);}
+function inverseSquareIrradiance(sourceFactor,radius,incidenceRad=0){ok(sourceFactor,'source factor');ok(radius,'radius');ok(incidenceRad,'angle');if(sourceFactor<0||radius<=0||Math.abs(incidenceRad)>Math.PI/2)throw Error('Invalid point-source geometry');return sourceFactor*Math.cos(incidenceRad)/radius**2;}
+function fresnelNormalIncidence(n1,n2){ok(n1,'n1');ok(n2,'n2');if(n1<=0||n2<=0)throw Error('Invalid refractive index');return ((n1-n2)/(n1+n2))**2;}
+/** Relative *camera-output* ratio: does not infer material optical density.
+ * Each observation, dark and clear must have been captured under controlled
+ * optics/exposure/white balance/gamma with declared uncertainties.
+ */
+function calibratedRatio({sample,dark,clear,sigma=0,linearize=false,clipping=250}){
+ for(const [k,v] of Object.entries({sample,dark,clear,sigma,clipping}))ok(v,k);
+ if([sample,dark,clear].some(v=>v<0||v>255)||sigma<0||clipping>255||clipping<10)throw Error('Out of camera-code range');
+ if(sample>=clipping||clear>=clipping||dark>=clipping)return {valid:false,reason:'Clipped channel'};
+ if(clear-dark<Math.max(20,6*sigma))return {valid:false,reason:'Insufficient reference span / low SNR'};
+ let f=x=>linearize?srgbDecode(x/255):x/255;
+ const span=f(clear)-f(dark);if(span<=0)return {valid:false,reason:'Nonpositive optical reference'};
+ const raw=(f(sample)-f(dark))/span;
+ if(raw<0||raw>1)return {valid:false,reason:'Sample outside reference span'};
+ const transmission=raw;
+ return {valid:true,transmission,relativeOpacity:1-transmission,relativeOD:-Math.log10(Math.max(transmission,1e-6)),
+   interpretation:'Camera-code ratio, not physical calibrated spectral transmittance',
+   presumedLinear:linearize,uncertaintyQualifier:'No uncertainty interval without repeated, independent instrument characterization'};
+}
+/** Explicit model-data boundary, sampled optics only. No claimed sensor feed. */
+function validatedRecordedImage(packet){
+ if(!packet||packet.provenance!=='recorded_scanner'||packet.dataset!=='sklearn_digits_1998')throw Error('Unverified provenance');
+ if(!Number.isInteger(packet.datasetIndex)||packet.datasetIndex<0||packet.datasetIndex>=1797)throw Error('index');
+ if(!Array.isArray(packet.pixels)||packet.pixels.length!==64||packet.pixels.some(v=>!Number.isInteger(v)||v<0||v>16))throw Error('shape/range');
+ if('groundTruth' in packet||'digitLabel' in packet)throw Error('Leaked label inside input');
+ return Object.freeze({provenance:packet.provenance,dataset:packet.dataset,datasetIndex:packet.datasetIndex,pixels:Object.freeze([...packet.pixels]),units:'on-pixel counts per 4x4 region; not photon energy or spectral bands'});
+}
+
+Object.assign(globalThis,{beerLambert,srgbDecode});
+})();
+(function(){
+const {beerLambert,srgbDecode}=globalThis;
+/**
+ * Ripple Δ (Delta) Neuron Alpha v3.0, a NEW and independently versioned model.
+ * The frozen v0.1 Ripple in legacy/ripple-core.js is not altered.
+ * Physics-inspired parts: exponential radiometric attenuation, leaky first-order
+ * membrane, exponential adaptation, log temporal contrast, homeostatic feedback.
+ * THESE DIMENSIONLESS PARAMETERS ARE SOFTWARE DESIGN VALUES, NOT BIOPHYSICAL FITS.
+ * Source relationships/assumptions: docs/SCIENCE_AND_LIMITS.md.
+ */
+const clip = (x,a,b)=>Math.max(a,Math.min(b,x));
+function finite(x,key){if(typeof x!=='number'||!Number.isFinite(x))throw new RangeError(`${key} must be a finite number`);return x;}
+const DEFAULTS=Object.freeze({
+  tauV:0.5,tauA:3,tauR:5,tRef:0.1,theta:0.45,
+  thetaMin:0.15,thetaMax:2.5,targetHz:1,
+  eta:0.08,tauFF:4,ffGain:1,
+  logK:0,logFloor:0.02,deltaGain:0.22,deltaGate:0.06,
+  maxLogChange:0.9,adaptJump:0.02,
+  feedforward:true,feedback:true,deltaEnabled:true,spikeAdapt:true,
+  srgb:false,attenuation:null
+});
+function validateOptions(options){
+  if(!options||typeof options!=='object'||Array.isArray(options))throw new TypeError('options object required');
+  for(const key of Object.keys(options))if(!(key in DEFAULTS))throw new RangeError(`Unknown option: ${key}`);
+  const o={...DEFAULTS,...options};
+  const domain={tauV:[.01,30],tauA:[.02,120],tauR:[.1,120],tRef:[0,2],theta:[.01,10],thetaMin:[.01,10],thetaMax:[.02,20],targetHz:[.01,10],eta:[0,2],tauFF:[.05,100],ffGain:[0,1],logK:[0,100],logFloor:[.0001,.5],deltaGain:[0,5],deltaGate:[0,1],maxLogChange:[.05,5],adaptJump:[0,5]};
+  for(const [k,[a,b]] of Object.entries(domain))if(finite(o[k],k)<a||o[k]>b)throw new RangeError(`${k} outside [${a},${b}]`);
+  if(o.thetaMax<=o.thetaMin||o.theta<o.thetaMin||o.theta>o.thetaMax)throw new RangeError('Invalid threshold bounds');
+  if(o.targetHz>=1/(o.tRef||1e-10))throw new RangeError('Target exceeds refractory-limit rate');
+  for(const b of ['feedforward','feedback','deltaEnabled','spikeAdapt','srgb'])if(typeof o[b]!=='boolean')throw new TypeError(`${b} must be boolean`);
+  if(o.attenuation!==null){
+    const {mu,L}=o.attenuation;
+    if(!Array.isArray(mu)||mu.length!==3)throw new RangeError('attenuation.mu: exactly three coefficients');
+    for(let i=0;i<3;i++)if(finite(mu[i],`mu[${i}]`)<0||mu[i]>20)throw new RangeError('attenuation coefficient outside [0,20]');
+    if(finite(L,'attenuation.L')<0||L>5)throw new RangeError('attenuation path outside [0,5]');
+    if(mu.some(m=>m*L>100))throw new RangeError('Optical depth exceeds numerical guard');
+    o.attenuation={mu:[...mu],L};
+  }
+  return Object.freeze(o);
+}
+const DELTA_DEFAULTS=DEFAULTS;
+/** Signed four-state telemetry; each symbol is carried by exactly two bits. */
+function encodeDeltaSymbol(delta,tonic,threshold=.06){
+  finite(delta,'delta');finite(tonic,'tonic');
+  if(finite(threshold,'threshold')<0)throw new RangeError('threshold must be nonnegative');
+  if(delta>threshold)return Object.freeze({state:'1',bits:'11',meaning:'increasing encoded drive'});
+  if(delta< -threshold)return Object.freeze({state:'-1',bits:'00',meaning:'decreasing encoded drive'});
+  if(tonic<0)return Object.freeze({state:'-0',bits:'01',meaning:'stable inhibition'});
+  return Object.freeze({state:'0',bits:'10',meaning:'stable neutral/excitatory drive'});
+}
+
+/** Forward optical preprocessing: input is display-referred normalized RGB, not radiant flux. */
+function deltaOpticalInput(rgb,options={}){
+  if(!Array.isArray(rgb)||rgb.length!==3)throw new TypeError('RGB must contain three channels');
+  for(const [i,v] of rgb.entries())if(finite(v,`rgb[${i}]`)<0||v>1)throw new RangeError('RGB outside [0,1]');
+  const {srgb=false,attenuation=null}=options;
+  if(typeof srgb!=='boolean')throw new TypeError('srgb must be boolean');
+  const decoded=rgb.map(v=>srgb?srgbDecode(v):v);
+  const result=attenuation?decoded.map((v,i)=>beerLambert(v,attenuation.mu[i],attenuation.L)):decoded;
+  return result;
+}
+/** Decay-and-driven two-exponential exact evolution between spikes for held D, a0. */
+function membraneAt(u0,drive,a0,h,tauV,tauA){
+  if(h===0)return u0;
+  const em=Math.exp(-h/tauV),ea=Math.exp(-h/tauA);
+  const adaptationTerm=Math.abs(tauA-tauV)<1e-12?
+    a0*(h/tauV)*em:
+    a0*tauA/(tauA-tauV)*(ea-em);
+  return drive+(u0-drive)*em-adaptationTerm;
+}
+/** Root search over time bins + bisection; no explicit Euler spike-timing step. */
+function firstCrossing(u,drive,a,theta,h,tauV,tauA){
+  if(u>=theta)return 0;
+  const N=32;
+  let lo=0,prev=u-theta;
+  for(let k=1;k<=N;k++){
+    let hi=k*h/N,fhi=membraneAt(u,drive,a,hi,tauV,tauA)-theta;
+    if(prev<0&&fhi>=0){
+      for(let iter=0;iter<48;iter++){
+        const mid=(lo+hi)/2;
+        if(membraneAt(u,drive,a,mid,tauV,tauA)>=theta)hi=mid;else lo=mid;
+      }
+      return hi;
+    }
+    lo=hi;prev=fhi;
+  }
+  return Infinity;
+}
+class DeltaRippleNeuron{
+  constructor(options={}){
+    this.options=validateOptions(options);
+    this.t=0;this.u=0;this.a=0;this.theta=this.options.theta;
+    this.rate=0;this.rest=0;this.previousLog=null;this.spikeCount=0;
+  }
+  reset(){const o=this.options;this.t=0;this.u=0;this.a=0;this.theta=o.theta;this.rate=0;this.rest=0;this.previousLog=null;this.spikeCount=0;}
+  step(rgb,dt){
+    if(finite(dt,'dt')<=0||dt>.2)throw new RangeError('dt must be in (0,0.2] seconds');
+    const o=this.options;
+    const linear=deltaOpticalInput(rgb,o);
+    const logs=linear.map(v=>Math.log(v+o.logFloor));
+    const prior=this.previousLog;
+    const contrast=prior===null?[0,0,0]:logs.map((l,i)=>{
+      const difference=l-prior[i];
+      return Math.abs(difference)<o.deltaGate?0:clip(difference,-o.maxLogChange,o.maxLogChange);
+    });
+    this.previousLog=logs;
+    const sustained=linear.map(v=>o.logK>0?Math.log1p(o.logK*v)/Math.log1p(o.logK):v);
+    const w=[2,1.2,-1.4];
+    const S=w.reduce((acc,c,i)=>acc+c*sustained[i],0);
+    // Signed log contrasts: the physical ON/OFF evidence is kept distinct.
+    const delta=contrast.reduce((acc,c,i)=>acc+w[i]*c,0);
+    const transient=o.deltaEnabled?o.deltaGain*delta:0;
+    const drive=S+transient;
+    const start=this.t,events=[];
+    let elapsed=0;
+    while(elapsed<dt-1e-12){
+      const h=dt-elapsed;
+      if(this.rest>1e-12){
+        const held=Math.min(h,this.rest);
+        this.a*=Math.exp(-held/o.tauA);
+        this.rest=Math.max(0,this.rest-held);this.u=0;elapsed+=held;
+        continue;
+      }
+      const crossing=firstCrossing(this.u,drive,this.a,this.theta,h,o.tauV,o.tauA);
+      if(Number.isFinite(crossing)&&crossing<=h){
+        const tEvent=elapsed+crossing;
+        this.a*=Math.exp(-crossing/o.tauA);
+        elapsed=tEvent;
+        events.push(start+elapsed);this.spikeCount++;
+        this.u=0;this.rest=o.tRef;
+        if(o.spikeAdapt)this.a+=o.adaptJump;
+        if(events.length>Math.ceil(dt/Math.max(o.tRef,0.001))+2)throw new RangeError('Unphysical excessive spike count');
+      }else{
+        this.u=membraneAt(this.u,drive,this.a,h,o.tauV,o.tauA);
+        this.a*=Math.exp(-h/o.tauA);
+        elapsed=dt;
+      }
+    }
+    const e=Math.exp(-dt/o.tauR);
+    let integral=this.rate*o.tauR*(1-e);
+    this.rate*=e;
+    for(const te of events){const d=Math.exp(-(start+dt-te)/o.tauR);this.rate+=d/o.tauR;integral+=(1-d);}
+    // Analytic inverse threshold from original *constant drive* LIF; heuristic
+    // if adaptation, transient drive, or nonstationarity is present.
+    const period=1/o.targetHz-o.tRef;
+    const thetaStar=S>0&&period>0?S*(-Math.expm1(-period/o.tauV)):null;
+    const feedforward=o.feedforward&&thetaStar!==null&&thetaStar>=o.thetaMin&&thetaStar<=o.thetaMax?
+      o.ffGain*(-Math.expm1(-dt/o.tauFF))*(thetaStar-this.theta):0;
+    const feedback=o.feedback?o.eta*(integral-o.targetHz*dt):0;
+    this.theta=clip(this.theta+feedforward+feedback,o.thetaMin,o.thetaMax);
+    this.t=start+dt;
+    for(const [name,x] of Object.entries({u:this.u,a:this.a,theta:this.theta,rate:this.rate,t:this.t,drive}))if(!Number.isFinite(x))throw new Error(`Nonfinite state: ${name}`);
+    return {t:this.t,rgb:[...rgb],light:linear,sustained,contrast,tonic:S,delta,transient,drive,
+      u:this.u,adaptation:this.a,theta:this.theta,rate:this.rate,count:events.length,events,quad:encodeDeltaSymbol(delta,S,o.deltaGate),
+      thetaStar,thetaStarFeasible:thetaStar!==null&&thetaStar>=o.thetaMin&&thetaStar<=o.thetaMax,
+      provenance:o.attenuation?'SIMULATED_OPTOELECTRONIC_PREPROCESS':'NUMERICAL_MODEL'};
+  }
+}
+
+Object.assign(globalThis,{DeltaRippleNeuron});
+})();
+(function(){
+const {DeltaRippleNeuron}=globalThis;
+
+const $=id=>document.getElementById(id),bound=(x,a,b)=>Math.max(a,Math.min(b,x));
+const state={run:false,dt:.05,delta:null,legacy:null,data:[],time:null,steps:0};
+const controls=['r','g','b','logK','deltaGain','deltaGate','adaptJump','tauFF','mu','path'];
+function getParams(){return {
+  rgb:[+$('r').value,+$('g').value,+$('b').value],
+  opts:{logK:+$('logK').value,deltaGain:+$('deltaGain').value,deltaGate:+$('deltaGate').value,adaptJump:+$('adaptJump').value,tauFF:+$('tauFF').value,
+  deltaEnabled:$('useDelta').checked,spikeAdapt:$('useAdapt').checked,feedforward:$('useFF').checked,feedback:true,
+  attenuation:$('useBeer').checked?{mu:[+$('mu').value,+$('mu').value,+$('mu').value],L:+$('path').value}:null}
+};}
+function makeNew(){const {opts}=getParams();state.delta=new DeltaRippleNeuron(opts);state.legacy=new globalThis.LegacyRipple();state.data=[];state.steps=0;state.run=false;$('run').textContent='▶ Start';updateDisplay();}
+for(const name of controls){$(name).addEventListener('input',()=>{$('o_'+name).textContent=Number($(name).value).toFixed(['r','g','b','mu','path'].includes(name)?2:2);});}
+for(const t of ['useDelta','useAdapt','useFF','useBeer'])$(t).addEventListener('change',()=>{makeNew();});
+for(const t of ['logK','deltaGain','deltaGate','adaptJump','tauFF','mu','path'])$(t).addEventListener('change',()=>{makeNew();});
+$('reset').onclick=()=>makeNew();
+$('run').onclick=()=>{state.run=!state.run;$('run').textContent=state.run?'❚❚ Pause':'▶ Start';};
+$('step').onclick=()=>{state.run=false;$('run').textContent='▶ Start';advance();};
+$('jump').onclick=()=>{const r=Math.random();$('r').value=Number((.15+.65*r).toFixed(2));$('o_r').textContent=Number($('r').value).toFixed(2);advance();};
+$('export').onclick=()=>{const a=document.createElement('a'),blob=new Blob([JSON.stringify({evidence:'SIMULATED',source:'Ripple Delta Alpha v3.0',parameters:getParams(),traces:state.data},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);a.href=url;a.download='ripple-delta-session.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+function advance(){const x=getParams().rgb,d=state.delta.step(x,state.dt),c=state.legacy.step(x,state.dt);state.steps++;
+ const z={t:d.t,u:d.u,theta:d.theta,rate:d.rate,tonic:d.tonic,delta:d.delta,transient:d.transient,events:d.count,quaternary:d.quad.state,legacyRate:c.rate,legacyTheta:c.theta,legacyEvents:c.count};
+ state.data.push(z);if(state.data.length>6000)state.data.shift();updateDisplay(z);
+}
+function graph(){const canvas=$('graph');const w=Math.max(canvas.clientWidth,300),h=Math.max(canvas.clientHeight,160),scale=Math.min(window.devicePixelRatio||1,2);canvas.width=w*scale;canvas.height=h*scale;
+ const ctx=canvas.getContext('2d');ctx.scale(scale,scale);ctx.clearRect(0,0,w,h);const l=35,t=10,p=25,right=10,H=h-t-p,W=w-l-right;
+ ctx.lineWidth=1;ctx.font='11px system-ui';for(let j=0;j<5;j++){const y=t+H*j/4;ctx.strokeStyle='#e0e9e2';ctx.beginPath();ctx.moveTo(l,y);ctx.lineTo(w-right,y);ctx.stroke();ctx.fillStyle='#78908b';ctx.fillText((3*(1-j/4)).toFixed(1),3,y+3);}
+ const tail=state.data.slice(-500);if(tail.length<2)return;const min=tail[0].t,max=tail.at(-1).t;
+ for(const [key,color] of [['rate','#1e8659'],['legacyRate','#c47b40'],['theta','#2e79aa']]){ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();tail.forEach((o,i)=>{const x=l+((o.t-min)/Math.max(.001,max-min))*W,y=t+(1-bound(o[key]/3,0,1))*H;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.stroke();}
+ ctx.fillStyle='#637a74';ctx.fillText(`${min.toFixed(0)} s`,l,h-5);ctx.fillText(`${max.toFixed(0)} s`,w-43,h-5);
+}
+function updateDisplay(z=null){z=z||state.data.at(-1)||{t:0,rate:0,theta:.45,delta:0,quaternary:'0',legacyRate:0,events:0,tonic:0,transient:0};
+ $('time').textContent=z.t.toFixed(2);$('rate').textContent=z.rate.toFixed(2);$('oldRate').textContent=z.legacyRate.toFixed(2);$('symbol').textContent=z.quaternary;
+ $('details').textContent=`Tonic ${z.tonic.toFixed(3)} · Contrast Δ ${z.delta.toFixed(3)} · Transient ${z.transient.toFixed(3)} · Threshold ${z.theta.toFixed(3)} · Total samples ${state.steps}`;
+ graph();}
+$('comparison').onclick=()=>{
+ const original=globalThis.LegacyExperiment().windows;
+ const modes=[['Delta defaults',{}],['No analytic feedforward',{feedforward:false}],['No transient',{deltaEnabled:false}],['No spike adaptation',{spikeAdapt:false}]];
+ const comparisons=modes.map(([name,opts])=>{const n=new DeltaRippleNeuron(opts),bins=[0,0,0];for(let i=0;i<2400;i++){const t=.05*i,red=t<40||t>=80?.35:.7;const z=n.step([red,0,0],.05);if(t>=20&&t<40)bins[0]+=z.count;if(t>=60&&t<80)bins[1]+=z.count;if(t>=100&&t<120)bins[2]+=z.count;}return{name,rate:bins.map(n=>n/20)};});
+ const rows=[{name:'Original v0.1',rate:[1,1,1].map((_,i)=>original[i].adaptive_hz)},...comparisons];
+ // Historical original baseline is from three 20-second windows, not full 40-second blocks.
+ const tbody=$('results');tbody.textContent='';for(const row of rows){const tr=document.createElement('tr');[row.name,...row.rate.map(x=>x.toFixed(3))].forEach(cell=>{const td=document.createElement('td');td.textContent=cell;tr.append(td);});tbody.append(tr);}
+ $('resultsNote').textContent='Comparison uses identical 20-second windows (20–40, 60–80, 100–120 s), initial red .35, high red .70. All numerical, not measured.';
+};
+makeNew();setInterval(()=>{if(state.run)advance();},50);window.addEventListener('resize',()=>graph());
+
+})();
+</script></body></html>
