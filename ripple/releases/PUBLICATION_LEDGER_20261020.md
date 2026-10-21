@@ -24,3 +24,11 @@ This ledger was generated from an inventory of 157 unique Ripple-related Library
 - [Ripple derived AC bridge v1.2](../standalone-archive/calcium-ac/Ripple_Calcium_Derived_AC_Bridge_v1_2.html)
 
 These are source HTML files copied from Library text, not installers, cloud applications or physically validated electronics. Full-archive transfers remain pending separately, notably Ripple–Golf v5.3. Source claims should refer to project-specific verification logs.
+
+- [Digital Assessment Forest v1.5](../standalone-archive/forest/Ripple-Digital-Assessment-Alpha-v1.5.html)
+- [Ripple Engineering Measurement Lab](../standalone-archive/engineering/Ripple_Engineering_Measurement_Lab.html)
+- [Ripple Recovery Archive Browser](../standalone-archive/recovery/Ripple_Recovery_Archive_Browser.html)
+- [SpiderScan Digital Avatar Alpha](../standalone-archive/spiderscan/Ripple_SpiderScan_Digital_Avatar_Alpha.html)
+- [SpiderScan Digital Avatar Evolved](../standalone-archive/spiderscan/Ripple_SpiderScan_Digital_Avatar_Evolved.html)
+
+**Latest Ring × Golf:** [v5.3 recovered operating documentation](sections/07-mushroom-ring/ripple-golf-v5.3/README.md). The v5.3 ZIP files are indexed with their SHA-256 hashes but are **not yet present as binary/full-source GitHub archives**. The original working integration package remains in the user Library.
