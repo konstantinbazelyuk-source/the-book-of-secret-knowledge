@@ -1,0 +1,41 @@
+{
+  "artifact": "Ripple Replicating Colony Miner v0.5.0",
+  "classification": "executed software source and test evidence; no physical ASIC, commercial BTC proceeds or approved cloud instance",
+  "environment": {
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "python": "3.13.5"
+  },
+  "tests": {
+    "v04_baseline_full_suite": "33 passed prior to v0.5 changes",
+    "v05_full_suite": "39 passed after core replication upgrade before optional native features; a later combined execution timed out intermittently",
+    "native_and_fault_isolated": "3 native hashing tests, 1 killed-worker recovery test and 1 native Stratum e2e test individually passed after final changes",
+    "full_post_native_suite": "not verified end-to-end in one uninterrupted execution; do not treat all individual passes as one combined pass"
+  },
+  "measured_throughput_hps": {
+    "conventional": 534197.8920225295,
+    "clone_plain": 364686.4521948868,
+    "clone_genetic": 350731.4540130904,
+    "clone_nogate": 372294.8227495924
+  },
+  "measured_relative_to_conventional_pct": {
+    "conventional": 0.0,
+    "clone_plain": -31.731955958465974,
+    "clone_genetic": -34.344283410557054,
+    "clone_nogate": -30.307695273741164
+  },
+  "native_single_process_median_hps": {
+    "python": 1007708.6649434274,
+    "native_openssl": 1646916.2920305007
+  },
+  "native_single_process_speedup": 1.6343178830589478,
+  "hardware_asic": "not available",
+  "production_pool_credits": "unverified",
+  "confirmed_btc_payouts": null,
+  "external_cloud_mining": "not provisioned",
+  "gpu_hashing": "not implemented",
+  "stratum_v2": "not implemented",
+  "windows_test": "not performed",
+  "android_native_apk": "not built",
+  "source_neuron_sha256": "d75d4208e92f19623b127615bd52b4002e85d2c0a59b76471764b55a24294210",
+  "archived_source_unchanged": true
+}
