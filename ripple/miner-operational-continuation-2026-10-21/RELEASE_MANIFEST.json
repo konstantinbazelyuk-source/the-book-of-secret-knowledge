@@ -1,0 +1,14 @@
+{
+  "full_download_zip": {
+    "size": 8251183,
+    "sha256": "df32ede489e7b90c92330d2aecc7a7aa0447dfcf2be1c24c3145efb74a813fdf"
+  },
+  "github_source_zip": {
+    "size": 257241,
+    "sha256": "2245fc62006d472f7a11252483fba122fbec2a05db7e34033f8f9a11327760b5"
+  },
+  "github_source_zip_base64": {
+    "size": 342989,
+    "sha256": "cda8800fac27396a660b2fa341e33bca903873e6020cc0a82320fc1899b239cc"
+  }
+}
