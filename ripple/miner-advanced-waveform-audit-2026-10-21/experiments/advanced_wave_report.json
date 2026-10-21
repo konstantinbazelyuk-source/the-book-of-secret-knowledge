@@ -1,0 +1,506 @@
+{
+  "inputs": "real SHA-256d scan throughput and remaining work, normalized as numeric channels",
+  "advanced_source": "unmodified archived Ripple Heterogeneous Fusion v1 Regulatory Colony v2: 16 Delta/Daughter/Charlie cells, with other compartments disabled",
+  "hardware": "local Linux container, native C/OpenSSL midstate SHA256d",
+  "rounds": [
+    {
+      "round": 0,
+      "policy": "fixed",
+      "hashes": 750000,
+      "wall_seconds": 0.5434212399995886,
+      "hash_seconds": 0.5402535000039279,
+      "controller_seconds": 0.0,
+      "update_every": 12,
+      "effective_hps": 1380144.8025855003,
+      "batches": 38,
+      "min_batch": 10000,
+      "max_batch": 20000,
+      "first_signals": [],
+      "variant": "fixed"
+    },
+    {
+      "round": 0,
+      "policy": "regulatory-v2",
+      "hashes": 750000,
+      "wall_seconds": 1.0177238320002289,
+      "hash_seconds": 0.6823412319954514,
+      "controller_seconds": 0.10776627299946995,
+      "update_every": 1,
+      "effective_hps": 736938.6236401226,
+      "batches": 35,
+      "min_batch": 4119,
+      "max_batch": 23092,
+      "first_signals": [
+        {
+          "inputs": [
+            1.0,
+            0.6,
+            0.0
+          ],
+          "membrane": 0.0988769545423518,
+          "selected_batch": 21084
+        },
+        {
+          "inputs": [
+            0.971888,
+            0.4658431152269238,
+            0.0
+          ],
+          "membrane": 0.21678620250562836,
+          "selected_batch": 22348
+        },
+        {
+          "inputs": [
+            0.9420906666666666,
+            0.5743360476224827,
+            0.0
+          ],
+          "membrane": 0.28887835346967766,
+          "selected_batch": 23092
+        },
+        {
+          "inputs": [
+            0.9113013333333333,
+            0.5237538900987487,
+            0.0
+          ],
+          "membrane": 0.2120926455442785,
+          "selected_batch": 22299
+        }
+      ],
+      "variant": "regulatory-v2"
+    },
+    {
+      "round": 0,
+      "policy": "regulatory-v2",
+      "hashes": 750000,
+      "wall_seconds": 0.8596880320001219,
+      "hash_seconds": 0.6798724750033216,
+      "controller_seconds": 0.05970188499941287,
+      "update_every": 4,
+      "effective_hps": 872409.4928425079,
+      "batches": 34,
+      "min_batch": 20965,
+      "max_batch": 23099,
+      "first_signals": [
+        {
+          "inputs": [
+            1.0,
+            0.6,
+            0.0
+          ],
+          "membrane": 0.0988769545423518,
+          "selected_batch": 21084
+        },
+        {
+          "inputs": [
+            0.887552,
+            0.3964767649957085,
+            0.0
+          ],
+          "membrane": 0.21694366591525943,
+          "selected_batch": 22350
+        },
+        {
+          "inputs": [
+            0.768352,
+            0.5724762999960533,
+            0.0
+          ],
+          "membrane": 0.28951816134368896,
+          "selected_batch": 23099
+        },
+        {
+          "inputs": [
+            0.6451573333333334,
+            0.3699756117815986,
+            0.0
+          ],
+          "membrane": 0.2141461688324534,
+          "selected_batch": 22320
+        }
+      ],
+      "variant": "wave-every-4"
+    },
+    {
+      "round": 0,
+      "policy": "regulatory-v2",
+      "hashes": 750000,
+      "wall_seconds": 0.807862610000484,
+      "hash_seconds": 0.6736532209970392,
+      "controller_seconds": 0.022152096998979687,
+      "update_every": 12,
+      "effective_hps": 928375.680116636,
+      "batches": 34,
+      "min_batch": 18327,
+      "max_batch": 23385,
+      "first_signals": [
+        {
+          "inputs": [
+            1.0,
+            0.6,
+            0.0
+          ],
+          "membrane": 0.0988769545423518,
+          "selected_batch": 21084
+        },
+        {
+          "inputs": [
+            0.662656,
+            0.4398171808935992,
+            0.0
+          ],
+          "membrane": 0.2169785085911409,
+          "selected_batch": 22350
+        },
+        {
+          "inputs": [
+            0.305056,
+            0.5623930061710462,
+            0.0
+          ],
+          "membrane": 0.3180630100291843,
+          "selected_batch": 23385
+        }
+      ],
+      "variant": "wave-every-12"
+    },
+    {
+      "round": 1,
+      "policy": "regulatory-v2",
+      "hashes": 750000,
+      "wall_seconds": 0.8840098989994658,
+      "hash_seconds": 0.740406818998963,
+      "controller_seconds": 0.01748029600003065,
+      "update_every": 12,
+      "effective_hps": 848406.7891647593,
+      "batches": 34,
+      "min_batch": 18207,
+      "max_batch": 23397,
+      "first_signals": [
+        {
+          "inputs": [
+            1.0,
+            0.6,
+            0.0
+          ],
+          "membrane": 0.0988769545423518,
+          "selected_batch": 21084
+        },
+        {
+          "inputs": [
+            0.662656,
+            0.36690641285649517,
+            0.0
+          ],
+          "membrane": 0.217114527250068,
+          "selected_batch": 22351
+        },
+        {
+          "inputs": [
+            0.30504,
+            0.44184336316003947,
+            0.0
+          ],
+          "membrane": 0.3191999950663322,
+          "selected_batch": 23397
+        }
+      ],
+      "variant": "wave-every-12"
+    },
+    {
+      "round": 1,
+      "policy": "regulatory-v2",
+      "hashes": 750000,
+      "wall_seconds": 0.8614835759999551,
+      "hash_seconds": 0.6804816709982333,
+      "controller_seconds": 0.04563551599858329,
+      "update_every": 4,
+      "effective_hps": 870591.1765403629,
+      "batches": 34,
+      "min_batch": 20499,
+      "max_batch": 23118,
+      "first_signals": [
+        {
+          "inputs": [
+            1.0,
+            0.6,
+            0.0
+          ],
+          "membrane": 0.0988769545423518,
+          "selected_batch": 21084
+        },
+        {
+          "inputs": [
+            0.887552,
+            0.4047197727321817,
+            0.0
+          ],
+          "membrane": 0.21690599059420754,
+          "selected_batch": 22349
+        },
+        {
+          "inputs": [
+            0.7683573333333333,
+            0.34515812791350947,
+            0.0
+          ],
+          "membrane": 0.2914015696272412,
+          "selected_batch": 23118
+        },
+        {
+          "inputs": [
+            0.6450613333333334,
+            0.4383461071322228,
+            0.0
+          ],
+          "membrane": 0.21472047418513884,
+          "selected_batch": 22326
+        }
+      ],
+      "variant": "wave-every-4"
+    },
+    {
+      "round": 1,
+      "policy": "regulatory-v2",
+      "hashes": 750000,
+      "wall_seconds": 0.6710351049996461,
+      "hash_seconds": 0.4455798409971976,
+      "controller_seconds": 0.09397282499776338,
+      "update_every": 1,
+      "effective_hps": 1117676.2503362554,
+      "batches": 35,
+      "min_batch": 5166,
+      "max_batch": 23074,
+      "first_signals": [
+        {
+          "inputs": [
+            1.0,
+            0.6,
+            0.0
+          ],
+          "membrane": 0.0988769545423518,
+          "selected_batch": 21084
+        },
+        {
+          "inputs": [
+            0.971888,
+            0.6146920854683008,
+            0.0
+          ],
+          "membrane": 0.21521840081340515,
+          "selected_batch": 22332
+        },
+        {
+          "inputs": [
+            0.942112,
+            0.5872911890971788,
+            0.0
+          ],
+          "membrane": 0.2871077472471,
+          "selected_batch": 23074
+        },
+        {
+          "inputs": [
+            0.9113466666666666,
+            0.5187386292659286,
+            0.0
+          ],
+          "membrane": 0.21102155004014056,
+          "selected_batch": 22287
+        }
+      ],
+      "variant": "regulatory-v2"
+    },
+    {
+      "round": 1,
+      "policy": "fixed",
+      "hashes": 750000,
+      "wall_seconds": 1.742970362000051,
+      "hash_seconds": 1.7244829589990331,
+      "controller_seconds": 0.0,
+      "update_every": 12,
+      "effective_hps": 430299.9157939658,
+      "batches": 38,
+      "min_batch": 10000,
+      "max_batch": 20000,
+      "first_signals": [],
+      "variant": "fixed"
+    },
+    {
+      "round": 2,
+      "policy": "fixed",
+      "hashes": 750000,
+      "wall_seconds": 0.653374315000292,
+      "hash_seconds": 0.6476013149995197,
+      "controller_seconds": 0.0,
+      "update_every": 12,
+      "effective_hps": 1147887.1801069572,
+      "batches": 38,
+      "min_batch": 10000,
+      "max_batch": 20000,
+      "first_signals": [],
+      "variant": "fixed"
+    },
+    {
+      "round": 2,
+      "policy": "regulatory-v2",
+      "hashes": 750000,
+      "wall_seconds": 1.9579425669999182,
+      "hash_seconds": 1.2279838569975254,
+      "controller_seconds": 0.5353019030026189,
+      "update_every": 1,
+      "effective_hps": 383055.1583283655,
+      "batches": 35,
+      "min_batch": 5546,
+      "max_batch": 23080,
+      "first_signals": [
+        {
+          "inputs": [
+            1.0,
+            0.6,
+            0.0
+          ],
+          "membrane": 0.0988769545423518,
+          "selected_batch": 21084
+        },
+        {
+          "inputs": [
+            0.971888,
+            0.6979010256070222,
+            0.0
+          ],
+          "membrane": 0.2142873529377467,
+          "selected_batch": 22322
+        },
+        {
+          "inputs": [
+            0.9421253333333334,
+            0.3272889756281778,
+            0.0
+          ],
+          "membrane": 0.2877028650402319,
+          "selected_batch": 23080
+        },
+        {
+          "inputs": [
+            0.911352,
+            0.45539883408105064,
+            0.0
+          ],
+          "membrane": 0.2111875060389345,
+          "selected_batch": 22289
+        }
+      ],
+      "variant": "regulatory-v2"
+    },
+    {
+      "round": 2,
+      "policy": "regulatory-v2",
+      "hashes": 750000,
+      "wall_seconds": 0.7317987140004334,
+      "hash_seconds": 0.3790750379976089,
+      "controller_seconds": 0.07318758600013098,
+      "update_every": 4,
+      "effective_hps": 1024871.9841280779,
+      "batches": 34,
+      "min_batch": 21084,
+      "max_batch": 22759,
+      "first_signals": [
+        {
+          "inputs": [
+            1.0,
+            0.6,
+            0.0
+          ],
+          "membrane": 0.0988769545423518,
+          "selected_batch": 21084
+        },
+        {
+          "inputs": [
+            0.887552,
+            0.8885540820025146,
+            0.0
+          ],
+          "membrane": 0.21334289888730673,
+          "selected_batch": 22312
+        },
+        {
+          "inputs": [
+            0.7685546666666667,
+            0.7950193704104639,
+            0.0
+          ],
+          "membrane": 0.2562898638293475,
+          "selected_batch": 22759
+        },
+        {
+          "inputs": [
+            0.6471733333333334,
+            0.9023042278445993,
+            0.0
+          ],
+          "membrane": 0.2334637125049397,
+          "selected_batch": 22522
+        }
+      ],
+      "variant": "wave-every-4"
+    },
+    {
+      "round": 2,
+      "policy": "regulatory-v2",
+      "hashes": 750000,
+      "wall_seconds": 0.4920061719994919,
+      "hash_seconds": 0.3758468560035908,
+      "controller_seconds": 0.018119495999599167,
+      "update_every": 12,
+      "effective_hps": 1524371.1211020632,
+      "batches": 34,
+      "min_batch": 21084,
+      "max_batch": 23066,
+      "first_signals": [
+        {
+          "inputs": [
+            1.0,
+            0.6,
+            0.0
+          ],
+          "membrane": 0.0988769545423518,
+          "selected_batch": 21084
+        },
+        {
+          "inputs": [
+            0.662656,
+            0.6439302836344811,
+            0.0
+          ],
+          "membrane": 0.21497109985060545,
+          "selected_batch": 22329
+        },
+        {
+          "inputs": [
+            0.305392,
+            1.0,
+            0.0
+          ],
+          "membrane": 0.28631361215087825,
+          "selected_batch": 23066
+        }
+      ],
+      "variant": "wave-every-12"
+    }
+  ],
+  "median_hps": {
+    "fixed": 1147887.1801069572,
+    "regulatory-v2": 736938.6236401226,
+    "wave-every-4": 872409.4928425079,
+    "wave-every-12": 928375.680116636
+  },
+  "effect_ratios": {
+    "fixed": 1.0,
+    "regulatory-v2": 0.6419956912241641,
+    "wave-every-4": 0.7600132730476343,
+    "wave-every-12": 0.8087690987455164
+  },
+  "scoped_conclusion": "Ablation of one advanced original mathematical family as a causal controller, not cryptanalytic Bitcoin shortcut or integrated financial miner"
+}
