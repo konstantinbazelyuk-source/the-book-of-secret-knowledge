@@ -1,0 +1,16 @@
+test_explicit_expressive_control_runs (test_controller.TestExpression.test_explicit_expressive_control_runs) ... ok
+test_expression_rejects_bad_user_keyframe (test_controller.TestExpression.test_expression_rejects_bad_user_keyframe) ... ok
+test_invalid_time_and_physical_limit_unsupported (test_controller.TestReplay.test_invalid_time_and_physical_limit_unsupported) ... ok
+test_journal_tamper_rejected (test_controller.TestReplay.test_journal_tamper_rejected) ... ok
+test_no_accidental_replay_overwrite (test_controller.TestReplay.test_no_accidental_replay_overwrite) ... ok
+test_plant_bounds_velocity_and_estop (test_controller.TestReplay.test_plant_bounds_velocity_and_estop) ... ok
+test_reachy_refuses_overspeed_movement (test_controller.TestReplay.test_reachy_refuses_overspeed_movement) ... ok
+test_refuse_mixed_continuity (test_controller.TestReplay.test_refuse_mixed_continuity) ... ok
+test_refuse_modified_rendered_png (test_controller.TestReplay.test_refuse_modified_rendered_png) ... ok
+test_target_rejects_nan_and_unknown_and_bad_range (test_controller.TestReplay.test_target_rejects_nan_and_unknown_and_bad_range) ... ok
+test_validated_replay (test_controller.TestReplay.test_validated_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.499s
+
+OK

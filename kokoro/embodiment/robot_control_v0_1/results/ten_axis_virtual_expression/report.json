@@ -1,0 +1,20 @@
+{
+  "schema": "kokoro/embodiment/expression/1",
+  "steps": 100,
+  "dt_s": 0.02,
+  "source_sha256": "911fc435d5bfe47001b210bf1f19ace21d1045d06787656c9d1aa9310c266ab0",
+  "end_state": {
+    "neck_yaw": 0.0,
+    "neck_pitch": 0.0,
+    "neck_roll": 0.0,
+    "eyes_horizontal": 0.0,
+    "eyes_vertical": 0.0,
+    "blink_left": 0.0,
+    "blink_right": 0.0,
+    "mouth_open": 0.0,
+    "mouth_smile": 0.0,
+    "brow": 0.0
+  },
+  "journal_verified": true,
+  "classification": "calculated proposed virtual expressions; no FR-NIA protocol or hardware"
+}
