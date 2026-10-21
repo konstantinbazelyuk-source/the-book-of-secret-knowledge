@@ -1,0 +1,134 @@
+name: Build Ripple Personal Miner Windows installer
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/ripple-miner-windows-installer.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows-installer:
+    runs-on: windows-2022
+    timeout-minutes: 35
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Restore exact previously verified Ripple Miner source
+        shell: pwsh
+        run: |
+          @'
+          from pathlib import Path
+          import base64,hashlib,zipfile
+          source=Path('ripple/miner-operational-continuation-2026-10-21/Ripple-Miner-Continued-GitHub-Source.zip.b64')
+          data=base64.b64decode(source.read_text().strip(),validate=True)
+          expected='2245fc62006d472f7a11252483fba122fbec2a05db7e34033f8f9a11327760b5'
+          actual=hashlib.sha256(data).hexdigest()
+          if actual!=expected:raise SystemExit(f'Source ZIP hash mismatch {actual}')
+          target=Path('ripple-miner-source.zip')
+          target.write_bytes(data)
+          with zipfile.ZipFile(target) as z:
+              if z.testzip():raise SystemExit('Corrupt source archive')
+              if any(n.startswith('/') or '..' in Path(n).parts for n in z.namelist()):raise SystemExit('Unsafe archive path')
+              z.extractall('source')
+          print('Verified and restored Ripple source')
+          '@ | python -
+
+      - name: Build two Windows x64 executables
+        shell: pwsh
+        working-directory: source/RippleMiner
+        run: |
+          python -m pip install --disable-pip-version-check 'pyinstaller>=6.10,<7' 'psutil>=6,<8'
+          if ($LASTEXITCODE -ne 0) { throw 'Installer compiler dependency failure' }
+          python -m PyInstaller --noconfirm --clean --onedir --windowed --name RippleDesktop --add-data 'web;web' --add-data 'legacy;legacy' --add-data 'ripple_miner/neuron_bridge.cjs;ripple_miner' ripple_desktop.py
+          if ($LASTEXITCODE -ne 0) { throw 'Desktop executable build failure' }
+          python -m PyInstaller --noconfirm --clean --onedir --console --name RippleWorker --add-data 'legacy;legacy' --add-data 'ripple_miner/neuron_bridge.cjs;ripple_miner' ripple_worker.py
+          if ($LASTEXITCODE -ne 0) { throw 'Hashing worker executable build failure' }
+
+      - name: Include checksum-verified Node runtime
+        shell: pwsh
+        working-directory: source/RippleMiner
+        run: |
+          $base='https://nodejs.org/dist/v22.16.0'
+          New-Item -ItemType Directory -Force 'dist/node' | Out-Null
+          Invoke-WebRequest -Uri "$base/SHASUMS256.txt" -OutFile 'dist/node/SHASUMS256.txt'
+          Invoke-WebRequest -Uri "$base/win-x64/node.exe" -OutFile 'dist/node/node.exe'
+          $line=Get-Content 'dist/node/SHASUMS256.txt' | Where-Object { $_ -match '  win-x64/node.exe$' } | Select-Object -First 1
+          if (!$line) { throw 'Node publisher checksum not found' }
+          $expected=($line -split '\s+')[0].ToLowerInvariant()
+          $actual=(Get-FileHash 'dist/node/node.exe' -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($expected -ne $actual) { throw 'Node runtime checksum mismatch' }
+
+      - name: Check that frozen miner performs genuine hashes
+        shell: pwsh
+        working-directory: source/RippleMiner
+        run: |
+          $raw=& '.\dist\RippleWorker\RippleWorker.exe' bench --hashes 8192
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen SHA256d miner could not execute' }
+          $result=($raw -join "`n") | ConvertFrom-Json
+          if ($result.hashes -ne 8192 -or -not $result.known_genesis_hash) { throw 'Frozen hashing result invalid' }
+          Write-Host "Frozen Windows miner executed $($result.hashes) real SHA256d hashes"
+
+      - name: Build unsigned Windows installer
+        shell: pwsh
+        working-directory: source/RippleMiner
+        run: |
+          $compiler='C:\Program Files (x86)\Inno Setup 6\ISCC.exe'
+          if (!(Test-Path $compiler)) {
+              choco install innosetup -y --no-progress --limit-output
+              if ($LASTEXITCODE -ne 0) { throw 'Inno Setup installation failed' }
+          }
+          if (!(Test-Path $compiler)) { throw 'Inno Setup compiler missing' }
+          & $compiler 'windows/ripple-miner.iss'
+          if ($LASTEXITCODE -ne 0) { throw 'Inno Setup compilation failed' }
+          if (!(Test-Path 'dist/installer/RipplePersonalMinerSetup.exe')) { throw 'Installer not created' }
+
+      - name: Install setup package and execute installed hashing worker
+        shell: pwsh
+        working-directory: source/RippleMiner
+        run: |
+          $install=Join-Path $PWD 'installed-miner'
+          $setup=(Resolve-Path 'dist/installer/RipplePersonalMinerSetup.exe').Path
+          $proc=Start-Process -FilePath $setup -ArgumentList @('/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART',("/DIR=`""+$install+"`"")) -Wait -PassThru
+          if ($proc.ExitCode -ne 0) { throw "Windows setup exited $($proc.ExitCode)" }
+          $worker=Join-Path $install 'RippleWorker\RippleWorker.exe'
+          $desktop=Join-Path $install 'RippleDesktop\RippleDesktop.exe'
+          if (!(Test-Path $worker) -or !(Test-Path $desktop)) { throw 'Windows installer omitted executable components' }
+          $raw=& $worker bench --hashes 2048
+          if ($LASTEXITCODE -ne 0 -or !(($raw -join "`n") | ConvertFrom-Json).known_genesis_hash) { throw 'Installed miner cannot hash' }
+          Write-Host 'Windows setup completed and installed miner executed real hashes'
+
+      - name: Publish Windows installer as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Ripple-Personal-Miner-Windows-x64-Installer
+          path: source/RippleMiner/dist/installer/RipplePersonalMinerSetup.exe
+          if-no-files-found: error
+          retention-days: 60
+
+      - name: Publish public downloadable Windows installer release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        working-directory: source/RippleMiner
+        run: |
+          $tag='ripple-personal-miner-win-2026-10-21'
+          $setup='dist/installer/RipplePersonalMinerSetup.exe'
+          $hash=(Get-FileHash $setup -Algorithm SHA256).Hash.ToLowerInvariant()
+          $hash | Set-Content -Encoding ascii 'dist/installer/RipplePersonalMinerSetup.exe.sha256'
+          gh release view $tag *> $null
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host 'Release already exists, leaving published download unchanged.'
+          } else {
+            gh release create $tag $setup 'dist/installer/RipplePersonalMinerSetup.exe.sha256' --title 'Ripple Personal Miner — Windows x64 installer (unsigned)' --target $env:GITHUB_SHA --notes 'Actual Stratum V1 CPU miner. Installer and installed-worker hashing are exercised on a Windows GitHub Actions runner. Uses local dashboard, separate hashing worker, Ripple colony policies. No personal Dell or production pool has been connected. Software is unsigned; download only from the official repository release and inspect its checksum.'
+            if ($LASTEXITCODE -ne 0) { throw 'Publishing release failed' }
+          }
