@@ -1,0 +1,40 @@
+name: Ripple structural-neuron integration
+
+on:
+  push:
+    paths:
+      - 'ripple/native-alpha-v2.0/**'
+      - '.github/workflows/ripple-structural-neuron-ci.yml'
+  pull_request:
+    paths:
+      - 'ripple/native-alpha-v2.0/**'
+      - '.github/workflows/ripple-structural-neuron-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Native runtime tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    defaults:
+      run:
+        working-directory: ripple/native-alpha-v2.0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install existing Python runtime requirements
+        run: python -m pip install -r requirements.txt
+      - name: Test original kernel integrity and structural replay
+        run: node --test tests/test_structural.cjs
+      - name: Test Ripple scheduler, state storage and full regression suite
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
