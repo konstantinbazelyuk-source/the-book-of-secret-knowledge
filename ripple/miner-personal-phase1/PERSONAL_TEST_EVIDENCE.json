@@ -1,0 +1,23 @@
+{
+  "name": "Ripple Personal Miner functional source repair",
+  "source_release": "v0.5 base plus targeted personal fixes",
+  "date": "2026-10-21",
+  "local_test_result": "50/50 passed in uninterrupted run",
+  "local_test_duration_seconds": 48.071,
+  "test_command": "python -m unittest discover -s tests -v",
+  "environment": {
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "python": "3.13.5"
+  },
+  "bitcoin_mining": "CPU SHA256d, pool Stratum V1 local verifying test server, target-verified shares",
+  "sha256_original_ripple": "d75d4208e92f19623b127615bd52b4002e85d2c0a59b76471764b55a24294210",
+  "pool_production_authorized": false,
+  "pool_real_shares_confirmed": false,
+  "pool_btc_balance": null,
+  "windows_installer_built": false,
+  "windows_installer_tested": false,
+  "user_dell_measured": false,
+  "phase_two_public_platform": "not started",
+  "windows_build_scripts": "present, not Windows-tested",
+  "notes": "No claim of completed production-mining acceptance; no pool account or paid cloud machine supplied."
+}
