@@ -29,3 +29,7 @@ The original table above describes status before the new October 20 synchronizat
 - [Full Library ZIP inventory and remaining publication gaps](releases/README.md). Historical full archives and platform installers **have not all been copied** to GitHub; check the audit rather than assuming complete publication.
 
 Source originals and historical branches were not removed or overwritten. All versions are subject to their own verification, provenance and third-party licensing conditions.
+
+## October 2026 source-only lineage recovery
+
+A separate [44-archive source capsule release](source-capsules/) now preserves 1,014 first-party selected code/test/documentation files with original archive SHA256, per-member hashes and a working restoration tool. Its [concepts](concepts/CONCEPTS.md), [milestones](concepts/MILESTONES.md) and [source coverage audit](concepts/SOURCE_COVERAGE.md) are published independently. The [downloadable GitHub Release](https://github.com/konstantinbazelyuk-source/the-book-of-secret-knowledge/releases/tag/ripple-lineage-source-2026-10-20) is source-only, not all 104 previously cataloged raw archives or every historical hardware/device package.
