@@ -1,0 +1,95 @@
+{
+  "classification": "measured local CPU SHA-256d throughput, no mining income",
+  "environment": {
+    "python": "3.13.5",
+    "cpu_count_reported": 5,
+    "device": "this executing development container; not Dell"
+  },
+  "config": {
+    "workers": 2,
+    "chunks": 20,
+    "nonces_per_chunk": 50000,
+    "hashes_per_variant_per_round": 1000000,
+    "repetitions": 3
+  },
+  "trials": [
+    {
+      "policy": "round_robin",
+      "hashes": 1000000,
+      "wall_seconds": 0.656935,
+      "hps": 1522219.52,
+      "verified": true,
+      "workers": 2
+    },
+    {
+      "policy": "adaptive",
+      "hashes": 1000000,
+      "wall_seconds": 0.618114,
+      "hps": 1617823.89,
+      "verified": true,
+      "workers": 2
+    },
+    {
+      "policy": "historical",
+      "hashes": 1000000,
+      "wall_seconds": 0.550878,
+      "hps": 1815284.01,
+      "verified": true,
+      "workers": 2
+    },
+    {
+      "policy": "adaptive",
+      "hashes": 1000000,
+      "wall_seconds": 0.617035,
+      "hps": 1620654.71,
+      "verified": true,
+      "workers": 2
+    },
+    {
+      "policy": "historical",
+      "hashes": 1000000,
+      "wall_seconds": 0.608242,
+      "hps": 1644082.99,
+      "verified": true,
+      "workers": 2
+    },
+    {
+      "policy": "round_robin",
+      "hashes": 1000000,
+      "wall_seconds": 0.542794,
+      "hps": 1842320.02,
+      "verified": true,
+      "workers": 2
+    },
+    {
+      "policy": "historical",
+      "hashes": 1000000,
+      "wall_seconds": 0.603714,
+      "hps": 1656413.82,
+      "verified": true,
+      "workers": 2
+    },
+    {
+      "policy": "round_robin",
+      "hashes": 1000000,
+      "wall_seconds": 0.60514,
+      "hps": 1652510.32,
+      "verified": true,
+      "workers": 2
+    },
+    {
+      "policy": "adaptive",
+      "hashes": 1000000,
+      "wall_seconds": 0.540664,
+      "hps": 1849579.25,
+      "verified": true,
+      "workers": 2
+    }
+  ],
+  "median_hashrate_hps": {
+    "round_robin": 1652510.32,
+    "adaptive": 1620654.71,
+    "historical": 1656413.82
+  },
+  "note": "Observed order-dependent variability; do not interpret as ASIC or payout performance."
+}
