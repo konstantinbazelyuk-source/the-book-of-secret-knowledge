@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#162e3e"><meta name="description" content="Open color-responsive neuron running locally on your Android phone.">
+<title>Ripple Neuron — Samsung Lab</title>
+
+<style>
+:root{--navy:#162e3e;--muted:#576d76;--bg:#f5f4ee;--card:#fff;--line:#dae3df;--green:#237851;--red:#b94c48;--blue:#286fa7;--highlight:#e6f2e9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--navy);font:16px/1.45 system-ui,-apple-system,Roboto,sans-serif}button,input,select{font:inherit}button{touch-action:manipulation;background:#fff;border:1px solid #cbd8d2;border-radius:10px;color:var(--navy);padding:12px 13px;cursor:pointer;font-weight:650}button:disabled{opacity:.5;cursor:not-allowed}button.primary{background:var(--navy);color:white;border-color:var(--navy)}button.green{background:var(--green);color:white;border-color:var(--green)}button:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}a{color:#166d88}main{max-width:900px;margin:0 auto;padding:16px 14px 48px}header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:17px}.logo{display:flex;gap:9px;align-items:center;font-size:16px;font-weight:850;letter-spacing:.07em}.logo svg{height:37px;width:37px}.tag{font-size:11px;color:var(--green);background:#e6f2e9;border-radius:999px;padding:6px 10px;font-weight:750;white-space:nowrap}h1{font-size:clamp(27px,6vw,42px);letter-spacing:-.04em;line-height:1.06;margin:8px 0}h2{font-size:18px;letter-spacing:-.015em;margin:0 0 11px}p{margin:8px 0}small,.fine{font-size:12px;color:var(--muted)}.eyebrow{font-weight:750;text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--green)}.intro{color:var(--muted);font-size:14px;margin:10px 0 18px;max-width:630px}.card{border:1px solid var(--line);background:var(--card);border-radius:15px;padding:16px;margin:12px 0;box-shadow:0 2px 7px #12332105}.tabs{display:flex;gap:8px;margin:14px 0}.tabs button{flex:1;font-size:13px;padding:10px 5px}.tabs button.active{background:var(--navy);color:white;border-color:var(--navy)}.view[hidden],div[hidden],section[hidden]{display:none!important}.row{display:flex;justify-content:space-between;align-items:center;gap:9px}.wrap{flex-wrap:wrap}.status{font-size:12px;border-radius:9px;background:#edf0ed;padding:9px 10px;margin:8px 0}.status.good{background:#e7f3ea;color:#1b6744}.status.warn{background:#fff3df;color:#7d5424}.status.bad{background:#ffe8e3;color:#9a322d}.camera-frame{position:relative;overflow:hidden;border-radius:12px;background:#0d1d23;aspect-ratio:4/3;max-height:400px;display:grid;place-items:center;color:#b3c2c4}.camera-frame video{width:100%;height:100%;object-fit:cover}.aim{position:absolute;top:36%;left:36%;height:28%;width:28%;border:2px solid #eaf7e5;box-shadow:0 0 0 999px #0002;pointer-events:none}.camera-placeholder{position:absolute;padding:15px;text-align:center;font-size:13px}.btnrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.btnrow button{flex:1 1 auto}.source{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:10px 0}.source button{font-size:14px}.source .selected{background:var(--green);border-color:var(--green);color:#fff}.channels{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}.channel{min-width:0;background:#f5f7f5;border-radius:9px;padding:9px;text-align:center}.channel b{font-size:19px;display:block;font-variant-numeric:tabular-nums}.channel span{font-size:11px;color:var(--muted)}.channel .r{color:var(--red)}.channel .g{color:var(--green)}.channel .b{color:var(--blue)}.cal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.cal-grid button{font-size:12px;padding:9px 6px}.cal-note{background:#f5f7f5;border-radius:10px;padding:11px;font-size:12px;color:var(--muted);margin-bottom:10px}.cal-tag{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:5px;padding:3px 5px;font-size:11px;margin:4px 3px 0 0}.group{margin:15px 0}.group label{display:flex;justify-content:space-between;font-weight:600;font-size:14px;gap:7px}.group input[type=range]{width:100%;display:block;accent-color:var(--green);min-height:26px}.group.r input{accent-color:var(--red)}.group.b input{accent-color:var(--blue)}.target{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:13px 0;font-size:13px}.target select{max-width:172px;min-height:40px;padding:5px 6px;color:var(--navy);background:white;border:1px solid var(--line);border-radius:8px}.target input{width:94px;min-height:40px;padding:5px 9px;border:1px solid var(--line);border-radius:8px}.check{display:flex;align-items:center;gap:10px;margin:12px 0;font-size:14px}.check input{height:21px;width:21px;accent-color:var(--green)}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0}.metric{background:#f1f5f2;border-radius:10px;padding:12px 8px;min-width:0}.metric b{font-size:clamp(21px,5vw,30px);font-variant-numeric:tabular-nums;display:block}.metric span{font-size:11px;color:var(--muted)}.pulse{display:inline-block;height:18px;width:18px;border-radius:50%;background:#ccd8d0;transition:background .1s;vertical-align:middle;margin-left:6px}.pulse.on{background:#24854f;box-shadow:0 0 0 6px #24854f22}.chart{width:100%;height:175px;display:block;margin:7px 0 11px}.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:11px;color:var(--muted)}.legend i{width:14px;display:inline-block;height:3px;vertical-align:middle;margin-right:3px}.equation{font:12px/1.8 ui-monospace,monospace;white-space:pre-line;border-radius:9px;background:#f5f7f5;padding:13px;overflow-wrap:anywhere}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px}td,th{white-space:nowrap;padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}th{background:#f4f6f4}footer{border-top:1px solid var(--line);font-size:12px;color:var(--muted);padding-top:15px;margin-top:25px}.full{width:100%}.pill{font-size:11px;border-radius:50px;background:#eef4f0;color:var(--green);padding:6px 8px}.livegrid{display:grid;grid-template-columns:1fr;gap:0}@media(min-width:720px){main{padding:26px}.livegrid{grid-template-columns:1fr 1fr;gap:12px;align-items:start}.card{padding:21px}.cal-grid{grid-template-columns:repeat(4,1fr)}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body><main>
+<header><div class="logo"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="9" cy="20" r="3.2" fill="#247953"/><path d="M16 10Q28 20 16 30M22 4Q42 20 22 36" fill="none" stroke="#247953" stroke-width="3" stroke-linecap="round"/></svg>RIPPLE NEURON</div><div class="tag">SAMSUNG / v0.5</div></header>
+<div class="eyebrow">Optical sensing · On-device model</div>
+<h1>Light enters.<br>Feedback responds.</h1><p class="intro">A Samsung Android adaptation of original Ripple Neuron v0.1. Use the rear camera for real RGB image measurements or the manual controls for deterministic testing. All computation stays on your device.</p>
+<div class="tabs" role="tablist" aria-label="Main views"><button class="active" data-view="live" role="tab" aria-selected="true">Live neuron</button><button data-view="experiment" role="tab" aria-selected="false">Experiment</button><button data-view="notes" role="tab" aria-selected="false">Engineering</button></div>
+<section class="view" id="view-live">
+<div class="livegrid">
+<div>
+<section class="card"><div class="row"><h2>Optical input</h2><span class="pill" id="source-label">Manual</span></div>
+<div id="device-status" class="status" role="status">Checking this device’s reported Android capabilities…</div>
+<div class="source"><button id="manual-mode" class="selected" aria-pressed="true">Manual RGB</button><button id="camera-mode" aria-pressed="false">Phone camera</button></div>
+<div id="camera-controls" hidden>
+<div class="camera-frame"><video id="video" autoplay muted playsinline></video><div id="camera-placeholder" class="camera-placeholder">Camera is off. Tap Start camera below.</div><div class="aim" aria-hidden="true"></div></div>
+<div class="btnrow"><button id="start-camera" class="primary">Start camera</button><button id="stop-camera">Stop camera</button></div>
+<div id="camera-status" class="status" role="status">Permission is requested only when you start the camera.</div>
+<div class="row wrap"><span class="fine">Camera RGB values (0–255)</span><span class="fine" id="raw-rgb">—</span></div>
+<div class="cal-note"><strong>Camera calibration (recommended):</strong> keep the phone and light source fixed. Capture darkness, then each colored light separately at the same reference brightness. A phone camera's exposure and white balance can drift; calibrated values are approximate.</div>
+<div class="cal-grid"><button data-cal="dark">1 · Dark</button><button data-cal="red">2 · Red</button><button data-cal="green">3 · Green</button><button data-cal="blue">4 · Blue</button></div>
+<div class="row wrap"><div id="cal-labels" aria-live="polite"></div><button id="clear-cal">Clear</button></div>
+<div class="check"><input type="checkbox" id="use-cal" disabled><label for="use-cal">Use calibrated decoder when ready</label></div>
+<div class="card" style="box-shadow:none;padding:12px;margin:12px 0;background:#f5f7f5"><div class="row wrap"><strong style="font-size:13px">Phone-specific optical equation</strong><button id="export-optical" disabled style="font-size:12px;padding:6px 8px">Export calibration</button></div><div class="equation" id="optical-equation" aria-live="polite">Awaiting four real phone-camera reference measurements. Coefficients are not yet known.</div><p class="fine" id="optical-check">Original neuron equation preserved. This equation will map measured RGB pixels to its drive only within the calibrated, unsaturated range.</p><div class="fine" id="camera-track-info">Camera hardware settings not yet obtained.</div></div>
+</div>
+<div id="manual-controls"><div class="group r"><label for="red"><span>Red · +2.0</span><output id="red-value">0.35</output></label><input type="range" id="red" min="0" max="1" step="0.01" value="0.35"></div><div class="group"><label for="green"><span>Green · +1.2</span><output id="green-value">0.00</output></label><input type="range" id="green" min="0" max="1" step="0.01" value="0"></div><div class="group b"><label for="blue"><span>Blue · −1.4</span><output id="blue-value">0.00</output></label><input type="range" id="blue" min="0" max="1" step="0.01" value="0"></div></div>
+<div class="channels"><div class="channel"><b class="r" id="r-current">0.35</b><span>Red input</span></div><div class="channel"><b class="g" id="g-current">0.00</b><span>Green input</span></div><div class="channel"><b class="b" id="b-current">0.00</b><span>Blue input</span></div></div>
+
+<div class="card" style="box-shadow:none;padding:12px;margin:12px 0;background:#f5f7f5"><h2 style="font-size:14px">Camera engineering diagnostics</h2>
+<p class="fine">Sampled RGB statistics and browser frame presentation timing; no photos stored. Capture real Samsung data before evaluating hardware response.</p>
+<div id="diagnostic-status" class="status">Start the camera to collect timed samples.</div>
+<div class="btnrow"><button id="export-diag">Export camera diagnostics</button><button id="clear-diag">Clear measurements</button></div>
+</div>
+<div class="fine">RGB input is normalized 0–1. Uncalibrated camera mode uses image-channel fractions, not independent spectral measurements. <a href="./engineering-lab.html">Open the engineering measurement lab →</a></div></section>
+<section class="card"><h2>Controls</h2><label class="target" for="encoder">Experimental optical encoding<select id="encoder" aria-label="Neuron input optical encoding"><option value="original">Original (+R,+G,−B)</option><option value="positive-color">Positive all colors</option><option value="luminance-proxy">Luminance proxy</option></select></label><p class="fine">Original is the default. Other encodings are research hypotheses; changing the selection resets the live neuron and recorded event stream.</p><label class="target" for="target">Target events / second<input type="number" id="target" min="0.25" max="3" step="0.25" value="1"></label><label class="check" for="adaptive"><input type="checkbox" id="adaptive" checked>Adaptive threshold feedback</label><label class="check" for="vibrate"><input type="checkbox" id="vibrate">Vibrate briefly on model events</label><label class="target" for="sample-rate">Camera sample cadence
+<select id="sample-rate" aria-label="Camera sample cadence"><option value="200">Economy · 5 fps</option><option value="100" selected>Balanced · 10 fps</option><option value="67">Detailed · ~15 fps</option></select></label>
+<div class="btnrow"><button id="pause">Pause</button><button id="reset">Reset neuron</button><button id="export" class="primary">Export CSV</button></div>
+<div class="btnrow"><button id="save-state">Save session</button><button id="load-state">Restore</button><button id="clear-state">Delete saved session</button></div>
+<div class="fine" id="save-status" role="status">Session is in memory. Save stores numeric measurements locally in this browser; camera images are never stored.</div><div id="state-status" class="status">Neuron is running with manual input.</div></section>
+</div><div>
+<section class="card"><div class="row"><h2>Neuron output</h2><span class="fine">Pulse <span id="pulse" class="pulse"></span></span></div>
+<div class="metrics"><div class="metric"><b id="rate">0.00</b><span>Estimated Hz</span></div><div class="metric"><b id="theta">0.45</b><span>Threshold</span></div><div class="metric"><b id="events">0</b><span>Total events</span></div></div>
+<div class="row"><span class="fine" id="elapsed">0.0 s · Model time</span><span class="fine" id="drive">Drive 0.70</span></div>
+<div class="legend" style="margin-top:13px"><span><i style="background:#247953"></i>Estimated rate</span><span><i style="background:#a0aaa4"></i>Target</span></div><canvas class="chart" id="rate-chart" aria-label="Estimated neuron firing rate over the past 60 seconds"></canvas>
+<div class="legend"><span><i style="background:#286fa7"></i>Accumulation</span><span><i style="background:#be4b44"></i>Threshold</span></div><canvas class="chart" id="state-chart" aria-label="Accumulated neuron state and firing threshold"></canvas>
+<div id="reachability" class="status warn">Waiting for input.</div></section>
+</div></div>
+</section>
+<section class="view" id="view-experiment" hidden><div class="card"><h2>Brightness step comparison</h2><p class="fine">Original Ripple Neuron v0.1 experiment: 120 simulated seconds, 0.35 red until 40 s, 0.70 until 80 s, then 0.35 again. Same inputs are applied to adaptive and fixed-threshold neurons. This test is numerical, not camera-based.</p><button class="primary full" id="run-experiment">Run original comparison</button><div class="legend" style="margin-top:12px"><span><i style="background:#247953"></i>Adaptive</span><span><i style="background:#be4b44"></i>Fixed</span><span><i style="background:#a0aaa4"></i>Target 1 Hz</span></div><canvas class="chart" style="height:240px" id="experiment-chart"></canvas><div id="results" class="table-wrap fine">Run the test to compare responses.</div><button id="experiment-csv" disabled style="margin-top:10px">Export experiment CSV</button></div></section>
+<section class="view" id="view-notes" hidden><div class="card"><h2>What this phone version actually measures</h2><p>Android camera frames supply average red/green/blue <strong>image pixel values</strong> in a small central target area. They are not eight AS7341 spectral measurements, optical field measurements, or absolute irradiance.</p><p>The quick camera mode scales camera RGB (0–255) to 0–1, so its behavior changes with lighting, camera exposure, white balance, and surface reflectance.</p><p>The optional calibration estimates three source amplitudes using a 3 × 3 matrix built from darkness and separate red, green, and blue reference frames. After four actual reference captures, a Samsung-specific pixel-to-drive equation is computed from the fitted response matrix. That is a simplified phone-camera approximation of the original multi-band reference decoding, not identical performance.</p><div class="equation">D = 2.0R + 1.2G − 1.4B
+τᵥ du/dt = −u + D
+if u ≥ θ: emit event, reset, refractory pause
+θ adapts toward a target firing rate</div><p>The neuron model code and the 120-second comparison are preserved from Ripple Neuron v0.1. Camera capture is the new input adapter; model outputs are simulated neural events computed from actual camera measurements.</p><h2 style="margin-top:15px">Testing limitations</h2><p>Camera access requires user permission and a compatible secure browser context. For repeatable comparisons, use a stationary phone, stable controlled light and avoid saturated pictures. Browser camera settings cannot reliably lock exposure/white balance across Android devices; a native Camera2 adaptation may improve control.</p><p>The derived pixel-to-drive coefficients are only valid with the calibration setup; exposure changes, white balance, color processing and reflection can invalidate them. Camera input and model execution stop when the page is suspended or backgrounded. No continuous background sensing, autonomous decision-making, cloud communication or robot control is claimed.</p><p><strong>Privacy:</strong> captured video is processed locally in memory, not recorded or uploaded. CSV export contains optical channel summaries and neuron states, not images. The app makes no network requests for inference or camera data.</p><p class="fine">Open engineering · Original concept: Constantin x · CC0-1.0 source materials · Based on Ripple Neuron v0.1 dated 2026-10-13.</p></div></section>
+<footer>Ripple Neuron Samsung v0.4 · Phone-camera input is experimental; no physical optical validation claimed. <span id="secure-note"></span></footer>
+</main>
+<script>
+// Original Ripple Neuron v0.1 model: preserved without changes below.
+const bound=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
+class RippleNeuron{
+ constructor(o={}){this.theta=o.theta??0.45;this.adaptive=o.adaptive??true;this.target=o.target??1;this.tauV=.5;this.tauR=5;this.refractory=.1;this.eta=.08;this.lo=.15;this.hi=2.5;this.t=0;this.u=0;this.rate=0;this.rest=0;}
+ step(x,dt){if(x.length!==3||x.some(v=>!Number.isFinite(v))||!Number.isFinite(dt)||dt<=0||dt>.5)throw Error('Invalid input or elapsed time');x=x.map(v=>bound(v,0,1));const drive=2*x[0]+1.2*x[1]-1.4*x[2],start=this.t,events=[];let elapsed=0;
+  while(elapsed<dt-1e-12){const left=dt-elapsed;if(this.rest>1e-12){let held=Math.min(left,this.rest);this.rest=Math.max(0,this.rest-held);this.u=0;elapsed+=held;continue;}let crossing=Infinity;if(this.u>=this.theta)crossing=0;else if(drive>this.theta)crossing=this.tauV*Math.log((drive-this.u)/(drive-this.theta));if(crossing<=left+1e-12){elapsed+=Math.max(0,Math.min(left,crossing));events.push(start+elapsed);this.u=0;this.rest=this.refractory;}else{this.u=Math.max(0,drive+(this.u-drive)*Math.exp(-left/this.tauV));elapsed=dt;}}
+  const decay=Math.exp(-dt/this.tauR);let integral=this.rate*this.tauR*(1-decay);this.rate*=decay;for(const event of events){const d=Math.exp(-(start+dt-event)/this.tauR);this.rate+=d/this.tauR;integral+=1-d;}if(this.adaptive)this.theta=bound(this.theta+this.eta*(integral-this.target*dt),this.lo,this.hi);this.t=start+dt;return{t:this.t,u:this.u,theta:this.theta,rate:this.rate,drive,count:events.length,events};}
+ attainable(drive){if(drive<=0)return false;const th=drive*(1-Math.exp(-(1/this.target-this.refractory)/this.tauV));return this.lo<=th&&th<=this.hi;}
+}
+function runExperiment(){const a=new RippleNeuron(),b=new RippleNeuron({adaptive:false}),rows=[],spikes={adaptive:[],fixed:[]};for(let i=0;i<2400;i++){const t=i*.05,red=t<40||t>=80?.35:.70,ra=a.step([red,0,0],.05),rb=b.step([red,0,0],.05);spikes.adaptive.push(...ra.events);spikes.fixed.push(...rb.events);rows.push({time_s:ra.t,red_norm:red,green_norm:0,blue_norm:0,drive:ra.drive,theta_adaptive:ra.theta,theta_fixed:rb.theta,rate_adaptive_hz:ra.rate,rate_fixed_hz:rb.rate,spikes_adaptive:ra.count,spikes_fixed:rb.count});}const windows=[[20,40],[60,80],[100,120]].map(([lo,hi])=>({lo,hi,adaptive_hz:spikes.adaptive.filter(e=>lo<=e&&e<hi).length/(hi-lo),fixed_hz:spikes.fixed.filter(e=>lo<=e&&e<hi).length/(hi-lo)}));return{rows,windows};}
+globalThis.RippleNeuron=RippleNeuron;globalThis.runExperiment=runExperiment;
+
+</script>
+<script>
+// Phone-specific UI / camera input bridge. No outbound requests.
+const $=id=>document.getElementById(id);
+const app={mode:'manual',stream:null,cal:{},decoder:null,lastRGB:null,camX:null,camTime:0,paused:false,model:new RippleNeuron(),history:[],records:[],total:0,pulseUntil:0,frameTime:0,carry:0,renderTime:0,sampleTime:0,valid:false,experiment:null,calBusy:false,lastVibrate:0,diag:{samples:[],frames:[],callbackId:null}};
+const manual=()=>['red','green','blue'].map(k=>Number($(k).value));
+const inputNow=()=>app.mode==='manual'?manual():app.camX||[0,0,0];
+// Experimental optical encoders are input adapters only; original RippleNeuron is never modified.
+function encodedDrive(x){const mode=$('encoder').value;
+ if(mode==='positive-color')return 1.2*x[0]+.9*x[1]+.7*x[2];
+ if(mode==='luminance-proxy')return 3*(.2126*x[0]+.7152*x[1]+.0722*x[2]);
+ return 2*x[0]+1.2*x[1]-1.4*x[2];
+}
+function neuronFeed(x){if($('encoder').value==='original')return x;
+ const d=encodedDrive(x),r=Math.min(1,Math.max(0,d/2));
+ return d>=0?[r,Math.min(1,Math.max(0,(d-2*r)/1.2)),0]:[0,0,Math.min(1,-d/1.4)];
+}
+const vector=(a,b)=>a.map((x,i)=>x-b[i]);
+const dot=(a,b)=>a.reduce((v,x,i)=>v+x*b[i],0);
+const norm=a=>Math.sqrt(dot(a,a));
+// Compute a 3x3 inverse via partial-pivot Gauss-Jordan elimination.
+function inverse3(M){let a=M.map((r,i)=>[...r,...[0,1,2].map(j=>Number(i===j))]);for(let j=0;j<3;j++){let p=j;for(let k=j+1;k<3;k++)if(Math.abs(a[k][j])>Math.abs(a[p][j]))p=k;if(Math.abs(a[p][j])<1e-9)return null;[a[j],a[p]]=[a[p],a[j]];const x=a[j][j];for(let k=0;k<6;k++)a[j][k]/=x;for(let r=0;r<3;r++)if(r!==j){const f=a[r][j];for(let k=0;k<6;k++)a[r][k]-=f*a[j][k];}}return a.map(r=>r.slice(3));}
+function makeDecoder(cal){if(!['dark','red','green','blue'].every(k=>cal[k]))return{error:'Capture all four calibration references.'};const M=[0,1,2].map(i=>['red','green','blue'].map(k=>cal[k][i]-cal.dark[i]));for(let j=0;j<3;j++)if(norm([M[0][j],M[1][j],M[2][j]])<18)return{error:'Color reference is too dim relative to darkness.'};const inv=inverse3(M);if(!inv)return{error:'References cannot distinguish all three color inputs.'};const inf=A=>Math.max(...A.map(row=>row.reduce((sum,x)=>sum+Math.abs(x),0)));const cond=inf(M)*inf(inv);if(cond>120)return{error:'References are too similar; aim at purer red/green/blue lights.'};return{M,inv,cond};}
+function decodeRGB(rgb){if(!app.decoder||!app.decoder.inv)return null;const q=vector(rgb,app.cal.dark);const weights=app.decoder.inv.map(row=>dot(row,q));const capped=weights.map(x=>bound(x,0,1));const fitted=app.decoder.M.map(row=>dot(row,capped));const residual=norm(vector(q,fitted))/(Math.max(1,...['red','green','blue'].map(k=>norm(vector(app.cal[k],app.cal.dark)))));if(rgb.some(v=>v>=253)||residual>.2)return null;return capped;}
+const capCanvas=document.createElement('canvas');capCanvas.width=60;capCanvas.height=60;const capContext=capCanvas.getContext('2d',{willReadFrequently:true});
+function getRGB(){const v=$('video');if(!app.stream||!v.videoWidth||!v.videoHeight)return null;const w=v.videoWidth,h=v.videoHeight,sw=Math.max(8,Math.round(w*.24)),sh=Math.max(8,Math.round(h*.24));try{capContext.drawImage(v,(w-sw)/2,(h-sh)/2,sw,sh,0,0,60,60);const d=capContext.getImageData(0,0,60,60).data;let sum=[0,0,0],n=0;for(let i=0;i<d.length;i+=16){sum[0]+=d[i];sum[1]+=d[i+1];sum[2]+=d[i+2];n++;}return sum.map(x=>x/n);}catch(e){showStatus('camera-status','Cannot read camera frame: '+e.message,'bad');return null;}}
+function showStatus(id,msg,kind=''){const el=$(id);el.textContent=msg;el.className='status'+(kind?' '+kind:'');}
+function setMode(mode){app.mode=mode;$('manual-controls').hidden=mode!=='manual';$('camera-controls').hidden=mode!=='camera';$('manual-mode').classList.toggle('selected',mode==='manual');$('camera-mode').classList.toggle('selected',mode==='camera');$('manual-mode').setAttribute('aria-pressed',mode==='manual');$('camera-mode').setAttribute('aria-pressed',mode==='camera');$('source-label').textContent=mode==='manual'?'Manual':'Camera';if(mode==='camera'&&!app.stream)showStatus('state-status','Camera mode selected. Start camera to provide real optical input.','warn');if(mode==='manual'){if(app.stream)stopCamera();showStatus('state-status','Manual input: deterministic local model.','good');}}
+function refreshDecoder(){const made=makeDecoder(app.cal);app.decoder=made.inv?made:null;$('use-cal').disabled=!app.decoder;updateOpticalEquation();if(!app.decoder)$('use-cal').checked=false;$('cal-labels').replaceChildren();for(const k of ['dark','red','green','blue'])if(app.cal[k]){const el=document.createElement('span');el.className='cal-tag';el.textContent='✓ '+k;$('cal-labels').appendChild(el);}if(made.error&&Object.keys(app.cal).length===4)showStatus('camera-status',made.error,'warn');else if(made.inv)showStatus('camera-status','Camera references ready; decoder condition ≈ '+made.cond.toFixed(1)+'. Select calibrated mode to use them.','good');}
+// The model's input drive is a^T x with a=(2,1.2,-1.4) and
+// x=M^-1(p-dark). Therefore D=(a^T M^-1)p - (a^T M^-1)dark.
+// This is mathematically equivalent only before channel clamping and under
+// unchanged camera processing, fixed reference radiance, and linear mixture.
+const OPTICAL_WEIGHTS=[2,1.2,-1.4];
+function effectiveOpticalEquation(decoder,dark){if(!decoder?.inv||!Array.isArray(dark)||dark.length!==3) return null;
+ const w=[0,1,2].map(j=>OPTICAL_WEIGHTS.reduce((sum,a,i)=>sum+a*decoder.inv[i][j],0));
+ const b=-dot(w,dark);
+ return{pixel_weights:w,bias:b,conditioning:decoder.cond,reference_dark:dark.slice(),reference_matrix:decoder.M.map(row=>row.slice()),units:'pixel channels: 0–255',validity:'valid for unsaturated samples within calibrated light setup, without exposure/white balance changes'};
+}
+function updateOpticalEquation(){const el=$('optical-equation'),note=$('optical-check'),button=$('export-optical');
+ const params=effectiveOpticalEquation(app.decoder,app.cal.dark);
+ button.disabled=!params;
+ if(!params){el.textContent='Awaiting four real phone-camera reference measurements. Coefficients are not yet known.';note.textContent='The original neuron equation is preserved. A measured response matrix is needed to determine the phone-specific coefficients.';return;}
+ const w=params.pixel_weights,term=(v,name,first)=>((v<0&&!first)?' − ':first&&v<0?'-':' + ')+Math.abs(v).toFixed(7)+'×'+name;
+ el.textContent='D = '+w.map((v,i)=>term(v,['Rpixel','Gpixel','Bpixel'][i],i===0)).join('')+(params.bias<0?' − ':' + ')+Math.abs(params.bias).toFixed(7)+'\nD = 2×Rcal + 1.2×Gcal − 1.4×Bcal\nτv·du/dt = −u + D, τv = 0.5 s';
+ note.textContent='Calculated from camera references; condition number ≈ '+params.conditioning.toFixed(1)+'. The linear equation matches the decoder only for unclipped input. It is a relative-optical calibration, not absolute photon flux.';
+}
+function saveOpticalCalibration(){const derived=effectiveOpticalEquation(app.decoder,app.cal.dark);if(!derived)return;
+ const track=app.stream?.getVideoTracks()[0],settings=track?.getSettings?.()||{};
+ const report={schema:'ripple-samsung-optical/1',timestamp:new Date().toISOString(),original_model:'Ripple Neuron v0.1 unchanged',device_report:navigator.userAgent||'',camera_settings:{width:settings.width||null,height:settings.height||null,frameRate:settings.frameRate||null,facingMode:settings.facingMode||null},pixel_response:derived,reference_samples:structuredClone(app.cal),quality:'Computed from 4 user-captured 8-bit camera reference averages; not hardware spectral calibration'};
+ const blob=new Blob([JSON.stringify(report,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Ripple-Samsung-Optical-Calibration.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
+}
+async function collectReference(which){if(app.calBusy||!app.stream)return;app.calBusy=true;document.querySelectorAll('[data-cal]').forEach(b=>b.disabled=true);showStatus('camera-status','Capturing '+which+' reference — keep phone and target steady.');let samples=[];for(let i=0;i<12;i++){const rgb=getRGB();if(rgb)samples.push(rgb);await new Promise(r=>setTimeout(r,95));if(!app.stream)break;}app.calBusy=false;document.querySelectorAll('[data-cal]').forEach(b=>b.disabled=false);if(samples.length<8){showStatus('camera-status','Too few camera frames. Try again.','warn');return;}const avg=[0,1,2].map(j=>samples.reduce((s,p)=>s+p[j],0)/samples.length);const spread=Math.max(...samples.map(v=>norm(vector(v,avg))));if(spread>35){showStatus('camera-status','Light/exposure changed while capturing (variation '+spread.toFixed(0)+'). Stabilize phone and retry.','warn');return;}if(which!=='dark'&&avg.some(x=>x>253)){showStatus('camera-status','Reference saturated; reduce brightness and try again.','warn');return;}app.cal[which]=avg;refreshDecoder();if(!app.decoder)showStatus('camera-status','Recorded '+which+' reference. Complete remaining colors.','good');}
+async function startCamera(){if(app.stream)return;const constraints={audio:false,video:{facingMode:{ideal:'environment'},width:{ideal:640},height:{ideal:480},frameRate:{ideal:15,max:20}}};if(!navigator.mediaDevices?.getUserMedia){showStatus('camera-status','Camera API unavailable here. Open this app using HTTPS (or a supported secure file origin) in Chrome.','bad');return;}try{showStatus('camera-status','Requesting rear-camera access…');const stream=await navigator.mediaDevices.getUserMedia(constraints);app.stream=stream;const v=$('video');v.srcObject=stream;await v.play();const ts=stream.getVideoTracks()[0]?.getSettings?.()||{};$('camera-track-info').textContent='Actual selected video stream: '+[ts.width&&ts.height?ts.width+'×'+ts.height+' px':'resolution not reported',ts.frameRate?'nominal '+ts.frameRate+' fps':'fps not reported',ts.facingMode||'camera facing not reported'].join(' · ')+'. Sensor RAW/ISO/exposure is unavailable through this web interface.';$('camera-placeholder').hidden=true;app.camTime=performance.now();app.valid=false;trackNewCameraFrames(v);showStatus('camera-status','Camera active. Center a colored light in the square; calibration improves repeatability.','good');showStatus('state-status','Real camera frames feed the neuron while this page is visible.','good');stream.getVideoTracks().forEach(track=>track.addEventListener('ended',()=>{if(app.stream===stream)stopCamera();}));}catch(err){stopCamera();showStatus('camera-status','Camera could not start: '+(err?.message||String(err))+'. You can still use manual mode.','bad');}}
+function stopCamera(){const v=$('video');if(app.diag.callbackId!=null&&typeof v.cancelVideoFrameCallback==='function'){try{v.cancelVideoFrameCallback(app.diag.callbackId);}catch(_){}}app.diag.callbackId=null;if(app.stream){app.stream.getTracks().forEach(t=>t.stop());app.stream=null;}$('video').srcObject=null;$('camera-placeholder').hidden=false;app.camX=null;app.valid=false;app.lastRGB=null;showStatus('state-status','Camera off; model waits for input.','warn');}
+function trackNewCameraFrames(video){
+ if(typeof video.requestVideoFrameCallback!=='function')return;
+ const associated=app.stream;
+ const cb=(timestamp,metadata)=>{if(app.stream!==associated||document.hidden)return;
+ app.diag.frames.push({time_ms:+timestamp.toFixed(3),presented_frames:Number(metadata.presentedFrames)||null});
+ if(app.diag.frames.length>3000)app.diag.frames.shift();app.diag.callbackId=video.requestVideoFrameCallback(cb);};
+ app.diag.callbackId=video.requestVideoFrameCallback(cb);
+}
+function exportCameraDiagnostics(){
+ const t=app.stream?.getVideoTracks()[0];const raw=t?.getSettings?.()||{};const keys=['width','height','frameRate','facingMode','resizeMode'];
+ const settings=Object.fromEntries(keys.map(k=>[k,raw[k]??null]));
+ const report={schema:'ripple-samsung-camera-diagnostics/1',timestamp:new Date().toISOString(),data_kind:'REAL_BROWSER_MEASUREMENTS_WHEN_CAMERA_ACTIVE',camera_stream:!!app.stream,reported_settings:settings,samples:app.diag.samples.slice(),presented_video_frames:app.diag.frames.slice(),reference_samples:structuredClone(app.cal),note:'Times are browser performance clock ms, RGB are processed pixels 0..255. Video-frame callbacks are compositor presentations, not light-sensor RAW exposures. No camera images stored.'};
+ const url=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='Ripple-Samsung-Camera-Diagnostics.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
+}
+function refreshCameraDiagnostics(){const samples=app.diag.samples,frames=app.diag.frames;
+ if(samples.length<2){$('diagnostic-status').textContent='Need at least two actual timed camera samples.';return;}
+ const span=(samples[samples.length-1].time_ms-samples[0].time_ms)/1000;
+ const hz=span>0?(samples.length-1)/span:0;
+ const clipped=samples.filter(s=>s.rgb.some(x=>x<=2||x>=253)).length;
+ let videoInfo='Frame presentation API not reported';
+ if(frames.length>1){const elapsed=(frames.at(-1).time_ms-frames[0].time_ms)/1000;
+ const diff=(frames.at(-1).presented_frames||0)-(frames[0].presented_frames||0);
+ if(elapsed>0&&diff>=0)videoInfo=(diff/elapsed).toFixed(1)+' video presentations/s';}
+ $('diagnostic-status').textContent=samples.length+' RGB samples · '+hz.toFixed(1)+' measured samples/s · '+(100*clipped/samples.length).toFixed(1)+'% clipped · '+videoInfo;
+}
+function sample(){const start=performance.now();const rgb=getRGB();if(!rgb)return;const now=performance.now();app.diag.samples.push({time_ms:now,rgb:rgb.map(x=>+x.toFixed(3)),process_ms:+(now-start).toFixed(3)});if(app.diag.samples.length>3000)app.diag.samples.shift();app.lastRGB=rgb;app.camTime=now;$('raw-rgb').textContent=rgb.map(x=>x.toFixed(1)).join(' / ');if($('use-cal').checked&&app.decoder){const decoded=decodeRGB(rgb);app.camX=decoded;app.valid=!!decoded;if(!decoded)showStatus('state-status','Unusable calibrated frame: saturation or excessive residual. Neuron input paused.','warn');}else{app.camX=rgb.map(x=>bound(x/255,0,1));app.valid=true;}}
+function resetModel(){app.model=new RippleNeuron({target:readTarget(),adaptive:$('adaptive').checked});app.history=[];app.records=[];app.total=0;app.pulseUntil=0;app.carry=0;app.frameTime=performance.now();render();}
+function readTarget(){const t=Number($('target').value);return Number.isFinite(t)?bound(t,.25,3):1;}
+function downloadCsv(rows,file){if(!rows.length){showStatus('state-status','No data recorded yet.','warn');return;}const keys=Object.keys(rows[0]),text=[keys.join(','),...rows.map(r=>keys.map(k=>r[k]??'').join(','))].join('\n');const url=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download=file;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);}
+function drawChart(id,series,maxY,mint,maxt){const canvas=$(id);if(canvas.closest('[hidden]'))return;const rect=canvas.getBoundingClientRect(),w=Math.max(310,rect.width||400),h=Math.max(140,rect.height||175),ratio=Math.min(devicePixelRatio||1,2);canvas.width=Math.ceil(w*ratio);canvas.height=Math.ceil(h*ratio);const c=canvas.getContext('2d');c.scale(ratio,ratio);const left=36,right=10,top=10,bottom=21,plotW=w-left-right,plotH=h-top-bottom;c.font='10px system-ui';for(let i=0;i<5;i++){const y=top+i/4*plotH;c.beginPath();c.strokeStyle='#e5ebe7';c.lineWidth=1;c.moveTo(left,y);c.lineTo(w-right,y);c.stroke();c.fillStyle='#6a7e77';c.fillText((maxY*(1-i/4)).toFixed(1),3,y+3);}c.fillStyle='#6a7e77';c.fillText(mint.toFixed(0)+' s',left,h-4);c.fillText(maxt.toFixed(0)+' s',Math.max(left,w-40),h-4);for(const seriesItem of series){c.strokeStyle=seriesItem.color;c.lineWidth=1.7;c.setLineDash(seriesItem.dashed?[4,4]:[]);c.beginPath();let first=true;for(const p of seriesItem.points){const x=left+(p[0]-mint)/(maxt-mint)*plotW,y=top+(1-bound(p[1]/maxY,0,1))*plotH;if(first){c.moveTo(x,y);first=false;}else c.lineTo(x,y);}c.stroke();}c.setLineDash([]);}
+function render(){const x=inputNow(),m=app.model;['r','g','b'].forEach((k,i)=>$(k+'-current').textContent=x[i].toFixed(2));for(const k of ['red','green','blue'])$(k+'-value').textContent=Number($(k).value).toFixed(2);$('rate').textContent=m.rate.toFixed(2);$('theta').textContent=m.theta.toFixed(2);$('events').textContent=String(app.total);$('elapsed').textContent=m.t.toFixed(1)+' s · Model time';$('drive').textContent='Drive '+encodedDrive(x).toFixed(2)+' · '+$('encoder').selectedOptions[0].textContent;$('pulse').classList.toggle('on',performance.now()<app.pulseUntil);if(app.mode==='manual'||app.valid){const drive=encodedDrive(x),feasible=m.attainable(drive);showStatus('reachability',feasible?m.target.toFixed(2)+' Hz target is attainable for this constant-drive estimate. Feedback may take time to settle.':'Target cannot be reached at this constant drive under threshold bounds.',''+(feasible?'good':'warn'));}else showStatus('reachability','Waiting for usable camera frames.','warn');const maxt=Math.max(15,m.t),mint=Math.max(0,maxt-60);drawChart('rate-chart',[{color:'#247953',points:app.history.map(r=>[r.t,r.rate])},{color:'#a0aaa4',dashed:true,points:[[mint,m.target],[maxt,m.target]]}],4,mint,maxt);drawChart('state-chart',[{color:'#286fa7',points:app.history.map(r=>[r.t,r.u])},{color:'#be4b44',points:app.history.map(r=>[r.t,r.theta])}],3,mint,maxt);}
+function frame(now){autosave(now);if(!app.frameTime)app.frameTime=now;const dt=Math.min(.2,Math.max(0,(now-app.frameTime)/1000));app.frameTime=now;if(now-app.sampleTime>Number($('sample-rate').value)&&app.mode==='camera'&&app.stream){sample();app.sampleTime=now;}const canRun=app.mode==='manual'||(app.stream&&app.valid&&now-app.camTime<550);if(!app.paused&&document.visibilityState==='visible'&&canRun){app.carry+=dt;while(app.carry>=.05){const x=inputNow(),r=app.model.step(neuronFeed(x),.05);app.carry-=.05;app.total+=r.count;if(r.count){app.pulseUntil=now+140;if($('vibrate').checked&&now-app.lastVibrate>300&&navigator.vibrate){navigator.vibrate(20);app.lastVibrate=now;}}app.history.push(r);while(app.history.length&&app.history[0].t<r.t-60)app.history.shift();app.records.push({time_s:r.t.toFixed(2),source:app.mode,encoding:$('encoder').value,calibrated:app.mode==='camera'&&$('use-cal').checked?1:0,red:x[0].toFixed(4),green:x[1].toFixed(4),blue:x[2].toFixed(4),drive:r.drive.toFixed(4),state:r.u.toFixed(4),threshold:r.theta.toFixed(4),estimated_rate_hz:r.rate.toFixed(4),events:r.count});if(app.records.length>20000)app.records.shift();}}else app.carry=0;if(now-app.renderTime>=250){render();if(app.diag.samples.length)refreshCameraDiagnostics();app.renderTime=now;}requestAnimationFrame(frame);}
+function showExperiment(){const e=app.experiment;if(!e)return;drawChart('experiment-chart',[{color:'#247953',points:e.rows.map(r=>[r.time_s,r.rate_adaptive_hz])},{color:'#be4b44',points:e.rows.map(r=>[r.time_s,r.rate_fixed_hz])},{color:'#a0aaa4',dashed:true,points:[[0,1],[120,1]]}],4,0,120);$('results').innerHTML='<table><thead><tr><th>Window</th><th>Adaptive Hz</th><th>Fixed Hz</th><th>Target Hz</th></tr></thead><tbody>'+e.windows.map(r=>'<tr><td>'+r.lo+'–'+r.hi+' s</td><td>'+r.adaptive_hz.toFixed(2)+'</td><td>'+r.fixed_hz.toFixed(2)+'</td><td>1.00</td></tr>').join('')+'</tbody></table>';}
+for(const button of document.querySelectorAll('[data-view]'))button.addEventListener('click',()=>{const view=button.dataset.view;document.querySelectorAll('[data-view]').forEach(b=>{const yes=b===button;b.classList.toggle('active',yes);b.setAttribute('aria-selected',yes);});document.querySelectorAll('.view').forEach(v=>v.hidden=v.id!=='view-'+view);if(view==='experiment')showExperiment();if(view==='live')render();});
+$('manual-mode').onclick=()=>setMode('manual');$('camera-mode').onclick=()=>setMode('camera');$('start-camera').onclick=startCamera;$('stop-camera').onclick=stopCamera;
+for(const b of document.querySelectorAll('[data-cal]'))b.addEventListener('click',()=>collectReference(b.dataset.cal));
+$('clear-cal').onclick=()=>{app.cal={};refreshDecoder();showStatus('camera-status','Calibration cleared; camera quick mode is available.');};
+$('export-optical').onclick=saveOpticalCalibration;
+$('use-cal').onchange=()=>{app.valid=false;app.camX=null;showStatus('camera-status',$('use-cal').checked?'Calibrated decoder enabled.':'Quick RGB proxy mode enabled.','good');};
+$('encoder').onchange=()=>{resetModel();showStatus('state-status','Changed experimental encoder; previous in-memory event series cleared. Export data before further changes if needed.','warn');};
+$('target').onchange=()=>{$('target').value=readTarget();app.model.target=readTarget();};$('adaptive').onchange=()=>{app.model.adaptive=$('adaptive').checked;};
+$('pause').onclick=()=>{app.paused=!app.paused;$('pause').textContent=app.paused?'Resume':'Pause';app.carry=0;};$('reset').onclick=resetModel;
+$('export').onclick=()=>downloadCsv(app.records,'Ripple-Neuron-Phone-Events.csv');
+$('export-diag').onclick=exportCameraDiagnostics;$('clear-diag').onclick=()=>{app.diag.samples=[];app.diag.frames=[];$('diagnostic-status').textContent='Measurements cleared; start/continue camera to collect new samples.';};
+$('run-experiment').onclick=()=>{app.experiment=runExperiment();$('experiment-csv').disabled=false;showExperiment();};$('experiment-csv').onclick=()=>app.experiment&&downloadCsv(app.experiment.rows,'Ripple-Neuron-Comparison.csv');
+document.addEventListener('visibilitychange',()=>{app.carry=0;app.frameTime=performance.now();if(document.hidden){if(app.stream)stopCamera();if(app.records.length)saveSession(true);showStatus('state-status','Page in background; camera stopped and neuron paused.','warn');}else if(app.mode==='camera'&&app.stream)showStatus('state-status','Returned to camera mode; waiting for fresh frames.','good');});
+window.addEventListener('pagehide',()=>{stopCamera();});
+window.addEventListener('resize',()=>{render();showExperiment();});
+$('secure-note').textContent=location.protocol==='https:'?'Secure HTTPS context.':location.protocol==='file:'?'Local file mode; camera access depends on your browser.':'Camera requires HTTPS or another supported secure context.';
+if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js').catch(()=>{});
+
+// Samsung Android runtime reporting uses browser-observable features only.
+(function reportAndroidRuntime(){
+ const ua=navigator.userAgent||'',model=ua.match(/SM-[A-Z0-9]+/i)?.[0]||'not reported';
+ const isAndroid=/Android/i.test(ua),cores=navigator.hardwareConcurrency;
+ const details=[isAndroid?'Android reported':'Android not identified in browser',
+   'model '+model,Number.isInteger(cores)?cores+' logical threads reported':'thread count unavailable',
+   'camera '+(navigator.mediaDevices?.getUserMedia?'API available':'API unavailable'),
+   'local database '+(typeof indexedDB!=='undefined'?'available':'unavailable')];
+ showStatus('device-status',details.join(' · '),isAndroid?'good':'warn');
+})();
+// One local IndexedDB snapshot; images never enter snapshots. Browser data can be cleared by Android.
+const SAVE_DB='ripple-samsung-local-v1',SAVE_STORE='sessions';
+function openStore(){return new Promise((resolve,reject)=>{
+ if(typeof indexedDB==='undefined'){reject(Error('IndexedDB unavailable'));return;}
+ const req=indexedDB.open(SAVE_DB,1);
+ req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains(SAVE_STORE))req.result.createObjectStore(SAVE_STORE);};
+ req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||Error('Database open failed'));
+});}
+async function stored(action,value){const db=await openStore();try{return await new Promise((resolve,reject)=>{
+ const tx=db.transaction(SAVE_STORE,action==='get'?'readonly':'readwrite');
+ const store=tx.objectStore(SAVE_STORE),req=action==='get'?store.get('last'):action==='put'?store.put(value,'last'):store.delete('last');
+ let result;req.onsuccess=()=>{result=req.result;};req.onerror=()=>reject(req.error);
+ tx.oncomplete=()=>resolve(result);tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||Error('Database operation aborted'));
+ });}finally{db.close();}}
+function snapshot(){const m=app.model;return{schema:1,stamp:new Date().toISOString(),
+ model:{t:m.t,u:m.u,theta:m.theta,rate:m.rate,rest:m.rest,target:m.target,adaptive:m.adaptive},
+ total:app.total,records:app.records.slice(-20000),history:app.history.slice(-1300),
+ settings:{red:Number($('red').value),green:Number($('green').value),blue:Number($('blue').value),
+ target:readTarget(),adaptive:$('adaptive').checked,vibrate:$('vibrate').checked,cameraCadence:Number($('sample-rate').value),encoder:$('encoder').value}
+};}
+async function saveSession(quiet=false){try{await stored('put',snapshot());$('save-status').textContent='Session saved on this device '+new Date().toLocaleTimeString();}
+catch(err){$('save-status').textContent='Save unavailable: '+(err?.message||err);if(!quiet)showStatus('state-status','Local storage failed. Export CSV to preserve your readings.','warn');}}
+async function restoreSession(){try{const s=await stored('get');if(!s){$('save-status').textContent='No saved session found.';return;}
+ if(s.schema!==1||!s.model||!s.settings||!Array.isArray(s.records)||!Array.isArray(s.history))throw Error('Unsupported snapshot schema');
+ const m=s.model,nums=['t','u','theta','rate','rest','target'];
+ if(nums.some(k=>!Number.isFinite(m[k]))||m.t<0||m.u<0||m.rest<0||m.rate<0||m.theta<.15||m.theta>2.5||m.target<.25||m.target>3)throw Error('Invalid saved neuron values');
+ // A restore is explicit and never starts the camera automatically.
+ setMode('manual');const x=s.settings;
+ for(const k of ['red','green','blue'])if(Number.isFinite(x[k]))$(k).value=bound(x[k],0,1);
+ $('target').value=m.target;$('adaptive').checked=!!m.adaptive;$('vibrate').checked=!!x.vibrate;
+ $('encoder').value=['original','positive-color','luminance-proxy'].includes(x.encoder)?x.encoder:'original';
+ if([67,100,200].includes(x.cameraCadence))$('sample-rate').value=x.cameraCadence;
+ app.model=new RippleNeuron({theta:m.theta,target:m.target,adaptive:m.adaptive});
+ for(const k of nums)app.model[k]=m[k];
+ app.total=Number.isSafeInteger(s.total)&&s.total>=0?s.total:0;
+ app.records=s.records.slice(-20000);app.history=s.history.slice(-1300);
+ app.paused=true;$('pause').textContent='Resume';app.carry=0;app.frameTime=performance.now();
+ $('save-status').textContent='Restored snapshot from '+s.stamp+' · paused; press Resume to continue.';
+ render();
+ }catch(err){$('save-status').textContent='Restore failed: '+(err?.message||err);}}
+$('save-state').addEventListener('click',()=>saveSession());
+$('load-state').addEventListener('click',restoreSession);
+$('clear-state').addEventListener('click',async()=>{try{await stored('delete');$('save-status').textContent='Saved session deleted; current live session is unchanged.';}catch(err){$('save-status').textContent='Delete failed: '+(err?.message||err);}});
+let lastAutosave=performance.now();
+function autosave(now){if(now-lastAutosave>=30000&&document.visibilityState==='visible'){
+ lastAutosave=now;if(app.records.length)saveSession(true);
+}}
+
+render();requestAnimationFrame(frame);
+</script>
+</body></html>
