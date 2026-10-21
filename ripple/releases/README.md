@@ -1,31 +1,25 @@
-# Ripple library ↔ GitHub publication audit — 20 October 2026
+# Ripple Library ↔ GitHub publication audit — 20 October 2026
 
-This is an inventory of the versions discoverable in the Library, not a claim that all full releases have been published. Archive source snapshots may omit installers, rendered media or embedded binary assets. The source-status links are verified paths on the public `master` branch.
+This inventory distinguishes publicly uploaded standalone applications, source-only snapshots, and Library originals not yet published as full archives.
 
-- 159 relevant ZIP locations discovered across 11 Library metadata pages.
-- 149 unique ZIP file names (this is NOT a byte-level de-duplication).
-- 9 unique archive names have a directly mapped source/release path on default-branch GitHub.
-- 0 full original Library release ZIPs currently confirmed under `ripple/releases/full/`.
-- 184 ordinary repository files found on default branch.
-- Complete machine-readable catalog: [LIBRARY_ARCHIVE_AUDIT_20261020.json](./LIBRARY_ARCHIVE_AUDIT_20261020.json).
+- **159** related ZIP locations; **149** distinct ZIP *names* (not byte-unique hashes).
+- **218** current default-branch repository files.
+- **31** historical HTML standalones on default branch.
+- **9** ZIP names with directly mapped repository source or source-only ZIP.
+- **18** ZIP names with a related standalone HTML artifact.
+- **0** complete Library ZIP releases confirmed copied verbatim as full archives into `ripple/releases/full/`.
+- [Full machine-readable inventory](LIBRARY_ARCHIVE_AUDIT_20261020.json).
 
-## Verified source snapshots (not complete distribution ZIPs)
+## Publicly recovered materials
 
-- [Charlie Forest v1.2 source](./source-snapshots/Charlie_Forest_Colony_v1_2_source.zip)
-- [Ripple Repair Daughter–Delta v1.0 source](./source-snapshots/Ripple_Repair_Daughter_Delta_v1_0_source.zip)
-- [Ripple Quad-Gene Repair v0.3 source](./source-snapshots/Ripple_Quad_Gene_Repair_v0_3_source.zip)
+- [Historical standalone HTML implementations and replays](../standalone-archive/README.md).
+- [Recovered mathematics and 171 curated formula entries](../mathematics/library-2026-10-20/README.md).
+- [Cloud Evolution source](../../research/ripple-cloud-evolution/README.md), [EvoPareto source](../../research/ripple-evo-pareto/README.md), [SuperNeuron RNA](../superneuron-rna-alpha-v0.1/README.md), [Kokoro embodied motion](../kokoro-embodied-lab/README.md).
+- [Charlie Forest source ZIP](source-snapshots/Charlie_Forest_Colony_v1_2_source.zip), [Ripple Repair source ZIP](source-snapshots/Ripple_Repair_Daughter_Delta_v1_0_source.zip), [Quad-Gene v0.3 source ZIP](source-snapshots/Ripple_Quad_Gene_Repair_v0_3_source.zip).
 
-## Recent source installed into default branch
+The **source ZIPs** above are intentionally smaller than their original complete application releases; platform installers and media are not necessarily included. Source-only branches and HTML versions are separately labeled. Original ZIP archives remain unchanged in the user's Library.
 
-- [Ripple Cloud Evolution Alpha v1.2](../../research/ripple-cloud-evolution/README.md)
-- [Ripple Evo Pareto v1.3](../../research/ripple-evo-pareto/README.md)
-- [SuperNeuron RNA Alpha v0.1](../superneuron-rna-alpha-v0.1/README.md)
-- [Kokoro embodied motion research](../kokoro-embodied-lab/README.md)
-- [30 additional mathematical studies](../mathematics/library-2026-10-20/README.md)
-
-## Not confirmed as complete public releases
-
-The following names remain without a mapped full release or complete source on the default branch. Their original archives are preserved in the user's Library; some may have a partial demonstration under `docs/labs`, or a related variant on a research branch.
+## No full public archive or directly mapped version yet
 
 - `01_Ripple_Neuron_Math_Core.zip`
 - `03_Alpha_Labs_Research.zip`
@@ -36,11 +30,11 @@ The following names remain without a mapped full release or complete source on t
 - `09_Kokoro_Adjacent_Unverified_Lineage.zip`
 - `10_Standalone_and_Unclassified_Technical_Documents.zip`
 - `anime-card-forge-token-evolution-prototype.zip`
-- `Charlie_Daughter_Delta_Paired_Colony_v1_0.zip` (2 Library copies)
+- `Charlie_Daughter_Delta_Paired_Colony_v1_0.zip`
 - `Charlie_Recurrent_Thought_Comparison_v1_1.zip`
 - `Charlie_Ripple_Colony_Thought_Lab_v1_0.zip`
-- `Charlie_Ripple_Core_v2_0.zip` (2 Library copies)
-- `Charlie_Ripple_Mathematics_v1_0.zip` (2 Library copies)
+- `Charlie_Ripple_Core_v2_0.zip`
+- `Charlie_Ripple_Mathematics_v1_0.zip`
 - `Golf-Ripple-Dell-Validated-v0.5-Complete.zip`
 - `Golf-Ripple-Digital-Eyes-Engine-v0.2-Complete.zip`
 - `Golf-Ripple-Laptop-Native-v0.4-Complete.zip`
@@ -115,7 +109,7 @@ The following names remain without a mapped full release or complete source on t
 - `Ripple_Memory_Wave_Mathematics_v0.1_Executable.zip`
 - `Ripple_Neural_Compute_Correction_v0.1_Complete.zip`
 - `Ripple_Optical_Agent_Research_v0_1.zip`
-- `Ripple_Quad_Gene_Repair_v0_2.zip` (2 Library copies)
+- `Ripple_Quad_Gene_Repair_v0_2.zip`
 - `Ripple_RGB_Mathematics_v0.1_Executable.zip`
 - `Ripple_Sensor_Bridge_v0_2.zip`
 - `Ripple_Spatial_Sensor_Lab_Alpha_v2_2.zip`
@@ -127,26 +121,12 @@ The following names remain without a mapped full release or complete source on t
 - `Ripple_SpiderScan_v0_4.zip`
 - `Ripple_Wave_Packet_Research_v0_1.zip`
 - `Ripple_XYZ_3D_CrossChannel_Memory_v0.2_Executable.zip`
-- `Ripple-Alpha-Integrated-Lab-v1.zip`
 - `Ripple-Alpha-Labs-Research-Boundary-v1.1.zip`
-- `Ripple-Alpha-Labs-v1.0.zip`
-- `Ripple-Code-Reasoning-Colony-Alpha-v1.5.zip`
 - `Ripple-Cybernetic-Mycelium-v0.1.zip`
-- `Ripple-Cybernetic-Mycelium-v0.2.zip`
 - `Ripple-Cybernetic-Mycelium-v0.3.zip`
 - `Ripple-Deep-Mathematics-Recovery-Evidence-2026-10-15.zip`
-- `Ripple-Delta-Neuron-Mathematical-Alpha-v3.0.zip`
 - `Ripple-Digital-Assessment-Alpha-v1.5-Complete.zip`
-- `Ripple-Digital-Evolution-v0.5.zip`
-- `Ripple-Forest-Language-Alpha-v1.4-Complete.zip`
-- `Ripple-Forest-Seedbank-Alpha-v1.3.zip`
-- `Ripple-Gen-Beta-Complete-v2.0.zip`
-- `Ripple-Gen-Beta-v2.1-Complete.zip`
-- `Ripple-GenBeta-Delta-Daughter-Triplet-v3.1-Complete.zip`
 - `Ripple-Golf-Alpha-v0.1-Complete.zip`
-- `Ripple-Hybrid-Alpha-v1.1.zip`
-- `Ripple-Interference-Neuron-Alpha-v1.4.zip`
-- `Ripple-Mathematics-Compiler-Beer-Lambert-v2.1.1.zip`
 - `Ripple-Neuron-Android-Home-Widget-v0.4.zip`
 - `Ripple-Neuron-Codex-Observer-v0.3.zip`
 - `Ripple-Neuron-GitHub-Repository-All-Versions.zip`
@@ -155,19 +135,16 @@ The following names remain without a mapped full release or complete source on t
 - `Ripple-Neuron-Phone-PWA.zip`
 - `Ripple-Neuron-Photoreceptor-v0.6.zip`
 - `Ripple-Neuron-Quaternary-v0.7.zip`
-- `Ripple-Open-Grammar-Colony-Alpha-v1.6.zip`
-- `Ripple-Optical-Historical-Math-v0.4.zip`
 - `Ripple-OS-Engine-Beta-v0.1-Complete.zip`
 - `Ripple-Public-Research-Website-Upload.zip`
 - `Ripple-Regulatory-Colony-v2-Complete.zip`
 - `Ripple-Samsung-Android-v0.3-Complete.zip`
 - `Ripple-Samsung-Engineering-v0.5-Complete.zip`
 - `Ripple-Samsung-Optical-Reconstruction-v0.4.zip`
-- `Ripple-Sensory-Gene-Gate-Alpha-v1.2.zip`
 - `RippleQuadRepair_v0_3_Windows_Build.zip`
 - `RippleRepair_Windows_Build.zip`
-- `RippleRepair-Windows-EXE.zip` (2 Library copies)
+- `RippleRepair-Windows-EXE.zip`
 
-## Verification boundary
+## Integrity / evidence
 
-Public Git blob presence confirms repository storage, not runtime functionality, cross-platform installation, license suitability or scientific truth. Verify hashes and project-level tests before promotion. Original archives remain unmodified in Library. Scoping here is Ripple/Charlie and closely linked Kokoro derivatives; no unrelated personal files were published.
+This inventory is a file-presence audit, not a fresh scientific experiment or installation test. Retain each historical project's tests and SHA-256 manifests; licensing of bundled third-party dependencies may need review before publishing the complete binary distributions.
