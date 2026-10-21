@@ -71,3 +71,7 @@ The software runs under your user account, not as a privileged operating-system 
 - [GitHub downloadable source-only release](https://github.com/konstantinbazelyuk-source/the-book-of-secret-knowledge/releases/tag/ripple-lineage-source-2026-10-20).
 
 The historical binary ZIPs, hardware requirements and private/corporate records were not silently imported into this public source-only release.
+
+## Library-to-GitHub release audit (October 20, 2026)
+
+See the [categorized Ripple release ledger](releases/PUBLICATION_LEDGER_20261020.md) for nine newly preserved runnable HTML applications and the Ring–Golf v5.3 executable source-only capsule. The ledger identifies which historical Library ZIPs are actually present as source and which still await complete publication. A catalog entry does not imply a full application or hardware release has been uploaded.
