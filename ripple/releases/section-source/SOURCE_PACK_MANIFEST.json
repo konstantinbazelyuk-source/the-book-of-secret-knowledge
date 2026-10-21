@@ -1,0 +1,92 @@
+[
+  {
+    "category": "01_Ripple_Neuron_Math_Core",
+    "filename": "01-ripple-neuron-math-core.source.zip",
+    "bytes": 920081,
+    "source_files": 308,
+    "source_archives": 15,
+    "sha256": "6d600cefbda3df91a51a043b672006ba66e88bcff4a90f0d2194179871ae90c3",
+    "b64_file": "/mnt/data/ripple_bulk_recovery/publish/01-ripple-neuron-math-core.source.zip.b64"
+  },
+  {
+    "category": "02_Master_Desktop_Android_OS",
+    "filename": "02-master-desktop-android-os.source.zip",
+    "bytes": 1175616,
+    "source_files": 546,
+    "source_archives": 16,
+    "sha256": "6274eae391599cffe9fcbd30dbba40e1590328670e6221cb22d00474179dd36d",
+    "b64_file": "/mnt/data/ripple_bulk_recovery/publish/02-master-desktop-android-os.source.zip.b64"
+  },
+  {
+    "category": "03_Alpha_Labs_Research",
+    "filename": "03-alpha-labs-research.source.zip",
+    "bytes": 518609,
+    "source_files": 252,
+    "source_archives": 8,
+    "sha256": "de90000921fa95f1a7e00a1a415c0bbd3d853a9cd7e0f47af531d00f960aac12",
+    "b64_file": "/mnt/data/ripple_bulk_recovery/publish/03-alpha-labs-research.source.zip.b64"
+  },
+  {
+    "category": "04_Forest_Evolution_Language_Colony",
+    "filename": "04-forest-evolution-language-colony.source.zip",
+    "bytes": 672377,
+    "source_files": 284,
+    "source_archives": 11,
+    "sha256": "38df8b18333501d1add4dd63adbcacee8d929930e25c5735acda3d12ad41b449",
+    "b64_file": "/mnt/data/ripple_bulk_recovery/publish/04-forest-evolution-language-colony.source.zip.b64"
+  },
+  {
+    "category": "05_Optics_Robotics_SpiderScan_Golf",
+    "filename": "05-optics-robotics-spiderscan-golf.source.zip",
+    "bytes": 651788,
+    "source_files": 310,
+    "source_archives": 15,
+    "sha256": "e60bec41dcfd3334a52c0e23db70a116277b1346a9a94c752d5d2951c88389f7",
+    "b64_file": "/mnt/data/ripple_bulk_recovery/publish/05-optics-robotics-spiderscan-golf.source.zip.b64"
+  },
+  {
+    "category": "06_Charlie_Derivatives",
+    "filename": "06-charlie-derivatives.source.zip",
+    "bytes": 398793,
+    "source_files": 160,
+    "source_archives": 6,
+    "sha256": "7ee9c46b4607f7a9d335d44b96e446057825d44721aa15ca90c6367bcbd68899",
+    "b64_file": "/mnt/data/ripple_bulk_recovery/publish/06-charlie-derivatives.source.zip.b64"
+  },
+  {
+    "category": "07_MUSHROOM_Ring_of_Mushrooms",
+    "filename": "07-mushroom-ring-of-mushrooms.source.zip",
+    "bytes": 261765,
+    "source_files": 105,
+    "source_archives": 4,
+    "sha256": "d424d189d550308faa171a65daa32779e69689d476007f7e9e99acf00b2e82be",
+    "b64_file": "/mnt/data/ripple_bulk_recovery/publish/07-mushroom-ring-of-mushrooms.source.zip.b64"
+  },
+  {
+    "category": "08_Kokoro_Ripple_Integrations",
+    "filename": "08-kokoro-ripple-integrations.source.zip",
+    "bytes": 629459,
+    "source_files": 334,
+    "source_archives": 11,
+    "sha256": "272327c9dd4423add4f5daf0c76bb623871b2fa9635b5f11717afe468eabb284",
+    "b64_file": "/mnt/data/ripple_bulk_recovery/publish/08-kokoro-ripple-integrations.source.zip.b64"
+  },
+  {
+    "category": "09_Kokoro_Adjacent_Unverified_Lineage",
+    "filename": "09-kokoro-adjacent-unverified-lineage.source.zip",
+    "bytes": 666964,
+    "source_files": 446,
+    "source_archives": 12,
+    "sha256": "2c8965e8f81d7d6b0da5ce11cf44cafd0e68e84e89727a061c5d7fa6cd1159f0",
+    "b64_file": "/mnt/data/ripple_bulk_recovery/publish/09-kokoro-adjacent-unverified-lineage.source.zip.b64"
+  },
+  {
+    "category": "11_Recent_Integrated_and_CAD",
+    "filename": "11-recent-integrated-and-cad.source.zip",
+    "bytes": 798561,
+    "source_files": 370,
+    "source_archives": 8,
+    "sha256": "4bf7d02eb8f3cd7d1324c19e75360a5d453129f5e29c2772ecdffb6b0166277e",
+    "b64_file": "/mnt/data/ripple_bulk_recovery/publish/11-recent-integrated-and-cad.source.zip.b64"
+  }
+]

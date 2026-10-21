@@ -1,0 +1,371 @@
+[
+  {
+    "category": "01_Ripple_Neuron_Math_Core",
+    "filename": "01-ripple-neuron-math-core.originals-01.zip",
+    "file_count": 4,
+    "bytes": 462649,
+    "sha256": "7e9c1f3531ae73ab035e20a3428a9086ec328ff6fa5aa848138df8f11adf768e",
+    "originals": [
+      {
+        "name": "Ripple-Cybernetic-Mycelium-v0.1.zip",
+        "sha256": "f1caeb3c29d3d42bc3793f6327debf50a60eff8ed713dac42df584c5d567567b",
+        "bytes": 127989,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple-Mathematics-Compiler-Beer-Lambert-v2.1.1.zip",
+        "sha256": "f2813fe2965eef43771062f81ac60bc879890573bc5066f5838ac78e90b61a1d",
+        "bytes": 24472,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple-Neuron-Codex-Observer-v0.3.zip",
+        "sha256": "0005678d9fbed68775390563b02e4369fc7a38a8eeff14cf2eb2acec7f873622",
+        "bytes": 229310,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple-Neuron-Photoreceptor-v0.6.zip",
+        "sha256": "4772913176b73fed99839b581dbb6a68c656dcf94cbad765df55ae48639b4b8c",
+        "bytes": 79089,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "02_Master_Desktop_Android_OS",
+    "filename": "02-master-desktop-android-os.originals-01.zip",
+    "file_count": 5,
+    "bytes": 1087724,
+    "sha256": "403cd40145db238e76fc0311ccb96da74a4c5bbb0e6a5eefcb1902ec57d4233c",
+    "originals": [
+      {
+        "name": "Master_Ripple_Camera_Alpha_v2.1_AddOn.zip",
+        "sha256": "eca8b9505dfb3bb51f7431be362618e0f9996925adb7359394de6da88561e9bf",
+        "bytes": 393083,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple-Neuron-Android-Home-Widget-v0.4.zip",
+        "sha256": "67faa19a53d3a173b85fa610dc632fbd0750d0d2eb1cf81a13d723fd27a40bb6",
+        "bytes": 209351,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple-Neuron-Installable-Web-App-v0.4.zip",
+        "sha256": "74cefcefdd1f3dec6d8edc4f60d8eeea95c9f4bfe5cf707e0962e561c51b75cd",
+        "bytes": 51601,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple-Neuron-Phone-PWA.zip",
+        "sha256": "16b1157a6607a453414981ce6ffde1e4d4e2d8b3eeec350766a9a69477c944d2",
+        "bytes": 46458,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple-Samsung-Android-v0.3-Complete.zip",
+        "sha256": "16ad970e78c47573aa54337fbbda37c318ae18f196d1d350ee50265a182441e1",
+        "bytes": 385054,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "03_Alpha_Labs_Research",
+    "filename": "03-alpha-labs-research.originals-01.zip",
+    "file_count": 3,
+    "bytes": 272538,
+    "sha256": "79f97f1c786634e2cccdc0d288ce88c9ff6ff606eb3bb0913fbc8325b07db6f9",
+    "originals": [
+      {
+        "name": "Ripple_Alpha_v1.1_Research.zip",
+        "sha256": "dee86acc56481023832f725b1a95f9ee8df71ab7209f5a4da34ae8d15b29e63f",
+        "bytes": 32952,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple_Alpha_v1.2_Research.zip",
+        "sha256": "6ade85f16ba258eb9daaa804fbd360614ac0ba9d0539b06ea3168b8ecbb813b2",
+        "bytes": 80557,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple_Alpha_v1.3_Research.zip",
+        "sha256": "9ed91fc522dfc1596799c3679a51b1120b1ccec1b50179e59e436a53745d7506",
+        "bytes": 157736,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "04_Forest_Evolution_Language_Colony",
+    "filename": "04-forest-evolution-language-colony.originals-01.zip",
+    "file_count": 2,
+    "bytes": 435461,
+    "sha256": "5f71aea181c9b85e26b12febd4272420f2d3ec93e29782fc1625f6b075b1ec45",
+    "originals": [
+      {
+        "name": "Ripple_Cloud_Evolution_Alpha_v1_2.zip",
+        "sha256": "ba8165858b40fc5d4f2ffb1d7e4549a4e9df74b50a1a2a1db91e775234132421",
+        "bytes": 255096,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple_Evo_Pareto_v1_3.zip",
+        "sha256": "e35d449cac3c5e1030f2d21c96dd034812806a8d28ad4a9db5d82785fdc0ae6b",
+        "bytes": 179440,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "05_Optics_Robotics_SpiderScan_Golf",
+    "filename": "05-optics-robotics-spiderscan-golf.originals-01.zip",
+    "file_count": 2,
+    "bytes": 766418,
+    "sha256": "6eb21bb846310d540e88b84f6d942284b48c926e2c5705d0ac20ea01530c4d38",
+    "originals": [
+      {
+        "name": "Ripple-Optical-Historical-Math-v0.4.zip",
+        "sha256": "a0e389d1f82a7293828b926681732d6547093c90df19be53c4d9a303364b754e",
+        "bytes": 400631,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple_Optical_Agent_Research_v0_1.zip",
+        "sha256": "1bd8af5d8e67a9d8d43b0d4a094073a1e4509b4ec6203cdacfb2f83aa3639d67",
+        "bytes": 364820,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "06_Charlie_Derivatives",
+    "filename": "06-charlie-derivatives.originals-01.zip",
+    "file_count": 4,
+    "bytes": 1057234,
+    "sha256": "2d022e65d5e1ed9edbc14aa598b1c695c7be334275a6fbafe0b2ae58a0f97ab2",
+    "originals": [
+      {
+        "name": "Charlie_Recurrent_Thought_Comparison_v1_1.zip",
+        "sha256": "61c2228cdee55ff6e48f31e4821a61a48cddddd4fd0669d94ea23da24e0e76ac",
+        "bytes": 271565,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Charlie_Ripple_Colony_Thought_Lab_v1_0.zip",
+        "sha256": "60fef24002bb671c98757e66f48c0f9a4bc60c9fbb9893115168a084d4eb6ff4",
+        "bytes": 182937,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Charlie_Ripple_Core_v2_0.zip",
+        "sha256": "1aace858bab7195e833b15cfea52199968d573d677360faafe55d12206d3ef48",
+        "bytes": 203177,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Charlie_Ripple_Mathematics_v1_0.zip",
+        "sha256": "c0bd14ced844b7c5a94f3c8b67024beb97ec5ef83e0780f132e902bc90ebebf7",
+        "bytes": 397791,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "07_MUSHROOM_Ring_of_Mushrooms",
+    "filename": "07-mushroom-ring-of-mushrooms.originals-01.zip",
+    "file_count": 1,
+    "bytes": 249972,
+    "sha256": "8d029f1e0ad7b65c3a6d4c7d7c4ad2fdd7e6f845e58a16649c24464bc4a3ab5f",
+    "originals": [
+      {
+        "name": "Ring_of_Mushrooms_Alpha_v5.0_AddOn.zip",
+        "sha256": "34a3d0e1e258ce4cc6f8a5c9826440e5358d6355c478125a59473a2d64a39521",
+        "bytes": 249411,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "08_Kokoro_Ripple_Integrations",
+    "filename": "08-kokoro-ripple-integrations.originals-01.zip",
+    "file_count": 2,
+    "bytes": 215411,
+    "sha256": "8046069c986c68c5a77ee4eea4afd891fcf632b7ef2a7ae379bd1d3a973535df",
+    "originals": [
+      {
+        "name": "Kokoro_Mesh_Ripple_v0_3.zip",
+        "sha256": "de70c70cf773db1c553a44890ac5e5dc19f850f6e28b7c150792fc70ff6ae0c9",
+        "bytes": 102877,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Kokoro_Ripple_Integration_v0_2.zip",
+        "sha256": "26b5132ef4b8cbdf51ff84bf24c1924436bf525c9704a16e35ba76b32ce27e5b",
+        "bytes": 111615,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "09_Kokoro_Adjacent_Unverified_Lineage",
+    "filename": "09-kokoro-adjacent-unverified-lineage.originals-01.zip",
+    "file_count": 7,
+    "bytes": 754649,
+    "sha256": "96a0efbab03af47d03ee2ab9b97ac99164f58f2483cfdb6731325a198a858624",
+    "originals": [
+      {
+        "name": "Kokoro-CPU-Adaptive-Trainer-ADDON.zip",
+        "sha256": "2cae0e5e474d25e7569cbcb15eb96682a347800031b59138e50cb46ec4ef99f0",
+        "bytes": 24007,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Kokoro-del-Corazon-Foundry.zip",
+        "sha256": "6439ecbf5690d2c8468be5c0a229f00b2b21a8ec06bda9d23821eebc05361fba",
+        "bytes": 411759,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Kokoro-Genesis-Seed-ADDON.zip",
+        "sha256": "e8ce4ce136bd93e67248e3b3c1f9b9e9deb05f5fc78cd0a006af68262cce6793",
+        "bytes": 27539,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Kokoro-Heartspace-Daughterboard-ADDON.zip",
+        "sha256": "13a7600d2f3d19be91809e92038470d47f418705ab5f166e8dca3c76519747b9",
+        "bytes": 187998,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Kokoro-Pocket-Time-Engine-ADDON.zip",
+        "sha256": "0b4cd8f4d51ac97ca67e1bae08d58c5c611981b5ddc002d532004b0dcc3bfe09",
+        "bytes": 14420,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Kokoro-Psyche-Daughterboard-ADDON.zip",
+        "sha256": "0670fc3141e9a859b0b69694e5c78b61e4563449b17bc5f6d7ec337659b4a72e",
+        "bytes": 26620,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Kokoro-Psyche-Network-ADDON.zip",
+        "sha256": "ba323c748cd61ca13807476ed7b1170f25c0674b631645899001837dd4bfb382",
+        "bytes": 59410,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "11_Recent_Integrated_and_CAD",
+    "filename": "11-recent-integrated-and-cad.originals-01.zip",
+    "file_count": 2,
+    "bytes": 1149448,
+    "sha256": "defa9b568392ffe623288f1a9d468b9afaee469adb75b922d62199b2a9a16de5",
+    "originals": [
+      {
+        "name": "Ring_of_Mushrooms_FieldSphere_Alpha_v5.2_AddOn.zip",
+        "sha256": "008d5dca895fa656320bd0b0a495c8d06ef8a132ab9f97aef9a85b473cc9f8c3",
+        "bytes": 1064837,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ring_of_Mushrooms_v5.1_Device_Integration_AddOn.zip",
+        "sha256": "a1955e68e1fa27d5a5bbfc2aa9066e52dca866069beb71d08b972c1146e09dd0",
+        "bytes": 83572,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "11_Recent_Integrated_and_CAD",
+    "filename": "11-recent-integrated-and-cad.originals-02.zip",
+    "file_count": 2,
+    "bytes": 878493,
+    "sha256": "48f62a9648e2785fe7cb8e366d0793c695920eff63bd9e016efaf8f001413b4b",
+    "originals": [
+      {
+        "name": "Ripple-Samsung-Optical-Reconstruction-v0.4.zip",
+        "sha256": "0fa8d9c8a922bdb49e85dff472e25f6a62e2385a4ea7254d3df264fcff5871ee",
+        "bytes": 553475,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple_Calcium_AC_Materials_Geometry_v1_3.zip",
+        "sha256": "015be2cfed99234c8b11ef4534dccce654e3d5fb2e16e8841676bab9e04a061b",
+        "bytes": 324009,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "11_Recent_Integrated_and_CAD",
+    "filename": "11-recent-integrated-and-cad.originals-03.zip",
+    "file_count": 1,
+    "bytes": 613259,
+    "sha256": "afc7ba10d49a863cfe5d1ddd26797f56eef6aa53470c2bbc9786e1afbd9a78c9",
+    "originals": [
+      {
+        "name": "Ripple_Calcium_Alternating_Output_v1_4.zip",
+        "sha256": "ec6ff91c949781d6c2eaa3a30a7cf1f401a9d4604c2f1e9b3a702f177f3ddd16",
+        "bytes": 612686,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "11_Recent_Integrated_and_CAD",
+    "filename": "11-recent-integrated-and-cad.originals-04.zip",
+    "file_count": 1,
+    "bytes": 1657298,
+    "sha256": "f99fa7a9fb274d414a9b6bbdb63806da14995a5a2f7810a35b7d558d7e90cabd",
+    "originals": [
+      {
+        "name": "Ripple_FieldSphere_v0.2_AutoCAD_Package.zip",
+        "sha256": "5c3e9602fbd8a1d12ff0efa760b530c14f9ab7a121ce34e3b72f46e46f278491",
+        "bytes": 1656721,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "11_Recent_Integrated_and_CAD",
+    "filename": "11-recent-integrated-and-cad.originals-05.zip",
+    "file_count": 1,
+    "bytes": 63127,
+    "sha256": "2d988d78d4fe31030b36efcce5d75aee3b45020e998799dbae021ca20c8e0121",
+    "originals": [
+      {
+        "name": "Ripple_Golf_Ring_v5.3_AddOn.zip",
+        "sha256": "1537f46901b96b4e7bb37596d64ad3c07aa94474d826709109fbcc9a2dfd9dfb",
+        "bytes": 62588,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  },
+  {
+    "category": "12_Bitcoin_Miner_Derivatives",
+    "filename": "12-bitcoin-miner-derivatives.originals-01.zip",
+    "file_count": 2,
+    "bytes": 57023,
+    "sha256": "064935fcc657776c848f559301a69a4ec21ca541bede4630c7a29296764a0d7c",
+    "originals": [
+      {
+        "name": "Ripple-AntMiner-Alpha-v0.1.zip",
+        "sha256": "d2a9c09432bc97e0e43285df8a554ed46f95124a8b10a04917534cb91b3a341f",
+        "bytes": 12766,
+        "integrity": "original ZIP bytes, unchanged"
+      },
+      {
+        "name": "Ripple-AntMiner-Colony-v0.2.zip",
+        "sha256": "05a36ad367fad7d80b479bec13a100e36d64fab3673ea1585f4e166369d5211e",
+        "bytes": 43340,
+        "integrity": "original ZIP bytes, unchanged"
+      }
+    ]
+  }
+]
