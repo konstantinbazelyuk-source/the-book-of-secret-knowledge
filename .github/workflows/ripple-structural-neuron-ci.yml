@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - 'ripple/native-alpha-v2.0/**'
+      - 'ripple/genetic-weights-v1.7/**'
       - '.github/workflows/ripple-structural-neuron-ci.yml'
   pull_request:
     paths:
       - 'ripple/native-alpha-v2.0/**'
+      - 'ripple/genetic-weights-v1.7/**'
       - '.github/workflows/ripple-structural-neuron-ci.yml'
 
 permissions:
