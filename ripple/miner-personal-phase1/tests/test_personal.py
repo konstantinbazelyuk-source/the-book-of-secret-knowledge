@@ -110,3 +110,24 @@ class AccountEndpoints(unittest.TestCase):
                 self.assertIn('events',data)
             finally:
                 srv.shutdown();srv.server_close();ctl.close()
+
+class ApplicationShutdown(unittest.TestCase):
+    def test_authenticated_shutdown_releases_loopback_server(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            c=Controller(tmp)
+            srv=Server(('127.0.0.1',0),Handler,c,'operator-secret')
+            t=threading.Thread(target=srv.serve_forever,daemon=True)
+            t.start()
+            try:
+                http=HTTPConnection('127.0.0.1',srv.server_port,timeout=5)
+                http.request('POST','/api/application/shutdown',body=b'',headers={'Authorization':'Bearer operator-secret'})
+                response=http.getresponse()
+                status=response.status
+                body=json.loads(response.read())
+                http.close()
+                self.assertEqual(status,200)
+                self.assertEqual(body['state'],'shutting_down')
+                t.join(timeout=4)
+                self.assertFalse(t.is_alive())
+            finally:
+                srv.server_close();c.close()
