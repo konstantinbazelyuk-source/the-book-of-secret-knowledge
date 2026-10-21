@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ripple Calcium — derived DC ↔ AC bridge v1.2</title>
+<style>
+:root{color-scheme:dark;--bg:#0b121b;--panel:#152536;--surface:#1c3044;--line:#35526b;--text:#e5f5ff;--muted:#b7cfdf;--aqua:#7ceadf;--gold:#efd28c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.48 system-ui,sans-serif}main{max-width:1070px;margin:auto;padding:16px 14px 35px}h1{font-size:1.55rem;color:var(--aqua);margin:9px 0}h2{font-size:1.1rem;margin:0 0 10px;color:var(--gold)}p{color:var(--muted);margin:7px 0 13px}.tag{display:inline-block;border:1px solid var(--aqua);border-radius:99px;padding:4px 10px;color:var(--aqua);font-size:.75rem}.box{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:16px;margin:12px 0}.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}.field{display:flex;flex-direction:column;gap:4px;font-size:.86rem;color:var(--muted)}input{width:100%;background:#0d1925;border:1px solid #486177;color:white;border-radius:8px;padding:10px 9px;font-size:1rem}.outputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:9px;margin:12px 0}.result{background:var(--surface);border-radius:10px;padding:12px;min-height:68px}.result .n{color:var(--aqua);font-size:1.23rem;font-weight:700;font-variant-numeric:tabular-nums}.result .t{color:var(--muted);font-size:.82rem}button{padding:11px 16px;background:#1c716e;border:1px solid #6ee1d6;color:white;border-radius:10px;font-weight:700;cursor:pointer}a{color:var(--aqua)}.error{padding:8px;color:#ffc8be}.note{border-left:3px solid var(--gold);padding-left:10px}canvas{width:100%;height:220px;background:#0b1723;border-radius:10px}.legend{font-size:.8rem;color:var(--muted)}.legend span{color:var(--aqua)}.legend strong{color:var(--gold)}.footer{font-size:.82rem}</style></head>
+<body><main><div class="tag">ORIGINAL DC CORE PRESERVED · SHARED-PARAMETER AC DERIVATION</div>
+<h1>Ripple Calcium Battery — Physical DC / AC Bridge</h1>
+<p>This is an executable small-signal electrochemical model derived from the same zF, Fick, Nernst, ionic conductivity and Butler–Volmer relationships. Parameters preloaded below are <b>hypothetical demonstrations</b>, not calcium-cell measurements.</p>
+<section class="box"><h2>1 · Shared calcium electrochemistry</h2><div class="fields">
+<label class="field">Electrode area (cm²)<input id="area" type="number" step="any" value="100"></label>
+<label class="field">Diffusion length / electrolyte thickness (µm)<input id="length" type="number" step="any" value="100"></label>
+<label class="field">Measured-input conductivity (mS/cm)<input id="kappa" type="number" step="any" value="5"></label>
+<label class="field">Ca-related D (m²/s)<input id="D" type="number" step="any" value="1e-9"></label>
+<label class="field">Reactant bulk concentration (mol/L)<input id="c" type="number" step="any" value="1"></label>
+<label class="field">Exchange current density j₀ (A/m²)<input id="j0" type="number" step="any" value="10"></label>
+<label class="field">Double layer C per area (F/m²)<input id="cdl" type="number" step="any" value="0.2"></label>
+<label class="field">Temperature (K)<input id="T" type="number" step="any" value="298.15"></label>
+<label class="field">Assumed equilibrium full-cell voltage (V)<input id="eq" type="number" step="any" value="2"></label>
+<label class="field">DC discharge current (A)<input id="current" type="number" step="any" value="0.1"></label>
+<label class="field">AC perturbation frequency (Hz)<input id="freq" type="number" step="any" value="1"></label>
+<label class="field">Small AC probe voltage (mV RMS)<input id="probe" type="number" step="any" value="1"></label>
+</div><p class="note">Model scope: 2-electron calcium-related cathode reduction; planar single-species ideal diffusion with fixed-concentration far boundary; electrolyte bulk resistance; one charge-transfer interface; ideal Nernst and small AC perturbations. Full-cell chemistry and its parameters must be independently established.</p></section>
+<section class="box"><h2>2 · Derived from the same physical parameters</h2><div class="outputs" id="out"></div>
+<canvas id="graph" width="800" height="220" aria-label="Frequency response impedance chart"></canvas>
+<div class="legend"><span>— |Z|, ohms</span> &nbsp; <strong>— −Im(Z), ohms</strong> across log-spaced frequency, 0.001–1000 Hz</div>
+</section>
+<section class="box"><h2>3 · Tesla-inspired resonant transfer, supplied by DC model</h2><p>The separate existing coupled-coil equations are retained. This section matches <em>real input power</em> through an assumed inverter to the calculated DC battery operating point.</p><div class="fields">
+<label class="field">Coil L₁ = L₂ (µH)<input id="coilL" type="number" step="any" value="100"></label>
+<label class="field">Coil C₁ = C₂ (nF)<input id="coilC" type="number" step="any" value="100"></label>
+<label class="field">Each winding resistance (Ω)<input id="coilR" type="number" step="any" value="0.5"></label>
+<label class="field">Measured-input coupling k (0–1)<input id="coilK" type="number" step="any" value="0.15"></label>
+<label class="field">AC load (Ω)<input id="coilLoad" type="number" step="any" value="10"></label>
+<label class="field">Inverter AC output (V RMS)<input id="vrms" type="number" step="any" value="0.5"></label>
+<label class="field">Inverter efficiency (fraction)<input id="inv" type="number" step="any" value="0.8"></label>
+<label class="field">Rectifier efficiency (fraction)<input id="rect" type="number" step="any" value="0.9"></label>
+</div><div class="outputs" id="linkout"></div><p class="note">Coils operate at their calculated isolated resonance in this section. The source voltage, inverter and rectifier efficiencies, magnetic coupling and all component specifications are assumptions until measured. Power transfer is separate from ion resonance.</p></section>
+<div id="err" role="alert"></div><button id="export">Export current calculated report (JSON)</button>
+<p class="footer">Offline software, no external libraries and no network calls. Pure JS recalculation on input. Original engineering and Python equations are included in the complete package. An externally measured cell is needed to validate the model.</p>
+</main>
+<script>
+'use strict';
+const F=1.602176634e-19*6.02214076e23,R=8.31446261815324,PI=Math.PI;
+const $=id=>document.getElementById(id);let snapshot=null;
+const v=id=>Number($(id).value);
+const fmt=(n,d=5)=>!Number.isFinite(n)?'—':(Math.abs(n)>0 && (Math.abs(n)<.0001||Math.abs(n)>=1e7)?n.toExponential(3):Number(n.toPrecision(d)).toLocaleString());
+function need(n,label,nonneg=false){if(!Number.isFinite(n)||(nonneg?n<0:n<=0))throw Error(label+' must be '+(nonneg?'nonnegative':'positive')+' and finite');return n}
+const z=(re,im=0)=>({re,im}),add=(a,b)=>z(a.re+b.re,a.im+b.im),
+ mul=(a,b)=>z(a.re*b.re-a.im*b.im,a.re*b.im+a.im*b.re),
+ div=(a,b)=>{const d=b.re*b.re+b.im*b.im;return z((a.re*b.re+a.im*b.im)/d,(a.im*b.re-a.re*b.im)/d)},inv=a=>div(z(1),a);
+function tanhc(x,y){if(x>25)return z(1);if(x< -25)return z(-1);let d=Math.cosh(2*x)+Math.cos(2*y);return z(Math.sinh(2*x)/d,Math.sin(2*y)/d)}
+function cellParams(){let p={A:need(v('area'),'area')*1e-4,L:need(v('length'),'length')*1e-6,
+ kappa:need(v('kappa'),'conductivity')*.1,D:need(v('D'),'D'),c:need(v('c'),'concentration')*1000,
+ j0:need(v('j0'),'j0'),C:need(v('cdl'),'Cdl'),T:need(v('T'),'temperature'),Eq:need(v('eq'),'equilibrium voltage')};
+ p.rs=p.L/(p.kappa*p.A);p.i0=p.j0*p.A;p.rct=R*p.T/(2*F*p.i0);
+ p.cdl=p.C*p.A;p.ilim=2*F*p.A*p.D*p.c/p.L;
+ p.rd=R*p.T*p.L/(4*F*F*p.A*p.c*p.D);p.tau=p.L*p.L/p.D;return p}
+function polarization(p,I){need(I,'current',true);if(I>=p.ilim)throw Error('DC current must stay below the planar diffusion limit');
+ let eta=2*R*p.T/(2*F)*Math.asinh(I/(2*p.i0)), conc=-R*p.T/(2*F)*Math.log1p(-I/p.ilim);
+ let volt=p.Eq-I*p.rs-eta-conc;return {current_a:I,voltage_v:volt,ohmic_v:I*p.rs,activation_v:eta,diffusion_v:conc,terminal_w:I*volt,ideal_equilibrium_w:I*p.Eq,polarization_w:I*(I*p.rs+eta+conc)}}
+function acZ(p,f){need(f,'frequency');let alpha=Math.sqrt(2*PI*f/(2*p.D)),t=tanhc(alpha*p.L,alpha*p.L);
+ let zw=mul(z(R*p.T/(4*F*F*p.A*p.c*p.D)),div(t,z(alpha,alpha)));
+ let far=add(z(p.rct),zw),admittance=add(inv(far),z(0,2*PI*f*p.cdl)),total=add(z(p.rs),inv(admittance));
+ return {Z:total,zw};}
+function acPower(p,f,probe){let impedance=acZ(p,f).Z,amp=need(probe,'probe voltage');let amps=div(z(amp),impedance),
+ real=amp*amps.re,reactive=-amp*amps.im;return {current_rms_a:Math.hypot(amps.re,amps.im),real_power_w:real,reactive_power_var:reactive,power_factor:real/(amp*Math.hypot(amps.re,amps.im))}}
+function solveBattery(p,target){need(target,'requested DC power',true);if(!target)return polarization(p,0);
+ let h=p.ilim*(1-1e-12);const slope=i=>{
+ let a=polarization(p,i);let dbv=p.rct/Math.sqrt(1+(i/(2*p.i0))**2),dc=R*p.T/(2*F*(p.ilim-i));return a.voltage_v-i*(p.rs+dbv+dc)};
+ let l=0;
+ if(slope(h)<0)for(let j=0;j<90;j++){let m=(l+h)/2;if(slope(m)>0)l=m;else h=m;}
+ let peak=slope(h)<0?(l+h)/2:h;
+ // When the derivative was bracketed its zero is between l and h; when not, upper endpoint applies.
+ let maxP=polarization(p,peak).terminal_w;
+ if(target>maxP*(1+1e-12))throw Error('AC demand '+fmt(target)+' W exceeds assumed-cell maximum '+fmt(maxP)+' W');
+ let lo=0,hi=peak;for(let j=0;j<95;j++){let m=(lo+hi)/2;if(polarization(p,m).terminal_w<target)lo=m;else hi=m;}
+ let out=polarization(p,(lo+hi)/2);out.max_power_w=maxP;return out}
+function coil(p){const L=need(v('coilL'),'coil L')*1e-6,C=need(v('coilC'),'coil C')*1e-9,r=need(v('coilR'),'coil resistance'),
+ k=need(v('coilK'),'coupling',true),load=need(v('coilLoad'),'load'),vrms=need(v('vrms'),'AC source'),invEff=need(v('inv'),'inverter efficiency'),rect=need(v('rect'),'rectifier efficiency');
+ if(k>1||invEff>1||rect>1)throw Error('Coupling and efficiencies cannot exceed 1');
+ const freq=1/(2*PI*Math.sqrt(L*C)),omega=2*PI*freq,M=k*L,
+ z1=z(r,omega*L-1/(omega*C)),z2=z(r+load,omega*L-1/(omega*C)),ref=div(z((omega*M)**2),z2),zin=add(z1,ref),i1=div(z(vrms),zin),i2=div(mul(z(0,-omega*M),i1),z2);
+ const power=vrms*i1.re, copper1=(i1.re**2+i1.im**2)*r,copper2=(i2.re**2+i2.im**2)*r,pLoad=(i2.re**2+i2.im**2)*load,
+ inDC=power/invEff,dc=solveBattery(p,inDC),out=pLoad*rect,balance=dc.ideal_equilibrium_w-dc.polarization_w-(inDC-power)-copper1-copper2-(pLoad-out)-out;
+ return {frequency_hz:freq,coil_power_input_ac_w:power,coil_load_ac_w:pLoad,coil_copper_losses_w:copper1+copper2,
+ inverter_input_dc_w:inDC,calcium_dc_current_a:dc.current_a,battery_terminal_dc_w:dc.terminal_w,
+ receiver_output_dc_w:out,total_energy_balance_residual_w:balance,battery_terminal_to_receiver_efficiency:out/inDC,calcium_dc_polarization_w:dc.polarization_w};}
+function result(parent,label,num,unit=''){let el=document.createElement('div');el.className='result';let t=document.createElement('div');t.className='t';t.textContent=label;let x=document.createElement('div');x.className='n';x.textContent=fmt(num)+(unit?' '+unit:'');el.append(t,x);parent.append(el)}
+function graph(p){const canvas=$('graph'),ctx=canvas.getContext('2d'),w=canvas.width,h=canvas.height,pad={l:48,r:20,t:15,b:28};
+ const points=Array.from({length:121},(_,i)=>{let f=10**(-3+i/20),zz=acZ(p,f).Z;return {f,mag:Math.hypot(zz.re,zz.im),neg:-zz.im}});
+ const upper=Math.max(1e-12,...points.map(a=>Math.max(a.mag,a.neg)))*1.10;
+ ctx.fillStyle='#0b1723';ctx.fillRect(0,0,w,h);ctx.font='12px system-ui';ctx.fillStyle='#9dbbcc';
+ for(let i=0;i<=4;i++){let y=pad.t+(h-pad.t-pad.b)*i/4;ctx.strokeStyle='#27445a';ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(w-pad.r,y);ctx.stroke();ctx.fillText(fmt(upper*(1-i/4),3),3,y+4)}
+ for(let i=0;i<=6;i++){let x=pad.l+(w-pad.l-pad.r)*i/6;ctx.fillText(`10^${i-3}`,x-15,h-7)}
+ function draw(key,color){ctx.strokeStyle=color;ctx.lineWidth=2.5;ctx.beginPath();for(let i=0;i<points.length;i++){let pt=points[i];let x=pad.l+(w-pad.l-pad.r)*i/(points.length-1),y=pad.t+(1-pt[key]/upper)*(h-pad.t-pad.b);if(!i)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.stroke()}
+ draw('mag','#7ceadf');draw('neg','#efd28c');}
+function update(){try{let p=cellParams(),freq=need(v('freq'),'frequency'),dc=polarization(p,v('current')),zv=acZ(p,freq),probe=acPower(p,freq,v('probe')/1000),o=$('out');o.replaceChildren();
+ result(o,'DC terminal voltage',dc.voltage_v,'V');result(o,'DC terminal power',dc.terminal_w,'W');
+ result(o,'DC ionic bulk resistance',p.rs,'Ω');result(o,'DC zero-current resistance slope',p.rs+p.rct+p.rd,'Ω');
+ result(o,'AC impedance real',zv.Z.re,'Ω');result(o,'AC impedance imaginary',zv.Z.im,'Ω');
+ result(o,'AC small probe real input',probe.real_power_w,'W');result(o,'Electrochemical diffusion time',p.tau,'s');
+ result(o,'Ideal diffusion current limit',p.ilim,'A');result(o,'AC current RMS',probe.current_rms_a,'A');
+ let cl=coil(p),lo=$('linkout');lo.replaceChildren();result(lo,'Tesla-style coil resonance',cl.frequency_hz,'Hz');
+ result(lo,'Inverter input DC from cell',cl.inverter_input_dc_w,'W');result(lo,'Required DC battery current',cl.calcium_dc_current_a,'A');
+ result(lo,'Receiver DC after rectifier',cl.receiver_output_dc_w,'W');result(lo,'Battery-terminal to receiver',100*cl.battery_terminal_to_receiver_efficiency,'%');
+ result(lo,'Power balance error',cl.total_energy_balance_residual_w,'W');
+ $('err').textContent='';snapshot={inputs:p,dc,ac_frequency_hz:freq,impedance:zv,ac_probe:probe,transfer:cl,model_status:'hypothetical parameters, physical measurements not obtained'};graph(p);
+ }catch(error){$('err').textContent='Input/feasibility error: '+error.message;$('err').className='error';snapshot=null;}}
+for(let input of document.querySelectorAll('input'))input.addEventListener('input',update);
+$('export').addEventListener('click',()=>{if(!snapshot)return;let a=document.createElement('a'),blob=new Blob([JSON.stringify(snapshot,null,2)],{type:'application/json'});a.href=URL.createObjectURL(blob);a.download='ripple_derived_ac_dc_hypothetical.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
+update();
+</script></body></html>
