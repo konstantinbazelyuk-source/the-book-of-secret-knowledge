@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#12354a"><title>Ripple Mathematics Compiler — Beer–Lambert v2.1.1</title>
+<style>
+:root{font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f3f6f2;color:#17364a}*{box-sizing:border-box}body{margin:0}main{max-width:820px;margin:0 auto;padding:18px 14px 60px}header{background:#12354a;color:white;border-radius:18px;padding:26px 22px;margin:9px 0 18px}h1{font-size:clamp(23px,5vw,34px);margin:0 0 8px}header p{margin:0;color:#c9e5d6}.tag{font-size:11px;letter-spacing:1.5px;color:#9fe6bb;font-weight:800}.panel{border-radius:15px;border:1px solid #dae4df;background:white;padding:20px;margin:15px 0;box-shadow:0 2px 9px #162d3310}.panel h2{margin:0 0 11px;font-size:20px}.formula{font-size:22px;font-weight:750;color:#176e53;letter-spacing:.01em;margin:12px 0}p.note{color:#5e6e72;font-size:13px}.formrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:13px;margin:16px 0}.formrow label{font-size:13px;font-weight:700;display:block;color:#3a5460}.formrow input,.formrow select{margin-top:5px;font:inherit;display:block;width:100%;border:1px solid #bccdc7;border-radius:8px;padding:12px;background:#fff;color:#143a48;min-height:44px}.actions{display:flex;gap:10px;flex-wrap:wrap}.actions button{border:0;border-radius:8px;padding:12px 18px;color:white;font:700 15px system-ui;background:#237e5d;cursor:pointer;min-height:45px}button.secondary{background:#173f56}.result{background:#eaf3ed;border:1px solid #c8ddce;border-radius:10px;padding:14px;margin-top:16px;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.8 ui-monospace,Consolas,monospace}.result.error{background:#fcecec;border-color:#ddb9b9;color:#812f30}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}.metric{background:#f2f7f4;padding:12px;border-radius:12px;min-width:0}.metric strong{font:750 clamp(15px,4vw,23px) ui-monospace,monospace;display:block}.metric small{font:12px system-ui;color:#546b67}.badge{font-size:11px;font-weight:800;color:#216b53;text-transform:uppercase}.vis{height:140px;width:100%;border:1px solid #d1e1d9;border-radius:9px}.layout{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:590px){.layout{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}}[hidden]{display:none!important}a{color:#126344}code{font:13px ui-monospace,monospace}details summary{cursor:pointer;font-weight:700}footer{font-size:12px;color:#546b67}
+</style></head><body><main><header><div class="tag">RIPPLE / MATHEMATICS COMPILER</div><h1>Beer–Lambert Formula Registry</h1><p>Validated, executable optical attenuation mathematics · v2.1.1 · Offline</p></header>
+<section class="panel"><span class="badge">Calculated — not measured</span><h2>Registered formula</h2><div class="formula">I = I₀ e<sup>−μL</sup></div><p>The attenuation coefficient μ uses m⁻¹ and optical path L uses metres; their product μL is dimensionless. Input and output intensities use the same units.</p><p class="note">A collimated, narrowband beam passing through a homogeneous, non-scattering medium is assumed. Camera RGB and scanned-digit pixels are not calibrated photon intensities.</p></section>
+<section class="panel"><h2>Compile and evaluate</h2><div class="formrow"><label>Compiler operation<select id="mode"><option value="forward">Forward: I, T, OD</option><option value="solve_mu">Inverse: solve μ</option><option value="solve_L">Inverse: solve L</option></select></label><label>Initial intensity I₀<input id="I0" type="number" min="0" step="any" value="1"></label><label id="muRow">Coefficient μ (m⁻¹)<input id="mu" type="number" min="0" step="any" value="0.35"></label><label id="LRow">Path length L (m)<input id="L" type="number" min="0" step="any" value="2"></label><label id="IRow" hidden>Observed transmitted intensity I<input id="I" type="number" min="0" step="any" value="0.4965853037914095"></label></div><div class="actions"><button id="evaluate">Evaluate formula</button><button class="secondary" id="download">Export JSON evidence</button></div><div class="metrics"><div class="metric"><strong id="outIntensity">0.496585</strong><small id="outName">Transmitted intensity</small></div><div class="metric"><strong id="outTransmission">49.66%</strong><small>Transmittance</small></div><div class="metric"><strong id="outOD">0.304006</strong><small>Optical density (base 10)</small></div></div><pre id="result" class="result" aria-live="polite" data-status="pending">Compiling formula…</pre></section>
+<section class="panel"><h2>Light-loss response</h2><p class="note">Forward calculation for current I₀ and μ, varying the model path across 0–5 metres (not a physical observation).</p><canvas class="vis" id="chart" width="700" height="160" role="img" aria-label="Calculated exponential attenuation curve"></canvas></section>
+<section class="panel"><h2>Compiler boundaries</h2><p>Only allowlisted formula IDs and operations are accepted. Mathematical coefficients must be finite, μ ≥ 0, L ≥ 0, and μL ≤ 100 as a numerical guard. Inverse calculations require an independent nonzero reference intensity and a known nonzero coefficient or path. No browser camera, sensors, network requests, dynamic scripts, or autonomous code execution are used.</p><details><summary>Evidence and references</summary><p>IUPAC Gold Book, Beer–Lambert law (B00626) and transmittance (T06484). The previous Ripple Gen Beta v2.1 implementation remains unchanged and is used as the underlying calculation reference. These numbers are model calculations; no material or atmospheric density is inferred.</p><p><a href="https://goldbook.iupac.org/terms/view/B00626">IUPAC Beer–Lambert law</a></p></details></section><footer>Ripple Mathematics Compiler · Strict formula registry · Preserves original neuron v0.1 and Gen Beta v2.1.</footer></main>
+<script type="module">
+/* Bundle assembled solely from original v2.1 photometry.mjs and new allowlisted compiler.mjs. */
+/** Ripple Gen Beta v2.1: isolated, physically grounded radiometric calculations.
+ * Real sensor calibration MUST be supplied externally. No implicit absolute
+ * light or density inference from camera/display RGB or scanner digit counts.
+ */
+const ok=(x,n)=>{if(!(typeof x==='number'&&Number.isFinite(x)))throw Error('Nonfinite '+n);return x;};
+const bound=(v,a,b)=>Math.max(a,Math.min(b,v));
+const H=6.62607015e-34, C=299792458;
+function photonEnergyJ(lambdaNm){ok(lambdaNm,'wavelength');if(lambdaNm<=0||lambdaNm>1e9)throw Error('Wavelength out of bounds');return H*C/(lambdaNm*1e-9);}
+function srgbDecode(v){ok(v,'sRGB');if(v<0||v>1)throw Error('out of sRGB bounds');return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;}
+function srgbEncode(v){ok(v,'linear RGB');if(v<0||v>1)throw Error('out of linear RGB bounds');return v<=.0031308?12.92*v:1.055*v**(1/2.4)-.055;}
+function beerLambert(intensity,mu,path){ok(intensity,'intensity');ok(mu,'attenuation');ok(path,'path');if(intensity<0||mu<0||path<0||mu*path>100)throw Error('Invalid attenuation');return intensity*Math.exp(-mu*path);}
+function inverseSquareIrradiance(sourceFactor,radius,incidenceRad=0){ok(sourceFactor,'source factor');ok(radius,'radius');ok(incidenceRad,'angle');if(sourceFactor<0||radius<=0||Math.abs(incidenceRad)>Math.PI/2)throw Error('Invalid point-source geometry');return sourceFactor*Math.cos(incidenceRad)/radius**2;}
+function fresnelNormalIncidence(n1,n2){ok(n1,'n1');ok(n2,'n2');if(n1<=0||n2<=0)throw Error('Invalid refractive index');return ((n1-n2)/(n1+n2))**2;}
+/** Relative *camera-output* ratio: does not infer material optical density.
+ * Each observation, dark and clear must have been captured under controlled
+ * optics/exposure/white balance/gamma with declared uncertainties.
+ */
+function calibratedRatio({sample,dark,clear,sigma=0,linearize=false,clipping=250}){
+ for(const [k,v] of Object.entries({sample,dark,clear,sigma,clipping}))ok(v,k);
+ if([sample,dark,clear].some(v=>v<0||v>255)||sigma<0||clipping>255||clipping<10)throw Error('Out of camera-code range');
+ if(sample>=clipping||clear>=clipping||dark>=clipping)return {valid:false,reason:'Clipped channel'};
+ if(clear-dark<Math.max(20,6*sigma))return {valid:false,reason:'Insufficient reference span / low SNR'};
+ let f=x=>linearize?srgbDecode(x/255):x/255;
+ const span=f(clear)-f(dark);if(span<=0)return {valid:false,reason:'Nonpositive optical reference'};
+ const raw=(f(sample)-f(dark))/span;
+ if(raw<0||raw>1)return {valid:false,reason:'Sample outside reference span'};
+ const transmission=raw;
+ return {valid:true,transmission,relativeOpacity:1-transmission,relativeOD:-Math.log10(Math.max(transmission,1e-6)),
+   interpretation:'Camera-code ratio, not physical calibrated spectral transmittance',
+   presumedLinear:linearize,uncertaintyQualifier:'No uncertainty interval without repeated, independent instrument characterization'};
+}
+/** Explicit model-data boundary, sampled optics only. No claimed sensor feed. */
+function validatedRecordedImage(packet){
+ if(!packet||packet.provenance!=='recorded_scanner'||packet.dataset!=='sklearn_digits_1998')throw Error('Unverified provenance');
+ if(!Number.isInteger(packet.datasetIndex)||packet.datasetIndex<0||packet.datasetIndex>=1797)throw Error('index');
+ if(!Array.isArray(packet.pixels)||packet.pixels.length!==64||packet.pixels.some(v=>!Number.isInteger(v)||v<0||v>16))throw Error('shape/range');
+ if('groundTruth' in packet||'digitLabel' in packet)throw Error('Leaked label inside input');
+ return Object.freeze({provenance:packet.provenance,dataset:packet.dataset,datasetIndex:packet.datasetIndex,pixels:Object.freeze([...packet.pixels]),units:'on-pixel counts per 4x4 region; not photon energy or spectral bands'});
+}
+
+
+/**
+ * Ripple Mathematics Compiler v2.1.1 — add-on formula registry.
+ * Beer–Lambert model from verified v2.1 photometry, NOT a new optical measurement.
+ * One verified operation is compiled from a fixed allowlist; arbitrary user code,
+ * eval, Function constructors, networking, and source rewriting are excluded.
+ * Units: mu [m^-1], L [m], I0 and I in the same non-negative intensity units.
+ */
+const has = (o,k) => Object.prototype.hasOwnProperty.call(o,k);
+const ensureRecord = (obj,name) => {
+  if(obj===null || typeof obj!=='object' || Array.isArray(obj) || Object.getPrototypeOf(obj)!==Object.prototype)
+    throw new TypeError(`${name} must be a plain JSON object`);
+  return obj;
+};
+function exactKeys(obj, required, optional=[],name='record'){
+  ensureRecord(obj,name);
+  const allowed=new Set([...required,...optional]);
+  for(const k of Object.keys(obj))if(!allowed.has(k))throw new RangeError(`${name}: unexpected field ${k}`);
+  for(const k of required)if(!has(obj,k))throw new RangeError(`${name}: missing ${k}`);
+}
+function finite(v,name){
+  if(typeof v!=='number' || !Number.isFinite(v))throw new RangeError(`${name} must be finite number`);
+  return v;
+}
+function nonnegative(v,name){finite(v,name);if(v<0)throw new RangeError(`${name} must be nonnegative`);return v;}
+function positive(v,name){nonnegative(v,name);if(v===0)throw new RangeError(`${name} must be positive`);return v;}
+const DOMAIN_MAX=100;
+function opticalDepth(mu,L){
+  nonnegative(mu,'mu');nonnegative(L,'L');
+  const d=mu*L;
+  if(!Number.isFinite(d)||d>DOMAIN_MAX)throw new RangeError('mu*L exceeds numerical guard (100)');
+  return d;
+}
+
+const FORMULAS=Object.freeze({
+ beer_lambert:Object.freeze({
+  id:'beer_lambert',version:'2.1.1',
+  equation:'I = I0 * exp(-mu * L)',
+  modes:Object.freeze(['forward','solve_mu','solve_L','rgb_forward']),
+  units:Object.freeze({I0:'same intensity unit as I',I:'same intensity unit as I',mu:'m^-1',L:'m'}),
+  assumptions:'Collimated narrowband light; homogeneous, non-scattering medium; mu and L are externally supplied or independently calibrated.',
+  evidence:'CALCULATED/SIMULATED, never a direct observation of a camera or material',
+  source:'src/photometry.mjs:beerLambert; IUPAC Gold Book B00626'
+ })
+});
+function listFormulas(){return Object.values(FORMULAS);}
+
+/** Compile an allowlisted formula plan; values can only be supplied to evaluate(). */
+function compileFormula(request){
+ exactKeys(request,['formula','mode'],[],'compiler request');
+ if(typeof request.formula!=='string'||!has(FORMULAS,request.formula))throw new RangeError('Unknown formula');
+ const descriptor=FORMULAS[request.formula];
+ if(!descriptor.modes.includes(request.mode))throw new RangeError('Unsupported formula mode');
+ const mode=request.mode;
+ const metadata=Object.freeze({formula:descriptor.id,mode,version:descriptor.version,equation:descriptor.equation,units:descriptor.units,evidence:'CALCULATED'});
+ return Object.freeze({metadata,evaluate(params){return evaluateMode(mode,params);}});
+}
+
+function evaluateMode(mode,p){
+ if(mode==='forward'){
+  exactKeys(p,['I0','mu','L'],[],'forward inputs');
+  const I0=nonnegative(p.I0,'I0'), d=opticalDepth(p.mu,p.L);
+  const I=beerLambert(I0,p.mu,p.L);
+  const T=Math.exp(-d), A=d/Math.LN10;
+  if(!Number.isFinite(I))throw new RangeError('Nonfinite transmitted intensity');
+  return Object.freeze({I,T,lossFraction:1-T,OD10:A,opticalDepthNeper:d,dIdI0:T,dIdMu:-p.L*I,dIdL:-p.mu*I,
+   units:{I:'same as I0',T:'dimensionless',OD10:'dimensionless',dIdL:'intensity/m'},evidence:'CALCULATED'});
+ }
+ if(mode==='solve_mu'||mode==='solve_L'){
+  const third=mode==='solve_mu'?'L':'mu';
+  exactKeys(p,['I0','I',third],[],'inverse inputs');
+  const I0=positive(p.I0,'I0'),I=positive(p.I,'I');
+  if(I>I0)throw new RangeError('Measured I cannot exceed I0 in this pure-attenuation model');
+  const known=positive(p[third],third);
+  const depth=-Math.log(I/I0);
+  if(depth>DOMAIN_MAX)throw new RangeError('Inferred optical depth exceeds 100');
+  const solved=depth/known;
+  if(!Number.isFinite(solved))throw new RangeError('Nonfinite inverse result');
+  const result=mode==='solve_mu'?{mu:solved,muUnit:'m^-1'}:{L:solved,LUnit:'m'};
+  return Object.freeze({...result,T:I/I0,OD10:depth/Math.LN10,evidence:'CALCULATED',warning:'Inverse requires independent calibrated I and I0; not an inferred camera measurement'});
+ }
+ if(mode==='rgb_forward'){
+  exactKeys(p,['rgb','muRGB','L'],[],'RGB model inputs');
+  if(!Array.isArray(p.rgb)||!Array.isArray(p.muRGB)||p.rgb.length!==3||p.muRGB.length!==3)
+    throw new RangeError('rgb and muRGB must each contain exactly three channels');
+  nonnegative(p.L,'L');
+  const channels=p.rgb.map((v,i)=>{
+   nonnegative(v,`rgb[${i}]`);opticalDepth(p.muRGB[i],p.L);
+   return evaluateMode('forward',{I0:v,mu:p.muRGB[i],L:p.L});
+  });
+  return Object.freeze({output:Object.freeze(channels.map(c=>c.I)),transmittance:Object.freeze(channels.map(c=>c.T)),
+   evidence:'SIMULATED',warning:'Broad RGB is not a spectral measurement; each channel coefficient is a user-provided synthetic parameter'});
+ }
+ throw new RangeError('Unsupported mode');
+}
+function executeRecipe(recipe){
+ exactKeys(recipe,['formula','mode','inputs'],[],'recipe');
+ return compileFormula({formula:recipe.formula,mode:recipe.mode}).evaluate(recipe.inputs);
+}
+
+const $=id=>document.getElementById(id);let lastResult=null;
+function mustNumber(id){const raw=$(id).value.trim();if(raw==='')throw new RangeError(`${id} is required`);const n=Number(raw);if(!Number.isFinite(n))throw new RangeError(`${id} must be finite`);return n;}
+function form(){const mode=$('mode').value;const p={I0:mustNumber('I0')};if(mode==='forward'){p.mu=mustNumber('mu');p.L=mustNumber('L');}else{p.I=mustNumber('I');p[mode==='solve_mu'?'L':'mu']=mustNumber(mode==='solve_mu'?'L':'mu');}return {formula:'beer_lambert',mode,inputs:p};}
+function plot(){const cvs=$('chart'),cx=cvs.getContext('2d'),w=cvs.width,h=cvs.height;cx.clearRect(0,0,w,h);cx.strokeStyle='#d9e6dd';for(let i=1;i<5;i++){cx.beginPath();cx.moveTo(30,i*h/5);cx.lineTo(w-12,i*h/5);cx.stroke();}let I0=Number($('I0').value),mu=Number($('mu').value);if(!Number.isFinite(I0)||I0<=0||!Number.isFinite(mu)||mu<0||mu*5>100)return;cx.strokeStyle='#268762';cx.lineWidth=3;cx.beginPath();for(let j=0;j<=100;j++){const L=5*j/100,y=h-18-(h-38)*Math.exp(-mu*L),x=30+(w-49)*j/100;if(j===0)cx.moveTo(x,y);else cx.lineTo(x,y);}cx.stroke();cx.fillStyle='#355860';cx.font='11px system-ui';cx.fillText('I/I₀',4,15);cx.fillText('0 m',28,h-4);cx.fillText('5 m',w-37,h-4);}
+function update(){try{const req=form(),result=executeRecipe(req);lastResult={request:req,result};$('result').className='result';$('result').dataset.status='ok';$('result').textContent=JSON.stringify(lastResult,null,2);const i=(req.mode==='forward'?result.I:(req.mode==='solve_mu'?result.mu:result.L));$('outIntensity').textContent=Number(i).toPrecision(6);$('outName').textContent=req.mode==='forward'?'Transmitted intensity':req.mode==='solve_mu'?'μ (m⁻¹)':'L (m)';$('outTransmission').textContent=(result.T*100).toFixed(3)+'%';$('outOD').textContent=result.OD10.toFixed(6);plot();}catch(e){lastResult=null;$('result').className='result error';$('result').dataset.status='error';$('result').textContent='Input rejected: '+e.message;}}
+function changeMode(){const mode=$('mode').value;$('muRow').hidden=mode==='solve_mu';$('LRow').hidden=mode==='solve_L';$('IRow').hidden=mode!=='forward';update();}
+$('mode').addEventListener('change',changeMode);$('evaluate').addEventListener('click',update);for(const id of ['I0','mu','L','I'])$(id).addEventListener('input',update);
+$('download').addEventListener('click',()=>{if(!lastResult){update();if(!lastResult)return;}const blob=new Blob([JSON.stringify({...lastResult,provenance:'CALCULATED'},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Ripple-Math-Beer-Lambert-Result.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),500);});
+changeMode();
+</script></body></html>
