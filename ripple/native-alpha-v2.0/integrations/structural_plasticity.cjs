@@ -7,22 +7,73 @@
  * All stimuli and spikes in this experiment are generated model data.
  */
 const { RippleNeuron, bound } = require('../reference/v01_ripple_core_LOCKED.cjs');
+const FORMAT='ripple-structural-v0.2';
+const finite=x=>typeof x==='number'&&Number.isFinite(x);
+const integer=(x,low,high)=>Number.isInteger(x)&&x>=low&&x<=high;
 
 function validate(config) {
   if (!config || typeof config !== 'object' || Array.isArray(config)) throw Error('object required');
-  const {nodes=8,frames=800,dt=0.05,seed=17,plasticity=true,interval=40} = config;
+  const {nodes=8,frames=800,dt=0.05,seed=17,plasticity=true,interval=40,checkpoint_state=null,save_state=false} = config;
   if (!Number.isInteger(nodes) || nodes<4 || nodes>32) throw Error('nodes must be 4..32');
-  if (!Number.isInteger(frames) || frames<40 || frames>12000 || frames*nodes*nodes>3e6) throw Error('frames or workload exceeds budget');
+  if (!Number.isInteger(frames) || frames<1 || frames>12000 || frames*nodes*nodes>3e6) throw Error('frames or workload exceeds budget');
   if (typeof dt!=='number' || !Number.isFinite(dt) || dt<=0 || dt>0.5) throw Error('dt must be 0..0.5');
   if (!Number.isInteger(seed) || seed<0 || seed>1000000) throw Error('seed out of bounds');
   if (typeof plasticity!=='boolean') throw Error('plasticity must be boolean');
   if (!Number.isInteger(interval) || interval<10 || interval>200) throw Error('interval must be 10..200');
-  return {nodes,frames,dt,seed,plasticity,interval};
+  if(typeof save_state!=='boolean')throw Error('save_state must be boolean');
+  if(checkpoint_state!==null&&(typeof checkpoint_state!=='object'||Array.isArray(checkpoint_state)))throw Error('checkpoint_state must be object or null');
+  return {nodes,frames,dt,seed,plasticity,interval,checkpoint_state,save_state};
 }
 
 function seeded(seed) {
   let s=(seed>>>0)||1;
-  return () => {s^=s<<13; s^=s>>>17; s^=s<<5; return (s>>>0)/4294967296;};
+  return {next(){s^=s<<13;s^=s>>>17;s^=s<<5;return (s>>>0)/4294967296;},get state(){return s>>>0;},set state(v){if(!integer(v,1,4294967295))throw Error('invalid PRNG state');s=v>>>0;}};
+}
+
+function loadSnapshot(snapshot,o,units,edges,trace,scores,counts,totals,random){
+  const n=o.nodes,fail=()=>{throw Error('invalid checkpoint state')};
+  if(snapshot.format!==FORMAT || snapshot.nodes!==n || snapshot.dt!==o.dt ||
+     snapshot.seed!==o.seed || snapshot.interval!==o.interval || snapshot.plasticity!==o.plasticity ||
+     !integer(snapshot.frame,0,1000000000) || !integer(snapshot.initialEdges,1,3*n) ||
+     !Array.isArray(snapshot.edges) || snapshot.edges.length>n*3 || snapshot.edges.length<n ||
+     !Array.isArray(snapshot.units) || snapshot.units.length!==n ||
+     !Array.isArray(snapshot.trace)||snapshot.trace.length!==n ||
+     !Array.isArray(snapshot.scores)||snapshot.scores.length!==n ||
+     !Array.isArray(snapshot.counts)||snapshot.counts.length!==n ||
+     !snapshot.totals ||typeof snapshot.totals!=='object')fail();
+  random.state=snapshot.rngState;
+  for(let i=0;i<n;i++){
+    const x=snapshot.units[i];
+    if(!x||!['theta','u','rate','rest','t'].every(k=>finite(x[k])))fail();
+    if(x.theta<0.15||x.theta>2.5||x.u<0||x.rate<0||x.rest<0||x.t<0)fail();
+    for(const k of ['theta','u','rate','rest','t'])units[i][k]=x[k];
+    if(!finite(snapshot.trace[i])||snapshot.trace[i]<0)fail();
+    trace[i]=snapshot.trace[i];
+    if(!integer(snapshot.counts[i],0,1000000000))fail();
+    counts[i]=snapshot.counts[i];
+    if(!Array.isArray(snapshot.scores[i])||snapshot.scores[i].length!==n)fail();
+    for(let j=0;j<n;j++){
+      if(!finite(snapshot.scores[i][j])||snapshot.scores[i][j]<0)fail();
+      scores[i][j]=snapshot.scores[i][j];
+    }
+  }
+  for(const key of ['grown','pruned','spikes','weight_updates']){
+    if(!integer(snapshot.totals[key],0,1000000000))fail();totals[key]=snapshot.totals[key];
+  }
+  if(totals.spikes!==counts.reduce((a,b)=>a+b,0))fail();
+  const incoming=new Array(n).fill(0),outgoing=new Array(n).fill(0);
+  for(const e of snapshot.edges){
+    if(!e||!integer(e.from,0,n-1)||!integer(e.to,0,n-1)||e.from===e.to||
+       !finite(e.weight)||e.weight<0.07||e.weight>0.55||
+       !integer(e.age,0,100000000)||!integer(e.weakWindows,0,100000000)||typeof e.initial!=='boolean')fail();
+    const key=e.from+':'+e.to;
+    if(edges.has(key))fail();
+    edges.set(key,{from:e.from,to:e.to,weight:e.weight,age:e.age,weakWindows:e.weakWindows,initial:e.initial});
+    incoming[e.to]++;outgoing[e.from]++;
+  }
+  if(incoming.some(x=>x>Math.min(3,n-1))||outgoing.some(x=>x>Math.min(3,n-1)||x<1))fail();
+  if(snapshot.initialEdges+totals.grown-totals.pruned!==edges.size)fail();
+  return snapshot.frame;
 }
 
 function run(config) {
@@ -38,33 +89,36 @@ function run(config) {
     edges.set(key,{from:a,to:b,weight:w,age:0,weakWindows:0,initial});
   };
   // Original directed sparse substrate. Nonlocal connections are not fabricated.
-  for(let a=0;a<n;a++) {
-    addEdge(a,(a+1)%n,0.22,true);
-    addEdge(a,(a+2)%n,0.22,true);
-  }
-  const initialEdges=edges.size;
-  const initialLinks=[...edges.values()].map(e=>[e.from,e.to]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
+  const initialEdges=2*n;
   const trace=new Array(n).fill(0);
   const scores=Array.from({length:n},()=>new Array(n).fill(0));
   const counts=new Array(n).fill(0);
   const history=[];
   const totals={grown:0,pruned:0,spikes:0,weight_updates:0};
+  let previousFrame=0;
+  if(opt.checkpoint_state){
+    previousFrame=loadSnapshot(opt.checkpoint_state,opt,units,edges,trace,scores,counts,totals,random);
+  }else{
+    for(let a=0;a<n;a++){addEdge(a,(a+1)%n,0.22,true);addEdge(a,(a+2)%n,0.22,true);}
+  }
   const maxOutgoing=Math.min(3,n-1),maxIncoming=Math.min(3,n-1),minOutgoing=1;
   const graphDegrees=()=>{
     const incoming=new Array(n).fill(0),outgoing=new Array(n).fill(0);
     for(const e of edges.values()) {incoming[e.to]++;outgoing[e.from]++;}
     return {incoming,outgoing};
   };
-  for(let frame=0;frame<frames;frame++){
+  for(let localFrame=0;localFrame<frames;localFrame++){
+    const frame=previousFrame+localFrame;
+    const orderedForInput=[...edges.values()].sort((a,b)=>a.from-b.from||a.to-b.to);
     const spikes=new Array(n).fill(0);
     // External alternating optical pulse cohorts; initial graph has both
     // same-cohort and cross-cohort edges, allowing an actual pruning test.
     const phase=Math.floor(frame/80)%2;
     for(let j=0;j<n;j++){
       let recurrent=0;
-      for(const e of edges.values()) if(e.to===j) recurrent+=e.weight*trace[e.from];
+      for(const e of orderedForInput) if(e.to===j) recurrent+=e.weight*trace[e.from];
       const inCohort=j%2===phase;
-      const jitter=0.02*(random()-.5);
+      const jitter=0.02*(random.next()-.5);
       const red=bound((inCohort?0.76:0.12)+jitter+0.11*recurrent,0,1);
       const out=units[j].step([red,0.2,0.15],dt);
       spikes[j]=out.count;
@@ -116,19 +170,27 @@ function run(config) {
   }
   const degrees=graphDegrees();
   const finalLinks=[...edges.values()].map(e=>({from:e.from,to:e.to,weight:+e.weight.toFixed(5),coherence:+scores[e.from][e.to].toFixed(5)})).sort((a,b)=>a.from-b.from||a.to-b.to);
-  return {
-    kernel:'locked-Ripple-v0.1',adapter:'ripple-structural-plasticity-v0.1',
+  const result={
+    kernel:'locked-Ripple-v0.1',adapter:FORMAT,
     evidence:'computed model events; no external hardware or live-cell measurement',
-    config:opt,initial_edges:initialEdges,final_edges:edges.size,
-    initial_links:initialLinks,final_links:finalLinks,per_neuron_spikes:counts,
+    config:{nodes:n,frames,dt,seed,plasticity,interval},start_frame:previousFrame,end_frame:previousFrame+frames,initial_edges:initialEdges,final_edges:edges.size,
+    final_links:finalLinks,per_neuron_spikes:counts,
     per_neuron_thresholds:units.map(x=>+x.theta.toFixed(5)),
     topology_events:totals,degree_bounds:{max_in:maxIncoming,max_out:maxOutgoing,min_out:minOutgoing},
     final_degree:degrees,plasticity_history:history
   };
+  if(opt.save_state)result.checkpoint_state={
+    format:FORMAT,nodes:n,dt,seed,plasticity,interval,frame:previousFrame+frames,
+    initialEdges,rngState:random.state,
+    edges:[...edges.values()].sort((a,b)=>a.from-b.from||a.to-b.to).map(e=>({...e})),
+    units:units.map(u=>({theta:u.theta,u:u.u,rate:u.rate,rest:u.rest,t:u.t})),
+    trace,scores,counts,totals
+  };
+  return result;
 }
 
 if(require.main===module){
-  try{let s='';process.stdin.setEncoding('utf8');process.stdin.on('data',c=>{s+=c;if(s.length>8192)throw Error('input exceeds size limit');});process.stdin.on('end',()=>process.stdout.write(JSON.stringify(run(JSON.parse(s))))) }
+  try{let s='';process.stdin.setEncoding('utf8');process.stdin.on('data',c=>{s+=c;if(s.length>200000)throw Error('input exceeds size limit');});process.stdin.on('end',()=>process.stdout.write(JSON.stringify(run(JSON.parse(s))))) }
   catch(e){console.error(e.message);process.exitCode=1;}
 }
-module.exports={run,validate};
+module.exports={run,validate,FORMAT};
