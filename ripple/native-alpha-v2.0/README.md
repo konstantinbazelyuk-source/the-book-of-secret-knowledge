@@ -30,6 +30,18 @@ python -m ripple_native gpu-calibrate --size 512
 
 On Windows PowerShell, wrap JSON parameters in single quotes as shown. Jobs submitted to the daemon execute in **different OS processes** using a bounded `ProcessPoolExecutor` with Windows-compatible `spawn`. There is no unrestricted remote code execution, shell, or permission to run arbitrary uploaded JavaScript.
 
+### Activity-dependent Ripple neuron connectivity (experimental)
+
+The [structural-plasticity adapter](integrations/structural_plasticity.cjs) runs the original locked v0.1 Ripple neuron in a directed network whose connections grow, prune and change weight in response to simulated spiking. Original neuron equations and older job kinds are preserved.
+
+With the daemon running, submit:
+
+```powershell
+.\.venv\Scripts\python.exe -m ripple_native submit structural_plasticity '{"nodes":8,"frames":800,"seed":17}'
+```
+
+Disable topology changes for a control by adding `"plasticity":false`. The experiment was executed and locally tested in Node.js; the complete Python/Dell integration remains separately verifiable. See [mechanism, formulas, tests and results](docs/STRUCTURAL_PLASTICITY.md).
+
 ### Registered desktop applications
 
 A locally authorized user can opt in to a known executable and fixed arguments. Example (change path to an actual trusted executable):
