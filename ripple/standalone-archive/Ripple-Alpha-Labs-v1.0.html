@@ -1,0 +1,334 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#101f2c"><title>Ripple Alpha Labs v1.0</title>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;--bg:#0b1621;--panel:#132333;--surface:#192b3a;--line:#294451;--ink:#eaf2f2;--muted:#9caeb9;--sea:#81e3aa;--red:#f47b85;--blue:#86b9f5}*{box-sizing:border-box}body{background:var(--bg);color:var(--ink);margin:0;line-height:1.48}button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.35;cursor:not-allowed}.root{max-width:1200px;margin:0 auto;padding:22px 20px 80px}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}.logo{display:flex;align-items:center;gap:13px}.glyph{background:var(--sea);border-radius:12px;color:#06251b;width:48px;height:48px;display:grid;place-items:center;font-size:32px;font-weight:bold}.name{font-weight:820;letter-spacing:.09em;font-size:19px}.sub{font-size:12px;color:var(--muted);margin-top:3px}.status{font-size:11px;font-weight:750;background:#143e32;color:#b3f5cf;border:1px solid #2b6b56;padding:9px 12px;border-radius:40px}.nav{display:flex;gap:7px;overflow:auto;margin-bottom:16px;scrollbar-width:none}.navbtn{white-space:nowrap;padding:11px 14px;border:1px solid var(--line);background:#142330;color:var(--muted);border-radius:9px;font-size:13px;font-weight:700}.navbtn.active{border-color:#74b896;color:var(--sea);background:#15382d}.screen[hidden]{display:none}.main{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(270px,1fr);gap:15px}.card{background:var(--panel);border:1px solid var(--line);padding:19px;border-radius:14px;margin-bottom:14px;min-width:0}.card h2{margin:0 0 8px;font-size:17px;letter-spacing:-.015em}.card h3{font-size:14px;margin:12px 0 8px}.minor{color:var(--muted);font-size:12px}.eyebrow{font-size:11px;font-weight:750;letter-spacing:.11em;color:var(--sea);text-transform:uppercase;margin-bottom:9px}.row{display:flex;gap:9px;align-items:center;justify-content:space-between;flex-wrap:wrap}.btn{border:1px solid #365668;border-radius:8px;background:#1a3442;color:var(--ink);font-weight:700;padding:10px 12px;font-size:13px;min-height:40px}.btn.primary{background:var(--sea);color:#0e3024;border:0}.btn:focus-visible,input:focus-visible{outline:3px solid #9cbfe3;outline-offset:2px}.btn.danger{border-color:#98515d;color:#fac0c6}.metricrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:14px}.metric{background:#182d3a;padding:14px 11px;border:1px solid var(--line);border-radius:11px;min-width:0}.metric strong{font-size:clamp(17px,2.4vw,25px);font-variant-numeric:tabular-nums;display:block;line-height:1.3}.metric small{font-size:10px;color:var(--muted);display:block;margin-top:4px}.canvasWrap{background:#050e15;border:1px solid #27404d;border-radius:11px;overflow:hidden;padding:5px}#field{width:100%;display:block;cursor:crosshair;aspect-ratio:1.5;image-rendering:pixelated}#pixels{display:none}.legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.legend span{display:flex;align-items:center;gap:5px;font-size:11px;color:#b1c1c7}.swatch{width:11px;height:11px;display:inline-block;border-radius:50%;background:#89f0b5;flex-shrink:0}.legend .swatch{border:1px solid #ffffff55}.label{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;gap:15px;margin-bottom:6px}label.switch{display:flex;align-items:center;gap:10px;font-size:13px;padding:10px 0;color:#cad9df}input[type=checkbox]{accent-color:#81e3aa;width:19px;height:19px}input[type=range]{accent-color:#81e3aa;width:100%;margin-bottom:13px}input[type=number]{background:#0d1f2b;border:1px solid var(--line);color:var(--ink);padding:9px;width:100px;border-radius:8px}.information{border-radius:9px;background:#0e2635;padding:12px;color:#cbd8dd;font-size:12px;border:1px solid #22465b}.information.danger{border-color:#9a424e;color:#ffd6d6}.tools{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}table{border-collapse:collapse;width:100%;font-size:12px}td,th{padding:10px 8px;border-bottom:1px solid #244250;text-align:left}td{font-variant-numeric:tabular-nums}th{color:#a5bbc5;font-weight:700}.tableWrap{overflow:auto}tbody tr:hover,tbody tr.selected{background:#1a3840}tbody tr{cursor:pointer}.codes{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;background:#071b26;padding:12px;border-radius:9px;overflow:auto;color:#b3e4d7;white-space:pre-wrap}.event{display:flex;gap:13px;padding:10px;border-bottom:1px solid var(--line);font-size:12px}.event time{color:var(--sea);font-family:monospace}.foot{font-size:11px;color:#6f919f;margin-top:20px}.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.schematic{padding:19px;background:#0c2630;border-radius:10px;line-height:1.9;color:#b5e6d5;border:1px solid #204a52;font-size:12px;font-family:monospace}.tag{font-size:10px;border-radius:50px;padding:3px 8px;border:1px solid #396453;color:#a2e7bc;font-weight:bold}.vault a{color:#abdfbb;text-decoration:none;display:block;padding:10px;border-bottom:1px solid #244250;font-size:13px}.vault a:hover{text-decoration:underline}@media(max-width:840px){.main{grid-template-columns:1fr}.metricrow{grid-template-columns:repeat(2,minmax(0,1fr))}.top{align-items:flex-start}.root{padding:14px 11px 80px}.split{grid-template-columns:1fr}}@media(max-width:480px){.name{font-size:15px}.top{gap:6px}.glyph{width:40px;height:40px;font-size:27px}.status{font-size:9px;padding:6px}.card{padding:14px}.btn{padding:9px 10px}.navbtn{padding:10px 11px;font-size:12px}}
+</style></head><body><main class="root">
+<header class="top"><div class="logo"><div class="glyph">◉</div><div><div class="name">RIPPLE ALPHA LABS</div><div class="sub">Open research bench · lineage / optical fields / colony</div></div></div><div class="status">ALPHA v1.0 · SIMULATED</div></header>
+<nav class="nav" role="tablist"><button class="navbtn active" data-tab="lab" aria-selected="true">Field Lab</button><button class="navbtn" data-tab="genes" aria-selected="false">Gene Species</button><button class="navbtn" data-tab="comparisons" aria-selected="false">Algorithm Trials</button><button class="navbtn" data-tab="evidence" aria-selected="false">Evidence & Guardrails</button><button class="navbtn" data-tab="vault" aria-selected="false">Version Vault</button></nav>
+<div class="metricrow"><div class="metric"><strong id="stepValue">0</strong><small>Simulation steps</small></div><div class="metric"><strong id="speciesValue">5</strong><small>Gene species</small></div><div class="metric"><strong id="monoValue">0.0%</strong><small>Gray field fraction</small></div><div class="metric"><strong id="spikesValue">0</strong><small>Original-neuron events</small></div></div>
+<section class="screen" data-screen="lab"><div class="main"><div><article class="card"><div class="row"><div><div class="eyebrow">Lab 01 / Chromatic transport</div><h2>Optical signal field, occlusion and colony paths</h2></div><span class="tag">Synthetic data</span></div><div class="canvasWrap"><canvas id="field" width="720" height="480"></canvas><canvas id="pixels" width="36" height="24"></canvas></div><div class="legend"><span><i class="swatch" style="background:#f16d7a"></i>Red field</span><span><i class="swatch" style="background:#82eb9b"></i>Green field</span><span><i class="swatch" style="background:#82b6ef"></i>Blue field</span><span><i class="swatch" style="background:#080e17"></i>Occluded cells</span><span><i class="swatch" style="background:#ffffde"></i>Species paths</span></div><p class="minor" id="pixelInfo">Tap a cell to inspect the simulated RGB components, path occupancy, and obstacle.</p><div class="row tools"><button id="play" class="btn primary">Run Alpha</button><button id="advance" class="btn">+20 steps</button><button id="reset" class="btn">Reset seed</button><button id="saveField" class="btn">Save field image</button></div></article><article class="card"><div class="eyebrow">Live signal readout</div><div class="split"><div><div class="label">Four-state symbols</div><div class="codes" id="quad">−1 | −0 | 0 | 1</div></div><div><div class="label">Two bits per symbol</div><div class="codes" id="bits">00 01 10 11</div></div></div><p class="minor">Four-state strings and packing are imported from the unchanged Ripple-Q v0.7 codec. Sampled signal is simulated.</p></article></div>
+<div><article class="card"><div class="eyebrow">Experiment controls</div><h2>Staged algorithms</h2><div class="label">Seed <input id="seed" type="number" min="0" max="4294967295" value="17413"></div><label class="label" for="diffuse">Flux-conserving diffusion coefficient <b id="diffuseValue">0.32</b></label><input id="diffuse" type="range" min="0" max="0.42" step="0.01" value="0.32"><label class="switch"><input id="occlusion" type="checkbox" checked> OC-1 · barrier / no-through-flux mask</label><label class="switch"><input id="density" type="checkbox" disabled> DN-1 · occupancy-limited transport</label><div id="densityGate" class="information">Density locked until baseline and confirmed emergence criterion.</div><p class="minor">Density is <strong>simulated agent occupancy</strong>, not mass, atomic concentration or optical density. Signal diffusion is numerically conserved when no sources/sinks are applied.</p></article><article class="card"><div class="eyebrow">Monochrome monitor</div><h2>Field versus digital genes</h2><p id="monoEvent" class="minor">No sustained field emergence detected.</p><p class="minor">Field detector requires chroma ≤0.055 and luminance ≥0.06, sustained across 8 steps in ≥15% of illuminated cells. Genotype detector instead checks *normalized* 3-channel genome chroma ≤0.08.</p><div class="row"><button id="search" class="btn">Select gray descendant</button><button id="birth" class="btn">Spawn 3 variants</button></div><p class="minor" id="searchOutcome">No lineage search has run yet.</p><p class="minor">Selection is a defined digital optimization toward equal RGB weights, <strong>not</strong> biological mutation observed in nature.</p></article><article class="card"><div class="eyebrow">Run provenance</div><p id="status" class="information">SIMULATED</p><p id="modeValue" class="minor">Density inactive</p><button id="export" class="btn primary">Export full experiment JSON</button></article></div></div></section>
+<section class="screen" data-screen="genes" hidden><article class="card"><div class="eyebrow">Lab 02 / Versioned genome system</div><h2>Color-coded species and movement tracks</h2><p class="minor">Gene species are immutable parameter records with deterministic IDs; the earlier mycelium <code>ripple-genome/1</code> remains separate. The initial neutral control is labeled as such and is not counted as a newly emerged lineage.</p><div class="tableWrap"><table><thead><tr><th>Species</th><th>Genome ID</th><th>Gen</th><th>Q-state</th><th>Signal score</th><th>Fires</th><th>Class</th></tr></thead><tbody id="speciesTable"></tbody></table></div><p class="information" id="selection">Tap a species row for genotype and parent information.</p></article><article class="card"><div class="eyebrow">Immutable ancestry ledger</div><h2>Lineage paths</h2><div class="tableWrap"><table><thead><tr><th>Name</th><th>ID</th><th>Parent</th><th>Gen</th><th>R / G / B weights</th><th>Gray?</th></tr></thead><tbody id="lineageRows"></tbody></table></div></article></section>
+<section class="screen" data-screen="comparisons" hidden><article class="card"><div class="eyebrow">Lab 03 / Comparative execution</div><h2>Controlled transport experiment</h2><p class="minor">Runs the SAME seeded synthetic world and initial genomes for 220 iterations across four separate conditions: unobstructed baseline, occlusion, occupancy-limited diffusion, and both. Differences are numerical outputs under fixed scenario assumptions; no physical speed or machine intelligence improvement is implied.</p><button id="compare" class="btn primary">Run controlled comparison</button><div class="tableWrap" id="comparison" style="margin-top:15px"><span class="minor">Not executed</span></div></article><article class="card"><div class="eyebrow">Readout definitions</div><div class="schematic">Response drive D = 2R + 1.2G − 1.4B [LOCKED]
+Finite-volume edge flux J(i→j) = dt·D·Pᵢⱼ·(cⱼ−cᵢ)
+Pᵢⱼ = (1−max(occᵢ,occⱼ))/(1+κ·densityᵢⱼ)
+Quaternary state = {-1,-0,0,1} [LOCKED CODEC]
+Gray chroma = (max(R,G,B)−min(R,G,B))/(R+G+B+ε)
+<span style="color:#bdb1ed">No physical density estimate is implied.</span></div></article></section>
+<section class="screen" data-screen="evidence" hidden><article class="card"><div class="eyebrow">Lab 04 / Audit and experimental integrity</div><h2>Evidence levels and guardrails</h2><div class="tableWrap"><table><thead><tr><th>Component</th><th>Status</th><th>Basis</th></tr></thead><tbody><tr><td>v0.1 original neuron</td><td>VERIFIED NUMERICAL</td><td>Unmodified source, regression tests</td></tr><tr><td>Mycelium v0.1, v0.3, v0.5</td><td>ARCHIVED</td><td>Exact retrieved source files in version vault</td></tr><tr><td>Ripple-Q v0.7</td><td>IMPORTED</td><td>Unmodified four-state codec</td></tr><tr><td>Flux-conserving diffusion</td><td>SIMULATED</td><td>Pairwise numerical flux + conservation tests</td></tr><tr><td>Occlusion mask</td><td>SIMULATED</td><td>Zero blocked-edge flux</td></tr><tr><td>Density</td><td>SYNTHETIC OCCUPANCY</td><td>Agent counts per cell, gated stage</td></tr><tr><td>Monochrome emergence</td><td>CONTROLLED HYPOTHESIS</td><td>Separate field detector / selected genome lineage</td></tr><tr><td>Phone camera and atomic density</td><td>NOT MEASURED</td><td>No sensor calibration or matter-density instrumentation</td></tr></tbody></table></div><p class="minor">Safety limits: grid max 72×60; 24 agents; 1200 simulation steps; explicit diffusion CFL guard; all gene fields range-checked; fixed-step seeded RNG; no eval/network use; no automatic code execution from genome data; bounded path history. External models and hardware are not called.</p></article><article class="card"><div class="eyebrow">Recent genetic events</div><h2>Chronological laboratory log</h2><div id="events"></div></article><article class="card"><h2>Source research</h2><p class="minor">Diffusion and emergent pattern research follows published reaction–diffusion mathematics (Turing, 1952; Tyson, 2026 review). The Alpha engine implements an intentionally simpler, conservative three-channel transport field with explicit source injection; it does not represent a demonstrated Turing instability. All simulation settings and reproducible test data are packaged with this release.</p></article></section>
+<section class="screen" data-screen="vault" hidden><article class="card vault"><div class="eyebrow">Lab 05 / Preservation</div><h2>Original Ripple version vault</h2><p class="minor">Source packages below remain unchanged and serve as independent baselines. Downloads work in the complete ZIP (relative paths); an individual HTML opened outside the ZIP has no vault copies.</p><a href="vault/Ripple-Neuron-GitHub-Repository-All-Versions.zip" download>Original Ripple Neuron v0.1 → v0.3 and v0.4 project repository archive</a><a href="vault/Ripple-Neuron-Photoreceptor-v0.6.zip" download>Photoreceptor v0.6 original package</a><a href="vault/Ripple-Neuron-Quaternary-v0.7.zip" download>Ripple-Q v0.7 original package</a><a href="vault/Ripple-Digital-World-Lab-v0.5.html">Mycelium Digital World v0.5 (archived executable)</a><a href="vault/Ripple-Mycelium-Mathematics-Lab-v0.3.html">Mycelium Mathematics v0.3 (archived executable)</a><a href="vault/Ripple-Cybernetic-Mycelium.html">Cybernetic Mycelium v0.1 (archived executable)</a><a href="vault/MATHEMATICAL_CODEX.md" download>Mycelium mathematical canon (untouched)</a><a href="vault/Ripple-Neuron-Engineering-Brief.pdf" download>Original photonic engineering brief</a><button class="btn" id="archiveNote">View Vault</button></article></section>
+<footer class="foot">Ripple Alpha Labs v1.0 · experimental digital organisms, not biological genomes · Original Ripple components preserved · Generated results are labeled SIMULATED, not measured</footer>
+</main>
+<!-- VERIFIED FROZEN CORE -->
+<script>
+// Preserved verbatim from Ripple-Neuron-Simulator.html v0.1 (CC0-1.0)
+const bound=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
+class RippleNeuron{
+ constructor(o={}){this.theta=o.theta??0.45;this.adaptive=o.adaptive??true;this.target=o.target??1;this.tauV=.5;this.tauR=5;this.refractory=.1;this.eta=.08;this.lo=.15;this.hi=2.5;this.t=0;this.u=0;this.rate=0;this.rest=0;}
+ step(x,dt){if(x.length!==3||x.some(v=>!Number.isFinite(v))||!Number.isFinite(dt)||dt<=0||dt>.5)throw Error('Invalid input or elapsed time');x=x.map(v=>bound(v,0,1));const drive=2*x[0]+1.2*x[1]-1.4*x[2],start=this.t,events=[];let elapsed=0;
+  while(elapsed<dt-1e-12){const left=dt-elapsed;if(this.rest>1e-12){let held=Math.min(left,this.rest);this.rest=Math.max(0,this.rest-held);this.u=0;elapsed+=held;continue;}let crossing=Infinity;if(this.u>=this.theta)crossing=0;else if(drive>this.theta)crossing=this.tauV*Math.log((drive-this.u)/(drive-this.theta));if(crossing<=left+1e-12){elapsed+=Math.max(0,Math.min(left,crossing));events.push(start+elapsed);this.u=0;this.rest=this.refractory;}else{this.u=Math.max(0,drive+(this.u-drive)*Math.exp(-left/this.tauV));elapsed=dt;}}
+  const decay=Math.exp(-dt/this.tauR);let integral=this.rate*this.tauR*(1-decay);this.rate*=decay;for(const event of events){const d=Math.exp(-(start+dt-event)/this.tauR);this.rate+=d/this.tauR;integral+=1-d;}if(this.adaptive)this.theta=bound(this.theta+this.eta*(integral-this.target*dt),this.lo,this.hi);this.t=start+dt;return{t:this.t,u:this.u,theta:this.theta,rate:this.rate,drive,count:events.length,events};}
+ attainable(drive){if(drive<=0)return false;const th=drive*(1-Math.exp(-(1/this.target-this.refractory)/this.tauV));return this.lo<=th&&th<=this.hi;}
+}
+function runExperiment(){const a=new RippleNeuron(),b=new RippleNeuron({adaptive:false}),rows=[],spikes={adaptive:[],fixed:[]};for(let i=0;i<2400;i++){const t=i*.05,red=t<40||t>=80?.35:.70,ra=a.step([red,0,0],.05),rb=b.step([red,0,0],.05);spikes.adaptive.push(...ra.events);spikes.fixed.push(...rb.events);rows.push({time_s:ra.t,red_norm:red,green_norm:0,blue_norm:0,drive:ra.drive,theta_adaptive:ra.theta,theta_fixed:rb.theta,rate_adaptive_hz:ra.rate,rate_fixed_hz:rb.rate,spikes_adaptive:ra.count,spikes_fixed:rb.count});}const windows=[[20,40],[60,80],[100,120]].map(([lo,hi])=>({lo,hi,adaptive_hz:spikes.adaptive.filter(e=>lo<=e&&e<hi).length/(hi-lo),fixed_hz:spikes.fixed.filter(e=>lo<=e&&e<hi).length/(hi-lo)}));return{rows,windows};}
+globalThis.RippleNeuron=RippleNeuron;globalThis.runExperiment=runExperiment;
+
+</script>
+<script>
+const LABELS=["-1","-0","0","1"]; const BITS=["00","01","10","11"]; const toSymbol=n=>LABELS[n]; const toBits=n=>BITS[n]; const pack4=a=>a.reduce((p,c)=>(p<<2)|c,0); const unpack4=b=>[6,4,2,0].map(s=>(b>>s)&3);
+</script>
+<script>
+(()=>{
+/** Ripple Alpha Labs v1.0 — standalone, deterministic, synthetic research engine.
+ * Research metadata is NOT a physical measurement or claim of intelligence.
+ * Locked v0.1 core and v0.7 symbol codec are imported unchanged.
+ */
+
+
+const RippleNeuron=globalThis.RippleNeuron;
+
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const assert=(x,msg)=>{if(!x)throw new Error('Alpha Lab guardrail: '+msg)};
+const stable=(o)=>JSON.stringify(o,Object.keys(o).sort());
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0).toString(16).padStart(8,'0')}
+const constants=Object.freeze({width:36,height:24,dt:.16,signalDMax:.42,cflMax:.25,maxSteps:1200,maxSpecies:24,maxPath:300,seed:17413,monochromeChroma:.055,minBrightness:.06,monochromeHold:8});
+function rng(seed){let s=seed>>>0;return ()=>((s=Math.imul(1664525,s)+1013904223|0)>>>0)/4294967296}
+// Alpha genome is NOT biological or the existing mycelium ripple-genome/1 (SHA-256) schema.
+const ALLOWED=new Set(['label','weights','mobility','memory','diffusion','crowding','parent','generation','kind']);
+function makeGenome(g){
+  assert(g&&typeof g==='object'&&!Array.isArray(g),'genome object required');
+  for(const key of Object.keys(g))assert(ALLOWED.has(key),'unknown genome key '+key);
+  const norm={schema:'ripple-alpha-gene/1',label:String(g.label||'unnamed').slice(0,48),weights:g.weights?.slice()||[1,1,1],mobility:g.mobility??.65,memory:g.memory??.7,diffusion:g.diffusion??.25,crowding:g.crowding??.4,parent:g.parent??null,generation:g.generation??0,kind:g.kind??'general'};
+  assert(norm.weights.length===3&&norm.weights.every(x=>Number.isFinite(x)&&x>=0&&x<=1),'RGB weights must be finite in [0,1]');
+  assert(norm.weights.reduce((a,b)=>a+b,0)>.01,'all-zero genome cannot be active');
+  for(const key of ['mobility','memory','diffusion','crowding'])assert(Number.isFinite(norm[key])&&norm[key]>=0&&norm[key]<=1,'out of range '+key);
+  assert(Number.isInteger(norm.generation)&&norm.generation>=0&&norm.generation<=64,'invalid lineage generation');
+  assert(norm.parent===null||typeof norm.parent==='string'&&/^[0-9a-f]{8}$/.test(norm.parent),'invalid parent id');
+  assert(['general','routed','mutation'].includes(norm.kind),'unknown gene kind');
+  const id=hash(JSON.stringify(norm));
+  return Object.freeze({...norm,weights:Object.freeze(norm.weights),id});
+}
+function mutateGenome(parent,seed,pressure=.4){
+  assert(parent?.schema==='ripple-alpha-gene/1','valid parent required');
+  const r=rng(seed),w=[...parent.weights],i=Math.floor(r()*3);
+  // Unbiased jitter blended toward gray: a finite, named hypothesis; no self-modifying code.
+  const mean=w.reduce((a,b)=>a+b,0)/3;
+  w[i]=clamp(w[i]*(1-pressure)+mean*pressure+(r()-.5)*.05,0,1);
+  return makeGenome({label:parent.label+'*',weights:w,mobility:clamp(parent.mobility+(r()-.5)*.08,0,1),memory:parent.memory,diffusion:parent.diffusion,crowding:parent.crowding,parent:parent.id,generation:parent.generation+1,kind:'mutation'});
+}
+function genomeGray(g,eps=.08){const w=g.weights,sum=w.reduce((a,b)=>a+b,0);return sum/3>.055&&(Math.max(...w)-Math.min(...w))/(sum+.00001)<=eps}
+function searchMonochromeGenome(initial,seed=99,generations=30){
+ assert(initial?.schema==='ripple-alpha-gene/1','initial digital genome');
+ assert(Number.isInteger(generations)&&generations>=1&&generations<=48,'finite search limit');
+ const rand=rng(seed);let parent=initial;
+ const chroma=g=>(Math.max(...g.weights)-Math.min(...g.weights))/(g.weights.reduce((a,b)=>a+b,0)+.00001);
+ const ledger=[{generation:parent.generation,id:parent.id,parent:parent.parent,chroma:chroma(parent),selected:true}];
+ for(let i=0;i<generations&&!genomeGray(parent);i++){
+  const choices=Array.from({length:6},()=>mutateGenome(parent,Math.floor(rand()*4294967295),.65));
+  choices.sort((a,b)=>chroma(a)-chroma(b));
+  const proposed=choices[0],oldChroma=chroma(parent),newChroma=chroma(proposed);
+  const accept=newChroma<oldChroma;ledger.push({generation:proposed.generation,id:proposed.id,parent:proposed.parent,chroma:newChroma,selected:accept});
+  if(accept)parent=proposed;
+ }
+ return {source:'FINITE SEEDED DIGITAL SEARCH; goal-directed selection, not spontaneous biology',initial:initial.id,result:parent,monochrome:genomeGray(parent),ledger};
+}
+const bases=Object.freeze([
+ makeGenome({label:'Crimson',weights:[1,.08,.08],mobility:.65,memory:.7,diffusion:.28,kind:'routed'}),
+ makeGenome({label:'Emerald',weights:[.08,1,.08],mobility:.67,memory:.65,diffusion:.34,kind:'routed'}),
+ makeGenome({label:'Cobalt',weights:[.08,.08,1],mobility:.73,memory:.68,diffusion:.32,kind:'routed'}),
+ makeGenome({label:'Amber',weights:[.78,.7,.1],mobility:.66,memory:.67,diffusion:.3,kind:'routed'}),
+ makeGenome({label:'Neutral reference',weights:[.62,.62,.62],mobility:.65,memory:.7,diffusion:.3,kind:'general'})
+]);
+const IDX=(x,y,w)=>y*w+x;
+function neighPairs(w,h){const pairs=[];for(let y=0;y<h;y++)for(let x=0;x<w;x++){const i=IDX(x,y,w);if(x+1<w)pairs.push([i,i+1]);if(y+1<h)pairs.push([i,i+w]);}return pairs;}
+const pairsCache=new Map();
+const pairs=(w,h)=>{const k=w+'x'+h;if(!pairsCache.has(k))pairsCache.set(k,neighPairs(w,h));return pairsCache.get(k)};
+function diffusionStep(field,w,h,D,dt,occlusion=null,density=null,crowding=0){
+  assert(w>=2&&h>=2&&field.length===w*h*3,'grid shape');
+  assert(D>=0&&D<=constants.signalDMax&&dt>0&&dt<=.25&&4*D*dt<=constants.cflMax,'explicit diffusion stability guardrail');
+  const out=field.slice();
+  for(const [i,j] of pairs(w,h)){
+    const oi=occlusion?occlusion[i]:0,oj=occlusion?occlusion[j]:0;
+    if(oi===1||oj===1)continue;
+    const barrier=1-Math.max(oi,oj);
+    const dens=density?(density[i]+density[j])/2:0;
+    const coef=D*dt*barrier/(1+Math.max(0,crowding)*dens);
+    for(let c=0;c<3;c++){
+      const a=3*i+c,b=3*j+c,flux=coef*(field[b]-field[a]);out[a]+=flux;out[b]-=flux;
+    }
+  }
+  return out;
+}
+function fourState(v,delta,deadband=.012){
+ assert(Number.isFinite(v)&&Number.isFinite(delta),'nonfinite quaternary signals');
+ const code=delta< -deadband?0:v<.12?1:delta>deadband?3:2;
+ return {symbol:toSymbol(code),bits:toBits(code),code};
+}
+function monochrome(pixel,hold=8,threshold=.055,minBrightness=.06){
+ const sum=pixel[0]+pixel[1]+pixel[2],bright=sum/3;
+ const chroma=(Math.max(...pixel)-Math.min(...pixel))/(sum+.00001);
+ return {gray:bright>=minBrightness&&chroma<=threshold,chroma,bright,holdRequired:hold};
+}
+function color(g){const w=g.weights,max=Math.max(...w,.001);return w.map(x=>Math.round(35+215*x/max))}
+class AlphaLab{
+ constructor(options={}){
+  const w=options.width??constants.width,h=options.height??constants.height,seed=options.seed??constants.seed;
+  assert(Number.isInteger(w)&&w>=10&&w<=72&&Number.isInteger(h)&&h>=10&&h<=60,'bounded spatial grid');
+  assert(Number.isInteger(seed)&&seed>=0&&seed<=2**32-1,'seed');
+  this.w=w;this.h=h;this.n=w*h;this.seed=seed;this.rand=rng(seed);this.tick=0;
+  this.config={diffusion:options.diffusion??.32,occlusion:options.occlusion??true,density:options.density??false,reactive:options.reactive??false};
+  assert(this.config.diffusion>=0&&this.config.diffusion<=constants.signalDMax,'diffusion bound');
+  this.f=new Float64Array(this.n*3);this.prev=new Float64Array(this.n*3);this.mask=new Float64Array(this.n);
+  this.density=new Float64Array(this.n);this.pairs=pairs(w,h);this.events=[];this.trajectory=[];this.monochromeHistory=[];
+  this.agents=[];this.genomeRegistry=new Map();this.log=[];this.searchLedgers=[];
+  if(this.config.occlusion){const x=Math.floor(w*.48);for(let y=1;y<h-1;y++)if(y<Math.floor(h*.38)||y>Math.floor(h*.62))this.mask[IDX(x,y,w)]=1;}
+  this.seedSources();(options.genomes??bases).forEach(g=>this.addSpecies(g));
+ }
+ seedSources(){
+  const sites=[[Math.floor(this.w*.13),Math.floor(this.h*.32),0],[Math.floor(this.w*.88),Math.floor(this.h*.66),1],[Math.floor(this.w*.62),Math.floor(this.h*.20),2]];
+  for(const [x,y,c] of sites){const i=IDX(x,y,this.w);this.f[3*i+c]=.93;}
+ }
+ addSpecies(g){
+  const genome=g.schema==='ripple-alpha-gene/1'?g:makeGenome(g);
+  assert(this.agents.length<constants.maxSpecies,'species cap 24');
+  assert(!this.genomeRegistry.has(genome.id),'duplicate genome ID');
+  this.genomeRegistry.set(genome.id,genome);
+  const pos={x:Math.floor(this.w*.20+this.rand()*this.w*.60),y:Math.floor(this.h*.2+this.rand()*this.h*.6)};
+  if(this.mask[IDX(pos.x,pos.y,this.w)]===1)pos.x=clamp(pos.x-1,0,this.w-1);
+  const a={genome,id:genome.id,x:pos.x,y:pos.y,path:[{x:pos.x,y:pos.y,t:this.tick}],rate:0,fires:0,detected:0,state:'0',lastSignal:0,lastTemporal:0,neuron:new RippleNeuron(),chromatic:!genomeGray(genome),color:color(genome),fitness:0,avg:0};
+  this.agents.push(a);this.events.push({t:this.tick,type:'species_created',id:a.id,parent:genome.parent,classification:a.chromatic?'chromatic':'genome_monochrome'});return a;
+ }
+ nearby(a){const all=[[1,0],[-1,0],[0,1],[0,-1],[0,0]];return all.map(([dx,dy])=>({x:clamp(a.x+dx,0,this.w-1),y:clamp(a.y+dy,0,this.h-1)})).filter(p=>this.mask[IDX(p.x,p.y,this.w)]<1)}
+ observation(x,y,g){const i=IDX(x,y,this.w),v=[this.f[i*3],this.f[i*3+1],this.f[i*3+2]];return v.reduce((s,x,k)=>s+x*g.weights[k],0)/(g.weights.reduce((a,b)=>a+b,0));}
+ tickOnce(){
+  assert(this.tick<constants.maxSteps,'step cap');
+  const dt=constants.dt;
+  const old=this.f;
+  // Inject bounded deterministic sources: no external sensor claims.
+  const sites=[[Math.floor(this.w*.13),Math.floor(this.h*.32),0],[Math.floor(this.w*.88),Math.floor(this.h*.66),1],[Math.floor(this.w*.62),Math.floor(this.h*.20),2]];
+  for(const [x,y,c] of sites){const i=IDX(x,y,this.w);old[i*3+c]=clamp(old[i*3+c]+.035,0,1.5)}
+  // density is explicitly numerical occupancy; no inference of atomic matter.
+  this.density.fill(0);
+  for(const a of this.agents)this.density[IDX(a.x,a.y,this.w)]+=1;
+  this.prev=this.f.slice();
+  const before=old.reduce((s,v)=>s+v,0);
+  this.f=diffusionStep(old,this.w,this.h,this.config.diffusion,dt,this.mask,this.config.density?this.density:null,.9);
+  if(this.config.reactive){
+    // Optional bounded field-decay model, not classical reaction-diffusion chemistry.
+    for(let i=0;i<this.f.length;i++)this.f[i]*=(1-.0008*dt);
+  }
+  for(let i=0;i<this.f.length;i++)this.f[i]=clamp(this.f[i],0,1.5);
+  const after=this.f.reduce((s,v)=>s+v,0);
+  for(const a of this.agents){
+    const g=a.genome,choices=this.nearby(a),prevScore=a.lastSignal;
+    let selected=choices[0],best=-Infinity;
+    for(const p of choices){const signal=this.observation(p.x,p.y,g);
+      const penalty=this.config.density?.065*this.density[IDX(p.x,p.y,this.w)]*g.crowding:0;
+      const memory=p.x===a.x&&p.y===a.y?g.memory*.007:0;
+      const value=signal-penalty+memory+(this.rand()-.5)*(.012*g.mobility);
+      if(value>best){best=value;selected=p;}
+    }
+    if(this.rand()<g.mobility){a.x=selected.x;a.y=selected.y;}
+    const i=IDX(a.x,a.y,this.w),rgb=[this.f[3*i],this.f[3*i+1],this.f[3*i+2]];
+    const obs=this.observation(a.x,a.y,g);const delta=obs-prevScore;
+    a.lastTemporal=delta;a.lastSignal=obs;
+    const q=fourState(obs,delta);a.state=q.symbol;
+    // Feeding ORIGINAL v0.1 core with normalized field RGB, not changing its equations.
+    const neuronInput=rgb.map((v,c)=>clamp(v*g.weights[c],0,1));
+    const result=a.neuron.step(neuronInput,dt);a.rate=result.rate;a.fires+=result.count;
+    a.fitness+=obs;a.avg=a.fitness/(this.tick+1);
+    a.path.push({x:a.x,y:a.y,t:this.tick+1,state:a.state});if(a.path.length>constants.maxPath)a.path.shift();
+  }
+  this.tick++;
+  let mon=0,bright=0;
+  for(let i=0;i<this.n;i++){
+    if(this.mask[i]===1)continue;
+    const rgb=[this.f[i*3],this.f[i*3+1],this.f[i*3+2]];
+    const m=monochrome(rgb);if(m.gray)mon++;if(m.bright>=constants.minBrightness)bright++;
+  }
+  const state=mon>0?mon/Math.max(1,bright):0;
+  this.monochromeHistory.push(state);
+  if(this.monochromeHistory.length>constants.monochromeHold)this.monochromeHistory.shift();
+  const sustained=this.monochromeHistory.length===constants.monochromeHold&&this.monochromeHistory.every(x=>x>=.15);
+  if(sustained&&!this.events.some(e=>e.type==='field_monochrome_emerged'))this.events.push({t:this.tick,type:'field_monochrome_emerged',fraction:state,criterion:'15% of bright traversable cells for 8 consecutive steps'});
+  this.trajectory.push({step:this.tick,monochromeFraction:state,brightCells:bright,massAfter:after,massBefore:before,densityActive:this.config.density,agents:this.agents.length});
+  return this.trajectory[this.trajectory.length-1];
+ }
+ run(steps=240){assert(Number.isInteger(steps)&&steps>0&&steps<=constants.maxSteps-this.tick,'run step bounds');for(let i=0;i<steps;i++)this.tickOnce();return this.report()}
+ introduceMonochrome(parentId,seed=this.seed+this.tick){
+   assert(this.tick>=60,'complete initial baseline before targeted gene selection');
+   const parent=this.genomeRegistry.get(parentId);assert(parent,'parent genome missing');
+   const study=searchMonochromeGenome(parent,seed,30);
+   this.searchLedgers.push(study);
+   this.events.push({t:this.tick,type:'goal_directed_mono_search',parent:parentId,result:study.result.id,monochrome:study.monochrome,objective:'minimize chroma, synthetic, deliberately selected'});
+   if(study.monochrome&&!this.genomeRegistry.has(study.result.id))this.addSpecies(study.result);
+   return study;
+ }
+ breed(count=3,pressure=.4){assert(Number.isInteger(count)&&count>0&&count<=6,'offspring count must be 1..6');
+  const candidates=this.agents.slice().sort((a,b)=>b.avg-a.avg).slice(0,count);
+  const produced=[];for(const p of candidates){const g=mutateGenome(p.genome,Math.floor(this.rand()*4294967295),pressure);if(this.genomeRegistry.has(g.id))continue;produced.push(this.addSpecies(g).id)}return produced;
+ }
+ report(){const genomes=[...this.genomeRegistry.values()];const latest=this.trajectory.at(-1)||{monochromeFraction:0,brightCells:0};const byAgent=this.agents.map(a=>({id:a.id,name:a.genome.label,parent:a.genome.parent,generation:a.genome.generation,color:a.color,genomeGray:!a.chromatic,x:a.x,y:a.y,rate:a.rate,fires:a.fires,score:a.avg,path:a.path}));
+  const seq=byAgent.slice(0,4).map(a=>this.agents.find(x=>x.id===a.id)?.state??'0');
+  const states=seq.map(x=>({'-1':0,'-0':1,'0':2,'1':3})[x]);
+  return {schema:'ripple-alpha-report/1',evidence:'SIMULATED',seed:this.seed,tick:this.tick,config:{...this.config},lockedCore:'v0.1 imported unchanged',viewport:[this.w,this.h],agents:byAgent,events:this.events,searchLedgers:this.searchLedgers,monochrome:latest.monochromeFraction,brightCells:latest.brightCells,quaternary:{symbols:seq,bits:states.map(toBits),byte:pack4(states)},trajectory:this.trajectory,genomes};
+ }
+ frame(){return{width:this.w,height:this.h,field:Array.from(this.f),occlusion:Array.from(this.mask),density:Array.from(this.density),agents:this.agents.map(a=>({x:a.x,y:a.y,id:a.id,color:a.color,path:a.path}))}}
+}
+function runStudy(opts={}){const result=[];for(const mode of ['baseline','occlusion','density','combined']){
+ const env={seed:opts.seed??17413,diffusion:opts.diffusion??.32,occlusion:mode==='occlusion'||mode==='combined',density:mode==='density'||mode==='combined'};
+ const lab=new AlphaLab(env);lab.run(opts.steps??220);const r=lab.report();result.push({mode,seed:env.seed,steps:r.tick,monochrome:r.monochrome,avgSignal:r.agents.reduce((a,x)=>a+x.score,0)/r.agents.length,totalFires:r.agents.reduce((a,x)=>a+x.fires,0),evidence:'SIMULATED'});
+ }return result;}
+
+window.RippleAlpha={AlphaLab,runStudy,bases,genomeGray,constants};
+})();
+</script>
+<script>
+/* Ripple Alpha Labs v1.0 UI — depends on frozen globalThis.RippleAlpha. */
+(()=>{
+ 'use strict';
+ const {AlphaLab,runStudy,bases,genomeGray,constants}=window.RippleAlpha;
+ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+ let lab=new AlphaLab({seed:17413,occlusion:true,diffusion:.32}),running=false,timer=null,searchResult=null,study=null,selected=null,historyPaused=false;
+ const el=(tag,classes,text)=>{const e=document.createElement(tag);if(classes)e.className=classes;if(text!==undefined)e.textContent=text;return e};
+ const span=(s)=>el('span','',s);
+ const nfmt=(n,d=2)=>Number(n).toFixed(d);
+ function launch(){running=!running;$('#play').textContent=running?'Pause':'Run Alpha';$('#play').dataset.active=String(running);if(timer)clearInterval(timer);if(running)timer=setInterval(()=>{if(document.hidden)return;if(lab.tick>=constants.maxSteps){launch();return;}try{for(let k=0;k<2;k++)lab.tickOnce();render()}catch(e){launch();showError(e)}},70);}
+ function showError(err){$('#status').textContent='GUARDRAIL: '+(err?.message||err);$('#status').classList.add('danger')}
+ function reset(){if(running)launch();const seed=parseInt($('#seed').value,10);try{lab=new AlphaLab({seed,occlusion:$('#occlusion').checked,diffusion:parseFloat($('#diffuse').value)});searchResult=null;selected=null;study=null;$('#searchOutcome').textContent='No lineage search has run yet.';$('#density').checked=false;render();}catch(e){showError(e)}}
+ function tab(name){$$('.navbtn').forEach(e=>{e.classList.toggle('active',e.dataset.tab===name);e.setAttribute('aria-selected',String(e.dataset.tab===name))});$$('section.screen').forEach(e=>{e.hidden=e.dataset.screen!==name});render()}
+ function densityUnlocked(){return lab.tick>=60&&(lab.events.some(e=>e.type==='goal_directed_mono_search'&&e.monochrome)||lab.events.some(e=>e.type==='field_monochrome_emerged'))}
+ function redraw(){
+  const cv=$('#field'),p=cv.getContext('2d'),w=lab.w,h=lab.h;
+  const image=p.createImageData(w,h),data=image.data;
+  for(let i=0;i<lab.n;i++){
+   const intensity=(c)=>Math.pow(Math.min(1,lab.f[3*i+c]/.30),.7);
+   const black=lab.mask[i]===1;
+   data[4*i]=black?12:Math.floor(18+237*intensity(0));
+   data[4*i+1]=black?23:Math.floor(25+223*intensity(1));
+   data[4*i+2]=black?35:Math.floor(41+209*intensity(2));
+   if(lab.config.density&&lab.density[i]){
+    data[4*i]=Math.floor(Math.min(255,data[4*i]+lab.density[i]*16));
+    data[4*i+1]=Math.floor(Math.min(255,data[4*i+1]+lab.density[i]*12));
+   }
+   data[4*i+3]=255;
+  }
+  const temp=$('#pixels'),ctx=temp.getContext('2d');temp.width=w;temp.height=h;ctx.putImageData(image,0,0);
+  cv.width=Math.round(cv.clientWidth*devicePixelRatio);cv.height=Math.round((cv.clientWidth*h/w)*devicePixelRatio);p.clearRect(0,0,cv.width,cv.height);p.imageSmoothingEnabled=false;p.drawImage(temp,0,0,cv.width,cv.height);
+  const cellW=cv.width/w,cellH=cv.height/h;
+  for(const a of lab.agents){
+   const c='rgb('+a.color.join(',')+')';p.strokeStyle=c;p.lineWidth=Math.max(1.8,cellW*.12);
+   const path=a.path;if(path.length>1){p.beginPath();p.moveTo((path[0].x+.5)*cellW,(path[0].y+.5)*cellH);
+    for(const at of path.slice(1))p.lineTo((at.x+.5)*cellW,(at.y+.5)*cellH);p.stroke();}
+   p.fillStyle=c;p.strokeStyle='#0f2130';p.lineWidth=Math.max(2,cellW*.14);p.beginPath();p.arc((a.x+.5)*cellW,(a.y+.5)*cellH,Math.max(3,cellW*.3),0,Math.PI*2);p.fill();p.stroke();
+  }
+ }
+ function render(){
+   $('#stepValue').textContent=lab.tick;$('#speciesValue').textContent=lab.agents.length;
+   const r=lab.report(),f=r.monochrome;$('#monoValue').textContent=(100*f).toFixed(1)+'%';
+   $('#spikesValue').textContent=r.agents.reduce((s,a)=>s+a.fires,0);
+   $('#quad').textContent=r.quaternary.symbols.join(' | ');
+   $('#bits').textContent=r.quaternary.bits.join(' ');
+   $('#modeValue').textContent=(lab.config.density?'Density active':'Density locked / inactive');
+   $('#density').disabled=!densityUnlocked();$('#densityGate').textContent=densityUnlocked()?'Allowed: ≥60 steps and confirmed simulated mono event or selected descendant.':'Locked: complete ≥60 baseline steps, then verify monochrome lineage or sustained field event.';
+   $('#monoEvent').textContent=lab.events.some(e=>e.type==='field_monochrome_emerged')?'Sustained FIELD gray-emergence event recorded.':'No sustained field monochrome event yet.';
+   $('#status').classList.remove('danger');$('#status').textContent='SIMULATED · v0.1 original neuron imported · alpha algorithms isolated · deterministic seed '+lab.seed;
+   $('#diffuseValue').textContent=nfmt(lab.config.diffusion,2);
+   redraw();renderSpecies();renderLineage();renderEvents();renderStudy();
+ }
+ function renderSpecies(){const t=$('#speciesTable');t.replaceChildren();for(const a of lab.agents){const g=a.genome;
+   const tr=el('tr');tr.classList.toggle('selected',selected===a.id);
+   const gene=el('td');gene.append(el('span','swatch'),span(g.label));gene.querySelector('.swatch').style.background='rgb('+a.color.join(',')+')';
+   for(const cell of [gene,span(g.id),span(g.generation),span(a.state),span(nfmt(a.avg,3)),span(a.fires),span(a.chromatic?'Chromatic':'Gray genotype')]){let td=cell.tagName==='TD'?cell:el('td');if(td!==cell)td.append(cell);tr.append(td)}
+   tr.onclick=()=>{selected=a.id;$('#selection').textContent=g.label+' · '+g.id+' · ancestry '+(g.parent||'root')+' · weights '+g.weights.map(v=>v.toFixed(3)).join(' / ');renderSpecies()};t.append(tr);
+ }}
+ function renderLineage(){const t=$('#lineageRows');t.replaceChildren();for(const a of lab.agents){const g=a.genome,tr=el('tr');[g.label,g.id,g.parent||'ROOT',String(g.generation),g.weights.map(v=>nfmt(v,2)).join(' / '),genomeGray(g)?'Yes':'No'].forEach(x=>tr.append(el('td','',x)));t.append(tr)}}
+ function renderEvents(){const t=$('#events');t.replaceChildren();for(const evt of lab.events.slice(-24).reverse()){
+ const row=el('div','event');row.append(el('time','',String(evt.t).padStart(4,'0')),el('div','',evt.type+' • '+(evt.id||evt.result||evt.parent||'field')));t.append(row);
+ }}
+ function renderStudy(){const root=$('#comparison');root.replaceChildren();if(!study){root.append(el('div','minor','Comparison not executed. Click Run controlled comparison.'));return}
+ const table=el('table','resTable');const head=el('tr');['Condition','Mean sampled field','Model events','Field gray %'].forEach(x=>head.append(el('th','',x)));table.append(head);
+ for(const a of study){const tr=el('tr');[a.mode,nfmt(a.avgSignal,4),String(a.totalFires),(100*a.monochrome).toFixed(1)+'%'].forEach(x=>tr.append(el('td','',x)));table.append(tr)}root.append(table);
+ }
+ function download(name,object){const blob=new Blob([JSON.stringify(object,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1200)}
+ function simulate(){try{if(running)launch();lab.run(60);render()}catch(e){showError(e)}}
+ $('#play').onclick=launch;$('#advance').onclick=()=>{try{if(running)launch();lab.run(20);render()}catch(e){showError(e)}};
+ $('#reset').onclick=reset;$('#birth').onclick=()=>{try{lab.breed(3);render()}catch(e){showError(e)}};
+ $('#search').onclick=()=>{try{const a=lab.agents.find(a=>a.genome.label==='Amber')||lab.agents[3];searchResult=lab.introduceMonochrome(a.id);$('#searchOutcome').textContent=(searchResult.monochrome?'A selected monochrome-criterion descendant was produced. ':'No qualifying descendant within the search limit. ')+`Recorded ${searchResult.ledger.length} lineage decisions; goal-directed selection is not spontaneous emergence.`;render()}catch(e){showError(e)}};
+ $('#occlusion').onchange=ev=>{lab.config.occlusion=ev.target.checked;if(!ev.target.checked)lab.mask.fill(0);else{const x=Math.floor(lab.w*.48);for(let y=1;y<lab.h-1;y++)if(y<Math.floor(lab.h*.38)||y>Math.floor(lab.h*.62))lab.mask[y*lab.w+x]=1;}render()};
+ $('#density').onchange=ev=>{if(!densityUnlocked()){ev.target.checked=false;return}lab.config.density=ev.target.checked;lab.events.push({t:lab.tick,type:'density_stage_change',enabled:lab.config.density});render()};
+ $('#diffuse').oninput=ev=>{const d=Number(ev.target.value);lab.config.diffusion=d;$('#diffuseValue').textContent=d.toFixed(2)};
+ $('#compare').onclick=()=>{try{study=runStudy({seed:lab.seed,steps:220,diffusion:lab.config.diffusion});render();}catch(e){showError(e)}};
+ $('#export').onclick=()=>download('Ripple-Alpha-Report-v1.0.json',{report:lab.report(),study,monochromeSearch:searchResult,field:lab.frame(),provenance:'SIMULATED — not a measured camera experiment'});
+ $('#saveField').onclick=()=>{const a=document.createElement('a');a.href=$('#field').toDataURL('image/png');a.download='Ripple-Alpha-Field-'+lab.tick+'.png';a.click()};
+ $('#archiveNote').onclick=()=>tab('vault');
+ $$('.navbtn').forEach(x=>x.onclick=()=>tab(x.dataset.tab));
+ // Canvas selection readout is a local simulation, not a live camera reading.
+ $('#field').onclick=ev=>{const b=$('#field').getBoundingClientRect(),x=Math.max(0,Math.min(lab.w-1,Math.floor((ev.clientX-b.left)/b.width*lab.w))),y=Math.max(0,Math.min(lab.h-1,Math.floor((ev.clientY-b.top)/b.height*lab.h)));
+ const i=(y*lab.w+x)*3,v=[lab.f[i],lab.f[i+1],lab.f[i+2]];$('#pixelInfo').textContent=`SIMULATED cell (${x}, ${y}) • R ${nfmt(v[0],3)} · G ${nfmt(v[1],3)} · B ${nfmt(v[2],3)} · occupancy ${lab.density[y*lab.w+x]} · obstacle ${lab.mask[y*lab.w+x]}`};
+ addEventListener('resize',render);
+ document.addEventListener('visibilitychange',()=>{if(document.hidden&&running)launch()});
+ render();
+})();
+
+</script>
+</body></html>
