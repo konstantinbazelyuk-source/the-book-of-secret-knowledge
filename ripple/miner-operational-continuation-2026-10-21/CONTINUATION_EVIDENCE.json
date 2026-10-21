@@ -1,0 +1,28 @@
+{
+  "release": "Ripple Miner capacity + native reliability continuation, 2026-10-21",
+  "test_suite": "55/55 OK uninterrupted",
+  "test_command": "python -m unittest discover -s tests -v",
+  "host_platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "native_hash_compare": {
+    "baseline_hps_median": 927169.867387076,
+    "midstate_hps_median": 1614895.329423968,
+    "ratio": 1.7417469939731978,
+    "trial_hashes": 150000,
+    "repetitions": 9
+  },
+  "actual_external_pool": false,
+  "production_shares_verified": false,
+  "btc_earned_verified": null,
+  "native_windows_installer_built": false,
+  "cloud_provisioned": false,
+  "observed_failure_before_fixes": "full suite initially stalled in replicated pool teardown; after changes 55/55 passed uninterrupted",
+  "source_changes": [
+    "real master shutdown/cancel",
+    "recover unfinished SQLite leases",
+    "separate timed active mining from init",
+    "source-checked original neuron Python port removes Node startup per descendant",
+    "all spatial policies native scanner opt-in",
+    "native startup parity verification",
+    "fallback on full native candidate buffer"
+  ]
+}
