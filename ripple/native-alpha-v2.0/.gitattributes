@@ -1,0 +1,4 @@
+# The original locked scientific kernels use exact byte-for-byte SHA-256 checks.
+# Git for Windows must not change LF into CRLF when these are checked out.
+reference/v01_ripple_core_LOCKED.cjs -text
+reference/v07_quaternary_core_LOCKED.mjs -text

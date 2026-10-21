@@ -1,5 +1,10 @@
 # Ripple — Laptop runtime and verified research code
 
+## 21 October 2026 — neuron with persistent activity-dependent connections
+
+- [Ripple v0.2 structural plasticity and persistent graph checkpoint/resume](native-alpha-v2.0/docs/STRUCTURAL_PLASTICITY.md) — executable neuron graph remodeling with bounded growth, pruning, and synaptic weight changes; durable integrity-checked workspace sessions; preserves the checksum-locked original Ripple v0.1 neuron core.
+- [Run the neuron in the existing laptop scheduler](native-alpha-v2.0/README.md) — command `structural_plasticity` supports `state_policy=start` followed by `state_policy=continue` with a named state identifier. Tests include Linux/Windows GitHub Actions; no Dell hardware is inferred.
+
 ## Public archive & mathematical registry (updated 20 October 2026)
 
 ## 20 October 2026 — additional recovered versions

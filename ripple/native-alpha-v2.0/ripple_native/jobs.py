@@ -2,7 +2,7 @@
 import hashlib, json, math, os, shutil, subprocess, sys, time, urllib.parse, urllib.request, ipaddress, socket, tempfile, zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent.parent
-ALLOWED_KINDS={'prime_count','sha256_file','ripple_lif','quaternary','torch_matrix','https_digest','registered_app','archive_inventory','v17_composition','torch_train','signal_fft','workspace_write','workspace_read','workspace_move','workspace_delete'}
+ALLOWED_KINDS={'prime_count','sha256_file','ripple_lif','structural_plasticity','quaternary','torch_matrix','https_digest','registered_app','archive_inventory','v17_composition','torch_train','signal_fft','workspace_write','workspace_read','workspace_move','workspace_delete'}
 
 def validate_job(kind,params):
     if kind not in ALLOWED_KINDS:raise ValueError('unsupported job kind')
@@ -16,6 +16,19 @@ def validate_job(kind,params):
         rgb=params.get('rgb',[0.5,0.25,0.1]);dt=params.get('dt',0.05)
         if not isinstance(rgb,list) or len(rgb)!=3 or any(type(x) not in (int,float) or not math.isfinite(x) or not 0<=x<=1 for x in rgb):raise ValueError('RGB must contain three normalized finite numbers')
         if type(dt) not in (float,int) or not math.isfinite(dt) or not 0<dt<=0.5:raise ValueError('invalid dt')
+    if kind=='structural_plasticity':
+        n=params.get('nodes',8);frames=params.get('frames',800);dt=params.get('dt',0.05)
+        interval=params.get('interval',40);seed=params.get('seed',17)
+        if type(n)!=int or not 4<=n<=32:raise ValueError('nodes must be 4..32')
+        if type(frames)!=int or not 1<=frames<=12000 or frames*n*n>3000000:raise ValueError('frames or workload exceeds budget')
+        if type(dt) not in (int,float) or not math.isfinite(dt) or not 0<dt<=0.5:raise ValueError('dt must be 0..0.5')
+        if type(interval)!=int or not 10<=interval<=200:raise ValueError('interval must be 10..200')
+        if type(seed)!=int or not 0<=seed<=1000000:raise ValueError('seed out of bounds')
+        if type(params.get('plasticity',True))!=bool:raise ValueError('plasticity must be boolean')
+        if params.get('state_policy','fresh') not in ('fresh','start','continue'):raise ValueError('state_policy must be fresh/start/continue')
+        name=params.get('state_id','default')
+        if not isinstance(name,str) or not 1<=len(name)<=48 or not all(c.isascii() and (c.isalnum() or c in '_-') for c in name):raise ValueError('state_id must be 1..48 safe characters')
+        if 'checkpoint_state' in params or 'save_state' in params:raise ValueError('internal snapshot arguments prohibited')
     if kind=='quaternary':
         s=params.get('symbols');
         if not isinstance(s,list) or len(s)!=4 or any(type(x)!=int or not 0<=x<=3 for x in s):raise ValueError('four two-bit symbols required')
@@ -174,7 +187,18 @@ def _v17_composition(workspace):
             expected_cases='bdc36bd7edcc29b2724c872a836ce1164cc24de9a77a735562500b8af81b6e5a'
             if hashlib.sha256((target/'data/novel_compositions.json').read_bytes()).hexdigest()!=expected_cases:raise RuntimeError('v1.7 generated cases differ from archived evidence')
         else:raise RuntimeError('v1.7 source not installed. Use complete ripple/ checkout or original release archive')
-        p=subprocess.run([node,'--max-old-space-size=512',str(target/'src'/'composition.mjs')],cwd=str(target),capture_output=True,text=True,timeout=150)
+        entry=target/'src'/'composition.mjs'
+        if os.name=='nt':
+            # The integrity-verified v1.7 script has a POSIX-only ESM CLI URL
+            # guard. Repair only the ephemeral copy, never the published source
+            # or its SHA-256 manifest; scientific program logic stays identical.
+            source_text=entry.read_text(encoding='utf8')
+            old_guard='new URL(`file://${process.argv[1]}`).href'
+            if old_guard not in source_text:raise RuntimeError('v1.7 temporary Windows entry guard anchor missing')
+            source_text=source_text.replace("import fs from 'node:fs';","import fs from 'node:fs';\nimport {pathToFileURL} from 'node:url';",1)
+            source_text=source_text.replace(old_guard,'pathToFileURL(process.argv[1]).href',1)
+            entry.write_text(source_text,encoding='utf8')
+        p=subprocess.run([node,'--max-old-space-size=512',str(entry)],cwd=str(target),capture_output=True,text=True,timeout=150)
         if p.returncode:raise RuntimeError('v1.7 composition failed: '+p.stderr[-700:])
         result=json.loads((target/'data'/'composition_results.json').read_text(encoding='utf8'))
         outdir=Path(workspace)/'results';outdir.mkdir(exist_ok=True)
@@ -271,6 +295,9 @@ def execute(kind,params,workspace):
             for chunk in iter(lambda:f.read(1024*1024),b''):h.update(chunk)
         result={'relative_path':params['path'],'bytes':p.stat().st_size,'sha256':h.hexdigest()}
     elif kind=='ripple_lif':result=_node('execute_ripple.cjs',params)
+    elif kind=='structural_plasticity':
+        from .structural import run_with_storage
+        result=run_with_storage(params,workspace,_node)
     elif kind=='quaternary':result=_node('execute_quaternary.mjs',params)
     elif kind=='torch_matrix':
         chosen=params.get('device','auto')
@@ -286,4 +313,4 @@ def execute(kind,params,workspace):
     elif kind.startswith('workspace_'):result=_workspace_action(kind,params,workspace)
     elif kind=='signal_fft':result=_signal_fft(params)
     elif kind=='torch_train':result=_torch_train(params,workspace)
-    return {'kind':kind,'output':result,'elapsed_wall_seconds':time.perf_counter()-started,'pid':os.getpid(),'simulated_data':kind in ('ripple_lif','v17_composition','torch_train'),'actual_execution':True}
+    return {'kind':kind,'output':result,'elapsed_wall_seconds':time.perf_counter()-started,'pid':os.getpid(),'simulated_data':kind in ('ripple_lif','structural_plasticity','v17_composition','torch_train'),'actual_execution':True}
