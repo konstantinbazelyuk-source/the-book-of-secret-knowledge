@@ -1,0 +1,43 @@
+{
+  "python": [
+    {
+      "hashes": 1000000,
+      "seconds": 0.9923503039999559,
+      "hps": 1007708.6649434274
+    },
+    {
+      "hashes": 1000000,
+      "seconds": 0.987065684000072,
+      "hps": 1013103.8047513837
+    },
+    {
+      "hashes": 1000000,
+      "seconds": 1.0011627110000063,
+      "hps": 998838.6393268234
+    }
+  ],
+  "native_openssl": [
+    {
+      "hashes": 1000000,
+      "seconds": 0.6048729079998338,
+      "hps": 1653239.8571242914
+    },
+    {
+      "hashes": 1000000,
+      "seconds": 0.6071954020001158,
+      "hps": 1646916.2920305007
+    },
+    {
+      "hashes": 1000000,
+      "seconds": 0.6146216459999323,
+      "hps": 1627017.217028035
+    }
+  ],
+  "classification": "MEASURED single CPU process, actual SHA256d, 1,000,000 nonces per trial, 3 rounds; no pool and no power meter",
+  "median_hps": {
+    "python": 1007708.6649434274,
+    "native_openssl": 1646916.2920305007
+  },
+  "speedup": 1.6343178830589478,
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41"
+}
