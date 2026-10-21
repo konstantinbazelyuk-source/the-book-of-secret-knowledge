@@ -2,7 +2,7 @@
 import hashlib, json, math, os, shutil, subprocess, sys, time, urllib.parse, urllib.request, ipaddress, socket, tempfile, zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent.parent
-ALLOWED_KINDS={'prime_count','sha256_file','ripple_lif','quaternary','torch_matrix','https_digest','registered_app','archive_inventory','v17_composition','torch_train','signal_fft','workspace_write','workspace_read','workspace_move','workspace_delete'}
+ALLOWED_KINDS={'prime_count','sha256_file','ripple_lif','structural_plasticity','quaternary','torch_matrix','https_digest','registered_app','archive_inventory','v17_composition','torch_train','signal_fft','workspace_write','workspace_read','workspace_move','workspace_delete'}
 
 def validate_job(kind,params):
     if kind not in ALLOWED_KINDS:raise ValueError('unsupported job kind')
@@ -16,6 +16,15 @@ def validate_job(kind,params):
         rgb=params.get('rgb',[0.5,0.25,0.1]);dt=params.get('dt',0.05)
         if not isinstance(rgb,list) or len(rgb)!=3 or any(type(x) not in (int,float) or not math.isfinite(x) or not 0<=x<=1 for x in rgb):raise ValueError('RGB must contain three normalized finite numbers')
         if type(dt) not in (float,int) or not math.isfinite(dt) or not 0<dt<=0.5:raise ValueError('invalid dt')
+    if kind=='structural_plasticity':
+        n=params.get('nodes',8);frames=params.get('frames',800);dt=params.get('dt',0.05)
+        interval=params.get('interval',40);seed=params.get('seed',17)
+        if type(n)!=int or not 4<=n<=32:raise ValueError('nodes must be 4..32')
+        if type(frames)!=int or not 40<=frames<=12000 or frames*n*n>3000000:raise ValueError('frames or workload exceeds budget')
+        if type(dt) not in (int,float) or not math.isfinite(dt) or not 0<dt<=0.5:raise ValueError('dt must be 0..0.5')
+        if type(interval)!=int or not 10<=interval<=200:raise ValueError('interval must be 10..200')
+        if type(seed)!=int or not 0<=seed<=1000000:raise ValueError('seed out of bounds')
+        if type(params.get('plasticity',True))!=bool:raise ValueError('plasticity must be boolean')
     if kind=='quaternary':
         s=params.get('symbols');
         if not isinstance(s,list) or len(s)!=4 or any(type(x)!=int or not 0<=x<=3 for x in s):raise ValueError('four two-bit symbols required')
@@ -271,6 +280,7 @@ def execute(kind,params,workspace):
             for chunk in iter(lambda:f.read(1024*1024),b''):h.update(chunk)
         result={'relative_path':params['path'],'bytes':p.stat().st_size,'sha256':h.hexdigest()}
     elif kind=='ripple_lif':result=_node('execute_ripple.cjs',params)
+    elif kind=='structural_plasticity':result=_node('structural_plasticity.cjs',params,timeout=45)
     elif kind=='quaternary':result=_node('execute_quaternary.mjs',params)
     elif kind=='torch_matrix':
         chosen=params.get('device','auto')
@@ -286,4 +296,4 @@ def execute(kind,params,workspace):
     elif kind.startswith('workspace_'):result=_workspace_action(kind,params,workspace)
     elif kind=='signal_fft':result=_signal_fft(params)
     elif kind=='torch_train':result=_torch_train(params,workspace)
-    return {'kind':kind,'output':result,'elapsed_wall_seconds':time.perf_counter()-started,'pid':os.getpid(),'simulated_data':kind in ('ripple_lif','v17_composition','torch_train'),'actual_execution':True}
+    return {'kind':kind,'output':result,'elapsed_wall_seconds':time.perf_counter()-started,'pid':os.getpid(),'simulated_data':kind in ('ripple_lif','structural_plasticity','v17_composition','torch_train'),'actual_execution':True}
