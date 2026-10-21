@@ -1,5 +1,12 @@
 # Ripple Library ↔ GitHub publication audit — 20 October 2026
 
+## 20 October 2026 — additional recovered versions
+
+- [Newly archived integration, fusion, fluctuation cipher and Control Room v1 release records](2026-10-20/README.md)
+- Seven previously unlisted source documents are published under versioned release directories. Full original executable ZIP distributions remain separate from these document commits.
+
+
+
 This inventory distinguishes publicly uploaded standalone applications, source-only snapshots, and Library originals not yet published as full archives.
 
 - **159** related ZIP locations; **149** distinct ZIP *names* (not byte-unique hashes).
