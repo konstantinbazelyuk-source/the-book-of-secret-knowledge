@@ -1,0 +1,20 @@
+{
+  "README.md": "7a857cfea80b1e80965336ff041aa01aea5ca4e143bbf34d9f92726572086661",
+  "controller.py": "649194be7a36cf94579927a6c9bcb32b43d54052e5a7c426ec6b948f18f5aebc",
+  "docs/ENGINEERING_CODEX.md": "0109dbd8ab5f6a3aa51a19cf2da0f28e123d19eccdc46eb340c1d36329f9b43c",
+  "docs/FR_NIA_technical_research_2026-10-20.md": "6004b1f2bba6efadd90baa6a405c4cd542cffb8c99aac8d32278c3594b4e0fcc",
+  "expression_keyframes_example.json": "911fc435d5bfe47001b210bf1f19ace21d1045d06787656c9d1aa9310c266ab0",
+  "reachy_adapter.py": "f112c6587cbe6e291ce3c19d296816c1f9ab56c4503255fc8140da6e5734dde1",
+  "results/speed_ablation_cli.log": "fe566621dc539ddce3e5b93345eb36a73469b05015f890ee6f5726d97a4a7aac",
+  "results/ten_axis_virtual_expression/events.sqlite": "ad34fa50655bf8f8cfe646dff82dc9423df5550bf698c349d4d5ad29a5dffafd",
+  "results/ten_axis_virtual_expression/expression_trajectory.csv": "a84067fb149535803fbcf644c40551eebc4e6e8adde29ce28138b56a4e92548a",
+  "results/ten_axis_virtual_expression/report.json": "ce7b5b3a1ef7457ceb12ca311381933fdc5d609d9f46a2ba72ebd8337aff27fb",
+  "results/test_results.log": "7120faece78c0dd3f823ffc7df31cd2e60393a61b9a3583e7cf7a33a3c323956",
+  "results/v1_3_actual_archive/events.sqlite": "e05b715887d02dfbcfc11863a6961e1ae12c144c899d8315cc9186875b3afd02",
+  "results/v1_3_actual_archive/report.json": "dd24bf8348560972b23c8cf5759c52c65718aa0fb35f3b4a453d2cafb915dc01",
+  "results/v1_3_actual_archive/trajectory.csv": "6670437cf9ec81dd30786c0502a7d8ab3a3ff280273b036ef3504c341e4fb923",
+  "results/v1_3_speed_5_deg_s/events.sqlite": "0934f710d1e75ea3623d2070faa94c9beb11fb7ad7d927c87b417e4f067eabc4",
+  "results/v1_3_speed_5_deg_s/report.json": "1dc94f952521cef4051d1b685d27892f27b8c32ec7be9628f5ba031c0858d298",
+  "results/v1_3_speed_5_deg_s/trajectory.csv": "314256b984a7fe142798faff22080f44a8151744e00f7f9a2252ee76bff3d87a",
+  "tests/test_controller.py": "1c7e777c7771d072ab0acee69a2065d4c30f66a3e1166b3fc599c4ede6d5dff8"
+}

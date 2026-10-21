@@ -1,0 +1,20 @@
+{
+  "classification": "calculated simulation from original Kokoro archived virtual frames; no physical robot",
+  "dt_s": 0.02,
+  "final_tracking_error_deg": 7.940077271418659,
+  "input_frames": 5,
+  "last_simulated_yaw_deg": 4.999999999999998,
+  "last_source_yaw_deg": 12.940077271418657,
+  "output_event_chain_verified": true,
+  "schema": "kokoro/embodiment/replay/1",
+  "source": {
+    "cargo_sha256": "a138c0dc2e2bfaa83163b11d2ea8ff1a2fdbd30b2a53380597ab361658e537f2",
+    "continuity_hash": "ed0417608a61806cce5cf9103dc52bed08c1656b4a689567f11295c8a8535da4",
+    "session": "run_061b12f13f79",
+    "source_label": "Shipyard v1.3 recorded VTK virtual scene",
+    "timeline_sha256": "f2819997bb696930740f332337981b20ac8a505a3b2751de9ea0df9405f51101",
+    "validated_rendered_pngs": 5
+  },
+  "steps": 50,
+  "virtual_duration_s": 1.0
+}
