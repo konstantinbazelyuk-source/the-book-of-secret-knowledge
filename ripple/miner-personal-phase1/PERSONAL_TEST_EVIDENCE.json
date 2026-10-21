@@ -2,8 +2,8 @@
   "name": "Ripple Personal Miner functional source repair",
   "source_release": "v0.5 base plus targeted personal fixes",
   "date": "2026-10-21",
-  "local_test_result": "50/50 passed in uninterrupted run",
-  "local_test_duration_seconds": 48.071,
+  "local_test_result": "51/51 passed in uninterrupted run",
+  "local_test_duration_seconds": 47.125,
   "test_command": "python -m unittest discover -s tests -v",
   "environment": {
     "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
@@ -19,5 +19,7 @@
   "user_dell_measured": false,
   "phase_two_public_platform": "not started",
   "windows_build_scripts": "present, not Windows-tested",
-  "notes": "No claim of completed production-mining acceptance; no pool account or paid cloud machine supplied."
+  "notes": "No claim of completed production-mining acceptance; no pool account or paid cloud machine supplied.",
+  "portable_bootstrap": "source available; downloads official embedded Python and Node on Windows; not Windows tested",
+  "operator_application_shutdown": "local authenticated HTTP endpoint tested"
 }
