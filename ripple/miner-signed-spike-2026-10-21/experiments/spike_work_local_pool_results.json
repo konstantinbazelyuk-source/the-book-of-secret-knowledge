@@ -1,0 +1,375 @@
+{
+  "status": "measured real SHA256d vs local validating Stratum (no BTC)",
+  "seconds_productive": 3.0,
+  "parallel_workers": 2,
+  "total": [
+    {
+      "policy": "round_robin",
+      "hashes": 5600000,
+      "accepted": 12,
+      "submitted": 12,
+      "pool_accepted": 12,
+      "wave": null,
+      "round": 0
+    },
+    {
+      "policy": "waveform",
+      "hashes": 8555932,
+      "accepted": 22,
+      "submitted": 22,
+      "pool_accepted": 22,
+      "wave": {
+        "engine": "archived-regulatory-colony-v2",
+        "source_sha256": "618bb5137fe7166413763a0c1928102daca54874283d0b299871be654dfeedd1",
+        "cells": 16,
+        "cell_kinds": [
+          "delta",
+          "daughter",
+          "charlie",
+          "delta",
+          "daughter",
+          "charlie",
+          "delta",
+          "daughter",
+          "charlie",
+          "delta",
+          "daughter",
+          "charlie",
+          "delta",
+          "daughter",
+          "charlie",
+          "delta"
+        ],
+        "completed_cells": 63,
+        "real_hashes_observed": 8007996,
+        "ticks": 5,
+        "base_chunk": 100000,
+        "active_chunk": 109587,
+        "network": {
+          "average_membrane": 0.12310694353070083,
+          "feature_norm": 0.32105648787718943,
+          "cells": 16,
+          "steps": 5
+        },
+        "recent_changes": [
+          {
+            "completed_cells": 12,
+            "before": 100000,
+            "after": 104470,
+            "measured_hps": 394707.7685023234,
+            "signals": [
+              0.28300392198013763,
+              0.5,
+              0.2,
+              0.0,
+              0.0,
+              0.0,
+              0.034173467000016444,
+              1.0
+            ],
+            "network": {
+              "average_membrane": 0.10624090498707028,
+              "feature_norm": 0.2334035059333443,
+              "cells": 16,
+              "steps": 1
+            }
+          },
+          {
+            "completed_cells": 24,
+            "before": 104470,
+            "after": 113655,
+            "measured_hps": 629778.793444583,
+            "signals": [
+              0.3864197987958402,
+              0.5,
+              0.20894,
+              0.0,
+              0.0,
+              0.0,
+              0.03270636999997123,
+              1.0
+            ],
+            "network": {
+              "average_membrane": 0.22877129146680833,
+              "feature_norm": 0.3014568823026154,
+              "cells": 16,
+              "steps": 2
+            }
+          },
+          {
+            "completed_cells": 36,
+            "before": 113655,
+            "after": 118324,
+            "measured_hps": 818701.0122674552,
+            "signals": [
+              0.4501570113752476,
+              0.5,
+              0.22731,
+              0.0,
+              0.0,
+              0.0,
+              0.07273821649999945,
+              1.0
+            ],
+            "network": {
+              "average_membrane": 0.30451274119682864,
+              "feature_norm": 0.32985792315649975,
+              "cells": 16,
+              "steps": 3
+            }
+          },
+          {
+            "completed_cells": 48,
+            "before": 118324,
+            "after": 113380,
+            "measured_hps": 949854.0337211076,
+            "signals": [
+              0.48714109738173744,
+              0.5,
+              0.236648,
+              0.0,
+              0.0,
+              0.0,
+              0.0746368494999956,
+              1.0
+            ],
+            "network": {
+              "average_membrane": 0.19791105770746192,
+              "feature_norm": 0.32637927077763934,
+              "cells": 16,
+              "steps": 4
+            }
+          },
+          {
+            "completed_cells": 60,
+            "before": 113380,
+            "after": 109587,
+            "measured_hps": 1029447.8129480429,
+            "signals": [
+              0.5072551293904094,
+              0.5,
+              0.22676,
+              0.0,
+              0.0,
+              0.0,
+              0.018730176000019583,
+              1.0
+            ],
+            "network": {
+              "average_membrane": 0.12310694353070083,
+              "feature_norm": 0.32105648787718943,
+              "cells": 16,
+              "steps": 5
+            }
+          }
+        ],
+        "spike_axes": {
+          "position": -3,
+          "prepared_axes": [
+            "positive",
+            "negative"
+          ],
+          "dispatched": 64,
+          "lanes": {
+            "positive": {
+              "assignments": 33,
+              "nonces_assigned": 5909476,
+              "active_en2": 0
+            },
+            "negative": {
+              "assignments": 31,
+              "nonces_assigned": 2317694,
+              "active_en2": 1
+            }
+          },
+          "recent_transitions": [
+            {
+              "tick": 1,
+              "position": 3,
+              "delta": 0.12253038647973805,
+              "normalized": 0.40646073675218586,
+              "center": 0.124620462959031
+            },
+            {
+              "tick": 2,
+              "position": 3,
+              "delta": 0.07574144973002031,
+              "normalized": 0.22961840360004052,
+              "center": 0.15160430469470065
+            },
+            {
+              "tick": 3,
+              "position": -3,
+              "delta": -0.10660168348936672,
+              "normalized": 0.32661903813736365,
+              "center": 0.15855031764661484
+            },
+            {
+              "tick": 4,
+              "position": -3,
+              "delta": -0.0748041141767611,
+              "normalized": 0.23299362262187076,
+              "center": 0.15323381152922774
+            }
+          ]
+        }
+      },
+      "round": 0
+    },
+    {
+      "policy": "waveform",
+      "hashes": 5737988,
+      "accepted": 12,
+      "submitted": 12,
+      "pool_accepted": 12,
+      "wave": {
+        "engine": "archived-regulatory-colony-v2",
+        "source_sha256": "618bb5137fe7166413763a0c1928102daca54874283d0b299871be654dfeedd1",
+        "cells": 16,
+        "cell_kinds": [
+          "delta",
+          "daughter",
+          "charlie",
+          "delta",
+          "daughter",
+          "charlie",
+          "delta",
+          "daughter",
+          "charlie",
+          "delta",
+          "daughter",
+          "charlie",
+          "delta",
+          "daughter",
+          "charlie",
+          "delta"
+        ],
+        "completed_cells": 39,
+        "real_hashes_observed": 4377216,
+        "ticks": 3,
+        "base_chunk": 100000,
+        "active_chunk": 118328,
+        "network": {
+          "average_membrane": 0.3045762245455975,
+          "feature_norm": 0.3298820191024866,
+          "cells": 16,
+          "steps": 3
+        },
+        "recent_changes": [
+          {
+            "completed_cells": 12,
+            "before": 100000,
+            "after": 104474,
+            "measured_hps": 302497.3014864893,
+            "signals": [
+              0.23224409074879537,
+              0.5,
+              0.2,
+              0.0,
+              0.0,
+              0.0,
+              0.053486955499977284,
+              1.0
+            ],
+            "network": {
+              "average_membrane": 0.10620629357874556,
+              "feature_norm": 0.23352492911689446,
+              "cells": 16,
+              "steps": 1
+            }
+          },
+          {
+            "completed_cells": 24,
+            "before": 104474,
+            "after": 113680,
+            "measured_hps": 460156.81934896373,
+            "signals": [
+              0.3151420540939792,
+              0.5,
+              0.208948,
+              0.0,
+              0.0,
+              0.0,
+              0.05498576399998001,
+              1.0
+            ],
+            "network": {
+              "average_membrane": 0.22905572370412206,
+              "feature_norm": 0.3017063611790117,
+              "cells": 16,
+              "steps": 2
+            }
+          },
+          {
+            "completed_cells": 36,
+            "before": 113680,
+            "after": 118328,
+            "measured_hps": 575670.0846204066,
+            "signals": [
+              0.3653493775374245,
+              0.5,
+              0.22736,
+              0.0,
+              0.0,
+              0.0,
+              0.1267270754999572,
+              1.0
+            ],
+            "network": {
+              "average_membrane": 0.3045762245455975,
+              "feature_norm": 0.3298820191024866,
+              "cells": 16,
+              "steps": 3
+            }
+          }
+        ],
+        "spike_axes": {
+          "position": 3,
+          "prepared_axes": [
+            "positive",
+            "negative"
+          ],
+          "dispatched": 40,
+          "lanes": {
+            "positive": {
+              "assignments": 20,
+              "nonces_assigned": 2927660,
+              "active_en2": 0
+            },
+            "negative": {
+              "assignments": 20,
+              "nonces_assigned": 1686212,
+              "active_en2": 1
+            }
+          },
+          "recent_transitions": [
+            {
+              "tick": 1,
+              "position": 3,
+              "delta": 0.1228494301253765,
+              "normalized": 0.40718210131633964,
+              "center": 0.12463370809755203
+            },
+            {
+              "tick": 2,
+              "position": 3,
+              "delta": 0.07552050084147546,
+              "normalized": 0.22893184977752004,
+              "center": 0.15162508556475884
+            }
+          ]
+        }
+      },
+      "round": 1
+    },
+    {
+      "policy": "round_robin",
+      "hashes": 9100000,
+      "accepted": 21,
+      "submitted": 21,
+      "pool_accepted": 21,
+      "wave": null,
+      "round": 1
+    }
+  ]
+}
