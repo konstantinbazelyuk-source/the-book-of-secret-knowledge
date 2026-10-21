@@ -1,0 +1,136 @@
+[
+  {
+    "lineage": "mycelium-v01",
+    "source_archive": "mycelium-v01.zip",
+    "member": "Ripple-Cybernetic-Mycelium-v0.1/ARCHITECTURE.md",
+    "copied_as": "historical_sources/mycelium-v01/ARCHITECTURE.md",
+    "sha256": "9aa6828e0252814807cb122c07e21659b508ce326983611d1d72b09e1253d6da"
+  },
+  {
+    "lineage": "mycelium-v01",
+    "source_archive": "mycelium-v01.zip",
+    "member": "Ripple-Cybernetic-Mycelium-v0.1/README.md",
+    "copied_as": "historical_sources/mycelium-v01/README.md",
+    "sha256": "f86c0009c7d26397c5a6580f045f75b3de558605c5d1b454ac5c8ff26558a717"
+  },
+  {
+    "lineage": "mycelium-v01",
+    "source_archive": "mycelium-v01.zip",
+    "member": "Ripple-Cybernetic-Mycelium-v0.1/colony.js",
+    "copied_as": "historical_sources/mycelium-v01/colony.js",
+    "sha256": "6c38313f91d02bc13d7e451239d9c6fe141c1b024735da68e6cae09a5f4ac941"
+  },
+  {
+    "lineage": "mycelium-v01",
+    "source_archive": "mycelium-v01.zip",
+    "member": "Ripple-Cybernetic-Mycelium-v0.1/ripple_core_reference.js",
+    "copied_as": "historical_sources/mycelium-v01/ripple_core_reference.js",
+    "sha256": "d75d4208e92f19623b127615bd52b4002e85d2c0a59b76471764b55a24294210"
+  },
+  {
+    "lineage": "mycelium-v01",
+    "source_archive": "mycelium-v01.zip",
+    "member": "Ripple-Cybernetic-Mycelium-v0.1/test_colony.js",
+    "copied_as": "historical_sources/mycelium-v01/test_colony.js",
+    "sha256": "4ad07e427465e719361a05eb2a81fff1fa4e6b590ccdce21f50134c08130a122"
+  },
+  {
+    "lineage": "mycelium-v02-v03",
+    "source_archive": "01-ripple-neuron-math-core.source.zip",
+    "member": "Ripple-Cybernetic-Mycelium-v0.2/Ripple-Cybernetic-Mycelium-v0.2/src/parallel_colony.js",
+    "copied_as": "historical_sources/mycelium-v02-v03/parallel_colony.js",
+    "sha256": "c21bb32f01876ce7bb4a0d7e5f798edef5097f72b8d01513797cd93868cea3d6"
+  },
+  {
+    "lineage": "mycelium-v02-v03",
+    "source_archive": "01-ripple-neuron-math-core.source.zip",
+    "member": "Ripple-Cybernetic-Mycelium-v0.2/Ripple-Cybernetic-Mycelium-v0.2/src/colony_variants.js",
+    "copied_as": "historical_sources/mycelium-v02-v03/colony_variants.js",
+    "sha256": "eea7fc37945478c9afa95d14aede09a487de1f95ab942c5a560ef114155d27f0"
+  },
+  {
+    "lineage": "mycelium-v02-v03",
+    "source_archive": "01-ripple-neuron-math-core.source.zip",
+    "member": "Ripple-Cybernetic-Mycelium-v0.3/Ripple-Cybernetic-Mycelium-v0.3/README.md",
+    "copied_as": "historical_sources/mycelium-v02-v03/README.md",
+    "sha256": "a611a2211223ca00ae73cdda44733b3e4be4ae065c1b96f096e475d19d6708e3"
+  },
+  {
+    "lineage": "mycelium-v02-v03",
+    "source_archive": "01-ripple-neuron-math-core.source.zip",
+    "member": "Ripple-Cybernetic-Mycelium-v0.3/Ripple-Cybernetic-Mycelium-v0.3/src/specialist_colony.js",
+    "copied_as": "historical_sources/mycelium-v02-v03/specialist_colony.js",
+    "sha256": "0880c9089fd8bbc740c2b18b080061a52d91a80c9b902772a515efdf5656ffbb"
+  },
+  {
+    "lineage": "mycelium-v02-v03",
+    "source_archive": "01-ripple-neuron-math-core.source.zip",
+    "member": "Ripple-Cybernetic-Mycelium-v0.3/Ripple-Cybernetic-Mycelium-v0.3/docs/MATHEMATICS.md",
+    "copied_as": "historical_sources/mycelium-v02-v03/MATHEMATICS.md",
+    "sha256": "95ff39c827262b978181b5a314e0a97ffc7c77a57cbe1e5862ead20b88741d6f"
+  },
+  {
+    "lineage": "mycelium-v02-v03",
+    "source_archive": "01-ripple-neuron-math-core.source.zip",
+    "member": "Ripple-Neuron-GitHub-Repository-All-Versions/ripple-neuron-github-repo/versions/v0.3/README.md",
+    "copied_as": "historical_sources/mycelium-v02-v03/60d90c3f_README.md",
+    "sha256": "dd780021e130e709388641cd58a0c285d49c2f63449d552fddaacdaa5de3ed85"
+  },
+  {
+    "lineage": "charlie-forest-v12",
+    "source_archive": "Charlie_Forest_Colony_v1_2.zip",
+    "member": "Charlie_Forest_Colony_v1_2/docs/METHOD_AND_EVIDENCE.md",
+    "copied_as": "historical_sources/charlie-forest-v12/METHOD_AND_EVIDENCE.md",
+    "sha256": "2c363a290dcdf70d6e2c116d0e4c82a8d010c1537970b95a59752f4e6bb6b0e2"
+  },
+  {
+    "lineage": "charlie-forest-v12",
+    "source_archive": "Charlie_Forest_Colony_v1_2.zip",
+    "member": "Charlie_Forest_Colony_v1_2/src/forest.py",
+    "copied_as": "historical_sources/charlie-forest-v12/forest.py",
+    "sha256": "2ecdea933cada85a332edc91fcabc3bb5832d978741d23c3cf314824c429e472"
+  },
+  {
+    "lineage": "mushroom-ring",
+    "source_archive": "07-mushroom-ring-of-mushrooms.source.zip",
+    "member": "Mushroom_Ripple_Alpha_v3.0_Complete_Model/Mushroom_Ripple_Alpha_v3_0/mushroom/core.py",
+    "copied_as": "historical_sources/mushroom-ring/core.py",
+    "sha256": "7a66951637bd25debcd8117bc7ae7b50158e71a62ec78fb10d07cff4a6d8ccca"
+  },
+  {
+    "lineage": "mushroom-ring",
+    "source_archive": "07-mushroom-ring-of-mushrooms.source.zip",
+    "member": "Ring_of_Mushrooms_Alpha_v4.0_Complete_Model/Ring_of_Mushrooms_Alpha_v4_0/ring/core.py",
+    "copied_as": "historical_sources/mushroom-ring/187471ff_core.py",
+    "sha256": "9ec1ad210380ba82cd78adda20ca0d1fc7ab38805e0bffdad0a991c3f9988d96"
+  },
+  {
+    "lineage": "mushroom-ring",
+    "source_archive": "07-mushroom-ring-of-mushrooms.source.zip",
+    "member": "Ring_of_Mushrooms_Alpha_v5.0_AddOn/ring5/bridge.py",
+    "copied_as": "historical_sources/mushroom-ring/bridge.py",
+    "sha256": "2616c460acee706ed4ddcfdb4e9dcfbfae554adaa2177b0274f0d870d513d8db"
+  },
+  {
+    "lineage": "code-colony-v1.5",
+    "source_archive": "04-forest-evolution-language-colony.source.zip",
+    "member": "Ripple-Code-Reasoning-Colony-Alpha-v1.5/Ripple-Code-Reasoning-Colony-Alpha-v1.5/src/colony.mjs",
+    "copied_as": "historical_sources/voxel-study/colony.mjs",
+    "sha256": "fff73e08ba7d4ce7e8564cc48d740791861392079a0efd54963c181d4a35221a",
+    "note": "Different code-colony experiment; not the voxel world source"
+  },
+  {
+    "lineage": "digital-world-v0.5",
+    "source_archive": "Library Ripple-Digital-World-Lab-v0.5.html",
+    "member": "Ripple-Digital-World-Lab-v0.5.html",
+    "copied_as": "historical_sources/voxel-study/Ripple-Digital-World-Lab-v0.5.html",
+    "sha256": "7c469c362ada30949f00f1f71b38597d42a6c48c6e7c920eef80280a7ca61a82"
+  },
+  {
+    "lineage": "mycelium-v02",
+    "source_archive": "01-ripple-neuron-math-core.source.zip",
+    "member": "Ripple-Cybernetic-Mycelium-v0.2/Ripple-Cybernetic-Mycelium-v0.2/README.md",
+    "copied_as": "historical_sources/mycelium-v02-v03/README_v02.md",
+    "sha256": "e87fceba62345b65e5b4ab389541f2473d70097209f71e584af8532f557b6568"
+  }
+]
