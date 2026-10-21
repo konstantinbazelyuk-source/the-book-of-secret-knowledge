@@ -2,6 +2,13 @@
 
 ## Public archive & mathematical registry (updated 20 October 2026)
 
+## 20 October 2026 — additional recovered versions
+
+- [Newly archived integration, fusion, fluctuation cipher and Control Room v1 release records](releases/2026-10-20/README.md)
+- Seven previously unlisted source documents are published under versioned release directories. Full original executable ZIP distributions remain separate from these document commits.
+
+
+
 - **[Recovered Ripple/Charlie versions and release-status audit](releases/README.md)** — full inventory of published source, standalone artifacts, and Library archives that still need public ZIP publication.
 - **[33 archived executable HTML and replay files](standalone-archive/README.md)** — historical offline implementations and viewers; runtime compatibility varies.
 - **[Recovered mathematical studies](mathematics/library-2026-10-20/README.md)** — 30 documented studies supplementing the existing 171-entry formula registry, with duplicate/assumption caveats.
