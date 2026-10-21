@@ -1,0 +1,1167 @@
+{
+  "generated_on": "2026-10-20",
+  "repo": "konstantinbazelyuk-source/the-book-of-secret-knowledge",
+  "method": "filename comparison against default-branch source capsule paths and historical original zip sha archive catalog",
+  "counts": {
+    "01-neuron-core": {
+      "total": 21,
+      "sourceCapsules": 6
+    },
+    "02-master-desktop-android": {
+      "total": 17,
+      "sourceCapsules": 0
+    },
+    "03-alpha-labs": {
+      "total": 9,
+      "sourceCapsules": 2
+    },
+    "04-evolution-grammar-colonies": {
+      "total": 12,
+      "sourceCapsules": 6
+    },
+    "05-optics-spiderscan-golf": {
+      "total": 18,
+      "sourceCapsules": 4
+    },
+    "06-charlie": {
+      "total": 6,
+      "sourceCapsules": 0
+    },
+    "07-mushroom-ring": {
+      "total": 8,
+      "sourceCapsules": 4
+    },
+    "08-kokoro-ripple": {
+      "total": 36,
+      "sourceCapsules": 3
+    },
+    "09-calcium-mathematics-other": {
+      "total": 30,
+      "sourceCapsules": 17
+    }
+  },
+  "entries": {
+    "01-neuron-core": [
+      {
+        "name": "Ripple-Cybernetic-Mycelium-v0.1.zip",
+        "size": 127989,
+        "sha": "f1caeb3c29d3d42bc3793f6327debf50a60eff8ed713dac42df584c5d567567b",
+        "cap": "ripple/source-capsules/capsules/ripple-cybernetic-mycelium-v0-1.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple-Cybernetic-Mycelium-v0.2.zip",
+        "size": 1418924,
+        "sha": "2c1c337c74a90e548b3389acec117f2ffe9058294783d714335fe3b315a0759e",
+        "cap": "ripple/source-capsules/capsules/ripple-cybernetic-mycelium-v0-2.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple-Cybernetic-Mycelium-v0.3.zip",
+        "size": 1122858,
+        "sha": "3b5eb7e587bb2f83c75f1cca7d27c474bc64ca0431f786c0dd48cf44ddf45559",
+        "cap": "ripple/source-capsules/capsules/ripple-cybernetic-mycelium-v0-3.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple-Delta-Neuron-Mathematical-Alpha-v3.0.zip",
+        "size": 542897,
+        "sha": "c2b3f48158ec9fec997da91396225ed3e7fa04ee312b70763bdc2f887241c7fd",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Gen-Beta-Complete-v2.0.zip",
+        "size": 835007,
+        "sha": "f6778785e47ea4284972773afa6978736a1d15282fe9be3161de136ba522f3d7",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Gen-Beta-v2.1-Complete.zip",
+        "size": 3282698,
+        "sha": "e41434d889361ff8cbdb7d824ce6f40225615ad2bcb3b3196c4b875192e1943d",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-GenBeta-Delta-Daughter-Triplet-v3.1-Complete.zip",
+        "size": 684334,
+        "sha": "032cc4223a1f1ba63f88e4be2008745cedf237b3bf2bd7d7444633a682f09171",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Neuron-Android-Home-Widget-v0.4.zip",
+        "size": 209351,
+        "sha": "67faa19a53d3a173b85fa610dc632fbd0750d0d2eb1cf81a13d723fd27a40bb6",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Neuron-Codex-Observer-v0.3.zip",
+        "size": 229310,
+        "sha": "0005678d9fbed68775390563b02e4369fc7a38a8eeff14cf2eb2acec7f873622",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Neuron-GitHub-Repository-All-Versions.zip",
+        "size": 2539061,
+        "sha": "387bab798fc4398877192207b490e82af1b45e1fb23a704c799515892a362ad0",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Neuron-Installable-Web-App-v0.4.zip",
+        "size": 51601,
+        "sha": "74cefcefdd1f3dec6d8edc4f60d8eeea95c9f4bfe5cf707e0962e561c51b75cd",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Neuron-Open-Prototype.zip",
+        "size": 1180297,
+        "sha": "a2eaf75ef9f6c05d0609bc06f525b1795c8fa4e1994bbefe414cad2eb4742673",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Neuron-Phone-PWA.zip",
+        "size": 46458,
+        "sha": "16b1157a6607a453414981ce6ffde1e4d4e2d8b3eeec350766a9a69477c944d2",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Neuron-Photoreceptor-v0.6.zip",
+        "size": 79089,
+        "sha": "4772913176b73fed99839b581dbb6a68c656dcf94cbad765df55ae48639b4b8c",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Neuron-Quaternary-v0.7.zip",
+        "size": 682572,
+        "sha": "6915ffbc9f06ca576f77354867f87c68df93251ccc8bfc5e3220e78cb88a153d",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Quad_Gene_Repair_v0_2.zip",
+        "size": 47003,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-quad-gene-repair-v0-2.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Quad_Gene_Repair_v0_3.zip",
+        "size": 8505118,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-quad-gene-repair-v0-3.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Wave_Packet_Research_v0_1.zip",
+        "size": 215949,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-wave-packet-research-v0-1.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "RippleQuadRepair_v0_3_Windows_Build.zip",
+        "size": 8464404,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "RippleRepair-Windows-EXE.zip",
+        "size": 9388791,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "RippleRepair_Windows_Build.zip",
+        "size": 9388833,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      }
+    ],
+    "02-master-desktop-android": [
+      {
+        "name": "Master_Ripple_Alpha_v2.0_Open_Research_Release.zip",
+        "size": 34501214,
+        "sha": "536865f9707d6a030792c3e3ca2800cab7ffcfbb1395d357b28ea09bc4fcff97",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Master_Ripple_Camera_Alpha_v2.1_AddOn.zip",
+        "size": 393083,
+        "sha": "eca8b9505dfb3bb51f7431be362618e0f9996925adb7359394de6da88561e9bf",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Master_Ripple_Camera_Alpha_v2.1_Complete.zip",
+        "size": 34895040,
+        "sha": "5d601cc5eb3dcef70cdd471a04f86f9680f06ba63762e8cb91c2f059571b0eee",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Master_Ripple_Camera_Colony_Alpha_v2.2_AddOn.zip",
+        "size": 1281530,
+        "sha": "601d41aaa21a7f82234d20347e5cc87eef8a20ce66d4d0a7bc0fd82461267b5b",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Master_Ripple_Camera_Colony_Alpha_v2.2_Complete.zip",
+        "size": 36180130,
+        "sha": "85295c12a9e4f3376845a05c5bf8079a79a4a6e6de864f510bc43bdfff5f77e4",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Master_Ripple_ClusterNeuron_Alpha_v2.3_AddOn.zip",
+        "size": 678969,
+        "sha": "8eb160a5c860ff377b16b6aad3f683beffda654a5363c051897f24aabe5b8a0c",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Master_Ripple_ClusterNeuron_Alpha_v2.3_Complete.zip",
+        "size": 38157991,
+        "sha": "a9b1a58624d9f025958ab4f723a1b746fab48fa2eeb86d8b1c660b4d78b13b6e",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Master_Ripple_ClusterNeuron_Alpha_v2.4_AddOn.zip",
+        "size": 2882633,
+        "sha": "c65b3e9a456d1d6044b8106aec65f33f7dd67220e36e9196f60e41deee856de3",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Master_Ripple_ClusterNeuron_Alpha_v2.4_Complete.zip",
+        "size": 41120464,
+        "sha": "aefa1e360af0ffc582843b20d15012956f97d1dc381819645c572cc3d2c301a0",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Dell-Laptop-Native-Alpha-v2.0.zip",
+        "size": 10508837,
+        "sha": "b1fec654f4adf77f4905e2f57df71ef7313f96531171e053e8fc32dded07ab39",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-OS-Engine-Beta-v0.1-Complete.zip",
+        "size": 4666415,
+        "sha": "f7c3ffd79f04be75a4a245c0e47372eaf7352e4855d3fa5884be377b541bf974",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Samsung-Android-v0.3-Complete.zip",
+        "size": 385054,
+        "sha": "16ad970e78c47573aa54337fbbda37c318ae18f196d1d350ee50265a182441e1",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Samsung-Engineering-v0.5-Complete.zip",
+        "size": 965962,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Samsung-Optical-Reconstruction-v0.4.zip",
+        "size": 553475,
+        "sha": "0fa8d9c8a922bdb49e85dff472e25f6a62e2385a4ea7254d3df264fcff5871ee",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Control_Room_Executable_v1.zip",
+        "size": 9402702,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Golf_Ring_v5.3_AddOn.zip",
+        "size": 62588,
+        "sha": "1537f46901b96b4e7bb37596d64ad3c07aa94474d826709109fbcc9a2dfd9dfb",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Golf_Ring_v5.3_Complete.zip",
+        "size": 64868992,
+        "sha": "f345e86fd87cd142dadac6d1257c4aa971f9a2affd5ee77a524d704f1c3afc4f",
+        "cap": null,
+        "status": "catalog only"
+      }
+    ],
+    "03-alpha-labs": [
+      {
+        "name": "Ripple-Alpha-Integrated-Lab-v1.zip",
+        "size": 1987449,
+        "sha": "977be19c98682b6723cc6161c807cb7208025f75210ab1de6a8aa8a511e2a070",
+        "cap": "ripple/source-capsules/capsules/ripple-alpha-integrated-lab-v1.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple-Alpha-Labs-Research-Boundary-v1.1.zip",
+        "size": 5188491,
+        "sha": "7e1e76e0dfad68d22f08fcdcfd6592f07ae77346cfe3e06d4bead3ecd33b8f31",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Alpha-Labs-v1.0.zip",
+        "size": 4734666,
+        "sha": "95892527465a6b3434b56bc2963f2b19da415134bb51ac2d8be18be9a43f85ca",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Alpha_Labs_v1.0_Open_Research_Release.zip",
+        "size": 14659287,
+        "sha": "1d01aeff4692e033b114132fd57611789e3af5523feac32b0806a9748c7f36c4",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Alpha_Next_Generation_v1.1_v1.3_Complete.zip",
+        "size": 14930567,
+        "sha": "727c27eeebac46c28cd808ae5310bd31db66ff0b5127e8934bd6eced61698bed",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Alpha_v1.1_Research.zip",
+        "size": 32952,
+        "sha": "dee86acc56481023832f725b1a95f9ee8df71ab7209f5a4da34ae8d15b29e63f",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Alpha_v1.2_Research.zip",
+        "size": 80557,
+        "sha": "6ade85f16ba258eb9daaa804fbd360614ac0ba9d0539b06ea3168b8ecbb813b2",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Alpha_v1.3_Research.zip",
+        "size": 157736,
+        "sha": "9ed91fc522dfc1596799c3679a51b1120b1ccec1b50179e59e436a53745d7506",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Spatial_Sensor_Lab_Alpha_v2_2.zip",
+        "size": 1292261,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-spatial-sensor-lab-alpha-v2-2.zip.b64",
+        "status": "source-only capsule"
+      }
+    ],
+    "04-evolution-grammar-colonies": [
+      {
+        "name": "Ripple-Digital-Assessment-Alpha-v1.5-Complete.zip",
+        "size": 3914485,
+        "sha": "8d75d273bfeb53c63fc0b582122204e4d463d183ebdb857b86dc93592c0c274d",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Digital-Evolution-v0.5.zip",
+        "size": 1492904,
+        "sha": "c5cf9de04dd4c2be63e9fea5f6dbe450e2fca921a422a799e15121340a847215",
+        "cap": "ripple/source-capsules/capsules/ripple-digital-evolution-v0-5.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple-Forest-Language-Alpha-v1.4-Complete.zip",
+        "size": 3043715,
+        "sha": "9d867458b171a06e3b08c92226a285be6c5a5a891544a6939781204440f88696",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Forest-Seedbank-Alpha-v1.3.zip",
+        "size": 46046076,
+        "sha": "86d0d7a83a053c8c7f5cc26f2bfb7732812adf262713f13e4980e9401d74fbe4",
+        "cap": "ripple/source-capsules/capsules/ripple-forest-seedbank-alpha-v1-3.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple-Genetic-Weights-Alpha-v1.7.zip",
+        "size": 10377440,
+        "sha": "4c3472d39c83b7d68f91c1853323ad85bd3bd7596a5323639c0f256b4b50c752",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Hybrid-Alpha-v1.1.zip",
+        "size": 11701345,
+        "sha": "b8310eabbe08cfd87055e2579dc582d3f64364dd58a59db507ea4e309c5c7bb1",
+        "cap": "ripple/source-capsules/capsules/ripple-hybrid-alpha-v1-1.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple-Interference-Neuron-Alpha-v1.4.zip",
+        "size": 898002,
+        "sha": "cbe1b29264691441f94f77a53296057070cd83106b55885fff21d2fe5ab6a7d0",
+        "cap": "ripple/source-capsules/capsules/ripple-interference-neuron-alpha-v1-4.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple-Open-Grammar-Colony-Alpha-v1.6.zip",
+        "size": 1479882,
+        "sha": "c7a16fa0bfc8593895690673320151b65116581b5b08b7b57a6ddf5c64c9ee82",
+        "cap": "ripple/source-capsules/capsules/ripple-open-grammar-colony-alpha-v1-6.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple-Regulatory-Colony-v2-Complete.zip",
+        "size": 14038453,
+        "sha": "620fc176251b977dc2aa897c5a7b76572bc10b95bc7457f6f13442055237fca3",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Sensory-Gene-Gate-Alpha-v1.2.zip",
+        "size": 1561042,
+        "sha": "cf6b3d8789b4b1446c3a6bd165f5133282200101563c4b8b34876446e55cafe1",
+        "cap": "ripple/source-capsules/capsules/ripple-sensory-gene-gate-alpha-v1-2.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Cloud_Evolution_Alpha_v1_2.zip",
+        "size": 255096,
+        "sha": "ba8165858b40fc5d4f2ffb1d7e4549a4e9df74b50a1a2a1db91e775234132421",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Evo_Pareto_v1_3.zip",
+        "size": 179440,
+        "sha": "e35d449cac3c5e1030f2d21c96dd034812806a8d28ad4a9db5d82785fdc0ae6b",
+        "cap": null,
+        "status": "catalog only"
+      }
+    ],
+    "05-optics-spiderscan-golf": [
+      {
+        "name": "Golf-Ripple-Dell-Validated-v0.5-Complete(1).zip",
+        "size": 15814072,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/golf-ripple-dell-validated-v0-5-complete.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Golf-Ripple-Digital-Eyes-Engine-v0.2-Complete(1).zip",
+        "size": 7544397,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Golf-Ripple-Laptop-Native-v0.4-Complete.zip",
+        "size": 8015519,
+        "sha": "0c4021162cbdad6f47b41cdca0e7592662b71d7a5699279d100fe191ab22c760",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Golf-Ripple-Metrology-Digital-Eyes-v0.3-Complete.zip",
+        "size": 7796294,
+        "sha": "55f7933bfdaa64adadb799626c90fef1b2990a4b395a12a24b00f72294071494",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Golf-Alpha-v0.1-Complete.zip",
+        "size": 5363362,
+        "sha": "7ffe12e473957b44eee7a30a93187bf07c0eba37487b39ffdc74428fcfbdd004",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Optical-Historical-Math-v0.4.zip",
+        "size": 400631,
+        "sha": "a0e389d1f82a7293828b926681732d6547093c90df19be53c4d9a303364b754e",
+        "cap": "ripple/source-capsules/capsules/ripple-optical-historical-math-v0-4.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_FieldSphere_v0.1_Open_Source_Manufacturing.zip",
+        "size": 884940,
+        "sha": "d9a820a5846d6e3e8cbe278b5215e645ba94c0cd8dea37762e7d66089c3e98a0",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_FieldSphere_v0.2_AutoCAD_Package.zip",
+        "size": 1656721,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-fieldsphere-v0-2-autocad-package.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_FieldSphere_v0.2_Engineering_Complete.zip",
+        "size": 2562307,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-fieldsphere-v0-2-engineering-complete.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Heterodyne_v0.1_CAD_Manufacturing_Prototype.zip",
+        "size": 1162361,
+        "sha": "a12b5ebcc53d74bc63fbc8a0d5d4992a0e9a45101892ae9b0adb8db949de6e6f",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Optical_Agent_Research_v0_1.zip",
+        "size": 364820,
+        "sha": "1bd8af5d8e67a9d8d43b0d4a094073a1e4509b4ec6203cdacfb2f83aa3639d67",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Sensor_Bridge_v0_2.zip",
+        "size": 4777485,
+        "sha": "e05d95c77dcc16319338260e1cccc5c7b3fe587a624cd043c16f7eb9eaf2342c",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Spectrum_v0.1_Prototype.zip",
+        "size": 907140,
+        "sha": "4a5f3f7e5456ee5eba353ab4423aeade6222cf5d16c834cb95da3e703bd29358",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_SpiderScan_Colony_v0_6.zip",
+        "size": 1391983,
+        "sha": "d4e2a98a2567c8a6a3430c3badc7e69009b13f5dfdd33dd587fb7535468b157e",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_SpiderScan_Digital_Avatar_Alpha_v1_1.zip",
+        "size": 2473267,
+        "sha": "ca2d1df62bea8c5f6496838f8e063544a13051c394895d5277cb369fbff2c0b6",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_SpiderScan_Ground_v0_5.zip",
+        "size": 5189484,
+        "sha": "9a3a9f27160d393f2799bbbfbbde38522dd176d7936e7606352e85c17cf68659",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_SpiderScan_v0_3.zip",
+        "size": 2415547,
+        "sha": "5cc215dd51294cbaa1a5a3bf078ebb5795a8806b8d8a7671605628c78ca93fbe",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_SpiderScan_v0_4.zip",
+        "size": 1261341,
+        "sha": "c8837f0b6a2d34b4cbd2bbca2bfb342de546c86dbb4e2401657e5afdf0383ff2",
+        "cap": null,
+        "status": "catalog only"
+      }
+    ],
+    "06-charlie": [
+      {
+        "name": "Charlie_Daughter_Delta_Paired_Colony_v1_0.zip",
+        "size": 1161371,
+        "sha": "7051d2407c05151fff72e343ec35a952848ea3904389f710cd6e03b50d512cdc",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Charlie_Forest_Colony_v1_2.zip",
+        "size": 676150,
+        "sha": "b1ee2fa08db781c51a65daecc1dc616dbcf9fd57cc3b7246076afeb77d05a767",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Charlie_Recurrent_Thought_Comparison_v1_1.zip",
+        "size": 271565,
+        "sha": "61c2228cdee55ff6e48f31e4821a61a48cddddd4fd0669d94ea23da24e0e76ac",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Charlie_Ripple_Colony_Thought_Lab_v1_0.zip",
+        "size": 182937,
+        "sha": "60fef24002bb671c98757e66f48c0f9a4bc60c9fbb9893115168a084d4eb6ff4",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Charlie_Ripple_Core_v2_0.zip",
+        "size": 203177,
+        "sha": "1aace858bab7195e833b15cfea52199968d573d677360faafe55d12206d3ef48",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Charlie_Ripple_Mathematics_v1_0.zip",
+        "size": 397791,
+        "sha": "c0bd14ced844b7c5a94f3c8b67024beb97ec5ef83e0780f132e902bc90ebebf7",
+        "cap": null,
+        "status": "catalog only"
+      }
+    ],
+    "07-mushroom-ring": [
+      {
+        "name": "Mushroom_Ripple_Alpha_v3.0_Complete_Model.zip",
+        "size": 47175240,
+        "sha": "a5bb9acbe87e1a9b5356ffd6e361c88edcddf752b19c86f9fb008f46d73c832b",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ring_of_Mushrooms_Alpha_v4.0_Complete_Model.zip",
+        "size": 47523346,
+        "sha": "cb8f7408a8be96de23f03006f71bf05345e172ad26c0efb9080e49828d7fa79b",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ring_of_Mushrooms_Alpha_v5.0_AddOn.zip",
+        "size": 249411,
+        "sha": "34a3d0e1e258ce4cc6f8a5c9826440e5358d6355c478125a59473a2d64a39521",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ring_of_Mushrooms_Alpha_v5.0_Complete_Model.zip",
+        "size": 47878203,
+        "sha": "cf4434f7b2cdd9da857f0b91ccdd0f5ef0bccf18c6e127e50500a7aa4f2fd9c8",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ring_of_Mushrooms_FieldSphere_Alpha_v5.2_AddOn.zip",
+        "size": 1064837,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ring-of-mushrooms-fieldsphere-alpha-v5-2-addon.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ring_of_Mushrooms_FieldSphere_Alpha_v5.2_Complete.zip",
+        "size": 48937085,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ring-of-mushrooms-fieldsphere-alpha-v5-2-complete.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ring_of_Mushrooms_v5.1_Device_Integration_AddOn.zip",
+        "size": 83572,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ring-of-mushrooms-v5-1-device-integration-addon.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ring_of_Mushrooms_v5.1_Device_Integration_Complete.zip",
+        "size": 47961753,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ring-of-mushrooms-v5-1-device-integration-complete.zip.b64",
+        "status": "source-only capsule"
+      }
+    ],
+    "08-kokoro-ripple": [
+      {
+        "name": "Kokoro-CPU-Adaptive-Trainer-ADDON.zip",
+        "size": 24007,
+        "sha": "2cae0e5e474d25e7569cbcb15eb96682a347800031b59138e50cb46ec4ef99f0",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro-del-AI-Foundry.zip",
+        "size": 513909,
+        "sha": "9f247818ca34930d450d7a97446dbab2fbf54459016a0cd7e0f730626c207c0b",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro-del-Corazon-Foundry.zip",
+        "size": 411759,
+        "sha": "6439ecbf5690d2c8468be5c0a229f00b2b21a8ec06bda9d23821eebc05361fba",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro-del-Corazon.zip",
+        "size": 7296396,
+        "sha": "5371b4f161095578ce126dcbf080c1ed0c5d0bf2199a42ac05fab5cdb689329d",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro-del-Korazon.zip",
+        "size": 7296393,
+        "sha": "e04834fd808b3d8a5bddfe3d4304d42edab88ff8d4ce0846a728c34d01509ffc",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro-Genesis-Seed-ADDON.zip",
+        "size": 27539,
+        "sha": "e8ce4ce136bd93e67248e3b3c1f9b9e9deb05f5fc78cd0a006af68262cce6793",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro-Heartspace-Daughterboard-ADDON.zip",
+        "size": 187998,
+        "sha": "13a7600d2f3d19be91809e92038470d47f418705ab5f166e8dca3c76519747b9",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro-Oneiric-Resonance-System-ADDON.zip",
+        "size": 775259,
+        "sha": "156bd052498f91b32aad6734ed529a54e9c420f5d8fb219013c8419c24b7cff2",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro-Oneiric-Resonance-System-MAXIMIZED-ADDON.zip",
+        "size": 1570717,
+        "sha": "438f3dc8084f2ff6f0736a325446725f2adc87d1586fea1ec5d2171b1944445c",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro-Pocket-Time-Engine-ADDON.zip",
+        "size": 14420,
+        "sha": "0b4cd8f4d51ac97ca67e1bae08d58c5c611981b5ddc002d532004b0dcc3bfe09",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro-Psyche-Daughterboard-ADDON.zip",
+        "size": 26620,
+        "sha": "0670fc3141e9a859b0b69694e5c78b61e4563449b17bc5f6d7ec337659b4a72e",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro-Psyche-Network-ADDON.zip",
+        "size": 59410,
+        "sha": "ba323c748cd61ca13807476ed7b1170f25c0674b631645899001837dd4bfb382",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_AC_First_Physical_Sizing_v1_0.zip",
+        "size": 33766,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Complete_Shipyard_Assembly_v1_1.cargo.zip",
+        "size": 173534859,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Computer_Integration_Gate_v0_1.zip",
+        "size": 5553097,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/kokoro-computer-integration-gate-v0-1.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Kokoro_Endgame_Evidence_Audit_v0_1.zip",
+        "size": 35232,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Engineering_Shipyard_v1_0.zip",
+        "size": 19555895,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Engineering_Shipyard_v1_1.zip",
+        "size": 21479478,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Geometric_Interaction_Studio_v2_3.zip",
+        "size": 4270504,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/kokoro-geometric-interaction-studio-v2-3.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Kokoro_Lumina_3D_Alpha_v0_6.zip",
+        "size": 3897640,
+        "sha": "9d123551245093351824b3938d6917ec67d0efc93273a8fbc27e391e7a7e7dd9",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Lumina_Forest_Alpha_v0_5.zip",
+        "size": 28457988,
+        "sha": "e18fb213f4a163d7422054f3cb55cb1bdeb3a521da6098a64e53de9606c2f22c",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Lumina_Ripple_v0_4.zip",
+        "size": 13397207,
+        "sha": "588b375b94f9f9026fcd985d70d3f4254725437647365d2ac9ab3c679224f183",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Mesh_Ripple_v0_3.zip",
+        "size": 102877,
+        "sha": "de70c70cf773db1c553a44890ac5e5dc19f850f6e28b7c150792fc70ff6ae0c9",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Reality_Anchor_Memory_v0.1.zip",
+        "size": 20427,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Ripple_Desktop_Studio_v2_1.zip",
+        "size": 11829353,
+        "sha": "c9f3de65bcd2fa49916ba6730e2ebd835818ae30e169f7c7ff46dbec45c6c105",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Ripple_Dynamics_v0_1.zip",
+        "size": 784382,
+        "sha": "cce541d42875d33ef0ce34dc122871feff422d2de111b5e03fc0b44be1716cd5",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Ripple_Genome_Robotics_Alpha_v1_8.zip",
+        "size": 16769090,
+        "sha": "0e57865c1241b6ace096e914a7acaf813706e5bdceed1da3cdb0cf2f6c71c9c4",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Ripple_Geometric_Vision_Alpha_v2_0.zip",
+        "size": 11465478,
+        "sha": "4157d6d1e3743cabb6dea1de1f0406fa775950c482cfb5416439658ec05ed246",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Ripple_Integration_v0_2.zip",
+        "size": 111615,
+        "sha": "26b5132ef4b8cbdf51ff84bf24c1924436bf525c9704a16e35ba76b32ce27e5b",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Ripple_Motor_Alpha_v0_7.zip",
+        "size": 2170783,
+        "sha": "9061810df23722934f54412ca101075f37753fa8c2e2201921f566ecfe97073e",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Ripple_Perception_Action_Loop_v1_9.zip",
+        "size": 1687523,
+        "sha": "c60049beb7de9e34a9b1d889457024a3102efcf6e7a641a1ab5cec326ecd7019",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Shipyard_Starter_Project.cargo.zip",
+        "size": 18150834,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Kokoro_Spatial_Episodic_Memory_v0_3.zip",
+        "size": 7533595,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/kokoro-spatial-episodic-memory-v0-3.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "ripple_kokoro_laptop_v0.3.zip",
+        "size": 16403,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "ripple_kokoro_laptop_v0.4.zip",
+        "size": 14512,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "ripple_kokoro_laptop_v0.5.zip",
+        "size": 16095,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      }
+    ],
+    "09-calcium-mathematics-other": [
+      {
+        "name": "01_Ripple_Neuron_Math_Core.zip",
+        "size": 25352040,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "05_Optics_Robotics_SpiderScan_Golf.zip",
+        "size": 49951766,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "06_Charlie_Derivatives.zip",
+        "size": 5333672,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "07_MUSHROOM_Ring_of_Mushrooms.zip",
+        "size": 142827342,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "08_Kokoro_Ripple_Integrations.zip",
+        "size": 90676281,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "09_Kokoro_Adjacent_Unverified_Lineage.zip",
+        "size": 18206939,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-AntMiner-Alpha-v0.1.zip",
+        "size": 12766,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-AntMiner-Colony-v0.2.zip",
+        "size": 43340,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Calcium-Battery-Lab-v1-Complete.zip",
+        "size": 597922,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Code-Reasoning-Colony-Alpha-v1.5.zip",
+        "size": 2150631,
+        "sha": "c1ed1a635d262bc246ccb721c08da171a03e7c9b806d6afd4aa6b6f92a34ef69",
+        "cap": "ripple/source-capsules/capsules/ripple-code-reasoning-colony-alpha-v1-5.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple-Deep-Mathematics-Recovery-Evidence-2026-10-15.zip",
+        "size": 2855758,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Lineage-Concepts-and-Research-2026-10-20.zip",
+        "size": 4969498,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Mathematics-Compiler-Beer-Lambert-v2.1.1.zip",
+        "size": 24472,
+        "sha": "f2813fe2965eef43771062f81ac60bc879890573bc5066f5838ac78e90b61a1d",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple-Public-Research-Website-Upload.zip",
+        "size": 185303,
+        "sha": "not cataloged",
+        "cap": null,
+        "status": "catalog only"
+      },
+      {
+        "name": "Ripple_Calcium_AC_Materials_Geometry_v1_3.zip",
+        "size": 324009,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-calcium-ac-materials-geometry-v1-3.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Calcium_Alternating_Output_v1_4.zip",
+        "size": 612686,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-calcium-alternating-output-v1-4.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Calcium_Battery_AC_DC_v1_1.zip",
+        "size": 39145,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-calcium-battery-ac-dc-v1-1.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Calcium_Battery_Derived_AC_DC_v1_2.zip",
+        "size": 61822,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-calcium-battery-derived-ac-dc-v1-2.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Fluctuation_Centers_Encrypted_v0.2_Executable.zip",
+        "size": 985859,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-fluctuation-centers-encrypted-v0-2-executable.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Genomic_Maps_Alpha_v0.1_Complete.zip",
+        "size": 401442,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-genomic-maps-alpha-v0-1-complete.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Heterogeneous_Mathematical_Fusion_v1_Executable.zip",
+        "size": 8289669,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-heterogeneous-mathematical-fusion-v1-executable.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Integrated_Mathematical_Architecture_v1_Executable.zip",
+        "size": 3053040,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-integrated-mathematical-architecture-v1-executable.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Mathematical_Atlas_107_Archives_Executable_v1.zip",
+        "size": 35774076,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-mathematical-atlas-107-archives-executable-v1.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Mathematical_Exchange_v0_1_Complete.zip",
+        "size": 549174,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-mathematical-exchange-v0-1-complete.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Memory_Wave_Mathematics_v0.1_Executable.zip",
+        "size": 1260630,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-memory-wave-mathematics-v0-1-executable.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Neural_Compute_Correction_v0.1_Complete.zip",
+        "size": 515716,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-neural-compute-correction-v0-1-complete.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_Repair_Daughter_Delta_v1_0.zip",
+        "size": 18977980,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-repair-daughter-delta-v1-0.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_RGB_Mathematics_v0.1_Executable.zip",
+        "size": 478137,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-rgb-mathematics-v0-1-executable.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_SuperNeuron_RNA_Alpha_SixGene_v0.1_Complete.zip",
+        "size": 43517,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-superneuron-rna-alpha-sixgene-v0-1-complete.zip.b64",
+        "status": "source-only capsule"
+      },
+      {
+        "name": "Ripple_XYZ_3D_CrossChannel_Memory_v0.2_Executable.zip",
+        "size": 1343301,
+        "sha": "not cataloged",
+        "cap": "ripple/source-capsules/capsules/ripple-xyz-3d-crosschannel-memory-v0-2-executable.zip.b64",
+        "status": "source-only capsule"
+      }
+    ]
+  },
+  "notes": [
+    "catalog only is not an uploaded source release",
+    "source-only capsule is not original zip",
+    "classification by filename is imperfect; review before asserting completeness"
+  ]
+}
