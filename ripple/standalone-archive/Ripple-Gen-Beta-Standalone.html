@@ -1,0 +1,502 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ripple Gen Beta | Integrated Laboratory</title><style>
+:root{--paper:#f1f4ef;--ink:#122d39;--green:#287e5c;--line:#d7e0da;--secondary:#526773;--card:#fff;--amber:#cd9a5e}
+*{box-sizing:border-box}body{background:var(--paper);color:var(--ink);font:14px/1.5 system-ui,-apple-system,sans-serif;margin:0}header{background:#102a38;color:#fff;padding:22px max(18px,calc((100vw - 1220px)/2));border-bottom:4px solid #367d63;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.eyebrow{color:#82c8ae;font-size:11px;letter-spacing:.19em;font-weight:800}h1{font-size:clamp(26px,3.5vw,38px);margin:0;letter-spacing:-.045em}h2{font-size:19px;margin:0 0 13px}h3{font-size:15px;margin:0 0 6px}.version{font-size:12px;border:1px solid #5b907f;border-radius:22px;padding:6px 12px;color:#b9dece}.wrap{max-width:1252px;padding:20px 17px 50px;margin:auto}.description{color:var(--secondary);margin:0 0 17px;max-width:880px}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 18px}.tabs button{background:transparent;border:1px solid var(--line);border-radius:9px;color:var(--ink);padding:11px 13px;cursor:pointer;font-weight:700}.tabs button.active{background:var(--ink);color:#fff;border-color:var(--ink)}.layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(315px,.8fr);gap:16px;align-items:start}.panel{padding:19px;background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:0 3px 10px #18363b06;margin-bottom:16px}.control-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.control-grid label,.inputline label{font-size:11px;color:var(--secondary);font-weight:750}.control-grid select,.control-grid input{display:block;width:100%;border:1px solid var(--line);border-radius:8px;padding:10px;background:#fff;color:var(--ink);font:inherit;margin-top:5px;min-height:42px}.buttons{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}button{font:inherit}button.main{background:var(--green);color:white;border:1px solid var(--green);font-weight:750;padding:11px 14px;border-radius:8px;cursor:pointer}button.alt{background:#f7f9f8;color:var(--ink);border:1px solid var(--line);font-weight:700;padding:11px 14px;border-radius:8px;cursor:pointer}button:disabled{opacity:.45;cursor:default}.view{position:relative;background:#091e2a;border-radius:11px;overflow:hidden;line-height:0}canvas#world{display:block;width:100%;aspect-ratio:3/2;image-rendering:pixelated;touch-action:manipulation}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--secondary);margin-top:12px}.swatch{display:inline-block;width:10px;height:10px;vertical-align:middle;border-radius:3px;margin-right:3px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.stat{padding:13px 10px;background:#f1f6f2;border-radius:10px}.stat strong{font-size:22px;display:block;font-variant-numeric:tabular-nums;line-height:1.15}.stat small{font-size:10px;color:#567064}.note{background:#edf3ef;border-radius:8px;padding:9px 11px;color:#3f5e50;font-size:12px;margin-top:10px}.warning{background:#fff8e9;border-left:3px solid #c5934f;padding:10px 12px;font-size:12px;color:#69512e}.footnote{font-size:11px;color:#62757a}.tablewrap{overflow:auto}.comparison{width:100%;border-collapse:collapse;font-size:12px;font-variant-numeric:tabular-nums}.comparison th{text-align:left;background:#eff4f0;padding:11px 8px;border-bottom:1px solid var(--line);white-space:nowrap}.comparison td{border-bottom:1px solid #e5ece8;padding:10px 8px}.comparison tbody tr:hover{background:#f7f9f7}.comparison .featured{font-weight:850;color:#247651}.tags{display:flex;gap:5px;flex-wrap:wrap}.tag{border-radius:20px;padding:3px 7px;background:#eef2ef;color:#355e4d;font-size:10px;font-weight:700}.tag.orange{background:#f9efdf;color:#86602b}.matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.matrix article{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}.matrix p{color:var(--secondary);font-size:12px;margin:5px 0}.matrix b{font-size:13px}.seq{font-size:12px;color:var(--secondary);max-height:270px;overflow:auto}.seq div{padding:7px 0;border-bottom:1px solid var(--line)}.hidden{display:none!important}.sel{color:var(--green);font-weight:750}.textbutton{color:var(--green);font-weight:750;background:none;border:0;cursor:pointer;text-decoration:underline}.small{font-size:12px;color:var(--secondary)}.compareChart{width:100%;height:260px}.maxWidth{max-width:860px}.source{font:12px/1.7 ui-monospace,monospace;white-space:pre-wrap;word-break:break-word}.sources a{color:var(--green);word-break:break-word}.footer{font-size:12px;color:var(--secondary);border-top:1px solid var(--line);padding:15px 2px;margin-top:20px}@media(max-width:850px){.layout{grid-template-columns:1fr}.matrix{grid-template-columns:1fr}.control-grid{grid-template-columns:1fr 1fr}.stats{grid-template-columns:repeat(3,1fr)}header{padding:19px 16px}}@media(max-width:450px){.control-grid{grid-template-columns:1fr}.stats{gap:5px}.stat{padding:9px 7px}.stat strong{font-size:20px}}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #57a783;outline-offset:2px}
+</style></head><body><header><div><div class="eyebrow">RIPPLE RESEARCH / SOFTWARE ARCHITECTURE</div><h1>Ripple Gen Beta</h1><div style="opacity:.75;font-size:12px;margin-top:4px">A verified, bounded integration of actual Ripple kernels and synthetic lab modules</div></div><span class="version">v2.0.0-beta.1 · Independent release</span></header>
+<main class="wrap"><p class="description">Explore what each program structure contributes—and what it costs—before adopting a final integration. All worlds in this lab are <b>synthetic</b>. This version does not run camera, robot, autonomous cloud agents, or discontinued research modes.</p>
+<nav class="tabs" aria-label="Laboratory sections"><button class="active" data-tab="lab">Interactive world</button><button data-tab="study">Architecture trials</button><button data-tab="systems">Design review</button><button data-tab="evidence">Evidence / Safety</button></nav>
+<section id="lab" data-panel="lab"><div class="layout"><div><div class="panel"><div class="control-grid"><label>Architecture<select id="policy"><option value="hybrid-beta">Guarded Hybrid Beta</option><option value="neuron-only">Original neuron only</option><option value="optical-q">Photoreceptor + Quad</option><option value="spatial">Spatial baseline</option><option value="colony">Colony + memory</option><option value="beta-no-optical">Hybrid minus optical</option><option value="beta-no-quaternary">Hybrid minus Quad</option><option value="beta-no-sharing">Hybrid minus sharing</option><option value="beta-no-cloning">Hybrid minus descendants</option><option value="beta-no-memory">Hybrid minus memory</option><option value="beta-density-on">Hybrid plus density model</option></select></label><label>Environment<select id="scenario"><option value="mixed">Mixed</option><option value="barriers">Obstacle field</option><option value="noise">Fluctuating source</option><option value="resources">Multi-source</option></select></label><label>Seed<input type="number" min="0" max="4294967295" step="1" id="seed" value="59"></label></div><div class="buttons"><button class="main" id="run">Run 240 steps</button><button class="alt" id="step">+20 steps</button><button class="alt" id="reset">Reset</button><button class="alt" id="export">Export trace JSON</button></div></div>
+<div class="panel"><div class="view"><canvas id="world" width="768" height="512" aria-label="Synthetic RGB field with independent Ripple worker positions and obstacles"></canvas></div><div class="legend"><span><i class="swatch" style="background:#cbdad3"></i> Grid/space</span><span><i class="swatch" style="background:#294856"></i> Blocked barriers</span><span><i class="swatch" style="background:#ffefbb"></i> Tracked agents</span><span><i class="swatch" style="background:#6bc6ff"></i> Selected trajectory</span></div><div id="tile" class="note">Click a cell to inspect simulated RGB values and any agents occupying it.</div></div></div>
+<aside><div class="panel"><h2>Runtime observables</h2><div class="stats"><div class="stat"><strong id="vTick">0</strong><small>model ticks</small></div><div class="stat"><strong id="vEvents">0</strong><small>neuron pulses</small></div><div class="stat"><strong id="vCoverage">0</strong><small>unique cells mapped</small></div><div class="stat"><strong id="vPopulation">3</strong><small>digital agents</small></div><div class="stat"><strong id="vShare">0</strong><small>map entries shared</small></div><div class="stat"><strong id="vClones">0</strong><small>descendants created</small></div></div><div class="note" id="status">World initialized; no experiment run yet.</div></div>
+<div class="panel"><h2>Agent trajectories & ancestry</h2><label class="small">Follow agent <select style="padding:7px;border-radius:7px;border:1px solid #cbdcd0;width:100%" id="agentSelect"></select></label><div id="agentDetails" class="seq"></div></div>
+<div class="panel"><h2>Quaternary state & safeguards</h2><div class="source">−1 = falling drive (00)
+−0 = inhibitory/rest code (01)
+ 0 = hold/neutral code (10)
+ 1 = rising drive (11)</div><p class="footnote">These are labels for 2-bit coded symbols. The preserved v0.7 encoder calculates them; the current agent policy logs but does not use them to change actions.</p></div></aside></div></section>
+<section class="hidden" id="study" data-panel="study"><div class="panel"><h2>Five architecture paths — same synthetic worlds</h2><p class="small">15 predeclared seeds × 4 environments × 5 architecture policies = 300 cases. Performance on this machine is a local CPU timing measurement, not evidence of intelligence. Coverage is number of unique map cells; no object-recognition benchmark exists.</p><div class="control-grid" style="max-width:380px"><label>Split<select id="split"><option value="holdout">Holdout: unseen seeds</option><option value="development">Development seeds</option></select></label></div><div class="tablewrap"><table class="comparison"><thead><tr><th>Architecture</th><th>Mean coverage</th><th>Mean pulses</th><th>Cells shared</th><th>Descendants</th><th>Median CPU ms/run</th></tr></thead><tbody id="trialRows"></tbody></table></div><p class="footnote">Warning: neuron-only and optical-only have no spatial mapping module, so their coverage is structurally zero; this is a capability comparison, not a fair mapping-performance contest.</p></div>
+<div class="panel"><h2>Six Beta feature interventions</h2><p class="small">Holdout: 5 seeds × 4 scenarios for each Beta intervention. Δ coverage is (default Hybrid − comparison variant). Sharing and quaternary coding need not improve synthetic map coverage to remain useful for other defined tasks.</p><div class="tablewrap"><table class="comparison"><thead><tr><th>Feature intervention</th><th>Mean coverage</th><th>Δ vs full</th><th>Mean pulses</th><th>Map entries shared</th></tr></thead><tbody id="ablateRows"></tbody></table></div></div><div class="warning">No claim of a universally best architecture is made. Removing memory also alters rules dependent on unseen-cell knowledge; the measured difference represents that module <i>and its dependent policy</i>, not memory alone. No external labeled mapping targets were used.</div></section>
+<section class="hidden" id="systems" data-panel="systems"><div class="panel"><h2>Design advancements: strengths and boundaries</h2><div class="matrix" id="matrix"></div></div><div class="panel"><h2>Final Beta dependency map</h2><div class="source">synthetic RGB / future validated sensor adapter
+          │
+          ▼
+[Optional v0.6 photoreceptor] → [LOCKED v0.1 Ripple Neuron]
+          │                           │
+          ├─ optically compressed RGB ├─ pulses & adaptive gate
+          │                           ▼
+          └──────────────────► [v0.7 Quad state encoder]
+                                      │ (TELEMETRY ONLY)
+            [synthetic 2D grid, occlusion, numerical occupancy]
+                               │
+                               ▼
+             [allowlisted SCAN/MOVE/SHARE/CLONE/WAIT]
+                               │
+                               ▼
+                 [local memory + bounded lineage]
+                               │
+                               ▼
+              [replay, traces, holdout trials, guardrails]
+</div><p class="footnote">Spatial diffusion, sensor input, and colony behavior are simulated. The real physical sensor bridge is a separate future evidence gate; raw hardware telemetry never enters the Beta simulation disguised as measured input.</p></div></section>
+<section class="hidden" id="evidence" data-panel="evidence"><div class="panel"><h2>Evidence categories</h2><div class="matrix"><article><h3>Source verified</h3><p>Original LIF source byte-for-byte preserved, v0.6 photoreceptor original archived, v0.7 quaternary source preserved.</p></article><article><h3>Numerically verified</h3><p>Conservation, bounded evolution, deterministic replay, 2-bit packing and LIF brightness-step regression.</p></article><article><h3>Synthetic comparisons</h3><p>300 policy runs and 420 ablation runs over fixed worlds. Not hardware measurements or general-purpose intelligence tests.</p></article><article><h3>Not demonstrated</h3><p>Physical camera calibration, mass density, motor control, robot intelligence, GPU acceleration, unseen real-world navigation, self-authored code.</p></article></div></div><div class="panel"><h2>Bounded execution contract</h2><p class="small">Allowed actions: SCAN, MOVE, SHARE, CLONE, WAIT. No eval, arbitrary code, network calls, filesystem writes by digital agents, external API permissions, motor commands or cloud spending. Maximum 16 agents, 1,200 ticks, eight decision rules, 1,024 remembered cells per agent.</p><button class="alt" id="exportStudy">Export evaluated comparison JSON</button><p class="footnote">This lab is not an artificial intelligence model. Its programs are deterministic or seeded procedures for transparent research.</p></div></section><div class="footer">Ripple Gen Beta v2.0.0-beta.1 · Alpha source material archived and checksum pinned · Research implementation, not live deployment or physical measurement.</div></main>
+<script>
+// Preserved verbatim from Ripple-Neuron-Simulator.html v0.1 (CC0-1.0)
+const bound=(x,lo,hi)=>Math.max(lo,Math.min(hi,x));
+class RippleNeuron{
+ constructor(o={}){this.theta=o.theta??0.45;this.adaptive=o.adaptive??true;this.target=o.target??1;this.tauV=.5;this.tauR=5;this.refractory=.1;this.eta=.08;this.lo=.15;this.hi=2.5;this.t=0;this.u=0;this.rate=0;this.rest=0;}
+ step(x,dt){if(x.length!==3||x.some(v=>!Number.isFinite(v))||!Number.isFinite(dt)||dt<=0||dt>.5)throw Error('Invalid input or elapsed time');x=x.map(v=>bound(v,0,1));const drive=2*x[0]+1.2*x[1]-1.4*x[2],start=this.t,events=[];let elapsed=0;
+  while(elapsed<dt-1e-12){const left=dt-elapsed;if(this.rest>1e-12){let held=Math.min(left,this.rest);this.rest=Math.max(0,this.rest-held);this.u=0;elapsed+=held;continue;}let crossing=Infinity;if(this.u>=this.theta)crossing=0;else if(drive>this.theta)crossing=this.tauV*Math.log((drive-this.u)/(drive-this.theta));if(crossing<=left+1e-12){elapsed+=Math.max(0,Math.min(left,crossing));events.push(start+elapsed);this.u=0;this.rest=this.refractory;}else{this.u=Math.max(0,drive+(this.u-drive)*Math.exp(-left/this.tauV));elapsed=dt;}}
+  const decay=Math.exp(-dt/this.tauR);let integral=this.rate*this.tauR*(1-decay);this.rate*=decay;for(const event of events){const d=Math.exp(-(start+dt-event)/this.tauR);this.rate+=d/this.tauR;integral+=1-d;}if(this.adaptive)this.theta=bound(this.theta+this.eta*(integral-this.target*dt),this.lo,this.hi);this.t=start+dt;return{t:this.t,u:this.u,theta:this.theta,rate:this.rate,drive,count:events.length,events};}
+ attainable(drive){if(drive<=0)return false;const th=drive*(1-Math.exp(-(1/this.target-this.refractory)/this.tauV));return this.lo<=th&&th<=this.hi;}
+}
+function runExperiment(){const a=new RippleNeuron(),b=new RippleNeuron({adaptive:false}),rows=[],spikes={adaptive:[],fixed:[]};for(let i=0;i<2400;i++){const t=i*.05,red=t<40||t>=80?.35:.70,ra=a.step([red,0,0],.05),rb=b.step([red,0,0],.05);spikes.adaptive.push(...ra.events);spikes.fixed.push(...rb.events);rows.push({time_s:ra.t,red_norm:red,green_norm:0,blue_norm:0,drive:ra.drive,theta_adaptive:ra.theta,theta_fixed:rb.theta,rate_adaptive_hz:ra.rate,rate_fixed_hz:rb.rate,spikes_adaptive:ra.count,spikes_fixed:rb.count});}const windows=[[20,40],[60,80],[100,120]].map(([lo,hi])=>({lo,hi,adaptive_hz:spikes.adaptive.filter(e=>lo<=e&&e<hi).length/(hi-lo),fixed_hz:spikes.fixed.filter(e=>lo<=e&&e<hi).length/(hi-lo)}));return{rows,windows};}
+globalThis.RippleNeuron=RippleNeuron;globalThis.runExperiment=runExperiment;
+
+// Ripple Neuron v0.6: optional and isolated light preprocessor. CC0-1.0.
+(function(root){
+'use strict';
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const sRGBToLinear=x=>{x=clamp(Number(x)||0);return x<=.04045?x/12.92:Math.pow((x+.055)/1.055,2.4);};
+const linearToSRGB=x=>{x=clamp(Number(x)||0);return x<=.0031308?12.92*x:1.055*Math.pow(x,1/2.4)-.055;};
+const absorb=(rgb,coeff,path)=>{path=clamp(Number(path)||0,0,10);const T=rgb.map((_,i)=>Math.exp(-clamp(Number(coeff[i])||0,0,8)*path));return{output:rgb.map((v,i)=>clamp(v)*T[i]),transmittance:T,simulated:true};};
+function opacityCal(raw,dark,clear,gamma=true){
+ if(![raw,dark,clear].every(x=>Array.isArray(x)&&x.length===3&&x.every(Number.isFinite)))return{valid:false,channels:[],output:[0,0,0]};
+ const decode=x=>gamma?sRGBToLinear(x/255):x/255;
+ const channels=raw.map((v,i)=>{
+  const ok=clear[i]-dark[i]>=20&&raw[i]<250&&clear[i]<250&&raw[i]>=0&&clear[i]<=255&&dark[i]>=0;
+  const denom=decode(clear[i])-decode(dark[i]);const valid=ok&&denom>1e-6;
+  const transmission=valid?clamp((decode(v)-decode(dark[i]))/denom):null;
+  return{valid,transmission,relativeOpacity:transmission===null?null:1-transmission,relativeOD:transmission===null?null:-Math.log10(Math.max(transmission,.001))};
+ });
+ return{valid:channels.every(x=>x.valid),channels,output:channels.map(x=>x.transmission??0),gamma,warning:'Display-referred camera proxy; exposure/white-balance not calibrated'};
+}
+class Photoreceptor{
+ constructor(o={}){this.defaults={linear:true,logGain:8,contrastThreshold:.25,transientGain:.35,logFloor:.01,limit:8,...o};this.reset();}
+ reset(){this.refLog=null;this.time=0;}
+ step(rgb,dt,overrides={}){
+  if(!Array.isArray(rgb)||rgb.length!==3||rgb.some(v=>!Number.isFinite(v))||!Number.isFinite(dt)||dt<=0||dt>.5)throw Error('Invalid input');
+  const o={...this.defaults,...overrides},input=rgb.map(x=>clamp(x));
+  const linear=o.linear?input.map(sRGBToLinear):input;
+  const k=clamp(Number(o.logGain),0,100),floor=clamp(Number(o.logFloor),.001,.1),thr=clamp(Number(o.contrastThreshold),.08,2);
+  const gain=clamp(Number(o.transientGain),0,1.5),limit=Math.max(1,Math.min(8,Math.floor(o.limit)));
+  const logs=linear.map(x=>Math.log(x+floor));if(this.refLog===null)this.refLog=logs.slice();
+  const on=[0,0,0],off=[0,0,0];
+  for(let i=0;i<3;i++){
+   const delta=logs[i]-this.refLog[i],count=Math.min(limit,Math.floor((Math.abs(delta)+1e-10)/thr));
+   if(count){if(delta>0)on[i]=count;else off[i]=count;this.refLog[i]+=Math.sign(delta)*count*thr;}
+  }
+  const sustained=linear.map(x=>k===0?x:Math.log1p(k*x)/Math.log1p(k));
+  const output=sustained.map((x,i)=>clamp(x+gain*on[i]/limit));this.time+=dt;
+  return{output,sustained,on,off,linear,time:this.time,mode:'software temporal contrast encoder',syntheticEvents:true};
+ }
+}
+root.RippleLightV06={Photoreceptor,absorb,opacityCal,sRGBToLinear,linearToSRGB};
+if(typeof module!=='undefined'&&module.exports)module.exports=root.RippleLightV06;
+})(typeof globalThis!=='undefined'?globalThis:this);
+
+const RIPPLEQ=(()=>{
+/** Ripple Q v0.7: deterministic four-symbol sensor computer.
+ * v0.1 Ripple neuron's numerical core is not modified.
+ * -0 and +0 are distinct SYMBOLS, not claims about negative electrical zero.
+ * Four symbols occupy two conventional bits per symbol.
+ */
+const LABELS = Object.freeze(['-1', '-0', '0', '1']);
+const BITS = Object.freeze(['00','01','10','11']);
+const SYMBOL_TO_CODE = Object.freeze({'-1':0,'-0':1,'0':2,'1':3});
+const toSymbol = (code) => LABELS[code];
+const toBits = (code) => {if(!Number.isInteger(code)||code<0||code>3) throw Error('invalid base-4 symbol'); return BITS[code];};
+const fromBits = (bits) => {const n=BITS.indexOf(bits);if(n===-1)throw Error('invalid two-bit symbol');return n;};
+const pack4 = (symbols) => {if(symbols.length!==4||symbols.some(s=>!Number.isInteger(s)||s<0||s>3))throw Error('Expected exactly four base-4 symbols');return symbols.reduce((acc,s)=>(acc<<2)|s,0)};
+const unpack4 = (byte) => {if(!Number.isInteger(byte)||byte<0||byte>255)throw Error('invalid byte');return [6,4,2,0].map(shift=>(byte>>shift)&3);};
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const intensity = rgb => .2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2];
+const drive = rgb => 2*rgb[0]+1.2*rgb[1]-1.4*rgb[2];
+
+/** 32x32 RGBA central ROI; contrast is scene texture proxy, not mass or atomic density.
+ * frameDifference is frame-registered pixel difference; it is NOT full optical flow.
+ */
+function frameFeatures(rgba,width=32,height=32,previous=null){
+ if(!(rgba instanceof Uint8ClampedArray)&&!(rgba instanceof Uint8Array))throw Error('RGBA byte array required');
+ if(width*height*4!==rgba.length||width<2||height<2)throw Error('wrong frame shape');
+ const lum = new Float64Array(width*height);const rgb=[0,0,0];let clip=0;
+ for(let p=0;p<width*height;p++){
+  const i=p*4,r=rgba[i],g=rgba[i+1],b=rgba[i+2];
+  rgb[0]+=r;rgb[1]+=g;rgb[2]+=b;lum[p]=(.2126*r+.7152*g+.0722*b)/255;
+  if(r>=250||g>=250||b>=250)clip++;
+ }
+ const n=width*height;for(let i=0;i<3;i++)rgb[i]/=(255*n);
+ let edge=0,count=0;
+ for(let y=1;y<height-1;y++)for(let x=1;x<width-1;x++){
+  const k=y*width+x;
+  const gx=(-lum[k-width-1]-2*lum[k-1]-lum[k+width-1]+lum[k-width+1]+2*lum[k+1]+lum[k+width+1])/8;
+  const gy=(-lum[k-width-1]-2*lum[k-width]-lum[k-width+1]+lum[k+width-1]+2*lum[k+width]+lum[k+width+1])/8;
+  edge+=Math.hypot(gx,gy);count++;
+ }
+ let frameDifference=null;
+ if(previous&&previous.length===n){let s=0;for(let i=0;i<n;i++)s+=Math.abs(lum[i]-previous[i]);frameDifference=s/n;}
+ return {rgb,meanLight:intensity(rgb),edgeDensity:count?edge/count:0,frameDifference,clipFraction:clip/n,luminance:lum,
+  measured:'display-referred camera pixels',warning:'Edge-density is spatial contrast only; frame difference is not object speed or mass density.'};
+}
+
+/** Permissionless capability probes reveal only what a browser exposes.
+ * 'Samsung' CPU model/SoC specs cannot generally be determined from a webpage.
+ */
+async function deviceProfile(nav=globalThis.navigator||{},win=globalThis){
+ const p={platform:nav.userAgentData?.platform||nav.platform||'unknown',model:'not available',
+   logicalProcessorHint:Number.isFinite(nav.hardwareConcurrency)?nav.hardwareConcurrency:null,
+   approximateDeviceMemoryGB:Number.isFinite(nav.deviceMemory)?nav.deviceMemory:null,
+   cameraAPI:!!nav.mediaDevices?.getUserMedia,motionAPI:'DeviceMotionEvent' in win,
+   magnetometerAPI:typeof win.Magnetometer==='function',ambientLightAPI:typeof win.AmbientLightSensor==='function',
+   secureContext:!!win.isSecureContext,details:'Hardware model, CPU clock and SoC are not available via ordinary browser APIs; hints can be rounded.'};
+ if(nav.userAgentData?.getHighEntropyValues){try{const h=await nav.userAgentData.getHighEntropyValues(['model','architecture','platformVersion']);p.model=h.model||'not exposed';p.architecture=h.architecture||'not exposed';p.platformVersion=h.platformVersion||'not exposed';}catch{}}
+ return p;
+}
+
+// A one-shot bounded CPU measurement only; not an actual SoC benchmark or FLOPS rating.
+function runtimeProbe(loops=100000){
+ loops=Math.floor(clamp(loops,1000,1000000));let a=1,b=0;
+ const before=performance.now();for(let i=0;i<loops;i++){a=(Math.imul(a,1664525)+1013904223)|0;b^=a>>>10;}
+ const elapsed=Math.max(.001,performance.now()-before);
+ return {loops,elapsedMs:elapsed,iterationsPerSecond:loops*1000/elapsed,checksum:b|0,note:'JavaScript main-thread loop throughput, not manufacturer processing power.'};
+}
+
+/** Temporal machine with noise-adaptive Schmitt thresholds and explicit inhibitory rest.
+ * Code order 0=-1 negative change, 1=-0 suppressed/negative-drive rest,
+ * 2=0 neutral hold, 3=1 positive change.
+ * This coding is engineered; it is not a natural language emerging from a neuron.
+ */
+class QuadEncoder{
+ constructor(opts={}){this.base=clamp(opts.threshold??.12,.005,2);this.noiseMult=clamp(opts.noiseMult??4,0,20);this.dwell=Math.max(1,Math.min(10,Math.floor(opts.dwell??2)));this.reset();}
+ reset(){this.previous=null;this.prevDrive=null;this.referenceDrive=null;this.noise=0;this.pending=null;this.pendingCount=0;this.last=2;this.counts=[0,0,0,0];this.n=0;}
+ step(s){
+  const d=Number(s.drive);
+  if(!Number.isFinite(d))throw Error('input must have finite drive');
+  if(this.referenceDrive===null)this.referenceDrive=d;
+  const diff=d-this.referenceDrive;
+  const threshold=Math.max(this.base,this.noiseMult*this.noise);
+  let candidate;
+  if(this.prevDrive!==null&&diff>threshold)candidate=3;
+  else if(this.prevDrive!==null&&diff<-threshold)candidate=0;
+  else if(d< -Math.max(this.base,.04)||s.inhibited===true)candidate=1;
+  else candidate=2;
+  if(candidate===this.pending)this.pendingCount++;else{this.pending=candidate;this.pendingCount=1;}
+  if(this.pendingCount>=this.dwell){
+   this.last=candidate;
+   // Only a confirmed change updates the reference, so a sustained physical
+   // illumination step can pass a two-frame debounce test.
+   if(candidate===3||candidate===0)this.referenceDrive=d;
+  }
+  // Update the noise floor only when the sample is near the existing reference.
+  if(this.prevDrive!==null&&Math.abs(diff)<threshold)this.noise=.95*this.noise+.05*Math.abs(d-this.prevDrive);
+  this.prevDrive=d;this.n++;this.counts[this.last]++;
+  return {code:this.last,label:toSymbol(this.last),bits:toBits(this.last),candidate:toSymbol(candidate),drive:d,diff,threshold,noiseFloor:this.noise,count:this.n};
+ }
+}
+
+/** Opcode = two base-4 symbols = four binary bits. Supported ISA is intentionally bounded.
+ * Programs are authored presets, never arbitrary JavaScript generated by an incoming signal.
+ */
+const OPS=Object.freeze([
+ 'PUSH_R','PUSH_G','PUSH_B','PUSH_DRIVE','PUSH_EDGE','PUSH_FRAME_DIFF','PUSH_ACCEL','PUSH_MAG',
+ 'PUSH_LUX','PUSH_ZERO','ADD','SUB','MUL','CLAMP01','QUANTIZE','EMIT'
+]);
+const opcodeSymbols=op=>{const i=OPS.indexOf(op);if(i<0)throw Error('unknown instruction: '+op);return [(i>>2)&3,i&3];};
+const disassemble = pairs => pairs.map(([a,b])=>OPS[(a<<2)|b]||'INVALID');
+function compile(source){
+ const tokens=Array.isArray(source)?source:String(source).split(/[;\n]+/).map(x=>x.trim()).filter(Boolean);
+ if(!tokens.length||tokens.length>32)throw Error('Program length must be 1..32 instructions');
+ const pairs=tokens.map(opcodeSymbols);
+ if(tokens.at(-1)!=='EMIT')throw Error('A program must end with EMIT');
+ return {source:tokens.join('; '),ops:tokens,pairs,bits:pairs.flatMap(p=>p.map(toBits)).join(' '),symbols:pairs.flatMap(p=>p.map(toSymbol)).join(' ')};
+}
+const presets=Object.freeze({
+ 'Drive events':['PUSH_DRIVE','QUANTIZE','EMIT'],
+ 'Optical density proxy':['PUSH_EDGE','QUANTIZE','EMIT'],
+ 'Pixel change':['PUSH_FRAME_DIFF','QUANTIZE','EMIT'],
+ 'Phone acceleration':['PUSH_ACCEL','QUANTIZE','EMIT'],
+ 'Magnetic field':['PUSH_MAG','QUANTIZE','EMIT'],
+ 'Light level':['PUSH_LUX','QUANTIZE','EMIT'],
+ 'Red minus blue':['PUSH_R','PUSH_B','SUB','QUANTIZE','EMIT']
+});
+const PROGRAMS=presets;
+class QuadVM{
+ constructor(source='Drive events',opts={}){this.program=compile(presets[source]||source);this.encoder=new QuadEncoder(opts);this.emitted=[];}
+ reset(){this.encoder.reset();this.emitted=[];}
+ run(sample){
+  const stack=[],events=[],f=(x)=>Number.isFinite(x)?x:0;
+  for(const op of this.program.ops){
+   if(op.startsWith('PUSH_')){
+    const look={PUSH_R:sample.rgb?.[0],PUSH_G:sample.rgb?.[1],PUSH_B:sample.rgb?.[2],PUSH_DRIVE:sample.drive,
+     PUSH_EDGE:sample.edgeDensity,PUSH_FRAME_DIFF:sample.frameDifference,PUSH_ACCEL:sample.acceleration,
+     PUSH_MAG:sample.magnetometer,PUSH_LUX:sample.lux,PUSH_ZERO:0};
+    if(['PUSH_ACCEL','PUSH_MAG','PUSH_LUX','PUSH_FRAME_DIFF'].includes(op)&&!Number.isFinite(look[op]))throw Error(op+' unavailable: no genuine sensor reading');
+    stack.push(f(look[op]));
+   } else if(['ADD','SUB','MUL'].includes(op)){
+    if(stack.length<2)throw Error('Stack underflow for '+op);
+    const b=stack.pop(),a=stack.pop();stack.push(op==='ADD'?a+b:op==='SUB'?a-b:a*b);
+   }else if(op==='CLAMP01'){
+    if(!stack.length)throw Error('stack underflow');stack.push(clamp(stack.pop(),0,1));
+   }else if(op==='QUANTIZE'){
+    if(!stack.length)throw Error('stack underflow');const v=stack.pop();const event=this.encoder.step({drive:v});events.push(event);
+   }else if(op==='EMIT'){
+    if(!events.length)throw Error('QUANTIZE must precede EMIT');this.emitted.push(events.at(-1));
+    if(this.emitted.length>10000)this.emitted.shift();
+   }
+   if(stack.length>64)throw Error('stack capacity');
+  }
+  return events.at(-1);
+ }
+}
+/** Uniformly sampled scalar DFT with Hann window, DC removal, and peak test.
+ * Input must be true numerical time-series readings. Does not identify RF or
+ * optical carrier frequency. Only frequencies below Nyquist are resolvable.
+ */
+function temporalFrequencyHz(samples, timestampsMs){
+ if(!Array.isArray(samples)||!Array.isArray(timestampsMs)||samples.length!==timestampsMs.length||samples.length<24)
+  return {valid:false,reason:'Insufficient genuine samples'};
+ const n=Math.min(128,samples.length),v=samples.slice(-n),t=timestampsMs.slice(-n);
+ if(v.some(x=>!Number.isFinite(x))||t.some(x=>!Number.isFinite(x)))return{valid:false,reason:'Nonfinite sample'};
+ const elapsed=(t.at(-1)-t[0])/1000;if(elapsed<=0)return{valid:false,reason:'Invalid sample timing'};
+ const intervals=t.slice(1).map((x,i)=>x-t[i]),meanDt=intervals.reduce((a,b)=>a+b,0)/intervals.length;
+ const jitter=Math.max(...intervals.map(x=>Math.abs(x-meanDt)))/meanDt;
+ if(jitter>.2)return{valid:false,reason:'Sampling too irregular for FFT-style estimate',jitter};
+ const sampleHz=1000/meanDt;const mean=v.reduce((a,b)=>a+b,0)/n;
+ const x=v.map((y,i)=>(y-mean)*(.5-.5*Math.cos(2*Math.PI*i/(n-1))));
+ let best=0,bestK=-1,power=0;
+ for(let k=1;k<Math.floor(n/2);k++){
+  let re=0,im=0;for(let j=0;j<n;j++){const phase=2*Math.PI*k*j/n;re+=x[j]*Math.cos(phase);im-=x[j]*Math.sin(phase);}
+  const p=re*re+im*im;power+=p;if(p>best){best=p;bestK=k;}
+ }
+ if(bestK<1||best<1e-10||best/power<.35)return{valid:false,reason:'No clear dominant temporal oscillation',sampleHz,nyquistHz:sampleHz/2};
+ return {valid:true,hz:bestK*sampleHz/n,nyquistHz:sampleHz/2,dominance:best/power,sampleHz,n,
+  note:'Temporal modulation of a sampled sensor reading; not an optical carrier or a person’s emitted energy frequency.'};
+}
+/** Bounded heuristic program generator: inspect available numeric sensor ranges and
+ * select one proven-safe preset. No new JS code, arbitrary opcodes or autonomous
+ * model training is produced. Each decision is traceable to input statistics.
+ */
+function proposeProgram(records){
+ if(!Array.isArray(records)||records.length<4)return{program:'Drive events',reason:'Insufficient observations: default to preserved neuron drive.',computed:false};
+ const finite=x=>Number.isFinite(x);
+ const stats=(key)=>{const a=records.map(r=>r[key]).filter(finite);if(a.length<4)return null;
+  const min=Math.min(...a),max=Math.max(...a),mean=a.reduce((x,y)=>x+y,0)/a.length;
+  return {count:a.length,mean,range:max-min};};
+ const field=stats('magnetometer'),move=stats('acceleration'),frame=stats('frameDifference'),edge=stats('edgeDensity'),drv=stats('drive');
+ // Require genuine samples and nontrivial variation before choosing extra sensors.
+ if(field&&field.range>=1.0&&field.count>=20)return{program:'Magnetic field',reason:'Magnetometer actually provided '+field.count+' samples with '+field.range.toFixed(2)+' µT span.',computed:true};
+ if(move&&move.range>=.5&&move.count>=20)return{program:'Phone acceleration',reason:'Motion sensor actually provided '+move.count+' samples with '+move.range.toFixed(2)+' m/s² span.',computed:true};
+ if(frame&&frame.mean>.03&&frame.count>=8)return{program:'Pixel change',reason:'Camera frame-change proxy mean='+frame.mean.toFixed(3)+' across '+frame.count+' frames.',computed:true};
+ if(edge&&edge.mean>.035&&edge.count>=8)return{program:'Optical density proxy',reason:'Camera ROI spatial-edge proxy mean='+edge.mean.toFixed(3)+' across '+edge.count+' frames. It is not atomic or mass density.',computed:true};
+ return{program:'Drive events',reason:'Existing neuron drive is the best available verified numeric stream ('+(drv?.count??0)+' samples).',computed:true};
+}
+
+return {QuadEncoder,QuadVM,pack4,unpack4,frameFeatures};
+})();
+const RIPPLE_BETA=(()=>{
+const {QuadEncoder,QuadVM,pack4,unpack4,frameFeatures}=RIPPLEQ;
+/* Ripple Gen Beta v2.0 - reproducible synthetic architecture benchmark.
+ * PRESERVE: original neuron and v0.7 QuadEncoder are imported VERBATIM.
+ * Synthetic mapping and simulation are not physical sensing or intelligence.
+ * Does NOT execute grayscale/monochrome studies or the archived alpha genome selector.
+ */
+
+
+
+
+const RippleNeuron=globalThis.RippleNeuron;
+const Photoreceptor=globalThis.RippleLightV06.Photoreceptor;
+
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const finite=x=>typeof x==='number'&&Number.isFinite(x);
+function check(ok,message){if(!ok)throw Error('Ripple Beta guard: '+message)}
+function rng(seed){let s=seed>>>0;return ()=>((s=(Math.imul(1664525,s)+1013904223)>>>0))/4294967296;}
+const BETA_LIMITS=Object.freeze({minWidth:8,maxWidth:56,minHeight:8,maxHeight:56,maxTicks:1200,maxAgents:16,maxRules:8,maxKnowledge:1024,maxShare:8,maxTrace:1200,stepDt:.05,diffusion:0.34,diffusionDt:0.16});
+const ACTIONS=Object.freeze(['SCAN','MOVE','SHARE','CLONE','WAIT']);
+const CONDITIONS=Object.freeze(['ALWAYS','UNSEEN','NEAR_WALL','HAVE_PEER','HIGH_ENERGY','LOW_ENERGY','Q_UP','Q_DOWN','RESOURCE_NEAR']);
+const POLICIES=Object.freeze({
+ 'neuron-only':{name:'Neuron only',optical:false,quad:false,spatial:false,memory:false,share:false,clone:false,rules:[['ALWAYS','WAIT']]},
+ 'optical-q':{name:'Optical + Q',optical:true,quad:true,spatial:false,memory:false,share:false,clone:false,rules:[['ALWAYS','WAIT']]},
+ 'spatial':{name:'Spatial baseline',optical:false,quad:false,spatial:true,memory:false,share:false,clone:false,rules:[['ALWAYS','SCAN'],['ALWAYS','MOVE']]},
+ 'colony':{name:'Colony + memory',optical:false,quad:true,spatial:true,memory:true,share:true,clone:false,rules:[['HAVE_PEER','SHARE'],['UNSEEN','SCAN'],['ALWAYS','MOVE']]},
+ 'hybrid-beta':{name:'Guarded Hybrid Beta',optical:true,quad:true,spatial:true,memory:true,share:true,clone:true,density:false,rules:[['HIGH_ENERGY','CLONE'],['UNSEEN','SCAN'],['HAVE_PEER','SHARE'],['RESOURCE_NEAR','SCAN'],['ALWAYS','MOVE']]}
+});
+// Ablations differ by exactly one enabled mechanism from the final Beta policy.
+const hybrid=POLICIES['hybrid-beta'];
+const ablations={
+ 'beta-no-optical':{...hybrid,name:'Beta without optical frontend',optical:false},
+ 'beta-no-quaternary':{...hybrid,name:'Beta without Q coding',quad:false},
+ 'beta-no-sharing':{...hybrid,name:'Beta without sharing',share:false,rules:hybrid.rules.filter(r=>r[1]!=='SHARE')},
+ 'beta-no-cloning':{...hybrid,name:'Beta without descendants',clone:false,rules:hybrid.rules.filter(r=>r[1]!=='CLONE')},
+ 'beta-no-memory':{...hybrid,name:'Beta without memory',memory:false,rules:hybrid.rules.filter(r=>r[0]!=='UNSEEN')},
+ 'beta-density-on':{...hybrid,name:'Beta with occupancy hypothesis',density:true}
+};
+const BETA_ABLATIONS=Object.freeze(ablations);
+const DIRS=Object.freeze([[0,-1],[1,0],[0,1],[-1,0]]);
+function validateProgram(program){
+ check(Array.isArray(program)&&program.length>0&&program.length<=BETA_LIMITS.maxRules,'rules count 1..8');
+ return Object.freeze(program.map(rule=>{
+   check(Array.isArray(rule)&&rule.length===2&&CONDITIONS.includes(rule[0])&&ACTIONS.includes(rule[1]),'only allowlisted condition/action');
+   return Object.freeze([...rule]);
+ }));
+}
+function validateSensorPacket(packet){
+ check(packet&&typeof packet==='object'&&!Array.isArray(packet),'packet object');
+ check(packet.type==='rgb'&&packet.kind==='synthetic','only synthetic RGB in Beta; physical data requires separate calibrated adapter');
+ check(Array.isArray(packet.rgb)&&packet.rgb.length===3&&packet.rgb.every(v=>finite(v)&&v>=0&&v<=1),'RGB normalized and finite');
+ check(Number.isInteger(packet.tick)&&packet.tick>=0&&packet.tick<=BETA_LIMITS.maxTicks,'valid model tick');
+ check(Object.keys(packet).every(k=>['type','kind','rgb','tick','sourceId'].includes(k)),'schema allowlist');
+ return Object.freeze({...packet,rgb:Object.freeze([...packet.rgb])});
+}
+// Pairwise flux: equal-and-opposite; this is synthetic diffusion, NOT photon or mass density.
+function betaDiffusion(field,width,height,coeff=.34,dt=.16,mask=null,occupancy=null,crowding=.5){
+ check(Number.isInteger(width)&&width>=2&&Number.isInteger(height)&&height>=2&&field.length===width*height*3,'shape');
+ check(finite(coeff)&&coeff>=0&&coeff<=.42&&finite(dt)&&dt>0&&dt<=.25&&4*coeff*dt<=.25,'stability');
+ check(finite(crowding)&&crowding>=0&&crowding<=1,'crowding');
+ const out=new Float64Array(field);
+ for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+  const i=y*width+x;
+  for(const j of [...(x+1<width?[i+1]:[]),...(y+1<height?[i+width]:[])]){
+   const o=Math.max(mask?.[i]??0,mask?.[j]??0);
+   check(finite(o)&&o>=0&&o<=1,'occlusion finite');if(o===1)continue;
+   const dens=occupancy?(occupancy[i]+occupancy[j])/2:0;
+   check(finite(dens)&&dens>=0,'occupancy nonnegative');
+   const alpha=coeff*dt*(1-o)/(1+crowding*dens);
+   for(let c=0;c<3;c++){const u=i*3+c,v=j*3+c,flux=alpha*(field[v]-field[u]);out[u]+=flux;out[v]-=flux;}
+  }
+ }
+ return out;
+}
+function hash(x){let s=JSON.stringify(x),h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(16).padStart(8,'0');}
+function makeGenome(g){
+ check(g&&typeof g==='object'&&!Array.isArray(g),'genome object');
+ const allowed=['name','role','colorWeights','mobility','memory','share','clone','generation','parent','program'];
+ check(Object.keys(g).every(k=>allowed.includes(k)),'unknown genome field');
+ const weights=g.colorWeights??[1,.6,.3];
+ check(Array.isArray(weights)&&weights.length===3&&weights.every(v=>finite(v)&&v>=0&&v<=1),'genome weights');
+ const program=validateProgram(g.program??[['UNSEEN','SCAN'],['ALWAYS','MOVE']]);
+ for(const k of ['mobility','memory','share','clone']){const v=g[k]??0.5;check(finite(v)&&v>=0&&v<=1,'genome bounded '+k);}
+ check(['explorer','relay','guardian','general'].includes(g.role??'general'),'role');
+ check(Number.isInteger(g.generation??0)&&(g.generation??0)>=0&&(g.generation??0)<=20,'lineage depth');
+ check(g.parent==null||/^[0-9a-f]{8}$/.test(g.parent),'parent ID');
+ const o={schema:'ripple-beta-gene/1',name:String(g.name??'Ripple').slice(0,28),role:g.role??'general',colorWeights:Object.freeze([...weights]),mobility:g.mobility??.65,memory:g.memory??.7,share:g.share??.65,clone:g.clone??.5,generation:g.generation??0,parent:g.parent??null,program};
+ return Object.freeze({...o,id:hash(o)});
+}
+function mutateGenome(parent,random){
+ check(parent?.schema==='ripple-beta-gene/1'&&typeof random==='function','bounded genome');
+ // Edit only known numerical parameters or rule ordering, never add arbitrary instructions.
+ const chroma=parent.colorWeights.map(x=>clamp(x+(random()-.5)*.16,0,1));
+ const program=parent.program.map(r=>[...r]);if(program.length>1&&random()<.5){const a=Math.floor(random()*program.length),b=Math.floor(random()*program.length);[program[a],program[b]]=[program[b],program[a]];}
+ return makeGenome({name:parent.name+'+',role:parent.role,colorWeights:chroma,mobility:clamp(parent.mobility+(random()-.5)*.09,0,1),memory:parent.memory,share:parent.share,clone:parent.clone,generation:parent.generation+1,parent:parent.id,program});
+}
+class BetaWorld{
+ constructor(options={}){
+  const width=options.width??24,height=options.height??16,seed=options.seed??1731;
+  check(Number.isInteger(width)&&width>=8&&width<=56&&Number.isInteger(height)&&height>=8&&height<=56,'world dimensions');
+  check(Number.isInteger(seed)&&seed>=0&&seed<=4294967295,'seed');
+  this.w=width;this.h=height;this.size=width*height;this.seed=seed;this.random=rng(seed);this.tick=0;
+  this.scenario=options.scenario??'mixed';check(['mixed','barriers','noise','resources'].includes(this.scenario),'scenario');
+  this.policy=options.policy??'hybrid-beta';check(Object.hasOwn(POLICIES,this.policy)||Object.hasOwn(BETA_ABLATIONS,this.policy),'named policy');this.flags=POLICIES[this.policy]??BETA_ABLATIONS[this.policy];
+  this.field=new Float64Array(this.size*3);this.mask=new Float64Array(this.size);this.occ=new Float64Array(this.size);this.agents=[];this.globalDiscovered=new Set();
+  this.audit=[];this.traces=[];this.metrics={events:0,scans:0,reads:0,validNewCells:0,blockedRays:0,moves:0,blockedMoves:0,shares:0,sharedCells:0,clones:0,commands:0,rejected:0,energySpent:0,sourceInjected:0};
+  const wallX=Math.floor(width*.52);if(this.scenario!=='noise')for(let y=0;y<height;y++)if(y<Math.floor(height*.4)||y>Math.floor(height*.66))this.mask[wallX+y*width]=1;
+  if(this.scenario==='barriers')for(let x=4;x<width-3;x++)if(x%5!==0)this.mask[x+Math.floor(height*.23)*width]=1;
+  this.sources=[[Math.floor(width*.13),Math.floor(height*.25),0],[Math.floor(width*.85),Math.floor(height*.66),1],[Math.floor(width*.25),Math.floor(height*.82),2],[Math.floor(width*.22),Math.floor(height*.52),0]];
+  this.field[this.idx(Math.floor(width*.22),Math.floor(height*.52))*3]=1.2;
+  this.addAgent(makeGenome({name:'Prism',role:'explorer',colorWeights:[1,.3,.12],mobility:.8,memory:.7,clone:.6,program:this.flags.rules}),Math.floor(width*.20),Math.floor(height*.5));
+  this.addAgent(makeGenome({name:'Canopy',role:'relay',colorWeights:[.15,1,.32],mobility:.58,share:.9,program:this.flags.rules}),Math.floor(width*.25),Math.floor(height*.55));
+  this.addAgent(makeGenome({name:'Ember',role:'guardian',colorWeights:[.95,.5,.09],mobility:.47,program:this.flags.rules}),Math.floor(width*.19),Math.floor(height*.62));
+ }
+ idx(x,y){return y*this.w+x;}
+ addAgent(g,x,y){check(this.agents.length<BETA_LIMITS.maxAgents,'max population');const id=this.agents.length;
+  if(this.mask[this.idx(x,y)]===1){x=1;y=1;}
+  const a={id,x,y,g,energy:2.0,age:0,events:0,neuron:new RippleNeuron(),q:new QuadEncoder({threshold:.07,dwell:2}),light:new Photoreceptor({linear:false,logGain:6,transientGain:.25}),known:new Map(),path:[[x,y,0]],lastSymbol:'0',sensed:0,shared:0};
+  this.agents.push(a);this.audit.push({tick:this.tick,type:'born',id,parent:g.parent,gene:g.id,role:g.role});return a;
+ }
+ inject(){for(const [x,y,c] of this.sources){const i=this.idx(x,y)*3+c,amt=this.scenario==='noise'?(this.random()<.5?.03:0):.03;const before=this.field[i];this.field[i]=Math.min(1.8,this.field[i]+amt);this.metrics.sourceInjected+=this.field[i]-before;}}
+ ray(a,dx,dy,range=2){const found=[];for(let step=1;step<=range;step++){let x=a.x+dx*step,y=a.y+dy*step;if(x<0||x>=this.w||y<0||y>=this.h)break;const pos=this.idx(x,y);this.metrics.reads++;if(this.mask[pos]===1){this.metrics.blockedRays++;found.push({x,y,wall:true});break;}found.push({x,y,wall:false});}return found;}
+ local(a){const i=this.idx(a.x,a.y);const rgb=[...this.field.slice(i*3,i*3+3)].map(x=>clamp(x,0,1));const neighbors=DIRS.map(([dx,dy])=>[a.x+dx,a.y+dy]).filter(([x,y])=>x>=0&&x<this.w&&y>=0&&y<this.h);
+  return{rgb,rgbWeighted:rgb.map((v,j)=>clamp(v*a.g.colorWeights[j],0,1)),nearWall:neighbors.some(([x,y])=>this.mask[this.idx(x,y)]===1),unseen:neighbors.some(([x,y])=>!a.known.has(this.idx(x,y))),peer:this.agents.some(b=>b!==a&&Math.abs(b.x-a.x)+Math.abs(b.y-a.y)<=2),resource:rgb.reduce((s,v)=>s+v,0)>.2};
+ }
+ condition(a,s,c){switch(c){case'ALWAYS':return true;case'UNSEEN':return s.unseen;case'NEAR_WALL':return s.nearWall;case'HAVE_PEER':return s.peer;case'HIGH_ENERGY':return a.energy>(4.5-a.g.clone)&&this.agents.length<BETA_LIMITS.maxAgents&&a.g.generation<4;case'LOW_ENERGY':return a.energy<.55;case'Q_UP':return a.lastSymbol==='1';case'Q_DOWN':return a.lastSymbol==='-1';case'RESOURCE_NEAR':return s.resource;default:return false;}}
+ act(a,action){this.metrics.commands++;const r=this.random;
+  if(action==='SCAN'){
+   this.metrics.scans++;const direction=DIRS[(a.id+this.tick)%4];const hits=this.ray(a,...direction,3);
+   for(const p of hits){const key=this.idx(p.x,p.y);if(this.flags.memory){if(!a.known.has(key)){if(a.known.size>=Math.min(BETA_LIMITS.maxKnowledge,Math.floor(64+960*a.g.memory)))break;a.known.set(key,{wall:p.wall,t:this.tick});this.globalDiscovered.add(key);this.metrics.validNewCells++;}}else this.globalDiscovered.add(key);}
+   a.energy=Math.max(0,a.energy-.015);return action;
+  }
+  if(action==='MOVE'){
+   const dirs=[...DIRS];for(let i=dirs.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[dirs[i],dirs[j]]=[dirs[j],dirs[i]];}
+   // Heritable mobility and role-specific orientation affect only synthetic routing.
+   if(r()>a.g.mobility){a.energy=Math.max(0,a.energy-.003);return 'WAIT';}
+   if(this.flags.memory&&a.g.role==='explorer')dirs.sort((d1,d2)=>{
+    const known=(d)=>{const x=a.x+d[0],y=a.y+d[1];return x<0||x>=this.w||y<0||y>=this.h||a.known.has(this.idx(x,y))?1:0;};return known(d1)-known(d2);});
+   if(this.flags.share&&a.g.role==='relay'){
+    const near=this.agents.filter(b=>b!==a);
+    if(near.length){const proximity=d=>Math.min(...near.map(b=>Math.abs(b.x-(a.x+d[0]))+Math.abs(b.y-(a.y+d[1]))));dirs.sort((d1,d2)=>proximity(d1)-proximity(d2));}
+   }
+   // Local known blocked cells may guide movement; unknown cells are exploratory.
+   const move=dirs.find(([dx,dy])=>{const x=a.x+dx,y=a.y+dy;if(x<0||x>=this.w||y<0||y>=this.h)return false;return this.mask[this.idx(x,y)]<1&&(!this.flags.memory||a.known.get(this.idx(x,y))?.wall!==true);});
+   if(move){a.x+=move[0];a.y+=move[1];this.metrics.moves++;if(a.path.length<BETA_LIMITS.maxTrace)a.path.push([a.x,a.y,this.tick]);}else this.metrics.blockedMoves++;
+   a.energy=Math.max(0,a.energy-.015);return action;
+  }
+  if(action==='SHARE'){
+   if(this.flags.share){const peer=this.agents.find(b=>b!==a&&Math.abs(b.x-a.x)+Math.abs(b.y-a.y)<=2);if(peer){this.metrics.shares++;let shared=0;for(const [key,info]of a.known){if(shared>=Math.min(BETA_LIMITS.maxShare,Math.max(1,Math.floor(BETA_LIMITS.maxShare*a.g.share))))break;if(!peer.known.has(key)&&peer.known.size<BETA_LIMITS.maxKnowledge){peer.known.set(key,{...info});shared++;}}this.metrics.sharedCells+=shared;a.shared+=shared;}}
+   a.energy=Math.max(0,a.energy-.01);return action;
+  }
+  if(action==='CLONE'){
+   if(this.flags.clone&&a.energy>(4.5-a.g.clone)&&a.g.generation<4&&this.agents.length<BETA_LIMITS.maxAgents){const child=mutateGenome(a.g,r);this.addAgent(child,a.x,a.y);a.energy-=1.4;this.metrics.clones++;return action;}
+   this.metrics.rejected++;return 'WAIT';
+  }
+  return 'WAIT';
+ }
+ step(){check(this.tick<BETA_LIMITS.maxTicks,'max simulation ticks');
+  this.tick++;this.inject();this.occ.fill(0);for(const a of this.agents)this.occ[this.idx(a.x,a.y)]++;
+  const before=this.field;this.field=betaDiffusion(before,this.w,this.h,.34,.16,this.mask,this.flags.density===false?null:this.occ,.55);
+  const current=[...this.agents];for(const a of current){a.age++;const s=this.local(a);let x=s.rgbWeighted;
+   if(this.flags.optical)x=a.light.step(x,.05).output;
+   // Distinct genome weighting is permitted, but original LIF coefficients remain locked.
+   const pulse=a.neuron.step(x,.05),symbol=this.flags.quad?a.q.step({drive:pulse.drive}).label:'0';a.lastSymbol=symbol;
+   a.energy=clamp(a.energy+(.025+Math.max(0,pulse.drive)*.06)-.015,0,5);
+   a.events+=pulse.count;this.metrics.events+=pulse.count;
+   // Rule list selection is bounded. Neuron pulses gate SCAN/SHARE; non-pulsing agents can MOVE.
+   const rules=a.g.program;let selected='WAIT';if(this.flags.spatial){for(const [cond,act] of rules)if(this.condition(a,s,cond)){if((act==='SCAN'||act==='SHARE'||act==='CLONE')&&!pulse.count&&!(act==='CLONE'&&a.energy>4.2))continue;selected=act;break;}}
+   this.act(a,selected);
+   if(this.traces.length<BETA_LIMITS.maxTrace&&this.tick%10===0)this.traces.push({tick:this.tick,agent:a.id,action:selected,quaternary:symbol,energy:Number(a.energy.toFixed(4)),x:a.x,y:a.y,gate:pulse.count,role:a.g.role});
+  }
+  return this.snapshot();
+ }
+ run(steps=160){check(Number.isInteger(steps)&&steps>0&&steps<=BETA_LIMITS.maxTicks-this.tick,'run bounded');for(let i=0;i<steps;i++)this.step();return this.summary();}
+ snapshot(){return{tick:this.tick,population:this.agents.length,coverage:this.globalDiscovered.size,events:this.metrics.events};}
+ summary(){return{seed:this.seed,scenario:this.scenario,policy:this.policy,ticks:this.tick,events:this.metrics.events,coverage:this.globalDiscovered.size,uniqueCoverageRatio:this.globalDiscovered.size/this.size,population:this.agents.length,clones:this.metrics.clones,moves:this.metrics.moves,scans:this.metrics.scans,blockedRays:this.metrics.blockedRays,blockedMoves:this.metrics.blockedMoves,shares:this.metrics.shares,sharedCells:this.metrics.sharedCells,rejected:this.metrics.rejected,readBudget:this.metrics.reads,sourceInjected:this.metrics.sourceInjected,totalSignal:[0,1,2].map(c=>this.field.reduce((sum,v,i)=>i%3===c?sum+v:sum,0)),traceCount:this.traces.length,provenance:'SYNTHETIC SIMULATION; no physical sensor input'};}
+ fieldImage(){return{width:this.w,height:this.h,rgb:[...this.field],mask:[...this.mask],agents:this.agents.map(a=>({id:a.id,x:a.x,y:a.y,role:a.g.role,gene:a.g.id,parent:a.g.parent}))};}
+ exportRecord(){return{schema:'ripple-gen-beta/1',summary:this.summary(),lineage:this.audit.slice(),paths:this.agents.map(a=>({id:a.id,genome:a.g,points:a.path.slice()})),trace:this.traces.slice(),field:this.fieldImage(),evidence:'synthetic',coreHash:'dba6639b7902f0c702d15fff588524629f3754cfd72d7b704f22a76b78960ee3'};}
+}
+
+return {BetaWorld,POLICIES,BETA_ABLATIONS};
+})();
+const RIPPLE_REPORTS={"architecture":{"experiment":"RIPPLE-GEN-BETA/AB-001","evidence":"SYNTHETIC comparison + MACHINE-LOCAL COMPUTATIONAL TIMING","machine":"this execution environment; not a supercomputer or Samsung","steps":240,"trainSeeds":[11,17,23,29,31,37,41,43,47,53],"holdoutSeeds":[131,137,139,149,151],"scenarios":["mixed","barriers","noise","resources"],"policies":["neuron-only","optical-q","spatial","colony","hybrid-beta"],"allRuns":300,"stats":[{"split":"development","policy":"neuron-only","n":40,"coverageMean":0,"coverageP10":0,"coverageP90":0,"eventsMean":25.4,"populationMean":3,"sharedCellsMean":0,"clonesMean":0,"readBudgetMean":0,"scansMean":0,"movesMean":0,"runtimeMedianMs":7.77569,"runtimeP95Ms":9.673873999999994},{"split":"development","policy":"optical-q","n":40,"coverageMean":0,"coverageP10":0,"coverageP90":0,"eventsMean":40.25,"populationMean":3,"sharedCellsMean":0,"clonesMean":0,"readBudgetMean":0,"scansMean":0,"movesMean":0,"runtimeMedianMs":8.127245,"runtimeP95Ms":9.197470999999982},{"split":"development","policy":"spatial","n":40,"coverageMean":13.05,"coverageP10":0,"coverageP90":28,"eventsMean":6.125,"populationMean":3,"sharedCellsMean":0,"clonesMean":0,"readBudgetMean":17.625,"scansMean":6.125,"movesMean":438.95,"runtimeMedianMs":7.90907,"runtimeP95Ms":10.49765799999999},{"split":"development","policy":"colony","n":40,"coverageMean":6.725,"coverageP10":0,"coverageP90":20.500000000000007,"eventsMean":5.5,"populationMean":3,"sharedCellsMean":0.525,"clonesMean":0,"readBudgetMean":7.875,"scansMean":2.775,"movesMean":438.675,"runtimeMedianMs":8.253215,"runtimeP95Ms":12.469730499999999},{"split":"development","policy":"hybrid-beta","n":40,"coverageMean":46.275,"coverageP10":21,"coverageP90":71,"eventsMean":31.025,"populationMean":6.45,"sharedCellsMean":2.75,"clonesMean":3.45,"readBudgetMean":74.75,"scansMean":27.025,"movesMean":544.525,"runtimeMedianMs":8.913170000000001,"runtimeP95Ms":11.283317999999987},{"split":"holdout","policy":"neuron-only","n":20,"coverageMean":0,"coverageP10":0,"coverageP90":0,"eventsMean":25.1,"populationMean":3,"sharedCellsMean":0,"clonesMean":0,"readBudgetMean":0,"scansMean":0,"movesMean":0,"runtimeMedianMs":7.78472,"runtimeP95Ms":8.271183},{"split":"holdout","policy":"optical-q","n":20,"coverageMean":0,"coverageP10":0,"coverageP90":0,"eventsMean":40.15,"populationMean":3,"sharedCellsMean":0,"clonesMean":0,"readBudgetMean":0,"scansMean":0,"movesMean":0,"runtimeMedianMs":7.932755,"runtimeP95Ms":8.7294245},{"split":"holdout","policy":"spatial","n":20,"coverageMean":12.2,"coverageP10":2.7,"coverageP90":25,"eventsMean":5.35,"populationMean":3,"sharedCellsMean":0,"clonesMean":0,"readBudgetMean":15.45,"scansMean":5.35,"movesMean":438.6,"runtimeMedianMs":7.87027,"runtimeP95Ms":8.631858000000001},{"split":"holdout","policy":"colony","n":20,"coverageMean":5.5,"coverageP10":0,"coverageP90":12,"eventsMean":5.6,"populationMean":3,"sharedCellsMean":1.7,"clonesMean":0,"readBudgetMean":5.6,"scansMean":1.95,"movesMean":438.55,"runtimeMedianMs":8.177445,"runtimeP95Ms":8.625718500000001},{"split":"holdout","policy":"hybrid-beta","n":20,"coverageMean":52.45,"coverageP10":31,"coverageP90":72.9,"eventsMean":37,"populationMean":6.8,"sharedCellsMean":1.5,"clonesMean":3.8,"readBudgetMean":92.1,"scansMean":32.45,"movesMean":555.95,"runtimeMedianMs":9.097375,"runtimeP95Ms":10.3920865}],"pairwise":[{"split":"development","opponent":"neuron-only","metric":"coverage","win":40,"loss":0,"tie":0},{"split":"development","opponent":"optical-q","metric":"coverage","win":40,"loss":0,"tie":0},{"split":"development","opponent":"spatial","metric":"coverage","win":40,"loss":0,"tie":0},{"split":"development","opponent":"colony","metric":"coverage","win":40,"loss":0,"tie":0},{"split":"holdout","opponent":"neuron-only","metric":"coverage","win":20,"loss":0,"tie":0},{"split":"holdout","opponent":"optical-q","metric":"coverage","win":20,"loss":0,"tie":0},{"split":"holdout","opponent":"spatial","metric":"coverage","win":20,"loss":0,"tie":0},{"split":"holdout","opponent":"colony","metric":"coverage","win":20,"loss":0,"tie":0}],"limitations":["World observations are synthetic, no physical camera/sensor data","Population and event count do not imply intelligence","The five policies have intentionally different control loops and resource budgets","CPU time is machine/load dependent; not device-neutral","Benchmark has no externally labeled ground-truth target task","Holdout splits were declared before evaluation; no optimization against holdout was performed"]},"ablations":{"experiment":"RIPPLE-GEN-BETA/ABL-002","evidence":"SYNTHETIC POLICY ABLATION","steps":240,"seeds":{"development":[11,17,23,29,31,37,41,43,47,53],"holdout":[131,137,139,149,151]},"scenarios":["mixed","barriers","noise","resources"],"allRuns":420,"summary":[{"split":"development","policy":"hybrid-beta","n":40,"coverageMean":46.275,"eventsMean":31.025,"clonesMean":3.45,"sharesMean":2.75,"readsMean":74.75,"populationMean":6.45},{"split":"development","policy":"beta-no-optical","n":40,"coverageMean":11.425,"eventsMean":5.75,"clonesMean":0.3,"sharesMean":0.75,"readsMean":14.975,"populationMean":3.3},{"split":"development","policy":"beta-no-quaternary","n":40,"coverageMean":46.275,"eventsMean":31.025,"clonesMean":3.45,"sharesMean":2.75,"readsMean":74.75,"populationMean":6.45},{"split":"development","policy":"beta-no-sharing","n":40,"coverageMean":46.6,"eventsMean":31.025,"clonesMean":3.45,"sharesMean":0,"readsMean":75.8,"populationMean":6.45},{"split":"development","policy":"beta-no-cloning","n":40,"coverageMean":38.125,"eventsMean":19.65,"clonesMean":0,"sharesMean":0.5,"readsMean":55.125,"populationMean":3},{"split":"development","policy":"beta-no-memory","n":40,"coverageMean":3.725,"eventsMean":34.175,"clonesMean":3.8,"sharesMean":0,"readsMean":3.925,"populationMean":6.8},{"split":"development","policy":"beta-density-on","n":40,"coverageMean":40.15,"eventsMean":25.225,"clonesMean":2.575,"sharesMean":0.825,"readsMean":60.85,"populationMean":5.575},{"split":"holdout","policy":"hybrid-beta","n":20,"coverageMean":52.45,"eventsMean":37,"clonesMean":3.8,"sharesMean":1.5,"readsMean":92.1,"populationMean":6.8},{"split":"holdout","policy":"beta-no-optical","n":20,"coverageMean":13,"eventsMean":5.75,"clonesMean":0.35,"sharesMean":0,"readsMean":15.45,"populationMean":3.35},{"split":"holdout","policy":"beta-no-quaternary","n":20,"coverageMean":52.45,"eventsMean":37,"clonesMean":3.8,"sharesMean":1.5,"readsMean":92.1,"populationMean":6.8},{"split":"holdout","policy":"beta-no-sharing","n":20,"coverageMean":51.8,"eventsMean":36.95,"clonesMean":3.75,"sharesMean":0,"readsMean":91.35,"populationMean":6.75},{"split":"holdout","policy":"beta-no-cloning","n":20,"coverageMean":44.85,"eventsMean":23.3,"clonesMean":0,"sharesMean":0.75,"readsMean":65.15,"populationMean":3},{"split":"holdout","policy":"beta-no-memory","n":20,"coverageMean":3.95,"eventsMean":35.85,"clonesMean":3.6,"sharesMean":0,"readsMean":5.25,"populationMean":6.6},{"split":"holdout","policy":"beta-density-on","n":20,"coverageMean":50.65,"eventsMean":35.6,"clonesMean":3.75,"sharesMean":3.05,"readsMean":82.95,"populationMean":6.75}],"comparison":[{"split":"development","challenger":"beta-no-optical","deltaCoverage":34.849999999999994,"deltaEvents":25.275,"deltaClones":3.1500000000000004,"deltaSharedCells":2,"note":"difference between paired deterministic simulation policies, not an independent physical effect"},{"split":"development","challenger":"beta-no-quaternary","deltaCoverage":0,"deltaEvents":0,"deltaClones":0,"deltaSharedCells":0,"note":"difference between paired deterministic simulation policies, not an independent physical effect"},{"split":"development","challenger":"beta-no-sharing","deltaCoverage":-0.32500000000000284,"deltaEvents":0,"deltaClones":0,"deltaSharedCells":2.75,"note":"difference between paired deterministic simulation policies, not an independent physical effect"},{"split":"development","challenger":"beta-no-cloning","deltaCoverage":8.149999999999999,"deltaEvents":11.375,"deltaClones":3.45,"deltaSharedCells":2.25,"note":"difference between paired deterministic simulation policies, not an independent physical effect"},{"split":"development","challenger":"beta-no-memory","deltaCoverage":42.55,"deltaEvents":-3.1499999999999986,"deltaClones":-0.34999999999999964,"deltaSharedCells":2.75,"note":"difference between paired deterministic simulation policies, not an independent physical effect"},{"split":"development","challenger":"beta-density-on","deltaCoverage":6.125,"deltaEvents":5.799999999999997,"deltaClones":0.875,"deltaSharedCells":1.925,"note":"difference between paired deterministic simulation policies, not an independent physical effect"},{"split":"holdout","challenger":"beta-no-optical","deltaCoverage":39.45,"deltaEvents":31.25,"deltaClones":3.4499999999999997,"deltaSharedCells":1.5,"note":"difference between paired deterministic simulation policies, not an independent physical effect"},{"split":"holdout","challenger":"beta-no-quaternary","deltaCoverage":0,"deltaEvents":0,"deltaClones":0,"deltaSharedCells":0,"note":"difference between paired deterministic simulation policies, not an independent physical effect"},{"split":"holdout","challenger":"beta-no-sharing","deltaCoverage":0.6500000000000057,"deltaEvents":0.04999999999999716,"deltaClones":0.04999999999999982,"deltaSharedCells":1.5,"note":"difference between paired deterministic simulation policies, not an independent physical effect"},{"split":"holdout","challenger":"beta-no-cloning","deltaCoverage":7.600000000000001,"deltaEvents":13.7,"deltaClones":3.8,"deltaSharedCells":0.75,"note":"difference between paired deterministic simulation policies, not an independent physical effect"},{"split":"holdout","challenger":"beta-no-memory","deltaCoverage":48.5,"deltaEvents":1.1499999999999986,"deltaClones":0.19999999999999973,"deltaSharedCells":1.5,"note":"difference between paired deterministic simulation policies, not an independent physical effect"},{"split":"holdout","challenger":"beta-density-on","deltaCoverage":1.8000000000000043,"deltaEvents":1.3999999999999986,"deltaClones":0.04999999999999982,"deltaSharedCells":-1.5499999999999998,"note":"difference between paired deterministic simulation policies, not an independent physical effect"}],"caveat":"One feature toggled; rules that invoke a disabled action are removed. Results depend on synthetic world and action ordering, and feature removal can alter the random trajectory."}};
+const {BetaWorld,POLICIES,BETA_ABLATIONS}=RIPPLE_BETA;
+const comparisons=RIPPLE_REPORTS.architecture;
+const ablations=RIPPLE_REPORTS.ablations;
+const $=id=>document.getElementById(id),ctx=$('world').getContext('2d');let world,selected=0;const features={
+'Original Neuron v0.1':['LIF state, refractory timing, adaptive rate target, known regression','No sight/memory/map of its own; analog RGB is an application input'],
+'Photoreceptor v0.6':['Log-light compression, relative absorption, ON/OFF temporal changes','RGB camera proxy only; gain alters pulse rates and may exaggerate noise'],
+'Ripple-Q v0.7':['Reversible two-bit symbols, bounded VM, interpretable signal-event telemetry','Four states are engineered encodings; no improvement in spatial holdout seen when enabled'],
+'Mycelium v0.1–0.5':['Colony roles, specialist coordination, bounded worker ideas','Worker-task strategies differ from sensor/motor primitives; no OS work-stealing in this Beta'],
+'Digital World v0.5':['Spatial world, optional depth and synthetic ray occlusion','Synthetic geometry, no real LiDAR/camera fusion'],
+'Alpha Labs v1.0/1.1':['Pairwise conservative diffusion, occlusion, occupancy hypotheses, trials','Occupancy is a simulation parameter, not inferred atomic density'],
+'Hybrid Alpha v1.1':['Local knowledge, SHARE, bounded reproduction, safe rule grammar','Increased state and runtime; some features ineffective or adverse in holdout'],
+'Ripple Gen Beta v2.0':['Preserves verified kernels and combines scenarios, ablations, trace export and contracts','No sensor hardware, autonomous model, real device control or validated physical mapping']};
+$('matrix').innerHTML=Object.entries(features).map(([title,[plus,minus]])=>`<article><h3>${title}</h3><p><b>Advantage:</b> ${plus}</p><p><b>Limit:</b> ${minus}</p></article>`).join('');
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('[data-panel]').forEach(p=>p.classList.toggle('hidden',p.id!==b.dataset.tab));});
+function reset(){let seed=Number($('seed').value),policy=$('policy').value,scenario=$('scenario').value;try{world=new BetaWorld({seed,policy,scenario});selected=0;show();$('status').textContent='Reset to seeded initial conditions. All signals are simulated.';}catch(e){$('status').textContent=e.message;}}
+function draw(){const width=$('world').width,height=$('world').height,iw=width/world.w,ih=height/world.h;ctx.clearRect(0,0,width,height);for(let y=0;y<world.h;y++)for(let x=0;x<world.w;x++){const i=y*world.w+x;if(world.mask[i]>=1){ctx.fillStyle='#274858';}else{const c=[0,1,2].map(k=>Math.min(255,Math.round(Math.pow(Math.min(world.field[i*3+k],1.2)/1.2,.7)*230+10)));ctx.fillStyle=`rgb(${c[0]},${c[1]},${c[2]})`;}ctx.fillRect(x*iw,y*ih,Math.ceil(iw),Math.ceil(ih));}
+ctx.strokeStyle='#7eabb122';ctx.lineWidth=.7;for(let x=0;x<world.w;x++){ctx.beginPath();ctx.moveTo(x*iw,0);ctx.lineTo(x*iw,height);ctx.stroke();}for(let y=0;y<world.h;y++){ctx.beginPath();ctx.moveTo(0,y*ih);ctx.lineTo(width,y*ih);ctx.stroke();}
+for(const a of world.agents){if(a.id===selected){ctx.beginPath();ctx.strokeStyle='#73d2ff';ctx.lineWidth=2.6;for(const [i,p] of a.path.entries()){if(i===0)ctx.moveTo((p[0]+.5)*iw,(p[1]+.5)*ih);else ctx.lineTo((p[0]+.5)*iw,(p[1]+.5)*ih);}ctx.stroke();}ctx.fillStyle=a.id===selected?'#a9f4ff':'#ffe0a0';ctx.strokeStyle='#142534';ctx.lineWidth=2;ctx.beginPath();ctx.arc((a.x+.5)*iw,(a.y+.5)*ih,Math.min(iw,ih)*.27,0,Math.PI*2);ctx.fill();ctx.stroke();}}
+function show(){if(!world)return;const s=world.summary();$('vTick').textContent=s.ticks;$('vEvents').textContent=s.events;$('vCoverage').textContent=s.coverage;$('vPopulation').textContent=s.population;$('vShare').textContent=s.sharedCells;$('vClones').textContent=s.clones;const selector=$('agentSelect'),prior=String(selected);selector.innerHTML=world.agents.map(a=>`<option value="${a.id}">${a.g.name} #${a.id} · ${a.g.role}</option>`).join('');selector.value=prior;const a=world.agents[selected]||world.agents[0];$('agentDetails').innerHTML=`<div><b>Genome:</b> ${a.g.id} / <b>parent:</b> ${a.g.parent||'root'}</div><div><b>Program:</b> ${a.g.program.map(r=>r.join(' → ')).join(' · ')}</div><div><b>Pulse count:</b> ${a.events} / <b>state:</b> ${a.lastSymbol}</div><div><b>Route:</b> ${a.path.length} retained coordinates, current (${a.x}, ${a.y})</div><div><b>Local remembered cells:</b> ${a.known.size} / <b>shared by agent:</b> ${a.shared}</div>`;draw();}
+$('run').onclick=()=>{if(!world)reset();try{const n=Math.min(240,1200-world.tick);world.run(n);show();$('status').textContent=`Completed ${n} model ticks; coverage ${world.globalDiscovered.size} cells. ${world.metrics.clones} descendants. SYNTHETIC.`;}catch(e){$('status').textContent=e.message;}};
+$('step').onclick=()=>{try{world.run(Math.min(20,1200-world.tick));show();$('status').textContent='Advanced 20 synthetic steps.';}catch(e){$('status').textContent=e.message;}};
+$('reset').onclick=reset;
+$('policy').onchange=reset;$('scenario').onchange=reset;$('seed').onchange=reset;
+$('agentSelect').onchange=e=>{selected=Number(e.target.value);show();};$('world').onclick=e=>{const rect=e.currentTarget.getBoundingClientRect(),x=Math.min(world.w-1,Math.max(0,Math.floor((e.clientX-rect.left)/rect.width*world.w))),y=Math.min(world.h-1,Math.max(0,Math.floor((e.clientY-rect.top)/rect.height*world.h))),i=(y*world.w+x)*3;const v=[...world.field.slice(i,i+3)].map(x=>x.toFixed(4));$('tile').textContent=`Cell (${x},${y}) · RGB numerical field (${v.join(', ')}) · barrier=${world.mask[i/3]===1} · occupancy=${world.agents.filter(a=>a.x===x&&a.y===y).length}`;};
+function save(name,content){const blob=new Blob([JSON.stringify(content,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+$('export').onclick=()=>save('ripple-gen-beta-replay.json',world.exportRecord());$('exportStudy').onclick=()=>save('ripple-gen-beta-architecture-trials.json',{comparisons,ablations});
+function table(){const split=$('split').value;$('trialRows').innerHTML=comparisons.stats.filter(x=>x.split===split).map(x=>`<tr><td class="${x.policy==='hybrid-beta'?'featured':''}">${POLICIES[x.policy].name}</td><td>${x.coverageMean.toFixed(1)}</td><td>${x.eventsMean.toFixed(1)}</td><td>${x.sharedCellsMean.toFixed(1)}</td><td>${x.clonesMean.toFixed(1)}</td><td>${x.runtimeMedianMs.toFixed(2)}</td></tr>`).join('');const all=ablations.summary.filter(x=>x.split==='holdout'),best=all.find(x=>x.policy==='hybrid-beta');$('ablateRows').innerHTML=all.map(x=>`<tr><td class="${x.policy==='hybrid-beta'?'featured':''}">${x.policy==='hybrid-beta'?'Full Hybrid':BETA_ABLATIONS[x.policy].name}</td><td>${x.coverageMean.toFixed(1)}</td><td>${(best.coverageMean-x.coverageMean).toFixed(1)}</td><td>${x.eventsMean.toFixed(1)}</td><td>${x.sharesMean.toFixed(1)}</td></tr>`).join('');}
+$('split').onchange=table;table();reset();
+</script></body></html>
