@@ -3,7 +3,7 @@
 ## Public archive & mathematical registry (updated 20 October 2026)
 
 - **[Recovered Ripple/Charlie versions and release-status audit](releases/README.md)** — full inventory of published source, standalone artifacts, and Library archives that still need public ZIP publication.
-- **[31 archived executable HTML and replay files](standalone-archive/README.md)** — historical offline implementations and viewers; runtime compatibility varies.
+- **[33 archived executable HTML and replay files](standalone-archive/README.md)** — historical offline implementations and viewers; runtime compatibility varies.
 - **[Recovered mathematical studies](mathematics/library-2026-10-20/README.md)** — 30 documented studies supplementing the existing 171-entry formula registry, with duplicate/assumption caveats.
 - **[Original curated mathematics registry](mathematics/FORMULA_REGISTRY.json)** — approved formulas remain unchanged; supplemental study documents are referenced separately.
 
