@@ -4,6 +4,9 @@
   </a>
 </p>
 
+> **Ripple / Charlie research archive:** [Verified source families, standalone versions, and mathematics](ripple/README.md) · [Release-status audit](ripple/releases/README.md). Public code and mathematical models are research artifacts; complete platform ZIPs and hardware validation have separate status.
+
+
 <p align="center">"<i>Knowledge is powerful, be careful how you use it!</i>"</p>
 
 <h4 align="center">A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools, and more.</h4>
