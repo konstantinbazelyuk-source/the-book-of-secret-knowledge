@@ -1,0 +1,6 @@
+test_concurrent_identical_store_counts_one_new_record (__main__.ServiceTests.test_concurrent_identical_store_counts_one_new_record) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.130s
+
+OK

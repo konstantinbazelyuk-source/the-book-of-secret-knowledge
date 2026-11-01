@@ -1,0 +1,18 @@
+PASS original kernel source identical, no amended neuron equations
+PASS all routing, topology and scale choices make a connected graph
+PASS new clones are independent, fresh original neurons
+PASS all selected fused runs finish and recompose every job
+PASS fused final population contracts to one after burst
+PASS all parameter combinations keep exact job conservation on four profiles
+PASS simulation deterministic under repeated identical inputs
+PASS original blue inhibition and silence invariants remain unchanged
+PASS malformed input and illegal configurations rejected
+PASS real thread pool calculates exact CPU results and reports completed ledger
+PASS thread-level Ripple activity emits a pulse per admitted CPU task
+PASS adaptive parallel colony safely contracts after jobs complete
+PASS cost-aware policy stays at one thread for tiny tasks
+PASS cost-aware policy can expand for heavier tasks
+PASS duplicate identity rejected before dispatch
+PASS killed busy worker loses no job: retry and exact verification
+PASS crashed only/root thread is replaced and task completed
+17/17 tests passed

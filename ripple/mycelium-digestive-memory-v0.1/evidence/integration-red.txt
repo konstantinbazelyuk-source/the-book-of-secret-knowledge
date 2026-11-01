@@ -1,0 +1,28 @@
+✖ cold execution uses original workers and warm reuse avoids execution (2.253195ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86.932819
+
+✖ failing tests:
+
+test at test/integration.test.js:20:1
+✖ cold execution uses original workers and warm reuse avoids execution (2.253195ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (/workspace/scratch/9750227ed20e/ripple-memory-work/package/test/integration.test.js:23:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

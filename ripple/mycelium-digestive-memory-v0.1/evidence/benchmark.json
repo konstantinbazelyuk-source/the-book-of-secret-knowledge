@@ -1,0 +1,358 @@
+{
+  "label": "Measured local deterministic CPU workload; not an AI quality benchmark",
+  "tasksPerRun": 24,
+  "roundsPerTask": 400000,
+  "repetitions": 3,
+  "configuration": {
+    "maxWorkers": 4,
+    "policy": "elastic",
+    "mode": "ripple",
+    "topology": "ring"
+  },
+  "summary": {
+    "original_workers": {
+      "medianMs": 90.68498500000001,
+      "minMs": 72.07610299999999,
+      "maxMs": 92.04558700000007,
+      "workerJobsPerRun": [
+        24,
+        24,
+        24
+      ],
+      "cacheHitsPerRun": [
+        0,
+        0,
+        0
+      ],
+      "includesBridgeStartup": false
+    },
+    "original_plus_serial_check": {
+      "medianMs": 107.894889,
+      "minMs": 97.85687400000006,
+      "maxMs": 108.1863350000001,
+      "workerJobsPerRun": [
+        24,
+        24,
+        24
+      ],
+      "cacheHitsPerRun": [
+        0,
+        0,
+        0
+      ],
+      "includesBridgeStartup": false
+    },
+    "memory_cold": {
+      "medianMs": 230.45108300000004,
+      "minMs": 201.681286,
+      "maxMs": 248.69621099999995,
+      "workerJobsPerRun": [
+        24,
+        24,
+        24
+      ],
+      "cacheHitsPerRun": [
+        0,
+        0,
+        0
+      ],
+      "includesBridgeStartup": true
+    },
+    "memory_warm_session": {
+      "medianMs": 3.369832999999744,
+      "minMs": 2.9088950000000295,
+      "maxMs": 5.410904999999957,
+      "workerJobsPerRun": [
+        0,
+        0,
+        0
+      ],
+      "cacheHitsPerRun": [
+        24,
+        24,
+        24
+      ],
+      "includesBridgeStartup": false
+    },
+    "memory_warm_restart": {
+      "medianMs": 61.45085599999993,
+      "minMs": 54.576278,
+      "maxMs": 66.14378999999997,
+      "workerJobsPerRun": [
+        0,
+        0,
+        0
+      ],
+      "cacheHitsPerRun": [
+        24,
+        24,
+        24
+      ],
+      "includesBridgeStartup": true
+    },
+    "memory_half_repeated": {
+      "medianMs": 107.33689600000025,
+      "minMs": 98.62418500000001,
+      "maxMs": 135.84643200000005,
+      "workerJobsPerRun": [
+        12,
+        12,
+        12
+      ],
+      "cacheHitsPerRun": [
+        12,
+        12,
+        12
+      ],
+      "includesBridgeStartup": false
+    }
+  },
+  "samples": [
+    {
+      "repetition": 1,
+      "mode": "original_workers",
+      "milliseconds": 90.68498500000001,
+      "workerJobs": 24,
+      "cacheHits": 0,
+      "serialChecks": 0,
+      "includesBridgeStartup": false,
+      "actualWorkerThreadCount": 4
+    },
+    {
+      "repetition": 1,
+      "mode": "original_plus_serial_check",
+      "milliseconds": 107.894889,
+      "workerJobs": 24,
+      "cacheHits": 0,
+      "serialChecks": 24,
+      "includesBridgeStartup": false,
+      "actualWorkerThreadCount": 4
+    },
+    {
+      "repetition": 1,
+      "mode": "memory_cold",
+      "milliseconds": 230.45108300000004,
+      "cacheHits": 0,
+      "cacheRejected": 0,
+      "workerJobs": 24,
+      "serialChecks": 24,
+      "memoryWritesStored": 24,
+      "memoryWritesRevoked": 0,
+      "includesBridgeStartup": true,
+      "actualWorkerThreadCount": 4
+    },
+    {
+      "repetition": 1,
+      "mode": "memory_warm_session",
+      "milliseconds": 2.9088950000000295,
+      "cacheHits": 24,
+      "cacheRejected": 0,
+      "workerJobs": 0,
+      "serialChecks": 0,
+      "memoryWritesStored": 0,
+      "memoryWritesRevoked": 0,
+      "includesBridgeStartup": false,
+      "actualWorkerThreadCount": 0
+    },
+    {
+      "repetition": 1,
+      "mode": "memory_warm_restart",
+      "milliseconds": 66.14378999999997,
+      "cacheHits": 24,
+      "cacheRejected": 0,
+      "workerJobs": 0,
+      "serialChecks": 0,
+      "memoryWritesStored": 0,
+      "memoryWritesRevoked": 0,
+      "includesBridgeStartup": true,
+      "actualWorkerThreadCount": 0
+    },
+    {
+      "repetition": 1,
+      "mode": "memory_half_repeated",
+      "milliseconds": 98.62418500000001,
+      "cacheHits": 12,
+      "cacheRejected": 0,
+      "workerJobs": 12,
+      "serialChecks": 12,
+      "memoryWritesStored": 12,
+      "memoryWritesRevoked": 0,
+      "includesBridgeStartup": false,
+      "actualWorkerThreadCount": 3
+    },
+    {
+      "repetition": 2,
+      "mode": "original_plus_serial_check",
+      "milliseconds": 97.85687400000006,
+      "workerJobs": 24,
+      "cacheHits": 0,
+      "serialChecks": 24,
+      "includesBridgeStartup": false,
+      "actualWorkerThreadCount": 4
+    },
+    {
+      "repetition": 2,
+      "mode": "original_workers",
+      "milliseconds": 72.07610299999999,
+      "workerJobs": 24,
+      "cacheHits": 0,
+      "serialChecks": 0,
+      "includesBridgeStartup": false,
+      "actualWorkerThreadCount": 4
+    },
+    {
+      "repetition": 2,
+      "mode": "memory_cold",
+      "milliseconds": 201.681286,
+      "cacheHits": 0,
+      "cacheRejected": 0,
+      "workerJobs": 24,
+      "serialChecks": 24,
+      "memoryWritesStored": 24,
+      "memoryWritesRevoked": 0,
+      "includesBridgeStartup": true,
+      "actualWorkerThreadCount": 4
+    },
+    {
+      "repetition": 2,
+      "mode": "memory_warm_session",
+      "milliseconds": 5.410904999999957,
+      "cacheHits": 24,
+      "cacheRejected": 0,
+      "workerJobs": 0,
+      "serialChecks": 0,
+      "memoryWritesStored": 0,
+      "memoryWritesRevoked": 0,
+      "includesBridgeStartup": false,
+      "actualWorkerThreadCount": 0
+    },
+    {
+      "repetition": 2,
+      "mode": "memory_warm_restart",
+      "milliseconds": 61.45085599999993,
+      "cacheHits": 24,
+      "cacheRejected": 0,
+      "workerJobs": 0,
+      "serialChecks": 0,
+      "memoryWritesStored": 0,
+      "memoryWritesRevoked": 0,
+      "includesBridgeStartup": true,
+      "actualWorkerThreadCount": 0
+    },
+    {
+      "repetition": 2,
+      "mode": "memory_half_repeated",
+      "milliseconds": 135.84643200000005,
+      "cacheHits": 12,
+      "cacheRejected": 0,
+      "workerJobs": 12,
+      "serialChecks": 12,
+      "memoryWritesStored": 12,
+      "memoryWritesRevoked": 0,
+      "includesBridgeStartup": false,
+      "actualWorkerThreadCount": 3
+    },
+    {
+      "repetition": 3,
+      "mode": "original_workers",
+      "milliseconds": 92.04558700000007,
+      "workerJobs": 24,
+      "cacheHits": 0,
+      "serialChecks": 0,
+      "includesBridgeStartup": false,
+      "actualWorkerThreadCount": 4
+    },
+    {
+      "repetition": 3,
+      "mode": "original_plus_serial_check",
+      "milliseconds": 108.1863350000001,
+      "workerJobs": 24,
+      "cacheHits": 0,
+      "serialChecks": 24,
+      "includesBridgeStartup": false,
+      "actualWorkerThreadCount": 4
+    },
+    {
+      "repetition": 3,
+      "mode": "memory_cold",
+      "milliseconds": 248.69621099999995,
+      "cacheHits": 0,
+      "cacheRejected": 0,
+      "workerJobs": 24,
+      "serialChecks": 24,
+      "memoryWritesStored": 24,
+      "memoryWritesRevoked": 0,
+      "includesBridgeStartup": true,
+      "actualWorkerThreadCount": 4
+    },
+    {
+      "repetition": 3,
+      "mode": "memory_warm_session",
+      "milliseconds": 3.369832999999744,
+      "cacheHits": 24,
+      "cacheRejected": 0,
+      "workerJobs": 0,
+      "serialChecks": 0,
+      "memoryWritesStored": 0,
+      "memoryWritesRevoked": 0,
+      "includesBridgeStartup": false,
+      "actualWorkerThreadCount": 0
+    },
+    {
+      "repetition": 3,
+      "mode": "memory_warm_restart",
+      "milliseconds": 54.576278,
+      "cacheHits": 24,
+      "cacheRejected": 0,
+      "workerJobs": 0,
+      "serialChecks": 0,
+      "memoryWritesStored": 0,
+      "memoryWritesRevoked": 0,
+      "includesBridgeStartup": true,
+      "actualWorkerThreadCount": 0
+    },
+    {
+      "repetition": 3,
+      "mode": "memory_half_repeated",
+      "milliseconds": 107.33689600000025,
+      "cacheHits": 12,
+      "cacheRejected": 0,
+      "workerJobs": 12,
+      "serialChecks": 12,
+      "memoryWritesStored": 12,
+      "memoryWritesRevoked": 0,
+      "includesBridgeStartup": false,
+      "actualWorkerThreadCount": 3
+    }
+  ],
+  "databaseBytes": [
+    139264,
+    139264,
+    139264
+  ],
+  "environment": {
+    "node": "v24.22.1",
+    "python": "Python 3.12.14",
+    "platform": "linux",
+    "arch": "x64",
+    "availableParallelism": 8
+  },
+  "sourcePins": {
+    "sourceDigest": "e3efad4a16a4332a2851e5821471ebfe908f081fe8bd4a3eba20fbff9ac00d16",
+    "files": 60
+  },
+  "adapterSourceHashes": {
+    "src/memory_mycelium.js": "b156845beab04b1cff769b955b1bb9e08755ab61118017ca563e73afc872110c",
+    "src/memory_bridge.js": "a620028996a1ba4613f4b4104783d7693986d0ae4e0e46b03c3e14cdb0e45bc4",
+    "src/pins.js": "707c71c51ab8615f8a264cd3b4c99e1089002b940bc8c06f51972200344fd073",
+    "python/memory_service.py": "68230f5c112d29720658a3231de1504ff37d50817827d0e89a4c8794136f0603"
+  },
+  "timingScope": "Original modes include worker creation/execution/shutdown. Checked baseline includes serial parity. Memory cold includes bridge startup, worker lifecycle, serial parity and writes; warm session excludes bridge startup; warm restart includes bridge startup. Memory bridge shutdown is outside those measured memory phases.",
+  "limits": [
+    "All tasks are deterministic integer CPU kernels, not research reasoning or model inference.",
+    "Warm cases repeat exact keys. Changed task parameters/source hash miss the cache.",
+    "Serial validation and persistent storage increase cold-path work.",
+    "Only three repetitions on shared host; no generalized speedup or hardware-energy claim.",
+    "Cache lookup uses a scoped full scan in the reference memory engine."
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "label": "Executed local original workers and persistent memory; observation values are synthetic fixtures",
+  "cold": {
+    "cacheHits": 0,
+    "cacheRejected": 0,
+    "workerJobs": 2,
+    "serialChecks": 2,
+    "memoryWritesStored": 2,
+    "memoryWritesRevoked": 0
+  },
+  "warm": {
+    "cacheHits": 2,
+    "cacheRejected": 0,
+    "workerJobs": 0,
+    "serialChecks": 0,
+    "memoryWritesStored": 0,
+    "memoryWritesRevoked": 0
+  },
+  "afterRestart": {
+    "cacheHits": 2,
+    "cacheRejected": 0,
+    "workerJobs": 0,
+    "serialChecks": 0,
+    "memoryWritesStored": 0,
+    "memoryWritesRevoked": 0
+  },
+  "historical": {
+    "subject": "fixture",
+    "predicate": "location",
+    "status": "known",
+    "value": "Dallas",
+    "alternatives": [],
+    "source_ids": [
+      "observation-a"
+    ],
+    "evidence": [
+      {
+        "source_id": "observation-a",
+        "quote": "Dallas",
+        "observed_at": 100,
+        "authority": 3
+      }
+    ],
+    "valid_from": 100
+  },
+  "current": {
+    "subject": "fixture",
+    "predicate": "location",
+    "status": "known",
+    "value": "Austin",
+    "alternatives": [],
+    "source_ids": [
+      "observation-b"
+    ],
+    "evidence": [
+      {
+        "source_id": "observation-b",
+        "quote": "Austin",
+        "observed_at": 200,
+        "authority": 3
+      }
+    ],
+    "valid_from": 200
+  },
+  "context": {
+    "kind": "memory_data",
+    "items": [
+      {
+        "subject": "fixture",
+        "predicate": "location",
+        "status": "known",
+        "value": "Austin",
+        "alternatives": [],
+        "source_ids": [
+          "observation-b"
+        ],
+        "evidence": [
+          {
+            "source_id": "observation-b",
+            "quote": "Austin",
+            "observed_at": 200,
+            "authority": 3
+          }
+        ],
+        "valid_from": 200
+      }
+    ],
+    "considered": 1,
+    "omitted": 0
+  },
+  "health": {
+    "observations": {
+      "events": 2,
+      "accepted_facts": 2,
+      "quarantined_facts": 0,
+      "cold_events": 0,
+      "digests": 0,
+      "tombstones": 0
+    },
+    "cache": {
+      "events": 2,
+      "accepted_facts": 2,
+      "quarantined_facts": 0,
+      "cold_events": 0,
+      "digests": 0,
+      "tombstones": 0
+    }
+  },
+  "databaseRetained": false
+}

@@ -1,0 +1,13 @@
+{
+  "name": "ripple-mycelium-digestive-memory",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Persistent source-linked memory for the preserved Ripple worker colony",
+  "main": "src/memory_mycelium.js",
+  "engines": {"node": ">=20"},
+  "scripts": {
+    "test": "node scripts/test_all.js",
+    "demo": "node scripts/demo.js",
+    "benchmark": "node scripts/benchmark.js"
+  }
+}

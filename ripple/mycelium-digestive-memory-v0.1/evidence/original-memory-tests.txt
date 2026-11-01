@@ -1,0 +1,46 @@
+test_all_byte_budget_boundaries (tests.test_boundaries.BoundaryTests.test_all_byte_budget_boundaries) ... ok
+test_candidate_count_bound_and_span_bound (tests.test_boundaries.BoundaryTests.test_candidate_count_bound_and_span_bound) ... ok
+test_candidate_iterable_consumption_is_bounded (tests.test_boundaries.BoundaryTests.test_candidate_iterable_consumption_is_bounded) ... ok
+test_digest_records_its_snapshot_times (tests.test_boundaries.BoundaryTests.test_digest_records_its_snapshot_times) ... ok
+test_evidence_order_is_independent_of_fact_ids (tests.test_boundaries.BoundaryTests.test_evidence_order_is_independent_of_fact_ids) ... ok
+test_expired_new_version_does_not_resurrect_old_value (tests.test_boundaries.BoundaryTests.test_expired_new_version_does_not_resurrect_old_value) ... ok
+test_historical_request_cannot_bypass_memory_expiry (tests.test_boundaries.BoundaryTests.test_historical_request_cannot_bypass_memory_expiry) ... ok
+test_maximum_source_id_can_store_plain_text (tests.test_boundaries.BoundaryTests.test_maximum_source_id_can_store_plain_text) ... ok
+test_scope_delimiters_cannot_collide (tests.test_boundaries.BoundaryTests.test_scope_delimiters_cannot_collide) ... ok
+test_sql_failure_after_first_fact_rolls_back_event (tests.test_boundaries.BoundaryTests.test_sql_failure_after_first_fact_rolls_back_event) ... ok
+test_sql_metacharacters_are_data (tests.test_boundaries.BoundaryTests.test_sql_metacharacters_are_data) ... ok
+test_tombstone_is_scoped_to_project_and_tenant (tests.test_boundaries.BoundaryTests.test_tombstone_is_scoped_to_project_and_tenant) ... ok
+test_absorbed_memory_has_exact_source_quote (tests.test_memory.MemoryTests.test_absorbed_memory_has_exact_source_quote) ... ok
+test_archive_does_not_destroy_recall (tests.test_memory.MemoryTests.test_archive_does_not_destroy_recall) ... ok
+test_changed_candidate_reusing_source_id_is_rejected (tests.test_memory.MemoryTests.test_changed_candidate_reusing_source_id_is_rejected) ... ok
+test_changed_payload_reusing_source_id_is_rejected (tests.test_memory.MemoryTests.test_changed_payload_reusing_source_id_is_rejected) ... ok
+test_confidence_nan_and_infinity_are_rejected (tests.test_memory.MemoryTests.test_confidence_nan_and_infinity_are_rejected) ... ok
+test_conflict_packet_is_not_split_into_single_assertion (tests.test_memory.MemoryTests.test_conflict_packet_is_not_split_into_single_assertion) ... ok
+test_context_exact_json_byte_budget_including_unicode (tests.test_memory.MemoryTests.test_context_exact_json_byte_budget_including_unicode) ... ok
+test_declarative_extractor_handles_unicode_and_newlines (tests.test_memory.MemoryTests.test_declarative_extractor_handles_unicode_and_newlines) ... ok
+test_delete_invalidates_multi_source_digest (tests.test_memory.MemoryTests.test_delete_invalidates_multi_source_digest) ... ok
+test_disk_restart_preserves_source_linked_fact (tests.test_memory.MemoryTests.test_disk_restart_preserves_source_linked_fact) ... ok
+test_effective_time_beats_late_arrival (tests.test_memory.MemoryTests.test_effective_time_beats_late_arrival) ... ok
+test_equal_time_conflict_is_explicit (tests.test_memory.MemoryTests.test_equal_time_conflict_is_explicit) ... ok
+test_external_text_is_quarantined (tests.test_memory.MemoryTests.test_external_text_is_quarantined) ... ok
+test_future_effective_update_does_not_replace_current (tests.test_memory.MemoryTests.test_future_effective_update_does_not_replace_current) ... ok
+test_half_open_validity_and_expiry (tests.test_memory.MemoryTests.test_half_open_validity_and_expiry) ... ok
+test_historical_as_of (tests.test_memory.MemoryTests.test_historical_as_of) ... ok
+test_identical_retry_is_idempotent (tests.test_memory.MemoryTests.test_identical_retry_is_idempotent) ... ok
+test_invalid_event_and_limits (tests.test_memory.MemoryTests.test_invalid_event_and_limits) ... ok
+test_invalid_later_candidate_rolls_back_whole_event (tests.test_memory.MemoryTests.test_invalid_later_candidate_rolls_back_whole_event) ... ok
+test_known_at_prevents_using_later_observations (tests.test_memory.MemoryTests.test_known_at_prevents_using_later_observations) ... ok
+test_low_confidence_is_not_promoted (tests.test_memory.MemoryTests.test_low_confidence_is_not_promoted) ... ok
+test_lower_authority_tool_cannot_override_user (tests.test_memory.MemoryTests.test_lower_authority_tool_cannot_override_user) ... ok
+test_matching_evidence_is_deduplicated_without_losing_sources (tests.test_memory.MemoryTests.test_matching_evidence_is_deduplicated_without_losing_sources) ... ok
+test_plain_text_remains_searchable_episode (tests.test_memory.MemoryTests.test_plain_text_remains_searchable_episode) ... ok
+test_scope_isolation_for_read_and_delete (tests.test_memory.MemoryTests.test_scope_isolation_for_read_and_delete) ... ok
+test_search_uses_resolved_current_value (tests.test_memory.MemoryTests.test_search_uses_resolved_current_value) ... ok
+test_tombstone_blocks_reingestion_after_restart (tests.test_memory.MemoryTests.test_tombstone_blocks_reingestion_after_restart) ... ok
+test_too_small_budget_is_rejected (tests.test_memory.MemoryTests.test_too_small_budget_is_rejected) ... ok
+test_value_not_in_source_is_rejected_without_writes (tests.test_memory.MemoryTests.test_value_not_in_source_is_rejected_without_writes) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 0.057s
+
+OK

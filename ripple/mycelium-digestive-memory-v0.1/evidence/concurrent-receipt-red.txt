@@ -1,0 +1,21 @@
+test_concurrent_identical_store_counts_one_new_record (__main__.ServiceTests.test_concurrent_identical_store_counts_one_new_record) ... FAIL
+
+======================================================================
+FAIL: test_concurrent_identical_store_counts_one_new_record (__main__.ServiceTests.test_concurrent_identical_store_counts_one_new_record)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/9750227ed20e/ripple-memory-work/package/test/test_service.py", line 52, in test_concurrent_identical_store_counts_one_new_record
+    self.assertEqual(sorted(statuses),['already_known','stored'])
+AssertionError: Lists differ: ['stored', 'stored'] != ['already_known', 'stored']
+
+First differing element 0:
+'stored'
+'already_known'
+
+- ['stored', 'stored']
++ ['already_known', 'stored']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.146s
+
+FAILED (failures=1)

@@ -1,0 +1,19 @@
+{
+  "test_suites": {
+    "original_worker_colony": 17,
+    "original_specialist": 24,
+    "original_memory": 41,
+    "node_integration": 17,
+    "python_multiprocess": 1
+  },
+  "total_tests": 100,
+  "all_passed": true,
+  "unchanged_vendor_files": 60,
+  "benchmark_modes": 6,
+  "benchmark_repetitions": 3,
+  "benchmark_returned_values_checked": 432,
+  "warm_reuse_worker_jobs": 0,
+  "adapter_hashes_match_benchmarked_source": true,
+  "source_baseline_commit": "78fd9d3289b7ce9c82d25caf6679d8a4aa42c2ce",
+  "independent_review": "complete; namespace, protocol and accounting regressions fixed"
+}

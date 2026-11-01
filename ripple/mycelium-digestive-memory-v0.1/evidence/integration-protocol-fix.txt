@@ -1,0 +1,25 @@
+✔ cold execution uses original workers and warm reuse avoids execution (143.810332ms)
+✔ verified results survive bridge and process restart (180.366497ms)
+✔ different parameters receive different identities and execute (189.769246ms)
+✔ forgetting a task forces recomputation and prevents silent recaching (224.743597ms)
+✔ observations preserve correction, date and source (69.267819ms)
+✔ equal-time conflicting observations remain explicit (64.686998ms)
+✔ external observations remain quarantined (75.961201ms)
+✔ source deletion invalidates derived observation digests (78.817769ms)
+✔ scope separation covers both observations and task reuse (240.524288ms)
+✔ observation authority cannot overwrite the internal verified-result namespace (130.062473ms)
+✔ a chosen project name cannot address another projects internal result scope (207.651446ms)
+✔ invalid or duplicate tasks reject before dispatch (66.023122ms)
+✔ empty batches return without starting a worker colony (74.245717ms)
+✔ context obeys the exact UTF-8 byte budget (103.633593ms)
+✔ memory subprocess failure rejects subsequent requests (58.036231ms)
+✔ malformed memory response envelopes reject without an uncaught master error (55.417766ms)
+✔ corrupt cached data is rejected before result reuse (205.38973ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2254.061251

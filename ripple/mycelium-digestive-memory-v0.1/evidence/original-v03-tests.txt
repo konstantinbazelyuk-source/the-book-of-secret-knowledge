@@ -1,0 +1,32 @@
+✔ original neuron kernel byte-identical to v0.2 (2.239233ms)
+✔ feasible target inverse equation at D=.7 (0.289937ms)
+✔ infeasible target rejected (0.201564ms)
+✔ frequency inverse at three drives (0.2054ms)
+✔ no spontaneous pulses during darkness (13.152945ms)
+✔ inhibition stops excitation in steady state (2.507548ms)
+✔ unmodified original vs controlled original exact state (4.242512ms)
+✔ analytic fixed theta matches long-run deterministic firing (7.663886ms)
+✔ hybrid improves tracking vs original on steady drive (9.397858ms)
+✔ integral candidate can be worse and stays an experimental negative control (6.755368ms)
+✔ product values add exactly across arbitrary partitions (0.641116ms)
+✔ invalid product data rejected (0.361485ms)
+✔ study detects duplication across worker partitions (0.293342ms)
+✔ study correct independent inverse-variance precision (0.189495ms)
+✔ study disagreement flag is explicit heuristic (0.161504ms)
+✔ gradient checked by independent finite differences (0.709899ms)
+✔ specialist speed model is disclosed work-units, not observed hardware (0.129595ms)
+✔ clones own independent neuron states (0.442206ms)
+✔ fixed population cap respected and requests accounted (19.440498ms)
+✔ all arithmetic modes run and recombine (20.912316ms)
+✔ genuine out-of-sample learning from synthetic examples (9.292398ms)
+✔ all five specialist task profiles deterministic replay (77.162145ms)
+✔ work not lost when idle workers retire (8.740358ms)
+✔ three topology hop delay distances differ when pool grows (0.349436ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 306.354476

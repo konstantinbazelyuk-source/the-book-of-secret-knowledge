@@ -1,5 +1,10 @@
 # Ripple — Laptop runtime and verified research code
 
+## 1 November 2026 - Mycelium with persistent digestive memory
+
+- [Runnable memory integration, API and measured comparison](mycelium-digestive-memory-v0.1/README.md) - wraps the preserved real worker-thread colony with source-linked SQLite memory, exact verified-result reuse across restarts, dated observations, conflicts and deletion.
+- All 100 included original/integration tests pass; 60 preserved vendor source files retain their hashes. The benchmark separates first-encounter overhead from repeated-task reuse. This is an additive local runtime package; existing neuron equations and earlier versions remain unchanged.
+
 ## 21 October 2026 — neuron with persistent activity-dependent connections
 
 - [Ripple v0.2 structural plasticity and persistent graph checkpoint/resume](native-alpha-v2.0/docs/STRUCTURAL_PLASTICITY.md) — executable neuron graph remodeling with bounded growth, pruning, and synaptic weight changes; durable integrity-checked workspace sessions; preserves the checksum-locked original Ripple v0.1 neuron core.

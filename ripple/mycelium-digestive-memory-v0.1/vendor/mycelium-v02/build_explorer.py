@@ -1,0 +1,73 @@
+from pathlib import Path
+import json
+base=Path(__file__).parent
+core=(base/'src/ripple_core_reference.js').read_text()
+core=core.split('if (typeof module')[0].replace("'use strict';",'')
+colony=(base/'src/colony_variants.js').read_text()
+colony=colony.replace("const { RippleNeuron }=require('./ripple_core_reference');",'')
+colony=colony.replace('module.exports={VariantColony,ROUTES,SCALES,GRAPHS};','')
+html='''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ripple Cybernetic Mycelium · v0.2</title>
+<style>
+:root{color-scheme:dark;--bg:#0a1213;--panel:#122221;--panel2:#162b29;--stroke:#29413c;--muted:#a4c1b4;--accent:#81f2c3;--warm:#ffcf86;--text:#f2fff7}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% -15%,#24493866,transparent 45%),var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}main{max-width:1240px;margin:auto;padding:20px 16px 54px}
+h1{font-size:clamp(30px,5.5vw,58px);line-height:1.08;letter-spacing:-.045em;max-width:900px;margin:16px 0}h2{font-size:18px;margin:0 0 13px}p{margin:8px 0;color:var(--muted)}small{font-size:12px;color:var(--muted)}.overline{font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.17em;font-weight:800}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--stroke);padding-bottom:16px;flex-wrap:wrap}.logo{font-weight:900;letter-spacing:.13em;font-size:14px}.pill{border:1px solid #36775b;border-radius:99px;padding:5px 12px;color:#aef5d5;font-size:12px}.intro{margin:26px 0 24px}.lead{max-width:750px;font-size:17px}
+.layout{display:grid;grid-template-columns:315px 1fr;gap:17px}.panel{border:1px solid var(--stroke);background:linear-gradient(160deg,var(--panel),#0d1b1b);border-radius:16px;padding:17px;min-width:0}.control{margin-bottom:13px;display:block}.control label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px;color:var(--muted)}select,input{background:#091817;border:1px solid #37534b;color:var(--text);width:100%;border-radius:9px;padding:9px;font:inherit;accent-color:var(--accent)}input[type=range]{padding:0;height:27px}.buttons{display:flex;gap:9px;margin-top:17px}.buttons button{flex:1;cursor:pointer;font-weight:800;font-size:14px;border-radius:10px;padding:12px;border:1px solid #437e65;background:#1e563f;color:white}.buttons button:first-child{background:#92f4c1;color:#082019}.buttons button:hover{filter:brightness(1.11)}.buttons button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #f7ca71;outline-offset:2px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-bottom:14px}.stat{border:1px solid var(--stroke);background:#132722;border-radius:12px;padding:10px}.stat span{display:block;font-size:11px;color:var(--muted)}.stat b{display:block;font-size:25px;font-variant-numeric:tabular-nums}.network{width:100%;height:340px;display:block;border:1px solid #204639;border-radius:12px;background:radial-gradient(circle at center,#1a4037,transparent 65%),#0b1a1b}.timeline{width:100%;height:160px;display:block;border:1px solid #204639;border-radius:12px;background:#0b1a1b;margin-top:8px}.figure-note{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted);margin-top:7px}.grid-bottom{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.feed{list-style:none;padding:0;margin:0;max-height:180px;overflow:auto}.feed li{font-size:12px;border-bottom:1px solid #29403b;padding:6px 0;font-variant-numeric:tabular-nums}.key{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0}.dot{width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:4px}.dot.gold{background:var(--warm)}.evidence{margin-top:22px;border-top:1px solid var(--stroke);padding:17px 0;font-size:13px;color:var(--muted)}code{color:#bff7de}strong{color:#d8ffe9}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-bottom{grid-template-columns:1fr}.network{height:320px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style></head><body><main>
+<header><div class="logo">◉ RIPPLE / CYBERNETIC MYCELIUM</div><div class="pill">Independent numerical design · v0.2</div></header>
+<div class="intro"><div class="overline">Information ecology / Task distribution</div><h1>A colony that grows when work arrives and shrinks when work is done.</h1><p class="lead">Explore how independent copies of the <strong>unchanged Ripple Neuron v0.1</strong> compute real arithmetic chunks, route them across logical links and regulate population size. The graph below is a <strong>software simulation</strong>, not a biological image, field measurement or parallel hardware benchmark.</p></div>
+<div class="layout"><aside class="panel"><h2>Experiment controls</h2>
+<div class="control"><label for="scaling">Growth strategy</label><select id="scaling"><option value="fused" selected>Fused · priority-sensitive</option><option value="backlog">Economy · backlog</option><option value="adaptive">Responsive · arrivals + queue</option><option value="arrival">Arrivals only</option><option value="fixed1">Fixed one</option><option value="fixed4">Fixed four</option></select></div>
+<div class="control"><label for="routing">Information distribution</label><select id="routing"><option value="steal" selected>Neighbor work stealing</option><option value="pressure">Pressure-weighted neighbor</option><option value="neighbor">Push to least-loaded neighbor</option><option value="none">No sharing</option></select></div>
+<div class="control"><label for="graph">Hyphal topology</label><select id="graph"><option value="tree" selected>Branching tree</option><option value="ring">Ring</option><option value="mesh">Full mesh</option></select></div>
+<div class="control"><label for="scenario">Incoming tasks</label><select id="scenario"><option value="burst" selected>Burst + recovery (84 jobs)</option><option value="steady">Steady flow</option><option value="twin">Two demand peaks</option><option value="drought">Initial surge + silence</option></select></div>
+<div class="control"><label for="maxNodes">Maximum clones <output id="maxlabel">12</output></label><input type="range" id="maxNodes" min="1" max="16" value="12"></div>
+<div class="control"><label for="speed">Steps per frame <output id="speedlabel">12</output></label><input type="range" id="speed" min="1" max="40" value="12"></div>
+<div class="buttons"><button id="start">Start</button><button id="reset">Reset</button></div><p id="status" role="status" aria-live="polite">Ready. Change any option to reset.</p>
+<div class="key"><small><i class="dot"></i> Responsive clone</small><small><i class="dot gold"></i> Queued work</small></div><small>One node spike authorizes one arithmetic chunk. A logical second contains 20 model steps. Simulation runs faster than wall time.</small>
+</aside><section class="panel"><div class="stats"><div class="stat"><span>Simulated time</span><b id="time">0.0s</b></div><div class="stat"><span>Active clones</span><b id="nodes">1</b></div><div class="stat"><span>Verified jobs</span><b id="done">0/0</b></div><div class="stat"><span>Pending chunks</span><b id="pending">0</b></div></div>
+<h2>Colony structure</h2><canvas id="network" class="network" aria-label="Visualization of Ripple clones and logical communication links"></canvas><div class="figure-note"><span id="relay">0 one-hop transfers</span><span id="events">1 total clone created</span></div>
+<h2 style="margin-top:21px">Regulated growth over simulated time</h2><canvas class="timeline" id="timeline" aria-label="Historical number of clones and completed jobs"></canvas><small>Green line: active workers. Yellow line: completed arithmetic jobs. Curves are generated from model state.</small>
+</section></div><div class="grid-bottom"><section class="panel"><h2>What is actually happening?</h2><p>Each logical worker owns a fresh, independently adapting Ripple Neuron. A red input of 0.35 while its queue is nonempty excites the original integrator. Its firing event permits one integer reduction; the master verifies and assembles all pieces.</p><p>New clones receive part of their parent's queue. Work stealing moves a task <strong>one link at a time</strong>, never copies an unfinished task. Retirement transfers queued work first.</p></section><section class="panel"><h2>Events and model boundaries</h2><ul class="feed" id="feed"><li>Simulation initialized.</li></ul><p><small>The explorer never uses a camera, sensor, remote API, trained weights or AI model. Threaded measurements require running the included Node.js benchmark separately.</small></p></section></div>
+<div class="evidence">Design status: <strong>experimental numerical simulation</strong>. Mathematical neuron reference is copied unchanged. The parallel benchmark is a separate real execution artifact, not what this canvas displays. No physical optical or mycelial system has been constructed.</div>
+</main><script>
+/* SOURCE_CORE */
+/* SOURCE_COLONY */
+const regimes={burst(t){return t<30?(Math.round(t*20)%100===0):t<110?(Math.round((t-30)*20)%22===0):t<160?(Math.round((t-110)*20)%240===0):false;},steady(t){return t<150&&(Math.round(t*20)%48===0);},twin(t){return (t>=10&&t<55&&Math.round((t-10)*20)%16===0)||(t>=95&&t<135&&Math.round((t-95)*20)%16===0);},drought(t){return t<20&&(Math.round(t*20)%10===0);}};
+const el=id=>document.getElementById(id);let c,history=[],running=false,raf=null,lastSec=-1,lastScale=0;
+function canvasReady(canvas){const dpr=window.devicePixelRatio||1;const r=canvas.getBoundingClientRect();const w=Math.max(1,r.width),h=Math.max(1,r.height);if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);return {ctx,w,h};}
+function line(ctx,x1,y1,x2,y2,color,width=1){ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();}
+function drawNetwork(){const {ctx,w,h}=canvasReady(el('network'));ctx.clearRect(0,0,w,h);if(!c)return;
+ const ns=[...c.nodes.values()].sort((a,b)=>a.id-b.id);let pos=new Map();const cx=w/2,cy=h/2;
+ ns.forEach((n,i)=>{let x,y;if(n.id===0){x=cx;y=cy;}else{const idx=ns.filter(k=>k.id!==0).indexOf(n),total=Math.max(1,ns.length-1),ang=-Math.PI/2+idx*2*Math.PI/total,rad=Math.min(w,h)*.34;x=cx+rad*Math.cos(ang);y=cy+rad*Math.sin(ang);}pos.set(n.id,{x,y});});
+ for(const n of ns)for(const p of n.peers)if(p>n.id){const a=pos.get(n.id),b=pos.get(p);if(a&&b)line(ctx,a.x,a.y,b.x,b.y,'#236957',1.5);}
+ for(const n of ns){const {x,y}=pos.get(n.id),r=Math.max(12,Math.min(22,w/34));ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=n.queue.length?'#f7ce88':'#80efbb';ctx.fill();ctx.strokeStyle='#143f33';ctx.lineWidth=2;ctx.stroke();ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 12px system-ui';ctx.fillStyle='#063029';ctx.fillText('R'+n.id,x,y);if(n.queue.length){ctx.font='bold 11px system-ui';ctx.fillStyle='#ffd894';ctx.fillText(''+n.queue.length,x,y-r-8);}}
+}
+function drawTimeline(){const {ctx,w,h}=canvasReady(el('timeline'));ctx.clearRect(0,0,w,h);const pad=23;
+ for(let i=0;i<=4;i++){const y=pad+(h-2*pad)*i/4;line(ctx,pad,y,w-8,y,'#224239',1);}
+ if(history.length<2)return;const mx=Math.max(2,...history.map(x=>x.completed));
+ for(const [field,max,color] of [['nodes',Math.max(4,Number(el('maxNodes').value)),'#79e8ba'],['completed',mx,'#ffd08a']]){
+  ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();history.forEach((d,i)=>{const x=pad+(w-pad-8)*(d.t/200),y=h-pad-(h-2*pad)*d[field]/max;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.stroke();
+ }
+ ctx.textAlign='left';ctx.font='11px system-ui';ctx.fillStyle='#a4c1b4';ctx.fillText('0',4,h-4);ctx.textAlign='right';ctx.fillText('200s',w-8,h-4);
+}
+function render(){el('time').textContent=c.t.toFixed(1)+'s';el('nodes').textContent=c.nodes.size;el('done').textContent=c.outCount+'/'+c.inCount;el('pending').textContent=c.pending();el('relay').textContent=c.relayCount+' one-hop transfers';el('events').textContent=c.spawns+' clones created · '+c.retires+' retired';drawNetwork();drawTimeline();
+ if(c.scaleLog.length!==lastScale){lastScale=c.scaleLog.length;const feed=el('feed');feed.replaceChildren();for(const evt of [...c.scaleLog].slice(-12).reverse()){const li=document.createElement('li');li.textContent='t='+evt.t.toFixed(1)+'s  '+evt.type+' R'+evt.id;feed.appendChild(li);}}
+}
+function reset(){running=false;if(raf!==null)cancelAnimationFrame(raf);raf=null;el('start').textContent='Start';
+ c=new VariantColony({routing:el('routing').value,scaling:el('scaling').value,graph:el('graph').value,maxNodes:Number(el('maxNodes').value)});history=[{t:0,nodes:c.nodes.size,completed:0}];lastSec=-1;lastScale=0;el('status').textContent='Ready. Run the numerical workload.';render();}
+let lastFrame=0;function frame(now){if(!running)return;if(now-lastFrame>=23){lastFrame=now;const steps=Number(el('speed').value);
+ for(let k=0;k<steps&&c.t<200;k++){if(regimes[el('scenario').value](c.t))c.syntheticJob();c.step();let s=Math.round(c.t);if(Math.abs(c.t-s)<.025&&s!==lastSec){lastSec=s;history.push({t:c.t,nodes:c.nodes.size,completed:c.outCount});}}
+ render();if(c.t>=200){running=false;el('start').textContent='Replay';el('status').textContent=`Finished: ${c.outCount} of ${c.inCount} verified jobs. ${c.nodes.size} active clone(s).`;c.assertIntegrity();return;}}
+ raf=requestAnimationFrame(frame);}
+ el('start').addEventListener('click',()=>{if(c.t>=200)reset();running=!running;el('start').textContent=running?'Pause':'Resume';el('status').textContent=running?'Computing model events and arithmetic...':'Paused';if(running){lastFrame=0;raf=requestAnimationFrame(frame);}else if(raf!==null)cancelAnimationFrame(raf);});
+ el('reset').addEventListener('click',reset);for(const id of ['scaling','routing','graph','scenario','maxNodes'])el(id).addEventListener('change',reset);
+ el('maxNodes').addEventListener('input',()=>el('maxlabel').textContent=el('maxNodes').value);el('speed').addEventListener('input',()=>el('speedlabel').textContent=el('speed').value);
+ window.addEventListener('resize',render);window.__ripple={get state(){return c?.summary()},reset};reset();
+</script></body></html>'''
+html=html.replace('/* SOURCE_CORE */',core).replace('/* SOURCE_COLONY */',colony)
+(base/'Ripple-Cybernetic-Mycelium-v0.2.html').write_text(html)
+print('Wrote HTML:',len(html),'chars')
