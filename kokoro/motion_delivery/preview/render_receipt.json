@@ -1,0 +1,497 @@
+{
+  "source_sha256_before": "be9cb6b2575334ff912f45a9ff226a552f7216d2b1d7707ba830f8867690ce93",
+  "source_sha256_after": "be9cb6b2575334ff912f45a9ff226a552f7216d2b1d7707ba830f8867690ce93",
+  "action": "KOKORO \u2014 blink, jaw and head check",
+  "blender_version": "3.4.1",
+  "render_engine": "BLENDER_EEVEE",
+  "resolution": [
+    360,
+    480
+  ],
+  "fps": 12,
+  "duration_seconds": 5,
+  "frames": [
+    {
+      "frame": 1,
+      "png_sha256": "eae56efcd5ec3ce1e0f929f34d88557b5b4499cd861e53a8cd588c2d74c08d1f",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 2,
+      "png_sha256": "84af82e35e2e921b646929c6f3ea5f0556870e217536d455837ecb6ccd4c3c1b",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.000745304161682725,
+      "right_eyelid_y": -0.000745304161682725
+    },
+    {
+      "frame": 3,
+      "png_sha256": "d3949db4d751ecd3e442a37413663e228384bfb1b4b2844dbe59971a53525d31",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.002788880141451955,
+      "right_eyelid_y": -0.002788880141451955
+    },
+    {
+      "frame": 4,
+      "png_sha256": "30393ffc2b989899a7e3a3d5de9baa54015385feaf9bc2f48c6f733231d2d084",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.005842222832143307,
+      "right_eyelid_y": -0.005842222832143307
+    },
+    {
+      "frame": 5,
+      "png_sha256": "e28fd0f1b2ce6b4290225b4cfa7ee728122728684cd6a90cab51cca0bb2755bb",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.009616827592253685,
+      "right_eyelid_y": -0.009616827592253685
+    },
+    {
+      "frame": 6,
+      "png_sha256": "0d79d173da0431b3dcca058b3add4365bbd74d48c9da7f561bbc1fd6ea48e4d1",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.013824192807078362,
+      "right_eyelid_y": -0.013824192807078362
+    },
+    {
+      "frame": 7,
+      "png_sha256": "ce050602516a8122b335da0147ac1793aa1154dbe45602f370ff49bf58c278c6",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.01817581057548523,
+      "right_eyelid_y": -0.01817581057548523
+    },
+    {
+      "frame": 8,
+      "png_sha256": "183350f2d9951f68a7ca435d1a7808f90ff0dc59b1f2db805432b043732b8f04",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.02238317020237446,
+      "right_eyelid_y": -0.02238317020237446
+    },
+    {
+      "frame": 9,
+      "png_sha256": "45a41562a2d10117e90cb6ef3f0837a8e68bc8c101d0266f68d741345e19dc11",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.02615778148174286,
+      "right_eyelid_y": -0.02615778148174286
+    },
+    {
+      "frame": 10,
+      "png_sha256": "1bb9be0dd1242c5e1b3825346b709e33a80ada200aebe8e4aa5a1f73c096290b",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.029211118817329407,
+      "right_eyelid_y": -0.029211118817329407
+    },
+    {
+      "frame": 11,
+      "png_sha256": "767657665e6130dc8cc87ec56de890c34d1d824bafc9ade833fba0e278a38e1d",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.03125470131635666,
+      "right_eyelid_y": -0.03125470131635666
+    },
+    {
+      "frame": 12,
+      "png_sha256": "a327b07fb84967f2edd864fa4d167b0f851ba60a95990a85d3eb2ecba6d66602",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.03200000151991844,
+      "right_eyelid_y": -0.03200000151991844
+    },
+    {
+      "frame": 13,
+      "png_sha256": "d531f5c4ff2c2749307d07d16faa70ab581310f7c369f49b733bd001b08da582",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.0313703715801239,
+      "right_eyelid_y": -0.0313703715801239
+    },
+    {
+      "frame": 14,
+      "png_sha256": "b3f3fb8ee113009c51369f0f3823e7ac62b5cc62d6ba5d65ba223cf45dfe6bc0",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.029629630967974663,
+      "right_eyelid_y": -0.029629630967974663
+    },
+    {
+      "frame": 15,
+      "png_sha256": "306bb2e07774739c1e474570155ee6a92eabadb086f1d76049047854dbf36ce9",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.027000000700354576,
+      "right_eyelid_y": -0.027000000700354576
+    },
+    {
+      "frame": 16,
+      "png_sha256": "81732330f8e58c30fa7da5e6735d383cdd66fc4a8684b8f74223a7ab3d9763e2",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.02370370365679264,
+      "right_eyelid_y": -0.02370370365679264
+    },
+    {
+      "frame": 17,
+      "png_sha256": "761f8bdb70530b551260e0fc334539a2f5e1a88a2d19b2a4e9739230e3b646dc",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.019962964579463005,
+      "right_eyelid_y": -0.019962964579463005
+    },
+    {
+      "frame": 18,
+      "png_sha256": "3ad378eb403c9461149c646e434f1dca5e7fc92fd247dd22374c1083c6356fe2",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.01600000075995922,
+      "right_eyelid_y": -0.01600000075995922
+    },
+    {
+      "frame": 19,
+      "png_sha256": "a85098fcae1cf9f10b38cfbed4ab1777fcf5d39370b1e426b2fbed18720d1b8f",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.012037038803100586,
+      "right_eyelid_y": -0.012037038803100586
+    },
+    {
+      "frame": 20,
+      "png_sha256": "f672ce99fad6c084a58358ea894139c4d31e1dc002524304b023e9fdbc0541d3",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.008296296000480652,
+      "right_eyelid_y": -0.008296296000480652
+    },
+    {
+      "frame": 21,
+      "png_sha256": "ccca2836dc2d971e5028fa0a0d390a333a9c61a82de5a2114715ad147a0f3a61",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.004999998956918716,
+      "right_eyelid_y": -0.004999998956918716
+    },
+    {
+      "frame": 22,
+      "png_sha256": "6c37f42410abfadf6ccd137e257df0e310b68efff53bb7cc66bcc001e775ff76",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.0023703686892986298,
+      "right_eyelid_y": -0.0023703686892986298
+    },
+    {
+      "frame": 23,
+      "png_sha256": "762d73a5d5f7303f88005eecf14a5522dafd3c1d154f2ea86773d5f9c46dae2e",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": -0.0006296299397945404,
+      "right_eyelid_y": -0.0006296299397945404
+    },
+    {
+      "frame": 24,
+      "png_sha256": "ec1e4f19e1e80837f5de99f5f21a2cde2e2b1fb3426354bb0a43b5e8df430eaa",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 25,
+      "png_sha256": "f068e3f6b5dd4667b2bbd362b7b8412073ab60dbbce1e94533f09c7e7b0955ac",
+      "head_z": 0.0,
+      "jaw_x": 0.003541667014360428,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 26,
+      "png_sha256": "7bf17b8a78b8314c965ad0d84eac69d318362362b538792d3fb08e83434612c9",
+      "head_z": 0.0,
+      "jaw_x": 0.0133333345875144,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 27,
+      "png_sha256": "581ee1478c8f13ed7066e1b9e2205cc7b6d5fd0d97de00144c4cbb645a52e885",
+      "head_z": 0.0,
+      "jaw_x": 0.02812500111758709,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 28,
+      "png_sha256": "9eab65f4db3c4c9ebef80a667ee5b09ad48ab40f57aba77c2f0de63b0605343f",
+      "head_z": 0.0,
+      "jaw_x": 0.046666670590639114,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 29,
+      "png_sha256": "2231c7eb277222421125231deb78c9a07bce4b82263a747f1f9995111a33a561",
+      "head_z": 0.0,
+      "jaw_x": 0.0677083358168602,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 30,
+      "png_sha256": "f3d2a5ecbeeb5e3649719a490b49debddaccda97cbc6280c2f2e35391395dbc8",
+      "head_z": 0.0,
+      "jaw_x": 0.09000000357627869,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 31,
+      "png_sha256": "e982305415fc8135f78c3daa7576cc5f2a6d2b8cf82f22133ff45fa63fee5b10",
+      "head_z": 0.0,
+      "jaw_x": 0.11229167133569717,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 32,
+      "png_sha256": "50c26159a657f87de57df800f925ee3dd329fc6a2fa67dc43919f6c45740a56c",
+      "head_z": 0.0,
+      "jaw_x": 0.13333334028720856,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 33,
+      "png_sha256": "9f1c48f5dc32418c54427f1001656ec30d6b17e155e006a4366a84c95f2f1900",
+      "head_z": 0.0,
+      "jaw_x": 0.15187500417232513,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 34,
+      "png_sha256": "7dad0fb1cc105e571676bb11d23ccf9562b13125efd35572c9e62adc9a103cb2",
+      "head_z": 0.0,
+      "jaw_x": 0.1666666865348816,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 35,
+      "png_sha256": "1098a03895b12ce149b61bc064cf5014e2a9c34b06e2f6d3e26e349f085af655",
+      "head_z": 0.0,
+      "jaw_x": 0.17645832896232605,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 36,
+      "png_sha256": "ee192350f37dcc32226ff3e15c77b593ca32fef0e6f9b4a6026f3835310da4ed",
+      "head_z": 0.0,
+      "jaw_x": 0.18000000715255737,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 37,
+      "png_sha256": "8a03cd1eccd4ffcb308dccb59a786cd7fb398e4e816370334be9a815831e82b0",
+      "head_z": 0.00295138917863369,
+      "jaw_x": 0.17645834386348724,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 38,
+      "png_sha256": "de4ecc6f38f2e687e63b7b2ebc65810dd27a3b922339fd8d8a27d1b624520b5d",
+      "head_z": 0.01111111231148243,
+      "jaw_x": 0.1666666716337204,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 39,
+      "png_sha256": "94ac63414fef79460cda1c9acf74275440a1fce32b7f3b06cb8718136e908f5d",
+      "head_z": 0.0234375,
+      "jaw_x": 0.15187500417232513,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 40,
+      "png_sha256": "e553a976f2a8e6669e77eaedc4a91c76d266c76787ac6023d3c5bbac377356ad",
+      "head_z": 0.03888889402151108,
+      "jaw_x": 0.13333334028720856,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 41,
+      "png_sha256": "7bad9294f8bd349eb75b52a683c824d26b75ab5f8e0cc2d620ebc897b61f8d84",
+      "head_z": 0.0564236119389534,
+      "jaw_x": 0.11229167133569717,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 42,
+      "png_sha256": "9a656988991cba8dcedc2430acd039dd894b717a9cd50cfc88a172858a32480f",
+      "head_z": 0.07500000298023224,
+      "jaw_x": 0.09000000357627869,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 43,
+      "png_sha256": "3f4619feac9315135306e848d09cb7494e7df9c7e5650b5af2c16e7c0e901026",
+      "head_z": 0.09357639402151108,
+      "jaw_x": 0.0677083358168602,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 44,
+      "png_sha256": "e8b2dae6719cb1e77f7eacf40b542dc515a55f785a719c9eeaea267c71c896c6",
+      "head_z": 0.111111119389534,
+      "jaw_x": 0.046666666865348816,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 45,
+      "png_sha256": "192c0efb8b60f9edc53aa1d44c2e01b237e18befd5db27d53786dbe03504f654",
+      "head_z": 0.12656250596046448,
+      "jaw_x": 0.02812500298023224,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 46,
+      "png_sha256": "81cfbf4eab49d8cd187f82e89ddff671dac695c5a780d2ba33edc048e681664d",
+      "head_z": 0.1388888955116272,
+      "jaw_x": 0.013333320617675781,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 47,
+      "png_sha256": "3ce45c6aa2f616f31f99a9c3c43c86eceb453308ad4c5e6375b10631ad33b5c9",
+      "head_z": 0.14704860746860504,
+      "jaw_x": 0.0035416781902313232,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 48,
+      "png_sha256": "65b730a1363f66e95bf512db5efe80522ebd14f4b9e3056405645771c76dac70",
+      "head_z": 0.15000000596046448,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 49,
+      "png_sha256": "b41b5ee311195b94f7d987959a34223aaf05e810ab513b1e586be8ba7b89492e",
+      "head_z": 0.14704862236976624,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 50,
+      "png_sha256": "503af7a041984fb57dd9fa37694d38d3d68604af1c0726e662f2bdbe10cff7c8",
+      "head_z": 0.1388888955116272,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 51,
+      "png_sha256": "74c1e1dcc901d3a94d4d5ba169832c204352c831d2f0f9fc8c428387946119bd",
+      "head_z": 0.12656250596046448,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 52,
+      "png_sha256": "feb2fd0be1a4268a4e0968c17115e9b02ba0191bd1fa1002e0c7b0070a524ced",
+      "head_z": 0.1111111119389534,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 53,
+      "png_sha256": "0ca4818c0e2c6df2833e1dba805d4f16859e2d9ba63af6d1aa57d1f0fc594f33",
+      "head_z": 0.09357639402151108,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 54,
+      "png_sha256": "05228521f59b5aebd1ba87894c0d4bad9c608408249a6afe4baf457be3ba2486",
+      "head_z": 0.07500000298023224,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 55,
+      "png_sha256": "1060aaba3a647e3b59d081d41eae31509aaacdbaf157b5398e37bed85d81e873",
+      "head_z": 0.0564236119389534,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 56,
+      "png_sha256": "6c310220d27e6ee998ff1d7c1f109c5d1589d523df9d7eed525014fd0659ab82",
+      "head_z": 0.03888888657093048,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 57,
+      "png_sha256": "ddd7ba91d02daa1fdde7c0e0507b0e41bdff1fe8942e5a2ffcc5b92cb7c8cb2e",
+      "head_z": 0.0234375,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 58,
+      "png_sha256": "2743eb2cc34df99edeb9de22e7078dedc5582d0bfd8957d5c7c6f765af3cbac0",
+      "head_z": 0.01111111044883728,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 59,
+      "png_sha256": "cad1aabe3f9db42f0cf0ff39ef0ede41bf54b759b6575d8db65e1353c5308b70",
+      "head_z": 0.002951398491859436,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    },
+    {
+      "frame": 60,
+      "png_sha256": "919f71f8b7842431d862d3569d20d2fbc369452906406232a234c0aec2c21f7c",
+      "head_z": 0.0,
+      "jaw_x": 0.0,
+      "left_eyelid_y": 0.0,
+      "right_eyelid_y": 0.0
+    }
+  ],
+  "render_seconds": 314.0436565876007,
+  "evidence": "Actual native .blend rendering of the saved diagnostic action. Not generative video, not physical hardware, not a final likeness."
+}

@@ -1,0 +1,4 @@
+Rain Rig (CC) Blender Foundation | studio.blender.org
+Source rig: Rain v2, CC BY 4.0.
+Kokoro derivative: silver hair, altered face/shell/materials, heart core, added hair bones and eye anchors.
+Actual Blender diagnostic animation; not a final likeness or live AI controller.
