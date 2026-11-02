@@ -1,0 +1,76 @@
+name: Kokoro actual Blender motion preview
+on:
+  push:
+    branches: ['research/kokoro-motion-delivery-20261102']
+    paths:
+      - '.github/workflows/kokoro-motion-preview.yml'
+      - 'kokoro/motion_delivery/*.py'
+      - 'kokoro/motion_delivery/tests/**'
+permissions:
+  contents: write
+concurrency:
+  group: kokoro-motion-preview-isolated
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    env:
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      LP_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Validate acceptance gate
+        run: |
+          cd kokoro/motion_delivery
+          python3 -m unittest discover -s tests -v
+      - name: Prepare isolated Blender and pinned source
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg xvfb libgl1 libegl1 libxi6 libxrender1 libxfixes3 libxkbcommon0 libsm6
+          mkdir -p "$RUNNER_TEMP/kokoro-runtime" "$RUNNER_TEMP/kokoro-source" "$RUNNER_TEMP/kokoro-preview"
+          cd "$RUNNER_TEMP/kokoro-runtime"
+          curl -fSL --retry 2 --connect-timeout 20 --max-time 240 -o source.zip 'https://ripple-neuron-phone.floot.app/_cdn/static/Kokoro_Blender_Source_Rig_v0_3_20261102.zip'
+          echo '771c0706275782909cc25a94ba51585df0de547e62bea7c0bd3d1562aa6d7e2f  source.zip' | sha256sum -c -
+          python3 - <<'PY'
+          import os, pathlib, zipfile
+          dest=pathlib.Path(os.environ['RUNNER_TEMP'])/'kokoro-source'
+          with zipfile.ZipFile('source.zip') as z:
+              assert z.testzip() is None
+              for item in z.infolist():
+                  p=pathlib.PurePosixPath(item.filename)
+                  assert not p.is_absolute() and '..' not in p.parts and '\\' not in item.filename
+              z.extractall(dest)
+          PY
+          curl -fSL --retry 2 --connect-timeout 20 --max-time 240 -O 'https://download.blender.org/release/Blender3.4/blender-3.4.1-linux-x64.tar.xz'
+          curl -fsSL --retry 2 --max-time 60 -o blender.sha256 'https://download.blender.org/release/Blender3.4/blender-3.4.1.sha256'
+          grep 'blender-3.4.1-linux-x64.tar.xz$' blender.sha256 | sha256sum -c -
+          tar -xf blender-3.4.1-linux-x64.tar.xz
+          echo "BLENDER_PATH=$RUNNER_TEMP/kokoro-runtime/blender-3.4.1-linux-x64/blender" >> "$GITHUB_ENV"
+          echo "KOKORO_SOURCE_DIR=$RUNNER_TEMP/kokoro-source" >> "$GITHUB_ENV"
+          echo "KOKORO_OUTPUT_DIR=$RUNNER_TEMP/kokoro-preview" >> "$GITHUB_ENV"
+      - name: Render actual saved action
+        run: xvfb-run -a -s '-screen 0 1280x960x24' "$BLENDER_PATH" --background --factory-startup --disable-autoexec -t 4 --python-exit-code 1 --python kokoro/motion_delivery/render_saved_action.py
+      - name: Encode and check actual media
+        run: python3 kokoro/motion_delivery/encode_verify.py
+      - name: Preserve preview on this isolated branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'research/kokoro-motion-delivery-20261102'
+          mkdir -p kokoro/motion_delivery/preview
+          cp "$KOKORO_OUTPUT_DIR"/*.mp4 "$KOKORO_OUTPUT_DIR"/*.gif "$KOKORO_OUTPUT_DIR"/*.json "$KOKORO_OUTPUT_DIR"/ATTRIBUTION.txt "$KOKORO_OUTPUT_DIR"/README.md kokoro/motion_delivery/preview/
+          git config user.name 'Kokoro research runner'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add kokoro/motion_delivery/preview
+          git diff --cached --quiet || git commit -m 'evidence(kokoro): preserve actual native-rig motion preview'
+          git push origin HEAD:refs/heads/research/kokoro-motion-delivery-20261102
+      - name: Small media artifact for independent playback inspection
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: kokoro-actual-motion-preview
+          path: kokoro/motion_delivery/preview/
+          if-no-files-found: error
+          retention-days: 1
