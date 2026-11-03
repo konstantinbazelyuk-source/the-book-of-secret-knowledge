@@ -1,0 +1,56 @@
+{
+  "complete_application_tests": 77,
+  "actual_desktop_checks": 7,
+  "full_engine_direct_checks": 5,
+  "full_engine_embedded_checks": 8,
+  "source_sha256": "be9cb6b2575334ff912f45a9ff226a552f7216d2b1d7707ba830f8867690ce93",
+  "source_unchanged": true,
+  "preserved_controller_files": 27,
+  "glb_sha256": "32c588b3a8f6aeaf17119e17f8ac37e010a6d4f9df2f9d38a769fe2cc31862c0",
+  "glb_bytes": 30793688,
+  "format_errors": 0,
+  "format_warnings": 10,
+  "runtime": {
+    "backend": "ANGLE (Mesa, llvmpipe (LLVM 15.0.7 256 bits), OpenGL 4.5)",
+    "joints": 411,
+    "meshes": 167,
+    "calls": 334,
+    "triangles": 328094,
+    "source_sha256": "be9cb6b2575334ff912f45a9ff226a552f7216d2b1d7707ba830f8867690ce93",
+    "asset_sha256": "32c588b3a8f6aeaf17119e17f8ac37e010a6d4f9df2f9d38a769fe2cc31862c0"
+  },
+  "native_model_absent_during_runtime": true,
+  "live_motor_frames": 30,
+  "live_motor_seconds": 0.47782518700000765,
+  "live_matches_original_full_engine": 30,
+  "capture_frames": 30,
+  "render_ms_median": 7,
+  "capture_wall_seconds": 25.501484425999998,
+  "heldout_max_vertex_error_model_units": 0.007500519679246095,
+  "receipt_tests": 10,
+  "driver_tests": 15,
+  "media": [
+    {
+      "name": "kokoro-portable-runtime.gif",
+      "sha256": "7a37143591bc30d7a6045e129c8dae152d18c4429454c6307504ee80d3334e62",
+      "bytes": 976581
+    },
+    {
+      "name": "kokoro-portable-runtime.mp4",
+      "sha256": "c092a1f36049bd61da6e6891c615d616e0723fce11d5bef2a98660a9246c3dca",
+      "bytes": 142974
+    },
+    {
+      "name": "Kokoro_Portable_Runtime_v0_1.zip",
+      "sha256": "87903d56c532a84d165396dc9b59b9f2e664f3201e0faecefe72fe4cad651385",
+      "bytes": 15071551
+    }
+  ],
+  "boundaries": [
+    "Not full Blender constraint equivalence",
+    "Held-out surface comparison applies independently evaluated source joint/morph data to the exported mesh, not full native modifier output",
+    "No GLB-camera feedback connected to the original VTK visual servo",
+    "Rig appearance is still a work in progress",
+    "Recorded playback rate is not proof of realtime performance on other machines"
+  ]
+}
