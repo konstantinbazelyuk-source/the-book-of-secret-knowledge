@@ -1,0 +1,44 @@
+name: Kokoro portable conversion prerequisites
+on:
+  push:
+    branches: ['research/kokoro-portable-runtime-20261102']
+    paths: ['.github/workflows/kokoro-portable-recovery.yml']
+permissions:
+  contents: read
+jobs:
+  recover:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 12
+    steps:
+      - name: Fetch and verify immutable Kokoro inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p source tools deps
+          curl -fSL --retry 2 --connect-timeout 20 --max-time 180 -o source/native.zip 'https://ripple-neuron-phone.floot.app/_cdn/static/Kokoro_Blender_Source_Rig_v0_3_20261102.zip'
+          echo '771c0706275782909cc25a94ba51585df0de547e62bea7c0bd3d1562aa6d7e2f  source/native.zip' | sha256sum -c -
+          curl -fSL --retry 2 --connect-timeout 20 --max-time 180 -o source/studio.zip 'https://ripple-neuron-phone.floot.app/_cdn/static/c9262acc-d903-4392-9b61-1abb5e991499-Kokoro_Controller_Rig_Integration_v0_1.zip'
+          echo '496b19e6dd8739b4463ed5b1a55f9217994121bf4b1ae740b0a0b0c9d183d6f8  source/studio.zip' | sha256sum -c -
+          curl -fSL --retry 2 --connect-timeout 20 --max-time 240 -o tools/blender-3.4.1-linux-x64.tar.xz 'https://download.blender.org/release/Blender3.4/blender-3.4.1-linux-x64.tar.xz'
+          curl -fsSL --retry 2 --max-time 60 -o tools/blender.sha256 'https://download.blender.org/release/Blender3.4/blender-3.4.1.sha256'
+          (cd tools && grep 'blender-3.4.1-linux-x64.tar.xz$' blender.sha256 | sha256sum -c -)
+          cd deps
+          npm init -y >/dev/null
+          npm install --ignore-scripts --no-audit --no-fund three@0.180.0 puppeteer-core@24.27.0 gltf-validator@2.0.0-dev.3.10
+          tar -czf ../tools/kokoro-node-deps.tar.gz package.json package-lock.json node_modules
+      - name: Preserve source for the authorized local conversion
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: kokoro-pinned-source
+          path: source/
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+      - name: Preserve offline conversion tools
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: kokoro-offline-conversion-tools
+          path: tools/
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
