@@ -7,7 +7,7 @@ permissions:
   contents: write
 concurrency:
   group: kokoro-portable-runtime-isolated
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   convert_and_test:
     runs-on: ubuntu-22.04
@@ -25,7 +25,7 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg xvfb libgl1 libegl1 libxi6 libxrender1 libxfixes3 libxkbcommon0 libsm6
+          sudo apt-get install -y -qq ffmpeg xvfb python3-tk libgl1 libegl1 libxi6 libxrender1 libxfixes3 libxkbcommon0 libsm6
           python3 -m pip install 'numpy==1.26.4' 'Pillow==11.3.0'
           mkdir -p "$RUNNER_TEMP/kokoro-inputs" "$RUNNER_TEMP/kokoro-delivery"
           cd "$RUNNER_TEMP/kokoro-inputs"
@@ -41,7 +41,7 @@ jobs:
           echo "KOKORO_DELIVERY_OUT=$RUNNER_TEMP/kokoro-delivery" >> "$GITHUB_ENV"
           command -v google-chrome || command -v chromium
       - name: Convert model and test runtime without native source
-        run: xvfb-run -a -s '-screen 0 1280x960x24' python3 kokoro/portable_runtime/reproduce.py
+        run: xvfb-run -a -s '-screen 0 1280x960x24' python3 kokoro/portable_runtime/finish_runtime.py
       - name: Preserve small review media on the existing isolated branch
         shell: bash
         run: |
@@ -59,7 +59,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: kokoro-portable-runtime-verified
+          name: kokoro-portable-runtime-output
           path: |
             ${{ runner.temp }}/kokoro-delivery/
             /tmp/kokoro_runtime_transfer_20261102/audit_20261102/
