@@ -1,0 +1,42 @@
+name: Preserve Kokoro browser control review
+on:
+  push:
+    branches: ['research/kokoro-motion-delivery-20261102']
+    paths: ['.github/workflows/kokoro-browser-review-delivery.yml']
+permissions:
+  contents: write
+jobs:
+  preserve_review:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Recover exact tested preview and receipts
+        run: |
+          python3 - <<'PY'
+          import urllib.request, hashlib, zipfile, io, json
+          from pathlib import Path
+          url='https://ripple-neuron-phone.floot.app/_cdn/static/Kokoro_Runtime_Browser_v0_2.zip'
+          data=urllib.request.urlopen(url,timeout=60).read()
+          assert hashlib.sha256(data).hexdigest()=='8d2bc9ab6980562d4854b41722eb0d50d039d9ec70e9d5333de7bca3e39d43ec'
+          z=zipfile.ZipFile(io.BytesIO(data));assert z.testzip() is None
+          seal=json.loads(z.read('CONTENT_SHA256.json'))
+          assert all(hashlib.sha256(z.read(n)).hexdigest()==h for n,h in seal.items())
+          root=Path('kokoro/portable_runtime')
+          html=z.read('viewer/control-review.html')
+          assert hashlib.sha256(html).hexdigest()=='7aa1b291250fb6864ce4233d22727a42f3d407f67a78724811bd369471f1f36e'
+          target=root/'control-review.html';assert not target.exists();target.write_bytes(html)
+          evidence=root/'browser_review_evidence';evidence.mkdir(exist_ok=True)
+          for name in ['browser_runtime_verification.json','motor_port_verification.json','heldout_comparison.json','gltf_final_validation.json','material_reuse_receipt.json','mesh_bake_receipt.json','DELIVERY_ASSETS.json','final_unit_tests.log']:
+              (evidence/name).write_bytes(z.read('output/'+name))
+          (evidence/'README.md').write_bytes(z.read('README_RUNTIME.md'))
+          PY
+      - name: Preserve on the existing research branch only
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'research/kokoro-motion-delivery-20261102'
+          git config user.name 'Kokoro research runner'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add kokoro/portable_runtime/control-review.html kokoro/portable_runtime/browser_review_evidence
+          git commit -m 'evidence(kokoro): deliver source-pinned Blender-free interactive control review'
+          git push origin HEAD:refs/heads/research/kokoro-motion-delivery-20261102
