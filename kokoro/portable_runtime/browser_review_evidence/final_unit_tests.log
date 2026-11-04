@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: 500 fresh steps reproduce preserved Python positions and events
+ok 1 - 500 fresh steps reproduce preserved Python positions and events
+  ---
+  duration_ms: 39.02083
+  type: 'test'
+  ...
+# Subtest: bad target is atomic
+ok 2 - bad target is atomic
+  ---
+  duration_ms: 0.479036
+  type: 'test'
+  ...
+# Subtest: nonfinite target rejected
+ok 3 - nonfinite target rejected
+  ---
+  duration_ms: 0.172895
+  type: 'test'
+  ...
+# Subtest: reset restores exact state
+ok 4 - reset restores exact state
+  ---
+  duration_ms: 0.181408
+  type: 'test'
+  ...
+# Subtest: neutral exactly restores baseline
+ok 5 - neutral exactly restores baseline
+  ---
+  duration_ms: 3.957833
+  type: 'test'
+  ...
+# Subtest: out of range rejected
+ok 6 - out of range rejected
+  ---
+  duration_ms: 0.382399
+  type: 'test'
+  ...
+# Subtest: nonfinite rejected
+ok 7 - nonfinite rejected
+  ---
+  duration_ms: 0.167909
+  type: 'test'
+  ...
+# Subtest: unknown control rejected
+ok 8 - unknown control rejected
+  ---
+  duration_ms: 0.156959
+  type: 'test'
+  ...
+# Subtest: head pose changes actual transferred joints
+ok 9 - head pose changes actual transferred joints
+  ---
+  duration_ms: 2.0288
+  type: 'test'
+  ...
+# Subtest: input is not mutated
+ok 10 - input is not mutated
+  ---
+  duration_ms: 45.305956
+  type: 'test'
+  ...
+# Subtest: paired arm and forearm preserve held-out hand position
+ok 11 - paired arm and forearm preserve held-out hand position
+  ---
+  duration_ms: 14.625355
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 220.712376

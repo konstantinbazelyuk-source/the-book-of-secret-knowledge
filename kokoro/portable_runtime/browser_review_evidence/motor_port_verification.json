@@ -1,0 +1,11 @@
+{
+  "steps": 500,
+  "max_numeric_difference": 0,
+  "ripple_events": 29,
+  "reference_source_hashes": {
+    "ripple_genome/robotics.py": "cd62b07fc16a776601302637e1a0538b700bb41ced4ab5f88045e5594c213876",
+    "ripple_genome/genetics.py": "6b29b6e2a62d861b68fdeb849d00ed7c749f355bf85fe2fd9d7a82715747bd3a",
+    "upstream/motor_neuron_v07.py": "f5176e2abce78fbf9bad85925e4cafd387773358225cb627d982dfd2954d027d",
+    "upstream/ripple_core_v0_5.py": "46531a6222a2d29848e93408e431884281c0e44b91ea5195cddf5a4c270eefd9"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "reused_materials": [
+    "KOKORO | graphite mechanism",
+    "MAT-rain.cornea",
+    "KOKORO | fine silver brows",
+    "MAT-rain.eyelashes",
+    "KOKORO | source iris recolored pink",
+    "MAT-rain.gums",
+    "MAT-rain.teeth",
+    "KOKORO | porcelain face",
+    "MAT-rain.tongue",
+    "KOKORO | translucent cyan-violet shell",
+    "KOKORO | satin titanium",
+    "KOKORO | rose circuitry",
+    "KOKORO | cyan circuitry",
+    "KOKORO | heart emission",
+    "KOKORO | silver lilac hair"
+  ],
+  "input_material_glb_sha256": "32c588b3a8f6aeaf17119e17f8ac37e010a6d4f9df2f9d38a769fe2cc31862c0",
+  "output_glb_sha256": "952fdb427cbfa3f0030134d32b8260bf1ca0001928748806bfe8a682855fdcaa",
+  "output_bytes": 16489424,
+  "unmodified_geometry_skin_and_animation": true,
+  "new_artistic_colors_invented": false
+}

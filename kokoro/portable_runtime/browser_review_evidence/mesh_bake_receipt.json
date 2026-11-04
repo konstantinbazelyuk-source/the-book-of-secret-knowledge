@@ -1,0 +1,1509 @@
+{
+  "source_sha256": "be9cb6b2575334ff912f45a9ff226a552f7216d2b1d7707ba830f8867690ce93",
+  "method": "One-time evaluated non-armature modifiers with active shape responses retained and original vertex groups preserved; original file unchanged. Viewport subdivision level retained. Modifier ordering approximation requires deformation checks.",
+  "meshes": [
+    {
+      "name": "GEO-rain_gums_upper",
+      "vertices": 3069,
+      "source_vertices": 1542,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 5
+    },
+    {
+      "name": "GEO-rain_gums_lower",
+      "vertices": 3068,
+      "source_vertices": 1542,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 5
+    },
+    {
+      "name": "GEO-rain_tongue",
+      "vertices": 275,
+      "source_vertices": 275,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 2
+    },
+    {
+      "name": "GEO-rain_eyebrows",
+      "vertices": 296,
+      "source_vertices": 148,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 274
+    },
+    {
+      "name": "GEO-rain_eyelashes",
+      "vertices": 240,
+      "source_vertices": 120,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 6
+    },
+    {
+      "name": "GEO-rain_head",
+      "vertices": 6395,
+      "source_vertices": 6395,
+      "retained_dynamic_shapes": [
+        "EyebrowsTogether.L",
+        "EyebrowsTogether.R",
+        "EyebrowsDown.L",
+        "EyebrowsDown.R",
+        "EyelidsClose.L",
+        "EyelidsClose.R",
+        "Head_Forward"
+      ],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 279
+    },
+    {
+      "name": "GEO-rain_eyes",
+      "vertices": 1418,
+      "source_vertices": 1418,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 2
+    },
+    {
+      "name": "GEO-rain_eye_cornea",
+      "vertices": 1284,
+      "source_vertices": 642,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 2
+    },
+    {
+      "name": "GEO-rain_body_nomask",
+      "vertices": 6666,
+      "source_vertices": 10256,
+      "retained_dynamic_shapes": [
+        "Eye_Close_Corrective.L",
+        "Elbow1.R",
+        "Elbow2.R",
+        "Eye_Close_Corrective.R"
+      ],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 110
+    },
+    {
+      "name": "KOKORO_HologramShell",
+      "vertices": 17372,
+      "source_vertices": 10256,
+      "retained_dynamic_shapes": [
+        "Eye_Close_Corrective.L",
+        "Elbow1.R",
+        "Elbow2.R",
+        "Eye_Close_Corrective.R"
+      ],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 110
+    },
+    {
+      "name": "KOKORO_shoulder_L",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_shoulder_inlay_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_shoulder_rim_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_elbow_L",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_elbow_inlay_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_elbow_rim_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_wrist_L",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_wrist_inlay_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_wrist_rim_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_hip_L",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_hip_inlay_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_hip_rim_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_knee_L",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_knee_inlay_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_knee_rim_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_ankle_L",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_ankle_inlay_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_ankle_rim_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_piston_DEF-Upperarm1.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_piston_DEF-Forearm1.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_piston_DEF-Thigh1.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_piston_DEF-Shin1.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_neck_collar_1.304",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_neck_collar_1.32",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_neck_collar_1.337",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_neck_collar_1.354",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_temple_L",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_temple_light_L",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_shoulder_R",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_shoulder_inlay_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_shoulder_rim_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_elbow_R",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_elbow_inlay_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_elbow_rim_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_wrist_R",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_wrist_inlay_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_wrist_rim_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_hip_R",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_hip_inlay_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_hip_rim_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_knee_R",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_knee_inlay_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_knee_rim_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_ankle_R",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_ankle_inlay_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_ankle_rim_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_piston_DEF-Upperarm1.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_piston_DEF-Forearm1.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_piston_DEF-Thigh1.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_piston_DEF-Shin1.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_temple_R",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_temple_light_R",
+      "vertices": 640,
+      "source_vertices": 640,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_CoreHousing",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_HeartCore",
+      "vertices": 960,
+      "source_vertices": 960,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_HeartInner",
+      "vertices": 960,
+      "source_vertices": 960,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_HeartCrystal",
+      "vertices": 482,
+      "source_vertices": 482,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_chest_trace_-1",
+      "vertices": 40,
+      "source_vertices": 40,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_waist_trace_-1",
+      "vertices": 40,
+      "source_vertices": 40,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_chest_trace_1",
+      "vertices": 40,
+      "source_vertices": 40,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_waist_trace_1",
+      "vertices": 40,
+      "source_vertices": 40,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_abdominal_rib_0.965",
+      "vertices": 90,
+      "source_vertices": 90,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_abdominal_rib_0.987",
+      "vertices": 90,
+      "source_vertices": 90,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_abdominal_rib_1.009",
+      "vertices": 90,
+      "source_vertices": 90,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_abdominal_rib_1.031",
+      "vertices": 90,
+      "source_vertices": 90,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_LongHair",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_01",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_02",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_03",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_04",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_05",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_06",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_07",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_08",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_09",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_10",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_11",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_12",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_13",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_14",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_15",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_16",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_17",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_18",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_19",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_20",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_21",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_LongHair_22",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_SideLock_L0",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_SideLock_L1",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_SideLock_L2",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_SideLock_L3",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_SideLock_R0",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_SideLock_R1",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_SideLock_R2",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_SideLock_R3",
+      "vertices": 818,
+      "source_vertices": 208,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 3
+    },
+    {
+      "name": "KOKORO_HairCrown",
+      "vertices": 5041,
+      "source_vertices": 1296,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_0",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_1",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_2",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_3",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_4",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_5",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_6",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_7",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_8",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_9",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_10",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_11",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_-1_12",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_0",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_1",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_2",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_3",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_4",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_5",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_6",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_7",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_8",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_9",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_10",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_11",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_SweptFringe_1_12",
+      "vertices": 946,
+      "source_vertices": 240,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [
+        1
+      ],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Upperarm1.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Upperarm1.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Upperarm2.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Upperarm2.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Forearm1.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Forearm1.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Forearm2.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Forearm2.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Thigh1.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Thigh1.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Thigh2.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Thigh2.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Shin1.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Shin1.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Shin2.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Shin2.L",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Upperarm1.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Upperarm1.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Upperarm2.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Upperarm2.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Forearm1.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Forearm1.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Forearm2.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Forearm2.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Thigh1.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Thigh1.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Thigh2.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Thigh2.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Shin1.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Shin1.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_secondary_strut_DEF-Shin2.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_conduit_DEF-Shin2.R",
+      "vertices": 144,
+      "source_vertices": 48,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    },
+    {
+      "name": "KOKORO_MechanicalNeckSleeve",
+      "vertices": 512,
+      "source_vertices": 128,
+      "retained_dynamic_shapes": [],
+      "viewport_subdivision": [],
+      "groups": 1
+    }
+  ],
+  "baseline_shape_weights": {
+    "GEO-rain_body_nomask": {
+      "Eye_Close_Corrective.R": 0.0005092388018965721,
+      "Eye_Close_Corrective.L": 0.0,
+      "Elbow1.R": 0.0,
+      "Elbow2.R": 0.004994325339794159
+    },
+    "GEO-rain_eye_cornea": {},
+    "GEO-rain_eyelashes": {},
+    "GEO-rain_eyes": {},
+    "GEO-rain_gums_lower": {},
+    "GEO-rain_head": {
+      "EyebrowsTogether.L": 0.23039665818214417,
+      "EyebrowsTogether.R": 0.34559667110443115,
+      "EyebrowsDown.L": 0.3444281816482544,
+      "EyebrowsDown.R": 0.34442806243896484,
+      "EyelidsClose.L": 0.0,
+      "EyelidsClose.R": 0.0,
+      "Head_Forward": 0.0015561296604573727
+    },
+    "GEO-rain_tongue": {},
+    "KOKORO_HologramShell": {
+      "Eye_Close_Corrective.R": 0.0005092388018965721,
+      "Eye_Close_Corrective.L": 0.0,
+      "Elbow1.R": 0.0,
+      "Elbow2.R": 0.004994325339794159
+    }
+  },
+  "seconds": 9.089393138885498
+}

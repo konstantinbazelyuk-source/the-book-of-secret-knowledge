@@ -1,0 +1,340 @@
+{
+  "method": "Independent Three.js matrix composition of transferred control samples versus fresh native Blender held-out poses",
+  "results": [
+    {
+      "input": {},
+      "max_node_position_error": 1.2211332870484744e-8,
+      "max_node_angle_error_rad": 6.664001874625056e-8,
+      "max_shape_weight_error": 0,
+      "anchors": [
+        {
+          "name": "DEF-Head_Top",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Head",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Hand.R",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.L",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.R",
+          "position_error": 0
+        }
+      ]
+    },
+    {
+      "input": {
+        "head": 0.173
+      },
+      "max_node_position_error": 0.00001080513494190786,
+      "max_node_angle_error_rad": 0.0009170725419487859,
+      "max_shape_weight_error": 0.00002837633980172017,
+      "anchors": [
+        {
+          "name": "DEF-Head_Top",
+          "position_error": 2.480922608098345e-7
+        },
+        {
+          "name": "DEF-Head",
+          "position_error": 1.3987858490474223e-14
+        },
+        {
+          "name": "DEF-Hand.R",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.L",
+          "position_error": 0.000005877323723878732
+        },
+        {
+          "name": "KOKORO_OpticalCenter.R",
+          "position_error": 0.000005869869336847002
+        }
+      ]
+    },
+    {
+      "input": {
+        "arm_R": 0.37
+      },
+      "max_node_position_error": 0.00023331296160451144,
+      "max_node_angle_error_rad": 0.000027717505699434597,
+      "max_shape_weight_error": 4.257475083591089e-8,
+      "anchors": [
+        {
+          "name": "DEF-Head_Top",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Head",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Hand.R",
+          "position_error": 0.0002097544501494759
+        },
+        {
+          "name": "KOKORO_OpticalCenter.L",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.R",
+          "position_error": 0
+        }
+      ]
+    },
+    {
+      "input": {
+        "forearm_R": -0.34
+      },
+      "max_node_position_error": 0.00012934656998967933,
+      "max_node_angle_error_rad": 0.00006601075823556606,
+      "max_shape_weight_error": 9.596347810836292e-8,
+      "anchors": [
+        {
+          "name": "DEF-Head_Top",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Head",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Hand.R",
+          "position_error": 0.0001025119842704396
+        },
+        {
+          "name": "KOKORO_OpticalCenter.L",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.R",
+          "position_error": 0
+        }
+      ]
+    },
+    {
+      "input": {
+        "blink": 0.73
+      },
+      "max_node_position_error": 0.00005947324699714623,
+      "max_node_angle_error_rad": 0.027436909423341784,
+      "max_shape_weight_error": 0.000010437965393017556,
+      "anchors": [
+        {
+          "name": "DEF-Head_Top",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Head",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Hand.R",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.L",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.R",
+          "position_error": 0
+        }
+      ]
+    },
+    {
+      "input": {
+        "jaw_open": 0.42
+      },
+      "max_node_position_error": 0.000019825323141734637,
+      "max_node_angle_error_rad": 0.0017815710094058184,
+      "max_shape_weight_error": 0,
+      "anchors": [
+        {
+          "name": "DEF-Head_Top",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Head",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Hand.R",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.L",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.R",
+          "position_error": 0
+        }
+      ]
+    },
+    {
+      "input": {
+        "gaze_x": 0.31
+      },
+      "max_node_position_error": 2.6668563608992426e-7,
+      "max_node_angle_error_rad": 0.00015154406798082953,
+      "max_shape_weight_error": 2.950523048639818e-7,
+      "anchors": [
+        {
+          "name": "DEF-Head_Top",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Head",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Hand.R",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.L",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.R",
+          "position_error": 8.940696724635266e-10
+        }
+      ]
+    },
+    {
+      "input": {
+        "gaze_y": -0.36
+      },
+      "max_node_position_error": 2.5880219031613654e-7,
+      "max_node_angle_error_rad": 0.0008841220617149634,
+      "max_shape_weight_error": 6.902590394021468e-7,
+      "anchors": [
+        {
+          "name": "DEF-Head_Top",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Head",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Hand.R",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.L",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.R",
+          "position_error": 0
+        }
+      ]
+    },
+    {
+      "input": {
+        "pupil": 0.63
+      },
+      "max_node_position_error": 0.0002720744681619196,
+      "max_node_angle_error_rad": 0.08433910699776472,
+      "max_shape_weight_error": 0.000011471111793070988,
+      "anchors": [
+        {
+          "name": "DEF-Head_Top",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Head",
+          "position_error": 0
+        },
+        {
+          "name": "DEF-Hand.R",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.L",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.R",
+          "position_error": 0
+        }
+      ]
+    },
+    {
+      "input": {
+        "head": -0.219,
+        "blink": 0.81,
+        "jaw_open": 0.37,
+        "gaze_x": 0.23,
+        "pupil": 0.41
+      },
+      "max_node_position_error": 0.0031256809624731555,
+      "max_node_angle_error_rad": 0.22837945599673848,
+      "max_shape_weight_error": 0.05027767419815066,
+      "anchors": [
+        {
+          "name": "DEF-Head_Top",
+          "position_error": 2.6295038317150635e-7
+        },
+        {
+          "name": "DEF-Head",
+          "position_error": 2.3178927031706736e-13
+        },
+        {
+          "name": "DEF-Hand.R",
+          "position_error": 0
+        },
+        {
+          "name": "KOKORO_OpticalCenter.L",
+          "position_error": 0.00006576475573097363
+        },
+        {
+          "name": "KOKORO_OpticalCenter.R",
+          "position_error": 0.00006578609594913455
+        }
+      ]
+    },
+    {
+      "input": {
+        "head": 0.127,
+        "arm_R": 0.81,
+        "forearm_R": -0.44,
+        "gaze_y": -0.28
+      },
+      "max_node_position_error": 0.00012061996111406382,
+      "max_node_angle_error_rad": 0.002853662931617632,
+      "max_shape_weight_error": 0.00005381361581385108,
+      "anchors": [
+        {
+          "name": "DEF-Head_Top",
+          "position_error": 3.9778259290168636e-7
+        },
+        {
+          "name": "DEF-Head",
+          "position_error": 1.3714521581877477e-13
+        },
+        {
+          "name": "DEF-Hand.R",
+          "position_error": 0.00005372167016468803
+        },
+        {
+          "name": "KOKORO_OpticalCenter.L",
+          "position_error": 0.00006516554411777616
+        },
+        {
+          "name": "KOKORO_OpticalCenter.R",
+          "position_error": 0.00006516655745766672
+        }
+      ]
+    }
+  ]
+}

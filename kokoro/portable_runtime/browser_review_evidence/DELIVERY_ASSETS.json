@@ -1,0 +1,26 @@
+{
+  "Kokoro_Runtime_v0_2.glb": {
+    "url": "https://ripple-neuron-phone.floot.app/_cdn/static/Kokoro_Runtime_v0_2.glb",
+    "bytes": 16489424,
+    "sha256": "952fdb427cbfa3f0030134d32b8260bf1ca0001928748806bfe8a682855fdcaa",
+    "content_type": "model/gltf-binary"
+  },
+  "Kokoro_Runtime_Controls_v0_2.json": {
+    "url": "https://ripple-neuron-phone.floot.app/_cdn/static/Kokoro_Runtime_Controls_v0_2.json",
+    "bytes": 2524276,
+    "sha256": "32d5010adac6c733225b04e3611e5286dceba9c5427304f4a3ffb0f0d9105ff8",
+    "content_type": "application/json"
+  },
+  "kokoro-runtime-browser.gif": {
+    "url": "https://ripple-neuron-phone.floot.app/_cdn/static/kokoro-runtime-browser.gif",
+    "bytes": 273007,
+    "sha256": "ecfc61c1ec436b5d09a11c220b9cd0875bb039873c4f33447380d4393e4fff4a",
+    "content_type": "image/gif"
+  },
+  "kokoro-runtime-browser.mp4": {
+    "url": "https://ripple-neuron-phone.floot.app/_cdn/static/kokoro-runtime-browser.mp4",
+    "bytes": 89198,
+    "sha256": "e15cef99a511a72fd06208012466689a7f00fc4a40442bbccc22bc5da868dd78",
+    "content_type": "video/mp4"
+  }
+}
